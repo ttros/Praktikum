@@ -1,5 +1,12 @@
 \section{Auswertung}
 \label{sec:Auswertung}
+\subsection{Messung der Zeitkonstanten $RC$ über die Entladekurve}
+Die Entladekurve des $RC$-Kreises wird mit einem Oszilloskop sichtbar gemacht, wie 
+in \autoref{fig:aufgabe a - rechteckspannung} zu sehen ist. Die verwendete Frequenz beträgt $f=5\symup{kHz}$.
+Im Folgenden werden Wertepaare {$f [\symup{Hz}], U [\symup{V}]$} mithilfe von eingezeichneten Hilfslinien abgelesen
+(\autoref{fig:aufgabe a - gitter und hilfslinien}) und tabellarisch aufgeführt (\autoref{tab:aufgabe a}). Es ist zu beachten,
+dass die Schrittweite von $t$ nicht gleichmäßig gewählt wird, da sich die Werte mit der gewählten Schrittweite mit
+geringerem Fehler ablesen lassen.
 \begin{figure}
   \centering
   \includegraphics[height=10cm]{content/Aufgabe a - Rechteckspannung.pdf}
@@ -30,9 +37,9 @@
   \centering
   \caption{Darstellung der Messwertpaare, welche aus \autoref{fig:aufgabe a - gitter und hilfslinien} abgelesen wurden.}
   \label{tab:aufgabe a}
-  \begin{tabular}{c c}
+  \begin{tabular}{S[table-format=2.0] S[table-format=1.1]}
     \toprule
-    $f$ [Hz] & $U$ [V] \\
+    {$f$ [Hz]} & {$U$ [V]} \\
     \midrule
     0 &  5,0 \\
     6	&  4,2 \\
@@ -51,13 +58,29 @@
   \end{tabular}
 \end{table}
 
+% ToDo:
+% Lin Regr der Messwerte erstellen --> Plot
+% RC bestimmen
+% Fehlerrechnung
+
+\subsection{Bestimmung der Zeitkonstante $RC$ über die Frequenabhängigkeit der Amplitude}
+Die Spannung am Kondensator $A$ wird ebenso wie die Spannung der Sinusspannungsquelle $U_{0}$ bei variabler
+Frequenz $f$ gemessen und tabellarisch in \autoref{tab: aufgabe c} dargestellt. Da sich bei unserer Messung $U_{0}$
+als frequenzunabhängig und zu $U_{0} = 5,2$V bestimmen ließ (TEMPUS?!?!?!?!?!?!?!), ist dieser Wert aus Gründen der
+Übersichtlichkeit nicht in der Tabelle aufgeführt. Das Teilungsverhältnis aus $\frac{A}{U_{0}}$ wird berechnet und
+gleichermaßen dokumentiert.
+
+Die Wertepaare {$f \symup{[Hz]}, \frac{A}{U_{0}}$} aus \autoref{tab: aufgabe c} werden in ein Diagramm aufgetragen
+und es wird eine nicht-lineare Ausgleichsrechnung mit den Python-Erweiterungen "numpy"\cite{numpy} und 
+"matplotlib"\cite{matplotlib} (ÜBERPRÜFEN WELECHE BENUTZT!!!!!!!) durchgeführt.
+
 \begin{table}
   \centering
   \caption{Darstellung der Messwerte zu den Aufgabenteilen b) und c)}
-  \label{tab:aufgaben cd}
-  \begin{tabular}{c c c c}
+  \label{tab:aufgabe c}
+  \begin{tabular}{S[table-format=6.0] S[table-format=1.2] S[table-format=3.1] S[table-format=5.0]}
     \toprule
-    $f$ [Hz] & $A$ [V] & $a$ [$\symup{\mu}$s] & $b$ [$\symup{\mu}$s] \\
+    {$f$ [Hz]} & {$A$ [V]} & {$a$ [$\symup{\mu}$s]} & {$b$ [$\symup{\mu}$s]} \\
     \midrule
     50  &	2,8	& 0	& 20000 \\
     100 &	2,65 & 100 & 10000 \\
