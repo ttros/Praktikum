@@ -69,7 +69,7 @@ geringerem Fehler ablesen lassen.
 
 Mithilfe der Python-Erweiterungen "numpy" \cite{numpy} und "matplotlib" \cite{matplotlib} werden die Wertepaare der 
 \autoref{tab:aufgabe a} halblogarithmisch geplottet und es wird eine Ausgleichsgerade eingezeichnet. Die Parameter der
-Ausgleichsgerade vom Typ $ln(U) = m \cdot t + b$ werden zu $m=−0.025050069256648443$ und $b=1.5957959771629942$ bestimmt.
+Ausgleichsgerade vom Typ $ln(U) = m \cdot t + b$ werden zu $m=-0.02505\pm0.00018$ und $b=1.59580+/-0.00018$ bestimmt.
 \begin{figure}[!h]
   Die Formel des Entladevorgangs eines Kondensators
   \begin{equation}
@@ -80,16 +80,15 @@ Ausgleichsgerade vom Typ $ln(U) = m \cdot t + b$ werden zu $m=−0.0250500692566
     ln(U) = ln(U_{0})-\frac{1}{RC}\cdot t
   \end{equation}
   und entspricht somit der Form der Ausgleichsgerade. Die Zeitkonstante $RC$ ist folglich 
-  $RC = \frac{1}{m} = 39.920049312222716 \symup{\mu s}$
+  $RC = \frac{1}{m} = 39.92\pm0.28 \symup{\mu s}$
 \end{figure}
-
-
-
 
 \subsection{Bestimmung der Zeitkonstante $RC$ über die Frequenabhängigkeit der Amplitude}
 Die Spannung am Kondensator $A$ wird ebenso wie die Spannung der Sinusspannungsquelle $U_{0}$ bei variabler
 Frequenz $f$ gemessen und tabellarisch in \autoref{tab:aufgabe c} dargestellt. Da sich bei der Messung $U_{0}$
-als frequenzunabhängig und zu $U_{0} = 5,2$V bestimmen lässt, ist dieser Wert aus Gründen der
+als frequenzunabhängig und zu $U_{0} = 2,8$V\footnote{Anm.: Abgelesen wurden 5,2V,%
+ allerdings ist die Feineinstellung des Oszilloskops defekt. Für kleine $f$ gilt $U_{0}\approx A$,%
+  weshalb wir im Folgenden mit $U_{0}=2,8$V gerechnet haben.} bestimmen lässt, ist dieser Wert aus Gründen der
 Übersichtlichkeit nicht in der Tabelle aufgeführt. Das Teilungsverhältnis aus $\frac{A}{U_{0}}$ wird berechnet und
 gleichermaßen dokumentiert. 
 
@@ -214,7 +213,7 @@ zur besseren Interpretation der Messwerte ebenfalls auf den Plot aufgetragen.
 \begin{figure}
   \centering
   \includegraphics{build/plot_d.pdf}
-  \caption{Polarplot der Amplitude $A$ in Abhängigkeit der Phasenverschiebung $\varphi$.}
+  \caption{Polarplot der Amplitude $A$ in Abhängigkeit der Phasenverschiebung~$\varphi$.}
   \label{fig:plot_d}
 \end{figure}
 
