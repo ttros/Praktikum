@@ -59,21 +59,6 @@ geringerem Fehler ablesen lassen.
   \end{tabular}
 \end{table}
 
-Mithilfe der Python-Erweiterungen "numpy" \cite{numpy} und "matplotlib" \cite{matplotlib} werden die Wertepaare der 
-\autoref{tab:aufgabe a} halblogarithmisch geplottet und es wird eine Ausgleichsgerade eingezeichnet. Die Parameter der
-Ausgleichsgerade vom Typ $ln(U) = m \cdot t + b$ werden zu $m=−0.025050069256648443$ und $b=1.5957959771629942$ bestimmt.
-Die Formel des Entladevorgangs eines Kondensators
-\begin{equation}
-  U_{C} = U_{0}\exp{-\frac{1}{RC}\cdot t}
-\end{equation}
-wird umgestellt zu
-\begin{equation}
-  ln(U) = ln(U_{0})-\frac{1}{RC}\cdot t
-\end{equation}
-und entspricht somit der Form der Ausgleichsgerade. Die Zeitkonstante $RC$ ist folglich 
-$RC = \frac{1}{m} = -39.920049312222716 \symup{\mu s}$
-
-
 \begin{figure}
   \centering
   \includegraphics{build/plot_a.pdf}
@@ -81,6 +66,20 @@ $RC = \frac{1}{m} = -39.920049312222716 \symup{\mu s}$
   mit Ausgleichsgerade.}
   \label{fig:plot_a}
 \end{figure}
+
+Mithilfe der Python-Erweiterungen "numpy" \cite{numpy} und "matplotlib" \cite{matplotlib} werden die Wertepaare der 
+\autoref{tab:aufgabe a} halblogarithmisch geplottet und es wird eine Ausgleichsgerade eingezeichnet. Die Parameter der
+Ausgleichsgerade vom Typ $ln(U) = m \cdot t + b$ werden zu $m=−0.025050069256648443$ und $b=1.5957959771629942$ bestimmt.
+Die Formel des Entladevorgangs eines Kondensators
+\begin{equation}
+  U_{C} = U_{0}e^{-\frac{1}{RC}\cdot t}
+\end{equation}
+wird umgestellt zu
+\begin{equation}
+  ln(U) = ln(U_{0})-\frac{1}{RC}\cdot t
+\end{equation}
+und entspricht somit der Form der Ausgleichsgerade. Die Zeitkonstante $RC$ ist folglich 
+$RC = \frac{1}{m} = 39.920049312222716 \symup{\mu s}$
 
 
 
@@ -98,7 +97,7 @@ gerundeten Werte aus \autoref{tab:aufgabe c} verwendet, sondern die exakteren We
 
 \begin{table}
   \centering
-  \caption{Darstellung der Messwerte zu den Aufgabenteilen b) und c)}
+  \caption{Messwertpaare Frequenz $f$ und Amplitude $A$ sowie die Relativamplitude $\frac{A}{U_{0}}$.}
   \label{tab:aufgabe c}
   \begin{tabular}{S[table-format=6.0] S[table-format=1.2] S[table-format=1.3]}
     \toprule
@@ -127,17 +126,44 @@ gerundeten Werte aus \autoref{tab:aufgabe c} verwendet, sondern die exakteren We
 \begin{figure}
   \centering
   \includegraphics{build/plot_b.pdf}
-  \caption{Hallo}
+  \caption{Plot der Wertepaare aus \autoref{tab:aufgabe c} mit nicht-linearer Ausgleichsfunktion \autoref{eq:ausgleichsfunktion aufgabe c}}
   \label{fig:plot_b}
 \end{figure}
 
+Die nicht-lineare Ausgleichsrechnung liefert für die Funktion 
+\begin{equation}
+  \frac{A}{U_{0}} = \frac{1}{\sqrt{1+f^2\cdot (RC)^2}}
+  \label{eq:ausgleichsfunktion aufgabe c}
+\end{equation}
+den Wert $RC = 431,97\symup{\mu s}$.
+
+% RC_a = -39.920049312222716 [\mu s]
+% RC_b = [0.00043197] [s]
+% RC_c = [-0.00043362] [s]
+
+\subsection{Bestimmung der Zeitkonstanten $RC$ über die Frequenabhängigkeit der Phasenverschiebung%
+ zwischen $U_{\symup{C}}$ und $U_{0}$}
+ Neben der Amplitude ist auch die Phase zwischen $U_{\symup{C}}$ und $U_{0}$ abhänging von der Frequenz der Spannungsquelle.
+ Der Zusammenhang wird durch die Formel
+ \begin{equation}
+   \varphi(f) = -\arctan(-f\cdot RC)
+   \label{eq:Formel für Phasenverschiebung}
+ \end{equation}
+ beschrieben. 
+Die Phase $\varphi$ wird durch den Zusammenhang
+\begin{equation}
+  \varphi = \frac{a}{b}\cdot 2\symup{\pi}
+\end{equation}
+berechnet.
+
 \begin{table}
   \centering
-  \caption{Darstellung der Messwerte zu den Aufgabenteilen b) und c)}
+  \caption{Messwert Frequenz $f$, Phasenverschiebung $a$, Periodenlänge $b$. Errechnete Phasenverschiebung $\varphi$.}
   \label{tab:aufgabe d}
   \begin{tabular}{S[table-format=6.0] S[table-format=3.1] S[table-format=5.0] S[table-format=1.3] S[table-format=1.3]}
     \toprule
-    {$f$ [Hz]} & {$a$ [$\symup{\mu}$s]} & {$b$ [$\symup{\mu}$s]} & {$\varphi$ [rad]} & {$\varphi$ [$\frac{\pi}{\symup{rad}}$]}\\
+    {$f$ [Hz]} & {$a$ [$\symup{\mu}$s]} & {$b$ [$\symup{\mu}$s]} & {$\varphi$ [rad]}%
+     & {$\varphi$ [$\frac{\symup{\pi}}{\symup{rad}}$]}\\
     \midrule
     50      & 0	  & 20000 & 0.000 & 0.000 \\
     100     & 100 & 10000 & 0.063 & 0.020 \\
@@ -162,9 +188,22 @@ gerundeten Werte aus \autoref{tab:aufgabe c} verwendet, sondern die exakteren We
 \begin{figure}
   \centering
   \includegraphics{build/plot_c.pdf}
-  \caption{Hallo}
+  \caption{Plot der Wertepaare aus \autoref{tab:aufgabe d} mit nicht-linearer%
+   Ausgleichsfunktion \autoref{eq:Formel für Phasenverschiebung}}
   \label{fig:plot_c}
 \end{figure}
+
+Auch hier wird für die Wertepaare \{$f \symup{[Hz]}, \varphi$ [rad]\} eine nicht-lineare Ausgleichsrechnung unter 
+der Funktion für die Phasenverschiebung (\autoref{eq:Formel für Phasenverschiebung}) durchgeführt. Die Zeitkonstante $RC$ lässt sich
+hier zu $RC = 433,62\symup{\mu s}$ bestimmen.
+
+Darüber hinaus wird die frequenzabhängige Amplitude$A$ aus \autoref{tab:aufgabe c} in Abhängigkeit zu der
+ebenfalls frequenzabhängigen Phase $\varphi$ aus \autoref{tab:aufgabe d} gesetzt und in einem Polarplot \autoref{fig:plot_d}
+visualisiert. Außerdem wird die Funktion 
+\begin{equation}
+  A(\varphi) = \cos (\varphi) \cdot U_{0}
+\end{equation}
+zur besseren Interpretation der Messwerte ebenfalls auf den Plot aufgetragen.
 
 \begin{figure}
   \centering
@@ -173,6 +212,12 @@ gerundeten Werte aus \autoref{tab:aufgabe c} verwendet, sondern die exakteren We
   \label{fig:plot_d}
 \end{figure}
 
+\subsection{Nutzung des RC-Kreises zur Integration von Spannungen hoher Frequenz}
+Aus (REFERENZ ZU THEORIE INTEGRATION EINFÜGEN) wird klar, dass ein RC-Kreis Spannungen für eine Frequenz $f >> \frac{1}{RC}$
+integriert. Als Erstes wird eine Rechteckspannung angelegt. Der Spannungsverlauf einer Rechteckspannung ist jeweils für ein
+Zeitintevall konstant, somit ist eine Stammfunktion dazu von linearer Art, wie auch in \autoref{fig:aufgabe d - rechteckspannung}
+zu sehen ist.
+
 \begin{figure}
   \centering
   \includegraphics[height=10cm]{content/Aufgabe d - Rechteckspannung.pdf}
@@ -180,12 +225,21 @@ gerundeten Werte aus \autoref{tab:aufgabe c} verwendet, sondern die exakteren We
   \label{fig:aufgabe d - rechteckspannung}
 \end{figure}
 
+Für eine angelegte Dreieckspannung wird erwartet, dass sich für die Spannung $U_{\symup{C}}$ ein quadratischer Verlauf ergibt,
+da eine Dreieckspannung für ein Zeitintevall linear steigt oder sinkt. Dies lässt sich auch in \autoref{fig:aufgabe d - dreieckspannung}
+erkennen.
+
 \begin{figure}
   \centering
   \includegraphics[height=10cm]{content/Aufgabe d - Dreieckspannung.pdf}
   \caption{Dreieckspannung $U_{0}$ und Kondensatorspannung mit $f=5$kHz}
   \label{fig:aufgabe d - dreieckspannung}
 \end{figure}
+
+Als letztes wird eine Sinusspannungsquelle verwendet. Die Spannung $U_{\symup{C}}$ stellt sich als phasenverschoben
+und amplitudenreduziert gegenüber der Spannung $U_{0}$ ein (\autoref{fig:aufgabe d - sinusspannung}). Da eine
+Stammfunktion zu der Funktion $f(\omega)=sin(\omega t)$ die Funktion $F(\omega) = \frac{1}{\omega}cos(\omega t)$ ist,
+zeigt sich auch hier, dass der $RC$-Kreis für bestimmte Frequenzen als Integrator dienen kann.
 
 \begin{figure}
   \centering

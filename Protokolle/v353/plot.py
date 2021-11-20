@@ -14,7 +14,7 @@ plt.xlabel(r'$t$ [$\symup{\mu}$s]')
 plt.ylabel(r'$ln(U)$ [V]')
 plt.legend(loc='best')
 
-print(f'RC = {1/m} [\mu s]')
+print(f'RC_a = {1/m} [\mu s]')
 
 plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
 plt.savefig('build/plot_a.pdf')
@@ -28,7 +28,7 @@ def f1(f,c):
     return 1/(np.sqrt(1+(f**2 * c**2)))
 
 parameters, pcov = curve_fit(f1, f, A/2.8, sigma=None)
-print(parameters, np.sqrt(np.diag(pcov)), sep='\n')
+print(f'RC_b = {parameters} [s]')
 plt.plot(np.log(f), A/2.8, 'rx', label='Daten')
 plt.plot(np.log(f), f1(f,*parameters), 'b', label='Fit')
 
@@ -45,7 +45,7 @@ def f2(f,c):
     return np.arctan(-f*c)
 
 parameters, pcov = curve_fit(f2, f, phi, sigma=None)
-print(parameters, np.sqrt(np.diag(pcov)), sep='\n')
+print(f'RC_c = {parameters} [s]')
 plt.plot(np.log(f), phi, 'rx', label='Daten')
 plt.plot(np.log(f), f2(f,*parameters), 'b', label='Fit')
 
@@ -58,10 +58,11 @@ plt.savefig('build/plot_c.pdf')
 plt.close()
 
 ## Beginn Plot D
-phi2 = np.linspace(0.1, (np.pi)/2, 50)
+phi2 = np.linspace(0, (np.pi)/2, 50)
 
 plt.polar(phi, A, 'rx')
-plt.polar(phi2, np.sin(phi2)/(np.tan(phi2))*2.8, 'b')
+#plt.polar(phi2, np.sin(phi2)/(np.tan(phi2))*2.8, 'b')
+plt.polar(phi2, np.cos(phi2)*2.8, 'b')
 
 plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
 plt.savefig('build/plot_d.pdf')
