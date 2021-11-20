@@ -70,16 +70,19 @@ geringerem Fehler ablesen lassen.
 Mithilfe der Python-Erweiterungen "numpy" \cite{numpy} und "matplotlib" \cite{matplotlib} werden die Wertepaare der 
 \autoref{tab:aufgabe a} halblogarithmisch geplottet und es wird eine Ausgleichsgerade eingezeichnet. Die Parameter der
 Ausgleichsgerade vom Typ $ln(U) = m \cdot t + b$ werden zu $m=−0.025050069256648443$ und $b=1.5957959771629942$ bestimmt.
-Die Formel des Entladevorgangs eines Kondensators
-\begin{equation}
-  U_{C} = U_{0}e^{-\frac{1}{RC}\cdot t}
-\end{equation}
-wird umgestellt zu
-\begin{equation}
-  ln(U) = ln(U_{0})-\frac{1}{RC}\cdot t
-\end{equation}
-und entspricht somit der Form der Ausgleichsgerade. Die Zeitkonstante $RC$ ist folglich 
-$RC = \frac{1}{m} = 39.920049312222716 \symup{\mu s}$
+\begin{figure}[!h]
+  Die Formel des Entladevorgangs eines Kondensators
+  \begin{equation}
+    U_{C} = U_{0}e^{-\frac{1}{RC}\cdot t}
+  \end{equation}
+  wird umgestellt zu
+  \begin{equation}
+    ln(U) = ln(U_{0})-\frac{1}{RC}\cdot t
+  \end{equation}
+  und entspricht somit der Form der Ausgleichsgerade. Die Zeitkonstante $RC$ ist folglich 
+  $RC = \frac{1}{m} = 39.920049312222716 \symup{\mu s}$
+\end{figure}
+
 
 
 
@@ -89,11 +92,6 @@ Frequenz $f$ gemessen und tabellarisch in \autoref{tab:aufgabe c} dargestellt. D
 als frequenzunabhängig und zu $U_{0} = 5,2$V bestimmen lässt, ist dieser Wert aus Gründen der
 Übersichtlichkeit nicht in der Tabelle aufgeführt. Das Teilungsverhältnis aus $\frac{A}{U_{0}}$ wird berechnet und
 gleichermaßen dokumentiert. 
-
-Die Wertepaare \{$f \symup{[Hz]}, \frac{A}{U_{0}}$\} aus \autoref{tab:aufgabe c} werden in ein Diagramm aufgetragen
-und es wird eine nicht-lineare Ausgleichsrechnung mit den Python-Erweiterungen "numpy" \cite{numpy} und 
-"matplotlib" \cite{matplotlib} durchgeführt. Für den Plot werden nicht die
-gerundeten Werte aus \autoref{tab:aufgabe c} verwendet, sondern die exakteren Werte $\frac{A}{U_{0}}$.
 
 \begin{table}
   \centering
@@ -123,6 +121,11 @@ gerundeten Werte aus \autoref{tab:aufgabe c} verwendet, sondern die exakteren We
   \end{tabular}
 \end{table}
 
+Die Wertepaare \{$f \symup{[Hz]}, \frac{A}{U_{0}}$\} aus \autoref{tab:aufgabe c} werden in ein Diagramm aufgetragen
+und es wird eine nicht-lineare Ausgleichsrechnung mit den Python-Erweiterungen "numpy" \cite{numpy} und 
+"matplotlib" \cite{matplotlib} durchgeführt. Für den Plot werden nicht die
+gerundeten Werte aus \autoref{tab:aufgabe c} verwendet, sondern die exakteren Werte $\frac{A}{U_{0}}$.
+
 \begin{figure}
   \centering
   \includegraphics{build/plot_b.pdf}
@@ -131,10 +134,13 @@ gerundeten Werte aus \autoref{tab:aufgabe c} verwendet, sondern die exakteren We
 \end{figure}
 
 Die nicht-lineare Ausgleichsrechnung liefert für die Funktion 
-\begin{equation}
-  \frac{A}{U_{0}} = \frac{1}{\sqrt{1+f^2\cdot (RC)^2}}
-  \label{eq:ausgleichsfunktion aufgabe c}
-\end{equation}
+\begin{figure}[!h]
+  \begin{equation}
+    \frac{A}{U_{0}} = \frac{1}{\sqrt{1+f^2\cdot (RC)^2}}
+    \label{eq:ausgleichsfunktion aufgabe c}
+  \end{equation}
+\end{figure}
+
 den Wert $RC = 431,97\symup{\mu s}$.
 
 % RC_a = -39.920049312222716 [\mu s]
@@ -150,7 +156,7 @@ den Wert $RC = 431,97\symup{\mu s}$.
    \label{eq:Formel für Phasenverschiebung}
  \end{equation}
  beschrieben. 
-Die Phase $\varphi$ wird durch den Zusammenhang
+Die Phase $\varphi$ wird über
 \begin{equation}
   \varphi = \frac{a}{b}\cdot 2\symup{\pi}
 \end{equation}
@@ -208,33 +214,19 @@ zur besseren Interpretation der Messwerte ebenfalls auf den Plot aufgetragen.
 \begin{figure}
   \centering
   \includegraphics{build/plot_d.pdf}
-  \caption{Hallo}
+  \caption{Polarplot der Amplitude $A$ in Abhängigkeit der Phasenverschiebung $\varphi$.}
   \label{fig:plot_d}
 \end{figure}
 
 \subsection{Nutzung des RC-Kreises zur Integration von Spannungen hoher Frequenz}
-Aus (REFERENZ ZU THEORIE INTEGRATION EINFÜGEN) wird klar, dass ein $RC$-Kreis Spannungen für eine Frequenz $f >> \frac{1}{RC}$
+Aus \autoref{sec:theorie-integration} wird klar, dass ein $RC$-Kreis Spannungen für eine Frequenz $f >> \frac{1}{RC}$
 integriert. Als Erstes wird eine Rechteckspannung angelegt. Der Spannungsverlauf einer Rechteckspannung ist jeweils für ein
 Zeitintevall konstant, somit ist eine Stammfunktion dazu von linearer Art, wie auch in \autoref{fig:aufgabe d - rechteckspannung}
 zu sehen ist.
 
-\begin{figure}
-  \centering
-  \includegraphics[height=10cm]{content/Aufgabe d - Rechteckspannung.pdf}
-  \caption{Rechteckspannung $U_{0}$ und Kondensatorspannung mit $f=5$kHz}
-  \label{fig:aufgabe d - rechteckspannung}
-\end{figure}
-
 Für eine angelegte Dreieckspannung wird erwartet, dass sich für die Spannung $U_{\symup{C}}$ ein quadratischer Verlauf ergibt,
 da eine Dreieckspannung für ein Zeitintevall linear steigt oder sinkt. Dies lässt sich auch in \autoref{fig:aufgabe d - dreieckspannung}
 erkennen.
-
-\begin{figure}
-  \centering
-  \includegraphics[height=10cm]{content/Aufgabe d - Dreieckspannung.pdf}
-  \caption{Dreieckspannung $U_{0}$ und Kondensatorspannung mit $f=5$kHz}
-  \label{fig:aufgabe d - dreieckspannung}
-\end{figure}
 
 Als letztes wird eine Sinusspannungsquelle verwendet. Die Spannung $U_{\symup{C}}$ stellt sich als phasenverschoben
 und amplitudenreduziert gegenüber der Spannung $U_{0}$ ein (\autoref{fig:aufgabe d - sinusspannung}). Da eine
@@ -243,7 +235,21 @@ zeigt sich auch hier, dass der $RC$-Kreis für bestimmte Frequenzen als Integrat
 
 \begin{figure}
   \centering
-  \includegraphics[height=10cm]{content/Aufgabe d - Sinusspannung.pdf}
+  \includegraphics[height=8cm]{content/Aufgabe d - Rechteckspannung.pdf}
+  \caption{Rechteckspannung $U_{0}$ und Kondensatorspannung mit $f=5$kHz}
+  \label{fig:aufgabe d - rechteckspannung}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics[height=8cm]{content/Aufgabe d - Dreieckspannung.pdf}
+  \caption{Dreieckspannung $U_{0}$ und Kondensatorspannung mit $f=5$kHz}
+  \label{fig:aufgabe d - dreieckspannung}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics[height=8cm]{content/Aufgabe d - Sinusspannung.pdf}
   \caption{Sinusspannung $U_{0}$ und Kondensatorspannung mit $f=5$kHz}
   \label{fig:aufgabe d - sinusspannung}
 \end{figure}
