@@ -7,12 +7,14 @@ t, U = np.genfromtxt('content/data_a.txt', unpack = True)
 
 m,b = np.polyfit(t, np.log(U), 1)
 plt.plot(t, m*t+b, 'b', label='Fit')
-plt.annotate(f'$ln(U) =  {m} \cdot f + {b}$', [0.8,0.2])
+plt.annotate(f'$ln(U) =  {m} \cdot t + {b}$', [0.8,0.2])
 #plt.errorbar(t, np.log(U), xerr = 1, yerr = np.e**U * 0.1, fmt = 'rx') #Fehler y anpassen!!! Gaussssss
 plt.plot(t, np.log(U), 'rx', label='Daten')
-plt.xlabel(r'$f$ [Hz]')
+plt.xlabel(r'$t$ [$\symup{\mu}$s]')
 plt.ylabel(r'$ln(U)$ [V]')
 plt.legend(loc='best')
+
+print(f'RC = {1/m} [\mu s]')
 
 plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
 plt.savefig('build/plot_a.pdf')
