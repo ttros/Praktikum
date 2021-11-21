@@ -86,7 +86,7 @@ phi2 = np.linspace(0, (np.pi)/2, 50)
 
 plt.polar(noms(phi), A, 'rx')
 #plt.polar(phi2, np.sin(phi2)/(np.tan(phi2))*2.8, 'b')
-plt.polar(phi2, np.cos(phi2)*2.8, fmt = 'b')
+plt.polar(phi2, np.cos(phi2)*2.8, 'b')
 
 plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
 plt.savefig('build/plot_d.pdf')

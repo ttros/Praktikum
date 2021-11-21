@@ -3,10 +3,11 @@
 \subsection{Messung der Zeitkonstanten $RC$ über die Entladekurve}
 Die Entladekurve des $RC$-Kreises wird mit einem Oszilloskop sichtbar gemacht, wie 
 in \autoref{fig:aufgabe a - rechteckspannung} zu sehen ist. Die verwendete Frequenz beträgt $f=5\symup{kHz}$.
-Im Folgenden werden Wertepaare \{$f [\symup{Hz}], U [\symup{V}]$\} mithilfe von eingezeichneten Hilfslinien abgelesen
+Im Folgenden werden Wertepaare \{$t [\symup{\mu s}], U [\symup{V}]$\} mithilfe von eingezeichneten Hilfslinien abgelesen
 (\autoref{fig:aufgabe a - gitter und hilfslinien}) und tabellarisch aufgeführt (\autoref{tab:aufgabe a}). Es ist zu beachten,
 dass die Schrittweite von $t$ nicht gleichmäßig gewählt wird, da sich die Werte mit der gewählten Schrittweite mit
-geringerem Fehler ablesen lassen.
+geringerem Fehler ablesen lassen. Die Fehler von $t$ und $U$ werden zu
+ $\Delta t = 1\symup{\mu s}$ und $\Delta U = 0,1\symup{V}$ abgeschätzt.
 
 \begin{figure}
   \centering
@@ -67,9 +68,17 @@ geringerem Fehler ablesen lassen.
   \label{fig:plot_a}
 \end{figure}
 
-Mithilfe der Python-Erweiterungen "numpy" \cite{numpy} und "matplotlib" \cite{matplotlib} werden die Wertepaare der 
-\autoref{tab:aufgabe a} halblogarithmisch geplottet und es wird eine Ausgleichsgerade eingezeichnet. Die Parameter der
-Ausgleichsgerade vom Typ $ln(U) = m \cdot t + b$ werden zu $m=-0.02505\pm0.00018$ und $b=1.59580+/-0.00018$ bestimmt.
+\begin{equation}
+  1=1
+  %\Delta f = \sqrt{ \left \frac{df}{dy_{1}\cdot (\Delta y_{1}) \right ^{2} + ...}}
+  \label{eq:gauss-fehler}
+\end{equation}
+
+Mithilfe der Python-Erweiterungen "numpy" \cite{numpy}, "scipy" \cite{scipy} und "matplotlib" \cite{matplotlib} werden die Wertepaare der 
+\autoref{tab:aufgabe a} halblogarithmisch geplottet und es wird eine Ausgleichsgerade eingezeichnet. Die Messunsicherheit in $RC$
+wir über die Gaußsche Fehlerfortpflanzung\autoref{eq:gauss-fehler} errechnet. Dies wird automatisiert mit der Python-Erweiterungen
+\dq uncertainties"\cite{uncertainties}. Die Parameter der
+Ausgleichsgerade vom Typ $ln(U) = m \cdot t + b$ werden zu $m=-0.02505\pm0.00018$ und $b=1.59580\pm0.00018$ bestimmt.
 \begin{figure}[!h]
   Die Formel des Entladevorgangs eines Kondensators
   \begin{equation}
@@ -140,7 +149,7 @@ Die nicht-lineare Ausgleichsrechnung liefert für die Funktion
   \end{equation}
 \end{figure}
 
-den Wert $RC = 431,97\symup{\mu s}$.
+den Wert $RC = 431.97025\pm0.00037\symup{\mu s}$.
 
 % RC_a = -39.920049312222716 [\mu s]
 % RC_b = [0.00043197] [s]
@@ -200,7 +209,7 @@ berechnet.
 
 Auch hier wird für die Wertepaare \{$f \symup{[Hz]}, \varphi$ [rad]\} eine nicht-lineare Ausgleichsrechnung unter 
 der Funktion für die Phasenverschiebung (\autoref{eq:Formel für Phasenverschiebung}) durchgeführt. Die Zeitkonstante $RC$ lässt sich
-hier zu $RC = 433,62\symup{\mu s}$ bestimmen.
+hier zu $RC = 433.62156\pm0.00079\symup{\mu s}$ bestimmen.
 
 Darüber hinaus wird die frequenzabhängige Amplitude$A$ aus \autoref{tab:aufgabe c} in Abhängigkeit zu der
 ebenfalls frequenzabhängigen Phase $\varphi$ aus \autoref{tab:aufgabe d} gesetzt und in einem Polarplot \autoref{fig:plot_d}
