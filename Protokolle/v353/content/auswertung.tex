@@ -31,7 +31,7 @@ geringerem Fehler ablesen lassen. Die Fehler von $t$ und $U$ werden zu
     \label{fig:aufgabe a - hilfslinien}
   \end{subfigure}
   \caption{Entladekurve mit eingezeichnetem Koordinatensystem und Hilfslinien. Die %
-    Skalierung wurde vorher durch Messung der Spannung der Rechteckspannung ermittelt.}
+    Skalierung wurde vorher durch Abgleich mit der Amplitude der Rechteckspannung ermittelt.}
   \label{fig:aufgabe a - gitter und hilfslinien}
 \end{figure}
 
@@ -76,8 +76,8 @@ geringerem Fehler ablesen lassen. Die Fehler von $t$ und $U$ werden zu
 
 \begin{figure}[!h]
   Mithilfe der Python-Erweiterungen "numpy" \cite{numpy}, \dq scipy" \cite{scipy} und "matplotlib" \cite{matplotlib} werden die Wertepaare der 
-\autoref{tab:aufgabe a} halblogarithmisch geplottet und es wird eine Ausgleichsgerade eingezeichnet. Die Messunsicherheit in $RC$
-wir über die Gaußsche Fehlerfortpflanzung(\autoref{eq:gauss-fehler}) errechnet. Dies wird automatisiert mit der Python-Erweiterungen
+\autoref{tab:aufgabe a} halblogarithmisch geplottet und es wird eine Regressionsgerade ermittelt und eingezeichnet. Die Messunsicherheit in $RC$
+wird über die Gaußsche Fehlerfortpflanzung(\autoref{eq:gauss-fehler}) errechnet. Dies wird automatisiert mit der Python-Erweiterungen
 \dq uncertainties"\cite{uncertainties} erledigt. Die Parameter der
 Ausgleichsgerade vom Typ $ln(U) = m \cdot t + b$ werden zu $m=-0.02505\pm0.00018$ und $b=1.59580\pm0.00018$ bestimmt.
   Die Formel des Entladevorgangs eines Kondensators
@@ -96,7 +96,7 @@ Ausgleichsgerade vom Typ $ln(U) = m \cdot t + b$ werden zu $m=-0.02505\pm0.00018
 Die Spannung am Kondensator $A$ wird ebenso wie die Spannung der Sinusspannungsquelle $U_{0}$ bei variabler
 Frequenz $f$ gemessen und tabellarisch in \autoref{tab:aufgabe c} dargestellt. Da sich bei der Messung $U_{0}$
 als frequenzunabhängig und zu $U_{0} = 2,8$V\footnote{Anm.: Abgelesen wurden 5,2V,%
- allerdings ist die Feineinstellung des Oszilloskops defekt. Für kleine $f$ gilt $U_{0}\approx A$,%
+ allerdings ist die Feineinstellung des Oszilloskops defekt, daher konnte die Amplitude nicht kalibriert werden. Für kleine $f$ gilt $U_{0}\approx A$,%
   weshalb wir im Folgenden mit $U_{0}=2,8$V gerechnet haben.} bestimmen lässt, ist dieser Wert aus Gründen der
 Übersichtlichkeit nicht in der Tabelle aufgeführt. Das Teilungsverhältnis aus $\frac{A}{U_{0}}$ wird berechnet und
 gleichermaßen dokumentiert. 
@@ -151,9 +151,9 @@ den Wert $RC = 431.97025\pm0.00037\symup{\mu s}$.
 \end{figure}
 
 
-% RC_a = -39.920049312222716 [\mu s]
-% RC_b = [0.00043197] [s]
-% RC_c = [-0.00043362] [s]
+% RC_a = [39.920049312222716] [\mu s]
+% RC_b = [431.97025358452714+/-0.0003650581185284072] [\mu s]
+% RC_c = [433.621564029867+/-0.0007856342228451037]] [\mu s]
 
 \subsection{Bestimmung der Zeitkonstanten $RC$ über die Frequenzabhängigkeit der Phasenverschiebung%
  zwischen $U_{\symup{C}}$ und $U_{0}$}
@@ -172,7 +172,7 @@ den Wert $RC = 431.97025\pm0.00037\symup{\mu s}$.
  berechnet.
  \end{figure}
  
-\begin{table}
+\begin{table} [H]
   \centering
   \caption{Messwert Frequenz $f$, Phasenverschiebung $a$, Periodenlänge $b$. Errechnete Phasenverschiebung $\varphi$.}
   \label{tab:aufgabe d}
@@ -201,7 +201,7 @@ den Wert $RC = 431.97025\pm0.00037\symup{\mu s}$.
   \end{tabular}
 \end{table}
 
-\begin{figure}
+\begin{figure} [H]
   \centering
   \includegraphics{build/plot_c.pdf}
   \caption{Plot der Wertepaare aus \autoref{tab:aufgabe d} mit nicht-linearer%
@@ -221,7 +221,7 @@ visualisiert. Außerdem wird die Funktion
 \end{equation}
 zur besseren Interpretation der Messwerte ebenfalls auf den Plot aufgetragen.
 
-\begin{figure}
+\begin{figure} [H]
   \centering
   \includegraphics{build/plot_d.pdf}
   \caption{Polarplot der Amplitude $A$ in Abhängigkeit der Phasenverschiebung~$\varphi$.}
