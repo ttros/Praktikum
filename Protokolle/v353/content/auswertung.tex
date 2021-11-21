@@ -12,7 +12,7 @@ geringerem Fehler ablesen lassen. Die Fehler von $t$ und $U$ werden zu
 \begin{figure}
   \centering
   \includegraphics[height=10cm]{content/Aufgabe a - Rechteckspannung.pdf}
-  \caption{Entladekurve des Kondensators mit Vorwiderstand}
+  \caption{Entladekurve des Kondensators mit Vorwiderstand.}
   \label{fig:aufgabe a - rechteckspannung}
 \end{figure}
 
@@ -20,14 +20,14 @@ geringerem Fehler ablesen lassen. Die Fehler von $t$ und $U$ werden zu
   \begin{subfigure}{0.48\textwidth}
     \centering
     \includegraphics[height=5cm]{content/Aufgabe a - Gitter.pdf}
-    \caption{Entladekurve mit Koordinatensystem}
+    \caption{Entladekurve mit Koordinatensystem.}
     \label{fig:aufgabe a - gitter}
   \end{subfigure}
   \hfill
   \begin{subfigure}{0.48\textwidth}
     \centering
     \includegraphics[height=5cm]{content/Aufgabe a - Hilfslinien.pdf}
-    \caption{Entladekurve mit Hilfslinien}
+    \caption{Entladekurve mit Hilfslinien.}
     \label{fig:aufgabe a - hilfslinien}
   \end{subfigure}
   \caption{Entladekurve mit eingezeichnetem Koordinatensystem und Hilfslinien. Die %
@@ -86,10 +86,10 @@ Ausgleichsgerade vom Typ $ln(U) = m \cdot t + b$ werden zu $m=-0.02505\pm0.00018
   \end{equation}
   wird umgestellt zu
   \begin{equation}
-    ln(U) = ln(U_{0})-\frac{1}{RC}\cdot t
+    \symup{ln}(U) = \symup{ln}(U_{0})-\frac{1}{RC}\cdot t
   \end{equation}
   und entspricht somit der Form der Ausgleichsgerade. Die Zeitkonstante $RC$ ist folglich 
-  $RC = \frac{1}{m} = 39.92\pm0.28 \symup{\mu s}$
+  $RC = \frac{1}{m} = (39,92\pm0,28) \symup{\mu s}$
 \end{figure}
 
 \subsection{Bestimmung der Zeitkonstante $RC$ über die Frequenabhängigkeit der Amplitude}
@@ -99,7 +99,8 @@ als frequenzunabhängig und zu $U_{0} = 2,8$V\footnote{Anm.: Abgelesen wurden 5,
  allerdings ist die Feineinstellung des Oszilloskops defekt, daher konnte die Amplitude nicht kalibriert werden. Für kleine $f$ gilt $U_{0}\approx A$,%
   weshalb wir im Folgenden mit $U_{0}=2,8$V gerechnet haben.} bestimmen lässt, ist dieser Wert aus Gründen der
 Übersichtlichkeit nicht in der Tabelle aufgeführt. Das Teilungsverhältnis aus $\frac{A}{U_{0}}$ wird berechnet und
-gleichermaßen dokumentiert. 
+gleichermaßen dokumentiert. Als Fehler für die Frequenz $f$ wird $\Delta f = 0,1$Hz und für den Fehler in der Messung
+der Amplitude $A$ wird $\Delta A = 0,1$V verwendet.
 
 \begin{table}
   \centering
@@ -130,30 +131,32 @@ gleichermaßen dokumentiert.
 \end{table}
 
 Die Wertepaare \{$f \symup{[Hz]}, \frac{A}{U_{0}}$\} aus \autoref{tab:aufgabe c} werden in ein Diagramm aufgetragen
-und es wird eine nicht-lineare Ausgleichsrechnung mit denselben Python-Erweiterung wie für die lineare Ausgleichsrechnung
+und es wird eine nicht-lineare Ausgleichsrechnung mit denselben Python-Erweiterungen wie für die lineare Ausgleichsrechnung
 durchgeführt. Auch die Fehlerrechnung wird analog durchgeführt. Für den Plot werden nicht die
 gerundeten Werte aus \autoref{tab:aufgabe c} verwendet, sondern die exakteren Werte $\frac{A}{U_{0}}$.
 
 \begin{figure}
   \centering
   \includegraphics{build/plot_b.pdf}
-  \caption{Plot der Wertepaare aus \autoref{tab:aufgabe c} mit nicht-linearer Ausgleichsfunktion \autoref{eq:ausgleichsfunktion aufgabe c}}
+  \caption{Plot der Wertepaare aus \autoref{tab:aufgabe c} mit nicht-linearer Ausgleichsfunktion \autoref{eq:ausgleichsfunktion aufgabe c}.}
   \label{fig:plot_b}
 \end{figure}
 
 \begin{figure}[H]
 Die nicht-lineare Ausgleichsrechnung liefert für die Funktion 
   \begin{equation}
-    \frac{A}{U_{0}} = \frac{1}{\sqrt{1+f^2\cdot (RC)^2}}
+    \frac{A}{U_{0}} = \frac{1}{\sqrt{1+{\omega}^{2}\cdot (RC)^2}}
     \label{eq:ausgleichsfunktion aufgabe c}
   \end{equation}
-den Wert $RC = 431.97025\pm0.00037\symup{\mu s}$.
+den Wert $RC = (68,7502063\pm0,0000092)\symup{\mu s}$.
 \end{figure}
 
 
-% RC_a = [39.920049312222716] [\mu s]
-% RC_b = [431.97025358452714+/-0.0003650581185284072] [\mu s]
-% RC_c = [433.621564029867+/-0.0007856342228451037]] [\mu s]
+% RC_a = 39.92+/-0.28 [\mu s]
+% Steigung m: -0.02505+/-0.00018
+% Achsenabschnitt b: 1.59580+/-0.00018
+% RC_b = [[-68.75020636093754+/-9.24706974716629e-06]] [\mu s]
+% RC_c = [[69.01295902314953+/-1.9899821596188524e-05]] [\mu s]
 
 \subsection{Bestimmung der Zeitkonstanten $RC$ über die Frequenzabhängigkeit der Phasenverschiebung%
  zwischen $U_{\symup{C}}$ und $U_{0}$}
@@ -169,7 +172,7 @@ den Wert $RC = 431.97025\pm0.00037\symup{\mu s}$.
  \begin{equation}
    \varphi = \frac{a}{b}\cdot 2\symup{\pi}
  \end{equation}
- berechnet.
+ berechnet. Die Messunsicherheit wird sowohl für $a$ als auch für $b$ mit $\Delta a = \Delta b = 0,1$s berücksichtigt.
  \end{figure}
  
 \begin{table} [H]
@@ -205,13 +208,13 @@ den Wert $RC = 431.97025\pm0.00037\symup{\mu s}$.
   \centering
   \includegraphics{build/plot_c.pdf}
   \caption{Plot der Wertepaare aus \autoref{tab:aufgabe d} mit nicht-linearer%
-   Ausgleichsfunktion \autoref{eq:Formel für Phasenverschiebung}}
+   Ausgleichsfunktion \autoref{eq:Formel für Phasenverschiebung}.}
   \label{fig:plot_c}
 \end{figure}
 
 Auch hier wird für die Wertepaare \{$f \symup{[Hz]}, \varphi$ [rad]\} eine nicht-lineare Ausgleichsrechnung unter 
 der Funktion für die Phasenverschiebung (\autoref{eq:Formel für Phasenverschiebung}) durchgeführt. Die Zeitkonstante $RC$ lässt sich
-hier zu $RC = 433.62156\pm0.00079\symup{\mu s}$ bestimmen.
+hier zu $RC = (69,0129590\pm0,0000199)\symup{\mu s}$ bestimmen.
 
 Darüber hinaus werden die Messwerte der frequenzabhängigen Amplitude$A$ aus \autoref{tab:aufgabe c} und der
 ebenfalls frequenzabhängigen Phase $\varphi$ aus \autoref{tab:aufgabe d} in einem Polarplot \autoref{fig:plot_d}
@@ -256,21 +259,21 @@ zeigt sich auch hier, dass der $RC$-Kreis für bestimmte Frequenzen als Integrat
 \begin{figure}
   \centering
   \includegraphics[height=8cm]{content/Aufgabe d - Rechteckspannung.pdf}
-  \caption{Rechteckspannung $U_{0}$ und Kondensatorspannung mit $f=5$kHz}
+  \caption{Rechteckspannung $U_{0}$ und Kondensatorspannung mit $f=5$kHz.}
   \label{fig:aufgabe d - rechteckspannung}
 \end{figure}
 
 \begin{figure}
   \centering
   \includegraphics[height=8cm]{content/Aufgabe d - Dreieckspannung.pdf}
-  \caption{Dreieckspannung $U_{0}$ und Kondensatorspannung mit $f=5$kHz}
+  \caption{Dreieckspannung $U_{0}$ und Kondensatorspannung mit $f=5$kHz.}
   \label{fig:aufgabe d - dreieckspannung}
 \end{figure}
 
 \begin{figure}
   \centering
   \includegraphics[height=8cm]{content/Aufgabe d - Sinusspannung.pdf}
-  \caption{Sinusspannung $U_{0}$ und Kondensatorspannung mit $f=5$kHz}
+  \caption{Sinusspannung $U_{0}$ und Kondensatorspannung mit $f=5$kHz.}
   \label{fig:aufgabe d - sinusspannung}
 \end{figure}
 

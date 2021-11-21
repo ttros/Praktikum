@@ -1,19 +1,19 @@
 \section{Theorie}
 \label{sec:Theorie}
 
-In diesem Versuch wird das Relaxationsverhalten eines RC-Kreises untersucht.
+In diesem Versuch wird das Relaxationsverhalten eines $RC$-Kreises untersucht.
 Relaxation beschreibt allgemein die nicht-oszillatorische Rückkehr eines Systems in seinen Ausgangszustand.
 Die Änderung der betrachteten Größe ist meistens proportional zur Zeit $t$, somit ergibt sich eine asymptotische
 Annährung an den Ausgangszustand.\cite{v353}
 
 \subsection{Auf- und Entladen eines Kondensators}
-Ein wichtiges Beispiel für Relaxationsvorgänge ist das Entladen eines zuvor aufgeladenen Kondensators im RC- Kreis.
-Ein RC Kreis besteht aus einem Widerstand $R$ und einem Kondensator mit der Kapazität $C$ sowie einem Schalter, um zwischen 
+Ein wichtiges Beispiel für Relaxationsvorgänge ist das Entladen eines zuvor aufgeladenen Kondensators im $RC$- Kreis.
+Ein $RC$-Kreis besteht aus einem Widerstand $R$ und einem Kondensator mit der Kapazität $C$ sowie einem Schalter, um zwischen 
 Auf- und Entladen zu wechseln:
 \begin{figure}
     \centering
     \includegraphics[height=8cm]{content/Theorie - RC-Kreis.pdf}
-    \caption{RC Kreis mit Schalter \cite{v353}}
+    \caption{RC Kreis mit Schalter. \cite{v353}}
     \label{fig:Theorie - RC_Kreis}
 \end{figure}
 
@@ -31,14 +31,14 @@ Beim Aufladen lautet die Formel:
 
 Dabei beschreibt $RC$ die Zeitkonstante $c$, diese ist das Maß für die Geschwindigkeit mit der das System seinem
 Ausgangszustand zustrebt und soll in diesem Versuch experimentell ermittelt werden.
-Außerdem wird das öffnen/schließen des Schalters durch das anlegen einer Rechtecksspannung ersetzt.
+Außerdem wird das Öffnen/Schließen des Schalters durch das Anlegen einer Rechteckspannung ersetzt.
 
 \subsection{Relaxationsvorgänge bei periodischer Auslenkung}
 Nun wird der RC-Kreis mit Wechselspannung $U(t) = U_{0}\cos(\omega t)$ betrieben:
 \begin{figure}
     \centering
     \includegraphics{content/Theorie - RC-Kreis Wechselspannung.pdf}
-    \caption{RC Kreis mit angelegter Wechselspannung \cite{v353}}
+    \caption{RC Kreis mit angelegter Wechselspannung. \cite{v353}}
     \label{fig:Theorie - RC_Kreis Wechselspannung}
 \end{figure}
 
@@ -55,14 +55,14 @@ in Abhängigkeit von der Frequenz $\omega$:
     \varphi (\omega )=\arctan (-\omega RC). \label{eqn:Phasenversatz}
 \end{equation}
 
-Für kleine Frequenzen bleibt die Amplitude $A$ also unverändert, bei wachsender Frequenz $\omega$ nimmt sie ab während
+Für kleine Frequenzen bleibt die Amplitude $A$ also nahezu unverändert, bei wachsender Frequenz $\omega$ nimmt sie ab während
 der Phasenversatz $\varphi$ größer wird. Für sehr große $\omega$ geht $A$ gegen Null und der Phasenversatz beträgt $\frac{\pi}{2}$.
 Dieser Verlauf wird in der Auswertung graphisch dargestellt und ebenfalls verwendet, um die Zeitkonstante $RC$ zu bestimmen.
 
 Aufgrund des beschriebenen Verhaltens wird ein solcher RC-Kreis mit Wechselspannung auch als Tiefpass bezeichnet, weil die angelegte
 Spannung für niedrige Frequenzen ohne Phasenversatz durchgelassen wird.
 
-\subsection{Der RC Kreis als Integrationsglied}
+\subsection{Der $RC$-Kreis als Integrationsglied}
 \label{sec:theorie-integration}
 Für Frequenzen $\omega >> 1/RC$ kann man näherungsweise schreiben:
 
@@ -70,6 +70,6 @@ Für Frequenzen $\omega >> 1/RC$ kann man näherungsweise schreiben:
     U_{C}(t) = \frac{1}{RC}\int_{0}^{t}U({t}')d{t}'. \label{eqn:Integrator}
 \end{equation}
 
-Der RC-Kreis ist also in der Lage, die angelegte Spannung $U(t)$ zu integrieren. Dies folgt direkt aus \autoref{eqn:Integrator},
+Der $RC$-Kreis ist also in der Lage, die angelegte Spannung $U(t)$ zu integrieren. Dies folgt direkt aus \autoref{eqn:Integrator},
 da die Kondensatorspannung $U_{C}(t)$ proportional zum Integral der angelegten Spannug, also $\int U(t)dt$, ist.
 Dieses Verhalten wird im Versuch graphisch untersucht.

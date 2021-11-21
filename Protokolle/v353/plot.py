@@ -34,21 +34,23 @@ plt.close()
 ## Beginn Plot B
 f, A, a, b = np.genfromtxt('content/data_bc.txt', unpack = True)
 
-F_f = unp.uarray(f,0.1) #Fehler von f
+w=2*np.pi*f
+
+W_f = unp.uarray(w,0.1) #Fehler von f
 A_f = unp.uarray(A,0.1) #Fehler von A
 
-def f1(f,c):
-    return 1/(np.sqrt(1+(f**2 * c**2)))
+def f1(w,c):
+    return 1/(np.sqrt(1+(w**2 * c**2)))
 
-parameters, pcov = curve_fit(f1, f , A/2.8, sigma=None)
+parameters, pcov = curve_fit(f1, w , A/2.8, sigma=None)
 RC_B=unp.uarray(parameters,pcov)
 #print(f'RC_b = {parameters*10**6} [\mu s]')
 print(f'RC_b = {RC_B*10**6} [\mu s]')
 #plt.plot(np.log(f), A/2.8, 'rx', label='Daten')
-plt.errorbar(np.log(f), A/2.8 , xerr = stds(F_f), yerr = stds(A_f), fmt = 'r.', label='Daten')
-plt.plot(np.log(f), f1(f,*parameters), 'b', label='Fit')
+plt.errorbar(np.log(w), A/2.8 , xerr = stds(W_f), yerr = stds(A_f), fmt = 'r.', label='Daten')
+plt.plot(np.log(w), f1(w,*parameters), 'b', label='Fit')
 
-plt.xlabel(r'$f$ [Hz]')
+plt.xlabel(r'$\symup{ln}(\omega)$ [Hz]')
 plt.ylabel(r'$A/U_{0}$')
 plt.legend(loc='best')
 
@@ -63,17 +65,17 @@ b_f = unp.uarray(b,0.1) #Fehler von b
 
 phi = a_f/b_f * 2 * np.pi
 
-def f2(f,c):
-    return np.arctan(-f*c)
+def f2(w,c):
+    return np.arctan(-w*c)
 
-parameters, pcov = curve_fit(f2, f, noms(phi), sigma=None)
+parameters, pcov = curve_fit(f2, w, noms(phi), sigma=None)
 RC_C=unp.uarray(parameters,pcov)
 print(f'RC_c = {-RC_C*10**6} [\mu s]')
 #plt.plot(np.log(f), phi, 'rx', label='Daten')
-plt.errorbar(np.log(f), noms(phi) , xerr = stds(F_f), yerr = stds(phi), fmt = 'r.', label='Daten')
-plt.plot(np.log(f), f2(f,*parameters), 'b', label='Fit')
+plt.errorbar(np.log(w), noms(phi) , xerr = stds(W_f), yerr = stds(phi), fmt = 'r.', label='Daten')
+plt.plot(np.log(w), f2(w,*parameters), 'b', label='Fit')
 
-plt.xlabel(r'$log(f)$ [Hz]')
+plt.xlabel(r'$\symup{log}(\omega)$ [Hz]')
 plt.ylabel(r'$\varphi$ [rad]')
 plt.legend(loc='best')
 
