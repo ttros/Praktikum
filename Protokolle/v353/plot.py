@@ -16,7 +16,7 @@ M=unp.uarray(m,std)
 B=unp.uarray(b,std)
 
 plt.plot(t, m*t+b, 'b', label='Fit')
-plt.annotate(f'$ln(U) =  {m} \cdot t + {b}$', [0.8,0.2])
+plt.annotate(f'$ln(U) =  {m} \cdot t + {b}$', [0,0.15])
 plt.errorbar(t, np.log(u), xerr = stds(T), yerr = stds(U), fmt = "r.", label='Daten')
 #plt.plot(t, np.log(U), 'rx', label='Daten')
 plt.xlabel(r'$t$ [$\symup{\mu}$s]')

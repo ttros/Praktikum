@@ -69,17 +69,17 @@ geringerem Fehler ablesen lassen. Die Fehler von $t$ und $U$ werden zu
 \end{figure}
 
 \begin{equation}
-  1=1
-  %\Delta f = \sqrt{ \left \frac{df}{dy_{1}\cdot (\Delta y_{1}) \right ^{2} + ...}}
+  \Delta f = \sqrt{{\Bigl(\frac{\symup{d}f}{\symup{d}y_{1}} \cdot \Delta y_{1}\Bigr)}^{2} + ...%
+   + {\Bigl(\frac{\symup{d}f}{\symup{d}y_{n}} \cdot \Delta y_{n}\Bigr)}^{2} }
   \label{eq:gauss-fehler}
 \end{equation}
 
-Mithilfe der Python-Erweiterungen "numpy" \cite{numpy}, "scipy" \cite{scipy} und "matplotlib" \cite{matplotlib} werden die Wertepaare der 
-\autoref{tab:aufgabe a} halblogarithmisch geplottet und es wird eine Ausgleichsgerade eingezeichnet. Die Messunsicherheit in $RC$
-wir über die Gaußsche Fehlerfortpflanzung\autoref{eq:gauss-fehler} errechnet. Dies wird automatisiert mit der Python-Erweiterungen
-\dq uncertainties"\cite{uncertainties}. Die Parameter der
-Ausgleichsgerade vom Typ $ln(U) = m \cdot t + b$ werden zu $m=-0.02505\pm0.00018$ und $b=1.59580\pm0.00018$ bestimmt.
 \begin{figure}[!h]
+  Mithilfe der Python-Erweiterungen "numpy" \cite{numpy}, \dq scipy" \cite{scipy} und "matplotlib" \cite{matplotlib} werden die Wertepaare der 
+\autoref{tab:aufgabe a} halblogarithmisch geplottet und es wird eine Ausgleichsgerade eingezeichnet. Die Messunsicherheit in $RC$
+wir über die Gaußsche Fehlerfortpflanzung(\autoref{eq:gauss-fehler}) errechnet. Dies wird automatisiert mit der Python-Erweiterungen
+\dq uncertainties"\cite{uncertainties} erledigt. Die Parameter der
+Ausgleichsgerade vom Typ $ln(U) = m \cdot t + b$ werden zu $m=-0.02505\pm0.00018$ und $b=1.59580\pm0.00018$ bestimmt.
   Die Formel des Entladevorgangs eines Kondensators
   \begin{equation}
     U_{C} = U_{0}e^{-\frac{1}{RC}\cdot t}
@@ -103,35 +103,35 @@ gleichermaßen dokumentiert.
 
 \begin{table}
   \centering
-  \caption{Messwertpaare Frequenz $f$ und Amplitude $A$ sowie die Relativamplitude $\frac{A}{U_{0}}$.}
+  \caption{Messwertpaare Frequenz $f$ und Amplitude $A$ sowie die Relativamplitude~$\frac{A}{U_{0}}$.}
   \label{tab:aufgabe c}
   \begin{tabular}{S[table-format=6.0] S[table-format=1.2] S[table-format=1.3]}
     \toprule
     {$f$ [Hz]} & {$A$ [V]} & {$\frac{A}{U_{0}}$} \\
     \midrule
-    50     & 2,8	& 0.538 \\
-    100    & 2,65 & 0.510 \\
-    150    & 2,6  & 0.500 \\
-    200    & 2,6  & 0.500 \\
-    500    & 2,6  & 0.500 \\
-    1000   & 2,5  & 0.481 \\
-    1500   & 2,3  & 0.442 \\
-    2000   & 2,05 & 0.394 \\
-    3000   & 1,8  & 0.346 \\
-    4000   & 1,5  & 0.288 \\
-    5000   & 1,1  & 0.212 \\
-    10000  & 0,68 & 0.131 \\
-    20000  & 0,3  & 0.058 \\
-    30000  & 0,22 & 0.042 \\
-    50000  & 0,14 & 0.027 \\
-    100000 & 0,07 & 0.013 \\
+    50     & 2,8	& 1.000 \\
+    100    & 2,65 & 0.946 \\
+    150    & 2,6  & 0.929 \\
+    200    & 2,6  & 0.929 \\
+    500    & 2,6  & 0.929 \\
+    1000   & 2,5  & 0.893 \\
+    1500   & 2,3  & 0.821 \\
+    2000   & 2,05 & 0.732 \\
+    3000   & 1,8  & 0.643 \\
+    4000   & 1,5  & 0.536 \\
+    5000   & 1,1  & 0.393 \\
+    10000  & 0,68 & 0.243 \\
+    20000  & 0,3  & 0.107 \\
+    30000  & 0,22 & 0.079 \\
+    50000  & 0,14 & 0.050 \\
+    100000 & 0,07 & 0.025 \\
     \bottomrule
   \end{tabular}
 \end{table}
 
 Die Wertepaare \{$f \symup{[Hz]}, \frac{A}{U_{0}}$\} aus \autoref{tab:aufgabe c} werden in ein Diagramm aufgetragen
-und es wird eine nicht-lineare Ausgleichsrechnung mit den Python-Erweiterungen "numpy" \cite{numpy} und 
-"matplotlib" \cite{matplotlib} durchgeführt. Für den Plot werden nicht die
+und es wird eine nicht-lineare Ausgleichsrechnung mit denselben Python-Erweiterung wie für die lineare Ausgleichsrechnung
+durchgeführt. Auch die Fehlerrechnung wird analog durchgeführt. Für den Plot werden nicht die
 gerundeten Werte aus \autoref{tab:aufgabe c} verwendet, sondern die exakteren Werte $\frac{A}{U_{0}}$.
 
 \begin{figure}
@@ -141,15 +141,15 @@ gerundeten Werte aus \autoref{tab:aufgabe c} verwendet, sondern die exakteren We
   \label{fig:plot_b}
 \end{figure}
 
+\begin{figure}[H]
 Die nicht-lineare Ausgleichsrechnung liefert für die Funktion 
-\begin{figure}[!h]
   \begin{equation}
     \frac{A}{U_{0}} = \frac{1}{\sqrt{1+f^2\cdot (RC)^2}}
     \label{eq:ausgleichsfunktion aufgabe c}
   \end{equation}
+den Wert $RC = 431.97025\pm0.00037\symup{\mu s}$.
 \end{figure}
 
-den Wert $RC = 431.97025\pm0.00037\symup{\mu s}$.
 
 % RC_a = -39.920049312222716 [\mu s]
 % RC_b = [0.00043197] [s]
@@ -157,19 +157,21 @@ den Wert $RC = 431.97025\pm0.00037\symup{\mu s}$.
 
 \subsection{Bestimmung der Zeitkonstanten $RC$ über die Frequenabhängigkeit der Phasenverschiebung%
  zwischen $U_{\symup{C}}$ und $U_{0}$}
- Neben der Amplitude ist auch die Phase zwischen $U_{\symup{C}}$ und $U_{0}$ abhänging von der Frequenz der Spannungsquelle.
- Der Zusammenhang wird durch die Formel
+ \begin{figure}
+  Neben der Amplitude ist auch die Phase zwischen $U_{\symup{C}}$ und $U_{0}$ abhänging von der Frequenz der Spannungsquelle.
+  Der Zusammenhang wird durch die Formel
+  \begin{equation}
+    \varphi(f) = -\arctan(-f\cdot RC)
+    \label{eq:Formel für Phasenverschiebung}
+  \end{equation}
+  beschrieben. 
+ Die Phase $\varphi$ wird über
  \begin{equation}
-   \varphi(f) = -\arctan(-f\cdot RC)
-   \label{eq:Formel für Phasenverschiebung}
+   \varphi = \frac{a}{b}\cdot 2\symup{\pi}
  \end{equation}
- beschrieben. 
-Die Phase $\varphi$ wird über
-\begin{equation}
-  \varphi = \frac{a}{b}\cdot 2\symup{\pi}
-\end{equation}
-berechnet.
-
+ berechnet.
+ \end{figure}
+ 
 \begin{table}
   \centering
   \caption{Messwert Frequenz $f$, Phasenverschiebung $a$, Periodenlänge $b$. Errechnete Phasenverschiebung $\varphi$.}
