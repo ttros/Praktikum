@@ -19,6 +19,7 @@
 % Geradegleichug Unten: 23.4+/-1.6*1/T + 2.7+/-1.6
 
 \subsection{Berechnung der Viskosität von destilliertem Wasser bei Raumtemperatur}
+\label{sec:Berechnung der Viskosität von destilliertem Wasser bei Raumtemperatur}
 \begin{figure} [H]
   Aus dem gemessenen Durchmesser der kleinen Glaskugel $d_{kl}=(1,565\pm0.01) \unit{\centi\metre}$ und der angegebenen Masse
   $m_{\symup{kl}}=4.4531\unit{\gram}$ wird die Dichte berechnet:
@@ -30,6 +31,8 @@
   $\rho_{\symup{Wasser}}=0,99823 \unit{\gram\per\cubic\centi\metre}$\cite[551/C23]{czichos}
   
 \end{figure}
+
+Die Fallzeiten der kleinen Kugel sind in folgender Tabelle aufgeführt:
 
 \begin{table} [H]
   \centering
@@ -53,9 +56,26 @@
   \end{tabular}
 \end{table}
 
-\subsection{Berechnung der Reinoldszahl}
+Dabei wird der Messfehler der Fallzeit mit $\Delta t = 0.5\symup{s}$ angesetzt.
+Durch Mittelwertbildung erhält man abschließend folgende Ergebnisse:
+
+\begin{gather}
+  \overline{t}_{oben} = (6,58\pm0,16) \symup{mPat} \notag \\
+  \overline{t}_{unten} = (6,58\pm0,16) \symup{mPat} \notag .
+\end{gather}
+
+Setzt man diese Werte zusammen mit der gegebenen Apperaturkonstante $K=0.07640\frac{\symup{mPacm^{^{3}}}}{\symup{g}}$
+und den ermittelten Dichten $\rho_{kl}=(2,22\pm0,04) \unit{\gram\per\cubic\centi\metre}$ und
+$\rho_{Fl}=\rho_{\symup{Wasser}}=0,99823 \unit{\gram\per\cubic\centi\metre}$ in
+\autoref{eqn:Viskositaet} ein, erhält man folgende Ergebnisse für die Viskositaet des destillierten Wassers:
+
+\begin{gather}
+  \eta_{oben} = (1,23\pm0,05) \symup{s} \notag \\
+  \eta_{unten} = (1,23\pm0,05) \symup{s} \notag .
+\end{gather}
 
 \subsection{Berechnung der Apperaturkonstante der großen Kugel}
+\label{sec:Berechnung der Apperaturkonstante der großen Kugel}
 
 \begin{table} [H]
   \centering
@@ -74,7 +94,28 @@
   \end{tabular}
 \end{table}
 
+Auch hier wird der Messfehler der Fallzeit mit $\Delta t = 0.5\symup{s}$ angesetzt.
+
+\subsection{Berechnung der Reynoldszahl}
+\label{sec:Berechnung der Reynoldszahl}
+
+Hier Formel aus Theorie referenzieren!!
+Daraus resultiert für die Reynoldszahl der kleinen Kugel:
+
+\begin{gather}
+  Re_{oben,kl} = (0.0218\pm0.0011) \notag \\
+  Re_{unten,kl} = (0.0218\pm0.0011) \notag .
+\end{gather}
+
+Durch gleiches vorgehen erhält man für die große Kugel:
+
+\begin{gather}
+  Re_{oben,gr} = (0.00356\pm0.00016) \notag \\
+  Re_{unten,gr} = (0.00360\pm0.00016) \notag .
+\end{gather}
+
 \subsection{Temperaturabhängigkeit der Viskusität}
+\label{sec:Temperaturabhängigkeit der Viskusität}
 
 \begin{table} [H]
   \centering
