@@ -18,8 +18,8 @@
 % Geradegleichug Oben: 22.4+/-1.6*1/T + 2.7+/-1.6
 % Geradegleichug Unten: 23.4+/-1.6*1/T + 2.7+/-1.6
 
-\subsection{Bestimmung der Viskosität von destilliertem Wasser bei Raumtemperatur}
-\begin{figure}
+\subsection{Berechnung der Viskosität von destilliertem Wasser bei Raumtemperatur}
+\begin{figure} [H]
   Aus dem gemessenen Durchmesser der kleinen Glaskugel $d_{kl}=(1,565\pm0.01) \unit{\centi\metre}$ und der angegebenen Masse
   $m_{\symup{kl}}=4.4531\unit{\gram}$ wird die Dichte berechnet:
   \begin{equation}
@@ -31,4 +31,105 @@
   
 \end{figure}
 
+\begin{table} [H]
+  \centering
+  \caption{Fallzeiten der kleinen Kugel bei Start von oben bzw. unten}
+  \label{tab:Fallzeiten kleine Kugel}
+  \begin{tabular}{S[table-format=2.0] S[table-format=1.1]}
+    \toprule
+    {$t$ oben [s]} & {$t$ unten [s]} \\
+    \midrule
+    6.62 &	6.76 \\
+    6.62 &	6.50 \\
+    6.61 &	6.43 \\
+    6.68 &	6.50 \\
+    6.56 &	6.56 \\
+    6.49 &	6.68 \\
+    6.56 &	6.64 \\
+    6.44 &	6.50 \\
+    6.50 &	6.49 \\
+    6.69 &	6.69 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
 
+\subsection{Berechnung der Reinoldszahl}
+
+\subsection{Berechnung der Apperaturkonstante der großen Kugel}
+
+\begin{table} [H]
+  \centering
+  \caption{Fallzeiten der großen Kugel bei Start von oben bzw. unten}
+  \label{tab:Fallzeiten große Kugel}
+  \begin{tabular}{S[table-format=2.0] S[table-format=2.0]}
+    \toprule
+    {$t$ oben [s]} & {$t$ unten [s]} \\
+    \midrule
+    43.05 &	42.63 \\
+    43.33 &	42.47 \\
+    43.01 &	42.92 \\
+    43.47 &	42.68 \\
+    42.98 &	42.79 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\subsection{Temperaturabhängigkeit der Viskusität}
+
+\begin{table} [H]
+  \centering
+  \caption{Fallzeiten der großen Kugel bei variabler Temperatur von oben}
+  \label{tab:Temperaturabhängigkeit oben}
+  \begin{tabular}{S[table-format=2.0] S[table-format=2.0] S[table-format=2.0]}
+    \toprule
+    {$T$ [°C]} & {$t$ [s] 1.Messung} & {$t$ [s] 2.Messung} \\
+    \midrule
+    22 &	39.76 &	39.46 \\
+    27 &	35.49 &	35.83 \\
+    30 &	33.33 &	32.33 \\
+    33 &	31.48 &	31.01 \\
+    36 &	29.77 &	29.62 \\
+    39 &	27.28 &	26.63 \\
+    42 &	26.36 &	26.03 \\
+    45 &	24.26 &	24.73 \\
+    48 &	23.88 &	23.74 \\
+    51 &	22.43 &	22.43 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\begin{figure} [H]
+  \centering
+  \includegraphics[height=10cm]{build/plot_oben.pdf}
+  \caption{Temperaturabhängigkeit der Fallzeit bei Start von oben.}
+  \label{fig:Plot oben}
+\end{figure}
+
+\begin{table} [H]
+  \centering
+  \caption{Fallzeiten der großen Kugel bei variabler Temperatur von unten}
+  \label{tab:Temperaturabhängigkeit oben}
+  \begin{tabular}{S[table-format=2.0] S[table-format=2.0] S[table-format=2.0]}
+    \toprule
+    {$T$ [°C]} & {$t$ [s] 1.Messung} & {$t$ [s] 2.Messung} \\
+    \midrule
+    22 &	40.12 &	39.06 \\
+    27 &  36.82 &	35.53 \\
+    30 &	33.51 &	33.12 \\
+    33 &	30.88 &	30.69 \\
+    36 &	29.12 &	28.86 \\
+    39 &	26.24 &	26.95 \\
+    42 &	25.83 &	26.02 \\
+    45 &	24.09 &	24.09 \\
+    48 &	23.17 &	23.35 \\
+    51 &	22.18 &	22.48 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\begin{figure} [H]
+  \centering
+  \includegraphics[height=10cm]{build/plot_unten.pdf}
+  \caption{Temperaturabhängigkeit der Fallzeit bei Start von unten.}
+  \label{fig:Plot unten}
+\end{figure}
