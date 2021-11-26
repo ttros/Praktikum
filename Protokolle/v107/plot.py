@@ -4,94 +4,123 @@ import uncertainties as unp
 from scipy import stats
 from scipy.optimize import curve_fit
 import uncertainties.unumpy as unp
+from uncertainties import ufloat
 from uncertainties.unumpy import (nominal_values as noms,
                                   std_devs as stds)
+
+# Apperaturkonstante, Viskosität, Reinoldszahl
+
+# Fallzeiten
+# kl. Kugel
+O_k_, U_k_ = np.genfromtxt('content/data_kl_Kugel.txt', unpack = True)
+O_k = unp.uarray(O_k_, 0.5)
+O_k_mittel = sum(O_k)/len(O_k)
+
+U_k = unp.uarray(U_k_, 0.5)
+U_k_mittel = sum(U_k)/len(U_k)
+
+print(f'O_k_mean: {O_k_mittel}')
+print(f'U_k_mean: {U_k_mittel}')
+
+# gr. Kugel
+O_g_, U_g_ = np.genfromtxt('content/data_gr_Kugel.txt', unpack = True)
+O_g = unp.uarray(O_g_, 0.5)
+O_g_mittel = sum(O_g)/len(O_g)
+
+U_g = unp.uarray(U_g_, 0.5)
+U_g_mittel = sum(U_g)/len(U_g)
+
+print(f'O_g_mean: {O_g_mittel}')
+print(f'U_g_mean: {U_g_mittel}')
+
+# Dichte der Kugeln
+d_k = ufloat(1.565, 0.01) #cm
+m_k = 4.4531 #g
+dichte_k = m_k / (4/3 * np.pi * ((d_k/2))**3)
+
+d_g = ufloat(1.585, 0.01) #cm
+m_g = 4.9528 #g
+dichte_g = m_g / (4/3 * np.pi * ((d_g/2))**3)
+
+print(f'Dichte kl. Kugel {dichte_k} in g/cm^3')
+print(f'Dichte gr. Kugel {dichte_g} in g/cm^3')
+
+# Viskosität
+K = 0.07640
+visk_O_k = K*(dichte_k - 0.99823)*2*O_k_mittel
+visk_U_k = K*(dichte_k - 0.99823)*2*U_k_mittel
+
+print(f'Viskositaet kl. Kugel oben: {visk_O_k}')
+print(f'Viskositaet kl. Kugel unten: {visk_U_k}')
+
+# Apperaturkonstante gr. Kugel
+K_gr_O = visk_O_k/((dichte_g - 0.99823)*2*O_g_mittel)
+K_gr_U = visk_O_k/((dichte_g - 0.99823)*2*U_g_mittel)
+
+print(f'Apperaturkonstante gr. Kugel oben: {K_gr_O}')
+print(f'Apperaturkonstante gr. Kugel unten: {K_gr_U}')
+
+# Reinoldszahl
+Re_kl_O = dichte_k * (0.05/O_k_mittel) * d_g / visk_O_k
+Re_kl_U = dichte_k * (0.05/U_k_mittel) * d_g / visk_U_k
+
+Re_gr_O = dichte_g * (0.05/O_g_mittel) * d_g / visk_O_k
+Re_gr_U = dichte_g * (0.05/U_g_mittel) * d_g / visk_U_k
+
+print(f'Reinoldszahl kl. Kugel oben: {Re_kl_O}')
+print(f'Reinoldszahl kl. Kugel unten: {Re_kl_U}')
+print(f'Reinoldszahl gr. Kugel oben: {Re_gr_O}')
+print(f'Reinoldszahl gr. Kugel unten: {Re_gr_U}')
+
+
+
+# Plots
+# dynamische Viskosität
 
 T_, t_O_1_, t_O_2_, t_U_1_, t_U_2_ = np.genfromtxt('content/data_T.txt', unpack = True)
 # Messunsicherheiten
 T = unp.uarray(T_,1)
-t_O_1 = unp.uarray(t_O_1_,0.5)
-t_O_2 = unp.uarray(t_O_2_,0.1)
-t_U_1 = unp.uarray(t_U_1_,0.1)
-t_U_2 = unp.uarray(t_U_2_,0.1)
 
-# m , b , r ,p ,std =stats.linregress(noms(T),noms(t_O_1))
-# M=unp.uarray(m,std)
-# B=unp.uarray(b,std)
-#plt.plot(t, m*t+b, 'b', label='Fit')
+t_O_=(t_O_1_+t_O_2_)/2
+t_O = unp.uarray(t_O_,0.5)
+t_U_=(t_U_1_+t_U_2_)/2
+t_U = unp.uarray(t_U_,0.5)
+
+
+# Plot Oben
+m , b , r ,p ,std =stats.linregress(1/noms(T),np.log(noms(t_O)))
+M=unp.uarray(m,std)
+B=unp.uarray(b,std)
+plt.plot(1/noms(T), m*1/noms(T)+b, 'b', label = 'Fit')
 #plt.annotate(f'$ln(U) =  {m} \cdot t + {b}$', [0,0.15])
-plt.errorbar(1/noms(T), np.log(1/noms(t_O_1)), xerr = stds(1/T), yerr = stds(t_O_1), fmt = "r.", label='Daten')
+plt.errorbar(1/noms(T), np.log(noms(t_O)), xerr = stds(1/T), yerr = stds(unp.log(t_O)), fmt = 'r.', label='Daten')
+#plt.yscale('log')
 #plt.plot(t, np.log(U), 'rx', label='Daten')
 #plt.xlabel(r'$t$ [$\symup{\mu}$s]')
 #plt.ylabel(r'$ln(U)$ [V]')
-#plt.legend(loc='best')
-# print(f'RC_a = {-1/M} [\mu s]')
-# print(f'Steigung m: {M}')
-# print(f'Achsenabschnitt b: {B}')
+plt.legend(loc='best')
+
+print(f'Geradegleichug Oben: {M}*1/T + {B}')
 
 plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
-plt.savefig('plot_a.pdf')
+plt.savefig('build/plot_oben.pdf')
 plt.close()
 
-# ## Beginn Plot B
-# f, A, a, b = np.genfromtxt('content/data_bc.txt', unpack = True)
+# Plot Unten
+m , b , r ,p ,std =stats.linregress(1/noms(T),np.log(noms(t_U)))
+M=unp.uarray(m,std)
+B=unp.uarray(b,std)
+plt.plot(1/noms(T), m*1/noms(T)+b, 'b', label = 'Fit')
+#plt.annotate(f'$ln(U) =  {m} \cdot t + {b}$', [0,0.15])
+plt.errorbar(1/noms(T), np.log(noms(t_U)), xerr = stds(1/T), yerr = stds(unp.log(t_U)), fmt = 'r.', label='Daten')
+#plt.yscale('log')
+#plt.plot(t, np.log(U), 'rx', label='Daten')
+#plt.xlabel(r'$t$ [$\symup{\mu}$s]')
+#plt.ylabel(r'$ln(U)$ [V]')
+plt.legend(loc='best')
 
-# w=2*np.pi*f
+print(f'Geradegleichug Unten: {M}*1/T + {B}')
 
-# W_f = unp.uarray(w,0.1) #Fehler von f
-# A_f = unp.uarray(A,0.1) #Fehler von A
-
-# def f1(w,c):
-#     return 1/(np.sqrt(1+(w**2 * c**2)))
-
-# parameters, pcov = curve_fit(f1, w , A/2.8, sigma=None)
-# RC_B=unp.uarray(parameters,pcov)
-# #print(f'RC_b = {parameters*10**6} [\mu s]')
-# print(f'RC_b = {RC_B*10**6} [\mu s]')
-# #plt.plot(np.log(f), A/2.8, 'rx', label='Daten')
-# plt.errorbar(np.log(w), A/2.8 , xerr = stds(W_f), yerr = stds(A_f), fmt = 'r.', label='Daten')
-# plt.plot(np.log(w), f1(w,*parameters), 'b', label='Fit')
-
-# plt.xlabel(r'$\symup{ln}(\omega)$ [Hz]')
-# plt.ylabel(r'$A/U_{0}$')
-# plt.legend(loc='best')
-
-# plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
-# plt.savefig('build/plot_b.pdf')
-# plt.close()
-
-# ## Beginn Plot C
-
-# a_f = unp.uarray(a,0.1) #Fehler von a
-# b_f = unp.uarray(b,0.1) #Fehler von b
-
-# phi = a_f/b_f * 2 * np.pi
-
-# def f2(w,c):
-#     return np.arctan(-w*c)
-
-# parameters, pcov = curve_fit(f2, w, noms(phi), sigma=None)
-# RC_C=unp.uarray(parameters,pcov)
-# print(f'RC_c = {-RC_C*10**6} [\mu s]')
-# #plt.plot(np.log(f), phi, 'rx', label='Daten')
-# plt.errorbar(np.log(w), noms(phi) , xerr = stds(W_f), yerr = stds(phi), fmt = 'r.', label='Daten')
-# plt.plot(np.log(w), f2(w,*parameters), 'b', label='Fit')
-
-# plt.xlabel(r'$\symup{log}(\omega)$ [Hz]')
-# plt.ylabel(r'$\varphi$ [rad]')
-# plt.legend(loc='best')
-
-# plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
-# plt.savefig('build/plot_c.pdf')
-# plt.close()
-
-# ## Beginn Plot D
-# phi2 = np.linspace(0, (np.pi)/2, 50)
-
-# plt.polar(noms(phi), A, 'rx')
-# #plt.polar(phi2, np.sin(phi2)/(np.tan(phi2))*2.8, 'b')
-# plt.polar(phi2, np.cos(phi2)*2.8, 'b')
-
-# plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
-# plt.savefig('build/plot_d.pdf')
-# plt.close()
+plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
+plt.savefig('build/plot_unten.pdf')
+plt.close()
