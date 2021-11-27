@@ -1,23 +1,45 @@
 \section{Theorie}
 \label{sec:Theorie}
-
-\subsection{Viskosität}
-\label{sec:Viskosität}
-
+Auf eine Kugel, welche sich in einer Flüssigkeit unter Einfluss der Gravitation bewegt, wirkt die Stokessche Reibungskraft
 \begin{equation}
-    \eta = K(\rho _{K}-\rho _{Fl})\cdot t
-    \label{eqn:Viskosität}
+    F_{\symup{R}}=6\symup{\pi}\eta v r.
 \end{equation}
+Hierbei bezeichnet $v$ die Geschwindigkeit der Kugel, $r$ den Radius selber Kugel und $\eta$ die dynamische Viskosität.
+Neben der Stokesschen Reibungskraft $F_{\symup{R}}$ wirkt auch eine Auftriebskraft $F_{\symup{A}}$ und die Schwerkraft $F_{\symup{G}}$.
+Fällt eine Kugel in einer viskosen Flüssigkeit stellt sich nach kurzer Zeit ein Kräftegleichgewicht ein, sodass sich die Kugel 
+mit konstanter Geschwindigkeit $v$ bewegt.
 
+Ziel des Versuchs ist es, einen Zusammenhang zwischen der temperaturabhängigen dynamischen Viskosität und der Fallzeit einer
+Kugel in unterschiedlich warmem, destilliertem Wasser zu zeigen. Wichtig hierbei ist, dass ein solcher Zusammenhang nur für laminare
+und nicht für turbulente Strömungen gilt. Ein Maß für die Turbulenz einer Rohrströmung ist die Reynoldszahl
+\begin{equation}
+    Re=\frac{\rho v_{\symup{S}}r}{\eta}.
+\end{equation}
+Die Reynoldszahl ist abhängig von der Dichte der Flüssigkeit $\rho$, der Strömungsgeschwindigkeit $v_{\symup{S}}$, dem 
+Rohrdurchmessers $r$, sowie der dynamischen Viskosität $\eta$. Liegt die Reynoldszahl unter einem kritischen Wert von
+$R_{\symup{crit}}\approx 1200$ \cite[341/B102]{czichos} liegt eine laminare Strömung vor.
+
+Wenn dies erfüllt ist, lässt sich die dynamische Viskosität $\eta$ über die Formel
+\begin{equation}
+    \eta = K(\rho_{\symup{K}}-\rho_{\symup{Fl}})\cdot t
+\end{equation}
+beschreiben. $K$ ist eine Apperaturkonstante und enthält die Fallhöhe von $\Delta s=10\unit{\centi\metre}$. Außerdem
+bestehen auch Abhänigkeiten von der Fallzeit $t$, der Dichte der Flüssigkeit $\rho_{\symup{Fl}}$ und der Kugeldichte
+$\rho_{\symup{K}}$.
+
+Aufgrund der Temperaturabhängigkeit der Dichten, ist die dynamische Viskosität gleichermaßen temperaturabhängig und kann über 
+die \textit{Andradesche Gleichung}
 \begin{equation}
     \eta (T)=A\cdot e^{\frac{B}{T}}
     \label{eqn:Andradesche Gleichung}
 \end{equation}
+beschrieben werden.
 
-\cite{v107}
+% \subsection{Viskosität}
+% \label{sec:Viskosität}
 
-\subsection{Reynoldszahl}
-\label{sec:Reynoldszahl}
+% \subsection{Reynoldszahl}
+% \label{sec:Reynoldszahl}
 
-\subsection{Das Höppler-Viskosimeter}
-\label{sec:Das Höppler-Viskosimeter}
+% \subsection{Das Höppler-Viskosimeter}
+% \label{sec:Das Höppler-Viskosimeter}
