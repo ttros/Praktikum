@@ -61,11 +61,12 @@ print(f'Apperaturkonstante gr. Kugel oben: {K_gr_O}')
 print(f'Apperaturkonstante gr. Kugel unten: {K_gr_U}')
 
 # Reinoldszahl
-Re_kl_O = dichte_k * (0.05/O_k_mittel) * d_g / visk_O_k
-Re_kl_U = dichte_k * (0.05/U_k_mittel) * d_g / visk_U_k
+dichte_w = 0.99823
+Re_kl_O = 100 * dichte_w * (5/O_k_mittel) * d_g / visk_O_k
+Re_kl_U = 100 * dichte_w * (5/U_k_mittel) * d_g / visk_U_k
 
-Re_gr_O = dichte_g * (0.05/O_g_mittel) * d_g / visk_O_k
-Re_gr_U = dichte_g * (0.05/U_g_mittel) * d_g / visk_U_k
+Re_gr_O = 100 * dichte_w * (5/O_g_mittel) * d_g / visk_O_k
+Re_gr_U = 100 * dichte_w * (5/U_g_mittel) * d_g / visk_U_k
 
 print(f'Reinoldszahl kl. Kugel oben: {Re_kl_O}')
 print(f'Reinoldszahl kl. Kugel unten: {Re_kl_U}')
@@ -92,12 +93,9 @@ m , b , r ,p ,std =stats.linregress(1/noms(T),np.log(noms(t_O)))
 M=unp.uarray(m,std)
 B=unp.uarray(b,std)
 plt.plot(1/noms(T), m*1/noms(T)+b, 'b', label = 'Fit')
-#plt.annotate(f'$ln(U) =  {m} \cdot t + {b}$', [0,0.15])
 plt.errorbar(1/noms(T), np.log(noms(t_O)), xerr = stds(1/T), yerr = stds(unp.log(t_O)), fmt = 'r.', label='Daten')
-#plt.yscale('log')
-#plt.plot(t, np.log(U), 'rx', label='Daten')
-#plt.xlabel(r'$t$ [$\symup{\mu}$s]')
-#plt.ylabel(r'$ln(U)$ [V]')
+plt.xlabel(r'$\frac{1}{T}$ [$\unit{\per\celsius}$]')
+plt.ylabel(r'$\symup{ln}(t)$ [$\unit{\second}$]')
 plt.legend(loc='best')
 
 print(f'Geradegleichug Oben: {M}*1/T + {B}')
@@ -111,12 +109,9 @@ m , b , r ,p ,std =stats.linregress(1/noms(T),np.log(noms(t_U)))
 M=unp.uarray(m,std)
 B=unp.uarray(b,std)
 plt.plot(1/noms(T), m*1/noms(T)+b, 'b', label = 'Fit')
-#plt.annotate(f'$ln(U) =  {m} \cdot t + {b}$', [0,0.15])
 plt.errorbar(1/noms(T), np.log(noms(t_U)), xerr = stds(1/T), yerr = stds(unp.log(t_U)), fmt = 'r.', label='Daten')
-#plt.yscale('log')
-#plt.plot(t, np.log(U), 'rx', label='Daten')
-#plt.xlabel(r'$t$ [$\symup{\mu}$s]')
-#plt.ylabel(r'$ln(U)$ [V]')
+plt.xlabel(r'$\frac{1}{T}$ [$\unit{\per\celsius}$]')
+plt.ylabel(r'$\symup{ln}(t)$ [$\unit{\second}$]')
 plt.legend(loc='best')
 
 print(f'Geradegleichug Unten: {M}*1/T + {B}')
