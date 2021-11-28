@@ -20,17 +20,16 @@
 
 \subsection{Berechnung der Viskosität von destilliertem Wasser bei Raumtemperatur}
 \label{sec:Berechnung der Viskosität von destilliertem Wasser bei Raumtemperatur}
-\begin{figure} [H]
-  Aus dem gemessenen Durchmesser der kleinen Glaskugel $d_{kl}=(1,565\pm0.01) \unit{\centi\metre}$ und der angegebenen Masse
-  $m_{\symup{kl}}=4.4531\unit{\gram}$ wird die Dichte berechnet:
-  \begin{equation}
-    \rho_{\symup{kl}}=\frac{\emph{m}_{\symup{kl}}}{V_{\symup{kl}}}=%
-    \frac{m_{\symup{kl}}}{\frac{4}{3}\symup{\pi}\left(\frac{d}{2}\right)^3}=(2,22\pm0,04) \unit{\gram\per\cubic\centi\metre}
-  \end{equation}
-  Ein Literaturwert für die Dichte von Wasser bei Raumtemperatur $T=20 \unit{\celsius}$ lautet
-  $\rho_{\symup{Wasser}}=0,99823 \unit{\gram\per\cubic\centi\metre}$\cite[551/C23]{czichos}
-  
-\end{figure}
+
+Aus dem gemessenen Durchmesser der kleinen Glaskugel $d_{kl}=(1,565\pm0.01) \unit{\centi\metre}$ und der angegebenen Masse
+$m_{\symup{kl}}=4.4531\unit{\gram}$ wird die Dichte berechnet:
+
+\begin{equation}
+  \rho_{\symup{kl}}=\frac{\emph{m}_{\symup{kl}}}{V_{\symup{kl}}}=%
+  \frac{m_{\symup{kl}}}{\frac{4}{3}\symup{\pi}\left(\frac{d}{2}\right)^3}=(2,22\pm0,04) \unit{\gram\per\cubic\centi\metre}
+\end{equation}
+Ein Literaturwert für die Dichte von Wasser bei Raumtemperatur $T=20 \unit{\celsius}$ lautet
+$\rho_{\symup{Wasser}}=0,99823 \unit{\gram\per\cubic\centi\metre}$\cite[551/C23]{czichos}
 
 Die Fallzeiten der kleinen Kugel sind in folgender Tabelle aufgeführt:
 
@@ -60,22 +59,24 @@ Dabei wird der Messfehler der Fallzeit mit $\Delta t = 0.5\symup{s}$ angesetzt.
 Durch Mittelwertbildung erhält man abschließend folgende Ergebnisse:
 
 \begin{gather}
-  \overline{t}_{oben} = (6,58\pm0,16) \symup{mPat} \notag \\
-  \overline{t}_{unten} = (6,58\pm0,16) \symup{mPat} \notag .
+  \overline{t}_{oben} = (6,58\pm0,16) \symup{s} \notag \\
+  \overline{t}_{unten} = (6,58\pm0,16) \symup{s}  \notag .
 \end{gather}
 
 Setzt man diese Werte zusammen mit der gegebenen Apperaturkonstante $K=0.07640\frac{\symup{mPacm^{^{3}}}}{\symup{g}}$
 und den ermittelten Dichten $\rho_{kl}=(2,22\pm0,04) \unit{\gram\per\cubic\centi\metre}$ und
 $\rho_{Fl}=\rho_{\symup{Wasser}}=0,99823 \unit{\gram\per\cubic\centi\metre}$ in
-\autoref{eqn:Viskositaet} ein, erhält man folgende Ergebnisse für die Viskositaet des destillierten Wassers:
+\autoref{eqn:Viskosität} ein, erhält man folgende Ergebnisse für die Viskosität des destillierten Wassers:
 
 \begin{gather}
-  \eta_{oben} = (1,23\pm0,05) \symup{s} \notag \\
-  \eta_{unten} = (1,23\pm0,05) \symup{s} \notag .
+  \eta_{oben} = (1,23\pm0,05) \symup{mPas}  \notag \\
+  \eta_{unten} = (1,23\pm0,05) \symup{mPas}  \notag .
 \end{gather}
 
 \subsection{Berechnung der Apperaturkonstante der großen Kugel}
 \label{sec:Berechnung der Apperaturkonstante der großen Kugel}
+
+Die Fallzeiten der großen Kugel sind in folgender Tabelle aufgeführt:
 
 \begin{table} [H]
   \centering
@@ -95,12 +96,53 @@ $\rho_{Fl}=\rho_{\symup{Wasser}}=0,99823 \unit{\gram\per\cubic\centi\metre}$ in
 \end{table}
 
 Auch hier wird der Messfehler der Fallzeit mit $\Delta t = 0.5\symup{s}$ angesetzt.
+Durch Mittelwertbildung erhält man abschließend folgende Fallzeiten:
+
+\begin{gather}
+  \overline{t}_{oben} = (43.17\pm0,22) \symup{s} \notag \\
+  \overline{t}_{unten} = (42.70\pm0,22) \symup{s}  \notag .
+\end{gather}
+
+Aus dem gemessenen Durchmesser der großen Glaskugel $d_{gr}=(1,585\pm0.01) \unit{\centi\metre}$ und der angegebenen Masse
+$m_{\symup{gr}}=4.9528\unit{\gram}$ wird die Dichte berechnet:
+
+\begin{equation}
+  \rho_{\symup{gr}}=\frac{\emph{m}_{\symup{gr}}}{V_{\symup{gr}}}=%
+  \frac{m_{\symup{gr}}}{\frac{4}{3}\symup{\pi}\left(\frac{d}{2}\right)^3}=(2,38\pm0,04) \unit{\gram\per\cubic\centi\metre}
+\end{equation}
+
+Für die Dichte des Wassers wird der selbe Wert wie in \autoref{sec:Berechnung der Viskosität von destilliertem Wasser bei Raumtemperatur}
+verwendet.
+
+\autoref{eqn:Viskosität} wird nun nach der Apperaturkonstante $K$ aufgelöst:
+
+\begin{equation}
+  K=\frac{\eta}{\rho_{\symup{K}}-\rho_{\symup{Fl}})\cdot t}
+\end{equation}
+
+Nun werden alle Werte eingesetzt und die Ergebnisse verdoppelt, damit sich die Apperaturkonstante wie bei der kleinen
+Kugel auf 10cm bezieht. Es ergibt sich:
+
+\begin{gather}
+  K_{oben} = (0,0103\pm0,0006) \symup{mPas}  \notag \\
+  K_{unten} = (0,0104\pm0,0006) \symup{mPas}  \notag .
+\end{gather}
 
 \subsection{Berechnung der Reynoldszahl}
 \label{sec:Berechnung der Reynoldszahl}
 
-Hier Formel aus Theorie referenzieren!!
-Daraus resultiert für die Reynoldszahl der kleinen Kugel:
+In \autoref{eqn:Reynoldszahl} kann die Strömungsgeschwindigkeit $v_{\symup{S}}$ der  Kugel ersetzt werden durch
+ihre Fallgeschwindigkeit:
+
+\begin{equation}
+  v_{s}=\frac{\Delta s}{\overline{t}}
+\end{equation}
+
+Dabei ist $\Delta s=5\symup{cm}$ und die Fallzeiten $\overline{t}$ wurden in
+\autoref{sec:Berechnung der Viskosität von destilliertem Wasser bei Raumtemperatur} und
+\autoref{sec:Berechnung der Apperaturkonstante der großen Kugel} emittelt.
+
+Setzt man alles ein resultiert für die Reynoldszahl der kleinen Kugel:
 
 \begin{gather}
   Re_{oben,kl} = (0.0218\pm0.0011) \notag \\
