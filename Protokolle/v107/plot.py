@@ -78,7 +78,7 @@ print(f'Reinoldszahl gr. Kugel unten: {Re_gr_U}')
 # Plots
 # dynamische Viskosität
 
-T_, t_O_1_, t_O_2_, t_U_1_, t_U_2_ = np.genfromtxt('content/data_T.txt', unpack = True)
+T_, t_O_1_, t_O_2_, t_U_1_, t_U_2_, rho_w = np.genfromtxt('content/data_T.txt', unpack = True)
 # Messunsicherheiten
 T = unp.uarray(T_,1)
 
@@ -87,35 +87,45 @@ t_O = unp.uarray(t_O_,0.5)
 t_U_=(t_U_1_+t_U_2_)/2
 t_U = unp.uarray(t_U_,0.5)
 
+eta_O = K_gr_O*(dichte_g-rho_w)*t_O
+eta_U = K_gr_U*(dichte_g-rho_w)*t_U
+print(f'eta_O: {eta_O}')
+print(f'eta_U : {eta_U}')
+
 
 # Plot Oben
-m , b , r ,p ,std =stats.linregress(1/noms(T),np.log(noms(t_O)))
+m , b , r ,p ,std =stats.linregress(1/noms(T),np.log(noms(eta_O)))
 M=unp.uarray(m,std)
 B=unp.uarray(b,std)
 plt.plot(1/noms(T), m*1/noms(T)+b, 'b', label = 'Fit')
-plt.errorbar(1/noms(T), np.log(noms(t_O)), xerr = stds(1/T), yerr = stds(unp.log(t_O)), fmt = 'r.', label='Daten')
+plt.errorbar(1/noms(T), np.log(noms(eta_O)), xerr = stds(1/T), yerr = stds(unp.log(eta_O)), fmt = 'r.', label='Daten')
 plt.xlabel(r'$\frac{1}{T}$ [$\unit{\per\celsius}$]')
-plt.ylabel(r'$\symup{ln}(t)$ [$\unit{\second}$]')
+plt.ylabel(r'$\symup{ln}(\eta)$ [$\unit{\milli\pascal\second}$]')
 plt.legend(loc='best')
 
 print(f'Geradegleichug Oben: {M}*1/T + {B}')
+print(f'y-Achsenabschnitt mit e hoch Oben: {np.e**B}')
 
 plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
 plt.savefig('build/plot_oben.pdf')
 plt.close()
 
 # Plot Unten
-m , b , r ,p ,std =stats.linregress(1/noms(T),np.log(noms(t_U)))
+m , b , r ,p ,std =stats.linregress(1/noms(T),np.log(noms(eta_U)))
 M=unp.uarray(m,std)
 B=unp.uarray(b,std)
 plt.plot(1/noms(T), m*1/noms(T)+b, 'b', label = 'Fit')
-plt.errorbar(1/noms(T), np.log(noms(t_U)), xerr = stds(1/T), yerr = stds(unp.log(t_U)), fmt = 'r.', label='Daten')
+plt.errorbar(1/noms(T), np.log(noms(eta_U)), xerr = stds(1/T), yerr = stds(unp.log(eta_U)), fmt = 'r.', label='Daten')
 plt.xlabel(r'$\frac{1}{T}$ [$\unit{\per\celsius}$]')
-plt.ylabel(r'$\symup{ln}(t)$ [$\unit{\second}$]')
+plt.ylabel(r'$\symup{ln}(\eta)$ [$\unit{\milli\pascal\second}$]')
 plt.legend(loc='best')
 
 print(f'Geradegleichug Unten: {M}*1/T + {B}')
+print(f'y-Achsenabschnitt mit e hoch Unten: {np.e**B}')
 
 plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
 plt.savefig('build/plot_unten.pdf')
 plt.close()
+
+# Kontrollplot
+#plt.plot(noms(T), eta_O)

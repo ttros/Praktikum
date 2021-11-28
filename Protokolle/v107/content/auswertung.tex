@@ -1,22 +1,23 @@
 \section{Auswertung}
 \label{sec:Auswertung}
 
-% O_k_mean: 6.58+/-0.16
-% U_k_mean: 6.58+/-0.16
-% O_g_mean: 43.17+/-0.22
-% U_g_mean: 42.70+/-0.22
-% Dichte kl. Kugel 2.22+/-0.04 in g/cm^3
-% Dichte gr. Kugel 2.38+/-0.04 in g/cm^3
-% Viskositaet kl. Kugel oben: 1.23+/-0.05
-% Viskositaet kl. Kugel unten: 1.23+/-0.05
-% Apperaturkonstante gr. Kugel oben: 0.0103+/-0.0006
-% Apperaturkonstante gr. Kugel unten: 0.0104+/-0.0006
-% Reinoldszahl kl. Kugel oben: 98+/-6
-% Reinoldszahl kl. Kugel unten: 98+/-6
-% Reinoldszahl gr. Kugel oben: 14.9+/-0.6
-% Reinoldszahl gr. Kugel unten: 15.1+/-0.7
-% Geradegleichug Oben: 22.4+/-1.6*1/T + 2.7+/-1.6
-% Geradegleichug Unten: 23.4+/-1.6*1/T + 2.7+/-1.6
+% O_k_mean: 6.58\pm0.16
+% U_k_mean: 6.58\pm0.16
+% O_g_mean: 43.17\pm0.22
+% U_g_mean: 42.70\pm0.22
+% Dichte kl. Kugel 2.22\pm0.04 in g/cm^3
+% Dichte gr. Kugel 2.38\pm0.04 in g/cm^3
+% Viskositaet kl. Kugel oben: 1.23\pm0.05
+% Viskositaet kl. Kugel unten: 1.23\pm0.05
+% Apperaturkonstante gr. Kugel oben: 0.0103\pm0.0006
+% Apperaturkonstante gr. Kugel unten: 0.0104\pm0.0006
+% Reinoldszahl kl. Kugel oben: 98\pm6
+% Reinoldszahl kl. Kugel unten: 98\pm6
+% Reinoldszahl gr. Kugel oben: 14.9\pm0.6
+% Reinoldszahl gr. Kugel unten: 15.1\pm0.7
+% Geradegleichug Oben: 22.1\pm1.6*1/T + -1.5\pm1.6
+% Geradegleichug Unten: 23.4\pm1.6*1/T + 2.7\pm1.6
+
 
 \subsection{Berechnung der Viskosität von destilliertem Wasser bei Raumtemperatur}
 \label{sec:Berechnung der Viskosität von destilliertem Wasser bei Raumtemperatur}
@@ -162,38 +163,56 @@ betrachteten Fälle eine laminare Strömung vor.
 \subsection{Temperaturabhängigkeit der Viskosität}
 \label{sec:Temperaturabhängigkeit der Viskosität}
 Die \textit{Andradesche Gleichung} aus \autoref{eqn:Andradesche Gleichung} wird logarithmiert, sodass sich ein linearer Zusammenhang
-zwischen dem Kehrwert der Temperatur und dem natürlichen Logarithmus der Fallzeit ergibt:
-\begin{align}
-  \eta (T)=A\cdot e^{\frac{B}{T}} \\
-  \Rightarrow \symup{ln}(\eta(T)) = B \cdot \frac{1}{T} + \symup{ln}(A) 
-\end{align}
+zwischen dem Kehrwert der Temperatur und dem natürlichen Logarithmus der dynamischen Viskosität $\eta$ ergibt:
+
 \begin{gather}
-  \eta (N)=A\cdot e^{\frac{B}{T}} \\
-  \Rightarrow \symup{ln}(\eta(T)) = B \cdot \frac{1}{T} + \symup{ln}(A) 
+  \eta (T)=A\cdot e^{\frac{B}{T}} \\
+  \Rightarrow \symup{ln}(\eta(T)) = B \cdot \frac{1}{T} + \symup{ln}(A) \label{eqn:Andradesche Gleichung umgestellt}
 \end{gather}
+Als Messfehler werden für die Temperatur eine Unsicherheit von $\Delta T = 1 \unit{\celsius}$ und für die Zeit 
+eine Messunsicherheit von $/Delta t = 0,5 \unit{\second}$ angesetzt.
+Die Messung wird jeweils für beide Richtung getrennt ausgewertet. Zunächst wird der Start von oben berachtet.
+Die dynamische Viskosität $\eta$ wird für die jeweiligen Temperaturen $T$ und verschiedenen Dichten $\rho_{\symup{Wasser}}$ 
+des destillierten Wassers berechnet und tabellarisch dargestellt (\autoref{tab:Temperaturabhängigkeit oben} 
+und \autoref{tab:Temperaturabhängigkeit unten}). Anschließend wird eine lineare Regression mit den Wertepaaren 
+\{$\frac{1}{T}, \symup{ln}(\rho)$\} durchgeführt. Für die \autoref{eqn:Andradesche Gleichung umgestellt} ergeben sich so die Parameter
+\begin{align}
+  B_{\symup{oben}}&=22.1\pm1.6 \\
+  \symup{ln}(A_{\symup{oben}}) &= -1.5\pm1.6 &\Leftrightarrow A_{\symup{oben}}&=0.22\pm0.34 .
+\end{align}
+
+Analog ergeben sich für den Start von unten die Werte 
+\begin{align}
+  B_{\symup{unten}} &= 23.1\pm1.6 \\
+  \symup{ln}(A_{\symup{unten}}) &= -1.5\pm1.6 &\Leftrightarrow A_{\symup{unten}}&=0.21\pm0.34 .
+\end{align}
+% $B_{\symup{unten}} = 23.1\pm1.6$ und 
+% $\symup{ln}(A_{\symup{unten}}) = -1.5\pm1.6$, also $A_{\symup{unten}}=0.21\pm0.34$.
 
 \begin{table} [H]
   \centering
   \caption{Fallzeiten der großen Kugel bei variabler Temperatur von oben}
   \label{tab:Temperaturabhängigkeit oben}
-  \begin{tabular}{S[table-format=2.0] S[table-format=2.0] S[table-format=2.0]}
+  \begin{tabular}{S[table-format=2.0] S[table-format=2.0] S[table-format=2.0] S[table-format=1.5] c}
     \toprule
-    {$T$ [°C]} & {$t$ [s] 1.Messung} & {$t$ [s] 2.Messung} \\
+    {$T$ [°C]} & {$t$ [s] 1.Messung} & {$t$ [s] 2.Messung}%
+    & {$\rho_{\symup{Wasser}}$ [$\unit{\gram\per\cubic\centi\metre}$]\cite{dichte}} & {$\eta$ [$\unit{\milli\pascal\second}$]} \\
     \midrule
-    22 &	39.76 &	39.46 \\
-    27 &	35.49 &	35.83 \\
-    30 &	33.33 &	32.33 \\
-    33 &	31.48 &	31.01 \\
-    36 &	29.77 &	29.62 \\
-    39 &	27.28 &	26.63 \\
-    42 &	26.36 &	26.03 \\
-    45 &	24.26 &	24.73 \\
-    48 &	23.88 &	23.74 \\
-    51 &	22.43 &	22.43 \\
+    22 &	39.76 &	39.46 & 0.99777 & 0,562 \pm 0,025\\
+    27 &	35.49 &	35.83 & 0.99651 & 0,507 \pm 0,022\\
+    30 &	33.33 &	32.33 & 0.99565 & 0,467 \pm 0,021\\
+    33 &	31.48 &	31.01 & 0.99470 & 0,445 \pm 0,020\\
+    36 &	29.77 &	29.62 & 0.99369 & 0,423 \pm 0,019\\
+    39 &	27.28 &	26.63 & 0.99260 & 0,384 \pm 0,017\\
+    42 &	26.36 &	26.03 & 0.99144 & 0,374 \pm 0,017\\
+    45 &	24.26 &	24.73 & 0.99021 & 0,350 \pm 0,016\\
+    48 &	23.88 &	23.74 & 0.98893 & 0,340 \pm 0,016\\
+    51 &	22.43 &	22.43 & 0.98758 & 0,321 \pm 0,015\\
+    
     \bottomrule
   \end{tabular}
 \end{table}
-
+	
 \begin{figure} [H]
   \centering
   \includegraphics[height=10cm]{build/plot_oben.pdf}
@@ -204,21 +223,22 @@ zwischen dem Kehrwert der Temperatur und dem natürlichen Logarithmus der Fallze
 \begin{table} [H]
   \centering
   \caption{Fallzeiten der großen Kugel bei variabler Temperatur von unten}
-  \label{tab:Temperaturabhängigkeit oben}
-  \begin{tabular}{S[table-format=2.0] S[table-format=2.0] S[table-format=2.0]}
+  \label{tab:Temperaturabhängigkeit unten}
+  \begin{tabular}{S[table-format=2.0] S[table-format=2.0] S[table-format=2.0] S[table-format=1.5] c}
     \toprule
-    {$T$ [°C]} & {$t$ [s] 1.Messung} & {$t$ [s] 2.Messung} \\
+    {$T$ [°C]} & {$t$ [s] 1.Messung} & {$t$ [s] 2.Messung}%
+    & {$\rho_{\symup{Wasser}}$ [$\unit{\gram\per\cubic\centi\metre}$]\cite{dichte}} & {$\eta$ [$\unit{\milli\pascal\second}$]} \\
     \midrule
-    22 &	40.12 &	39.06 \\
-    27 &  36.82 &	35.53 \\
-    30 &	33.51 &	33.12 \\
-    33 &	30.88 &	30.69 \\
-    36 &	29.12 &	28.86 \\
-    39 &	26.24 &	26.95 \\
-    42 &	25.83 &	26.02 \\
-    45 &	24.09 &	24.09 \\
-    48 &	23.17 &	23.35 \\
-    51 &	22.18 &	22.48 \\
+    22 &	40.12 &	39.06 & 0.99777 & 0,568\pm0,025\\
+    27 &  36.82 &	35.53 & 0.99651 & 0,520\pm0,023\\
+    30 &	33.51 &	33.12 & 0.99565 & 0,479\pm0,021\\
+    33 &	30.88 &	30.69 & 0.99470 & 0,443\pm0,020\\
+    36 &	29.12 &	28.86 & 0.99369 & 0,417\pm0,019\\
+    39 &	26.24 &	26.95 & 0.99260 & 0,383\pm0,017\\
+    42 &	25.83 &	26.02 & 0.99144 & 0,374\pm0,017\\
+    45 &	24.09 &	24.09 & 0.99021 & 0,348\pm0,016\\
+    48 &	23.17 &	23.35 & 0.98893 & 0,336\pm0,016\\
+    51 &	22.18 &	22.48 & 0.98758 & 0,323\pm0,015\\
     \bottomrule
   \end{tabular}
 \end{table}
