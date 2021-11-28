@@ -60,8 +60,8 @@ Dabei wird der Messfehler der Fallzeit mit $\Delta t = 0.5\symup{s}$ angesetzt.
 Durch Mittelwertbildung erhält man abschließend folgende Ergebnisse:
 
 \begin{gather}
-  \overline{t}_{oben} = (6,58\pm0,16) \symup{s} \notag \\
-  \overline{t}_{unten} = (6,58\pm0,16) \symup{s}  \notag .
+  \overline{t}_{\symup{oben}} = (6,58\pm0,16) \symup{s} \notag \\
+  \overline{t}_{\symup{unten}} = (6,58\pm0,16) \symup{s}  \notag .
 \end{gather}
 
 Setzt man diese Werte zusammen mit der gegebenen Apperaturkonstante $K=0.07640\frac{\symup{mPacm^{^{3}}}}{\symup{g}}$
@@ -70,8 +70,8 @@ $\rho_{Fl}=\rho_{\symup{Wasser}}=0,99823 \unit{\gram\per\cubic\centi\metre}$ in
 \autoref{eqn:Viskosität} ein, erhält man folgende Ergebnisse für die Viskosität des destillierten Wassers:
 
 \begin{gather}
-  \eta_{oben} = (1,23\pm0,05) \symup{mPas}  \notag \\
-  \eta_{unten} = (1,23\pm0,05) \symup{mPas}  \notag .
+  \eta_{\symup{oben}} = (1,23\pm0,05) \symup{mPas}  \notag \\
+  \eta_{\symup{unten}} = (1,23\pm0,05) \symup{mPas}  \notag .
 \end{gather}
 
 \subsection{Berechnung der Apperaturkonstante der großen Kugel}
@@ -100,8 +100,8 @@ Auch hier wird der Messfehler der Fallzeit mit $\Delta t = 0.5\symup{s}$ angeset
 Durch Mittelwertbildung erhält man abschließend folgende Fallzeiten:
 
 \begin{gather}
-  \overline{t}_{oben} = (43.17\pm0,22) \symup{s} \notag \\
-  \overline{t}_{unten} = (42.70\pm0,22) \symup{s}  \notag .
+  \overline{t}_{\symup{oben}} = (43.17\pm0,22) \symup{s} \notag \\
+  \overline{t}_{\symup{unten}} = (42.70\pm0,22) \symup{s}  \notag .
 \end{gather}
 
 Aus dem gemessenen Durchmesser der großen Glaskugel $d_{gr}=(1,585\pm0.01) \unit{\centi\metre}$ und der angegebenen Masse
@@ -118,15 +118,15 @@ verwendet.
 \autoref{eqn:Viskosität} wird nun nach der Apperaturkonstante $K$ aufgelöst:
 
 \begin{equation}
-  K=\frac{\eta}{\rho_{\symup{K}}-\rho_{\symup{Fl}})\cdot t}
+  K=\frac{\eta}{(\rho_{\symup{K}}-\rho_{\symup{Fl}})\cdot t}
 \end{equation}
 
 Nun werden alle Werte eingesetzt und die Ergebnisse verdoppelt, damit sich die Apperaturkonstante wie bei der kleinen
 Kugel auf 10cm bezieht. Es ergibt sich:
 
 \begin{gather}
-  K_{oben} = (0,0103\pm0,0006) \frac{\symup{mPacm^{^{3}}}}{\symup{g}}  \notag \\
-  K_{unten} = (0,0104\pm0,0006) \frac{\symup{mPacm^{^{3}}}}{\symup{g}}  \notag .
+  K_{\symup{oben}} = (0,0103\pm0,0006) \frac{\symup{mPacm^{^{3}}}}{\symup{g}}  \notag \\
+  K_{\symup{unten}} = (0,0104\pm0,0006) \frac{\symup{mPacm^{^{3}}}}{\symup{g}}  \notag .
 \end{gather}
 
 \subsection{Berechnung der Reynoldszahl}
@@ -136,7 +136,7 @@ In \autoref{eqn:Reynoldszahl} kann die Strömungsgeschwindigkeit $v_{\symup{S}}$
 ihre Fallgeschwindigkeit:
 
 \begin{equation}
-  v_{s}=\frac{\Delta s}{\overline{t}}
+  v_{\symup{s}}=\frac{\Delta s}{\overline{t}}
 \end{equation}
 
 Dabei ist $\Delta s=5\symup{cm}$ und die Fallzeiten $\overline{t}$ wurden in
@@ -146,15 +146,15 @@ Dabei ist $\Delta s=5\symup{cm}$ und die Fallzeiten $\overline{t}$ wurden in
 Setzt man alles ein resultiert für die Reynoldszahl der kleinen Kugel:
 
 \begin{gather}
-  Re_{oben,kl} = (98\pm6) \notag \\
-  Re_{unten,kl} = (98\pm6) \notag .
+  Re_{\symup{oben,kl}} = (98\pm6) \notag \\
+  Re_{\symup{unten,kl}} = (98\pm6) \notag .
 \end{gather}
 
 Durch gleiches vorgehen erhält man für die große Kugel:
 
 \begin{gather}
-  Re_{oben,gr} = (14.9\pm0.6) \notag \\
-  Re_{unten,gr} = (15,1\pm0.7) \notag .
+  Re_{\symup{oben,gr}} = (14.9\pm0.6) \notag \\
+  Re_{\symup{unten,gr}} = (15,1\pm0.7) \notag .
 \end{gather}
 
 Da alle Reynoldszahlen deutlich kleiner als die kritische Reynoldszahl $R_{\symup{crit}}\approx 1200$ sind, liegt für alle 
@@ -170,24 +170,22 @@ zwischen dem Kehrwert der Temperatur und dem natürlichen Logarithmus der dynami
   \Rightarrow \symup{ln}(\eta(T)) = B \cdot \frac{1}{T} + \symup{ln}(A) \label{eqn:Andradesche Gleichung umgestellt}
 \end{gather}
 Als Messfehler werden für die Temperatur eine Unsicherheit von $\Delta T = 1 \unit{\celsius}$ und für die Zeit 
-eine Messunsicherheit von $/Delta t = 0,5 \unit{\second}$ angesetzt.
+eine Messunsicherheit von $\Delta t = 0,5 \unit{\second}$ angesetzt.
 Die Messung wird jeweils für beide Richtung getrennt ausgewertet. Zunächst wird der Start von oben berachtet.
 Die dynamische Viskosität $\eta$ wird für die jeweiligen Temperaturen $T$ und verschiedenen Dichten $\rho_{\symup{Wasser}}$ 
 des destillierten Wassers berechnet und tabellarisch dargestellt (\autoref{tab:Temperaturabhängigkeit oben} 
 und \autoref{tab:Temperaturabhängigkeit unten}). Anschließend wird eine lineare Regression mit den Wertepaaren 
 \{$\frac{1}{T}, \symup{ln}(\rho)$\} durchgeführt. Für die \autoref{eqn:Andradesche Gleichung umgestellt} ergeben sich so die Parameter
 \begin{align}
-  B_{\symup{oben}}&=22.1\pm1.6 \\
-  \symup{ln}(A_{\symup{oben}}) &= -1.5\pm1.6 &\Leftrightarrow A_{\symup{oben}}&=0.22\pm0.34 .
+  B_{\symup{oben}}&=1860\pm50 \\
+  \symup{ln}(A_{\symup{oben}}) &= -6,88\pm0,16 &\Leftrightarrow A_{\symup{oben}}&=0,00103\pm0,00017 .
 \end{align}
 
 Analog ergeben sich für den Start von unten die Werte 
 \begin{align}
-  B_{\symup{unten}} &= 23.1\pm1.6 \\
-  \symup{ln}(A_{\symup{unten}}) &= -1.5\pm1.6 &\Leftrightarrow A_{\symup{unten}}&=0.21\pm0.34 .
+  B_{\symup{unten}} &= 1940\pm60 \\
+  \symup{ln}(A_{\symup{unten}}) &= -7,14\pm0,2 &\Leftrightarrow A_{\symup{unten}}&=0,00080\pm0.00016 .
 \end{align}
-% $B_{\symup{unten}} = 23.1\pm1.6$ und 
-% $\symup{ln}(A_{\symup{unten}}) = -1.5\pm1.6$, also $A_{\symup{unten}}=0.21\pm0.34$.
 
 \begin{table} [H]
   \centering

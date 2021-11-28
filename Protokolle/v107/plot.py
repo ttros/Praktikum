@@ -80,7 +80,7 @@ print(f'Reinoldszahl gr. Kugel unten: {Re_gr_U}')
 
 T_, t_O_1_, t_O_2_, t_U_1_, t_U_2_, rho_w = np.genfromtxt('content/data_T.txt', unpack = True)
 # Messunsicherheiten
-T = unp.uarray(T_,1)
+T = unp.uarray(T_+273.15,1)
 
 t_O_=(t_O_1_+t_O_2_)/2
 t_O = unp.uarray(t_O_,0.5)
@@ -95,11 +95,18 @@ print(f'eta_U : {eta_U}')
 
 # Plot Oben
 m , b , r ,p ,std =stats.linregress(1/noms(T),np.log(noms(eta_O)))
-M=unp.uarray(m,std)
-B=unp.uarray(b,std)
+
+M=unp.uarray(m,std) #M mit Fehler
+
+def FehlerB(x,sa):
+    b=sa*(sum(x**2)/len(x))**(1/2)
+    return b
+stds_B=FehlerB(1/noms(T),std)
+B=unp.uarray(b,stds_B)
+#B=unp.uarray(b,std)
 plt.plot(1/noms(T), m*1/noms(T)+b, 'b', label = 'Fit')
 plt.errorbar(1/noms(T), np.log(noms(eta_O)), xerr = stds(1/T), yerr = stds(unp.log(eta_O)), fmt = 'r.', label='Daten')
-plt.xlabel(r'$\frac{1}{T}$ [$\unit{\per\celsius}$]')
+plt.xlabel(r'$\frac{1}{T}$ [$\unit{\per\kelvin}$]')
 plt.ylabel(r'$\symup{ln}(\eta)$ [$\unit{\milli\pascal\second}$]')
 plt.legend(loc='best')
 
@@ -113,10 +120,15 @@ plt.close()
 # Plot Unten
 m , b , r ,p ,std =stats.linregress(1/noms(T),np.log(noms(eta_U)))
 M=unp.uarray(m,std)
-B=unp.uarray(b,std)
+
+def FehlerB(x,sa):
+    b=sa*(sum(x**2)/len(x))**(1/2)
+    return b
+stds_B=FehlerB(1/noms(T),std)
+B=unp.uarray(b,stds_B)
 plt.plot(1/noms(T), m*1/noms(T)+b, 'b', label = 'Fit')
 plt.errorbar(1/noms(T), np.log(noms(eta_U)), xerr = stds(1/T), yerr = stds(unp.log(eta_U)), fmt = 'r.', label='Daten')
-plt.xlabel(r'$\frac{1}{T}$ [$\unit{\per\celsius}$]')
+plt.xlabel(r'$\frac{1}{T}$ [$\unit{\per\kelvin}$]')
 plt.ylabel(r'$\symup{ln}(\eta)$ [$\unit{\milli\pascal\second}$]')
 plt.legend(loc='best')
 
@@ -128,4 +140,9 @@ plt.savefig('build/plot_unten.pdf')
 plt.close()
 
 # Kontrollplot
-#plt.plot(noms(T), eta_O)
+plt.plot(noms(T), noms(eta_U), 'r.', label = 'Daten')
+plt.plot(noms(T), (np.e)**noms(B)*(np.e)**(noms(M)/(noms(T))), 'b', label = 'Andradesche Scheissgleichung')
+plt.legend()
+plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
+plt.savefig('build/plot_kontroll.pdf')
+plt.close()
