@@ -87,8 +87,8 @@ t_O = unp.uarray(t_O_,0.5)
 t_U_=(t_U_1_+t_U_2_)/2
 t_U = unp.uarray(t_U_,0.5)
 
-eta_O = K_gr_O*(dichte_g-rho_w)*t_O
-eta_U = K_gr_U*(dichte_g-rho_w)*t_U
+eta_O = K_gr_O*(dichte_g-rho_w)*t_O*2
+eta_U = K_gr_U*(dichte_g-rho_w)*t_U*2
 print(f'eta_O: {eta_O}')
 print(f'eta_U : {eta_U}')
 

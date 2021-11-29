@@ -65,7 +65,7 @@ Durch Mittelwertbildung erhält man abschließend folgende Ergebnisse:
 \end{gather}
 
 Setzt man diese Werte zusammen mit der gegebenen Apperaturkonstante $K=0.07640\frac{\symup{mPacm^{^{3}}}}{\symup{g}}$
-und den ermittelten Dichten $\rho_{kl}=(2,22\pm0,04) \unit{\gram\per\cubic\centi\metre}$ und
+und den ermittelten Dichten $\rho_{\symup{kl}}=(2,22\pm0,04) \unit{\gram\per\cubic\centi\metre}$ und
 $\rho_{Fl}=\rho_{\symup{Wasser}}=0,99823 \unit{\gram\per\cubic\centi\metre}$ in
 \autoref{eqn:Viskosität} ein, erhält man folgende Ergebnisse für die Viskosität des destillierten Wassers:
 
@@ -175,16 +175,16 @@ Die Messung wird jeweils für beide Richtung getrennt ausgewertet. Zunächst wir
 Die dynamische Viskosität $\eta$ wird für die jeweiligen Temperaturen $T$ und verschiedenen Dichten $\rho_{\symup{Wasser}}$ 
 des destillierten Wassers berechnet und tabellarisch dargestellt (\autoref{tab:Temperaturabhängigkeit oben} 
 und \autoref{tab:Temperaturabhängigkeit unten}). Anschließend wird eine lineare Regression mit den Wertepaaren 
-\{$\frac{1}{T}, \symup{ln}(\rho)$\} durchgeführt. Für die \autoref{eqn:Andradesche Gleichung umgestellt} ergeben sich so die Parameter
+\{$\frac{1}{T}, \symup{ln}(\eta)$\} durchgeführt. Für die \autoref{eqn:Andradesche Gleichung umgestellt} ergeben sich so die Parameter
 \begin{align}
   B_{\symup{oben}}&=1860\pm50 \\
-  \symup{ln}(A_{\symup{oben}}) &= -6,88\pm0,16 &\Leftrightarrow A_{\symup{oben}}&=0,00103\pm0,00017 .
+  \symup{ln}(A_{\symup{oben}}) &= -6,19\pm0,16 &\Leftrightarrow A_{\symup{oben}}&=0,00206\pm0,00033 .
 \end{align}
 
 Analog ergeben sich für den Start von unten die Werte 
 \begin{align}
   B_{\symup{unten}} &= 1940\pm60 \\
-  \symup{ln}(A_{\symup{unten}}) &= -7,14\pm0,2 &\Leftrightarrow A_{\symup{unten}}&=0,00080\pm0.00016 .
+  \symup{ln}(A_{\symup{unten}}) &= -6,44\pm0,2 &\Leftrightarrow A_{\symup{unten}}&=0,000159\pm0.00032 .
 \end{align}
 
 \begin{table} [H]
@@ -196,16 +196,16 @@ Analog ergeben sich für den Start von unten die Werte
     {$T$ [°C]} & {$t$ [s] 1.Messung} & {$t$ [s] 2.Messung}%
     & {$\rho_{\symup{Wasser}}$ [$\unit{\gram\per\cubic\centi\metre}$]\cite{dichte}} & {$\eta$ [$\unit{\milli\pascal\second}$]} \\
     \midrule
-    22 &	39.76 &	39.46 & 0.99777 & 0,562 \pm 0,025\\
-    27 &	35.49 &	35.83 & 0.99651 & 0,507 \pm 0,022\\
-    30 &	33.33 &	32.33 & 0.99565 & 0,467 \pm 0,021\\
-    33 &	31.48 &	31.01 & 0.99470 & 0,445 \pm 0,020\\
-    36 &	29.77 &	29.62 & 0.99369 & 0,423 \pm 0,019\\
-    39 &	27.28 &	26.63 & 0.99260 & 0,384 \pm 0,017\\
-    42 &	26.36 &	26.03 & 0.99144 & 0,374 \pm 0,017\\
-    45 &	24.26 &	24.73 & 0.99021 & 0,350 \pm 0,016\\
-    48 &	23.88 &	23.74 & 0.98893 & 0,340 \pm 0,016\\
-    51 &	22.43 &	22.43 & 0.98758 & 0,321 \pm 0,015\\
+    22 &	39.76 &	39.46 & 0.99777 &  1,125 \pm 0,050 \\
+    27 &	35.49 &	35.83 & 0.99651 &  1,014 \pm 0,045 \\
+    30 &	33.33 &	32.33 & 0.99565 &  0,934 \pm 0,042 \\
+    33 &	31.48 &	31.01 & 0.99470 &  0,890 \pm 0,040 \\
+    36 &	29.77 &	29.62 & 0.99369 &  0,846 \pm 0,038 \\
+    39 &	27.28 &	26.63 & 0.99260 &  0,769 \pm 0,035 \\
+    42 &	26.36 &	26.03 & 0.99144 &  0,748 \pm 0,034 \\
+    45 &	24.26 &	24.73 & 0.99021 &  0,700 \pm 0,033 \\
+    48 &	23.88 &	23.74 & 0.98893 &  0,681 \pm 0,032 \\
+    51 &	22.43 &	22.43 & 0.98758 &  0,642 \pm 0,030 \\
     
     \bottomrule
   \end{tabular}
@@ -227,16 +227,16 @@ Analog ergeben sich für den Start von unten die Werte
     {$T$ [°C]} & {$t$ [s] 1.Messung} & {$t$ [s] 2.Messung}%
     & {$\rho_{\symup{Wasser}}$ [$\unit{\gram\per\cubic\centi\metre}$]\cite{dichte}} & {$\eta$ [$\unit{\milli\pascal\second}$]} \\
     \midrule
-    22 &	40.12 &	39.06 & 0.99777 & 0,568\pm0,025\\
-    27 &  36.82 &	35.53 & 0.99651 & 0,520\pm0,023\\
-    30 &	33.51 &	33.12 & 0.99565 & 0,479\pm0,021\\
-    33 &	30.88 &	30.69 & 0.99470 & 0,443\pm0,020\\
-    36 &	29.12 &	28.86 & 0.99369 & 0,417\pm0,019\\
-    39 &	26.24 &	26.95 & 0.99260 & 0,383\pm0,017\\
-    42 &	25.83 &	26.02 & 0.99144 & 0,374\pm0,017\\
-    45 &	24.09 &	24.09 & 0.99021 & 0,348\pm0,016\\
-    48 &	23.17 &	23.35 & 0.98893 & 0,336\pm0,016\\
-    51 &	22.18 &	22.48 & 0.98758 & 0,323\pm0,015\\
+    22 &	40.12 &	39.06 & 0.99777 &  1,137 \pm 0,050\\
+    27 &  36.82 &	35.53 & 0.99651 &  1,040 \pm 0,046\\
+    30 &	33.51 &	33.12 & 0.99565 &  0,958 \pm 0,043\\
+    33 &	30.88 &	30.69 & 0.99470 &  0,886 \pm 0,040\\
+    36 &	29.12 &	28.86 & 0.99369 &  0,835 \pm 0,038\\
+    39 &	26.24 &	26.95 & 0.99260 &  0,767 \pm 0,035\\
+    42 &	25.83 &	26.02 & 0.99144 &  0,748 \pm 0,035\\
+    45 &	24.09 &	24.09 & 0.99021 &  0,696 \pm 0,033\\
+    48 &	23.17 &	23.35 & 0.98893 &  0,672 \pm 0,032\\
+    51 &	22.18 &	22.48 & 0.98758 &  0,646 \pm 0,031\\
     \bottomrule
   \end{tabular}
 \end{table}
