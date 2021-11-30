@@ -1,14 +1,15 @@
 \section{Theorie}
 \label{sec:Theorie}
 
-In diesem Versuch wird das Relaxationsverhalten eines $RC$-Kreises untersucht.
+Das Ziel dieses Versuches ist es, die Zeitkonstante $RC$ des $RC$-Kreises zu bestimmen, den Phasenversatz und die Amplitudenveränderung
+zu betrachten und die Geeignetheit des $RC$-Kreises als Integrator zu prüfen.  
 Relaxation beschreibt allgemein die nicht-oszillatorische Rückkehr eines Systems in seinen Ausgangszustand.
 Die Änderung der betrachteten Größe ist meistens proportional zur Zeit $t$, somit ergibt sich eine asymptotische
 Annährung an den Ausgangszustand.\cite{v353}
 
 \subsection{Auf- und Entladen eines Kondensators}
 Ein wichtiges Beispiel für Relaxationsvorgänge ist das Entladen eines zuvor aufgeladenen Kondensators im $RC$-Kreis.
-Ein $RC$-Kreis besteht aus einem Widerstand $R$ und einem Kondensator mit der Kapazität $C$ sowie einem Schalter, um zwischen 
+Ein $RC$-Kreis besteht aus einem Widerstand $R$ und einem Kondensator mit der Kapazität $C$, sowie einem Schalter, um zwischen 
 Auf- und Entladen zu wechseln:
 \begin{figure}
     \centering
@@ -20,21 +21,21 @@ Auf- und Entladen zu wechseln:
 Der Spannungsverlauf beim Entladen ist gegeben durch:
 
 \begin{equation}
-    U(t)= U_{0}e^{-\frac{1}{RC}t}  \label{eqn:Entladen}
+    U(t)= U_{0}e^{-\frac{1}{RC}t}.  \label{eqn:Entladen}
 \end{equation}
 
 Beim Aufladen lautet die Formel:
 
 \begin{equation}
-    U(t)= U_{0}(1-e^{-\frac{1}{RC}t})  \label{eqn:Aufladen}
+    U(t)= U_{0}(1-e^{-\frac{1}{RC}t}).  \label{eqn:Aufladen}
 \end{equation}
 
-Dabei beschreibt $RC$ die Zeitkonstante $c$, diese ist das Maß für die Geschwindigkeit mit der das System seinem
+Dabei beschreibt $RC$ die Zeitkonstante, diese ist das Maß für die Geschwindigkeit mit der das System seinem
 Ausgangszustand zustrebt und soll in diesem Versuch experimentell ermittelt werden.
 Außerdem wird das Öffnen/Schließen des Schalters durch das Anlegen einer Rechteckspannung ersetzt.
 
 \subsection{Relaxationsvorgänge bei periodischer Auslenkung}
-Nun wird der RC-Kreis mit Wechselspannung $U(t) = U_{0}\cos(\omega t)$ betrieben:
+Nun wird der $RC$-Kreis mit Wechselspannung $U(t) = U_{0}\cos(\omega t)$ betrieben:
 \begin{figure}
     \centering
     \includegraphics{content/Theorie - RC-Kreis Wechselspannung.pdf}
