@@ -1,0 +1,5 @@
+[0] Config.pm:311> INFO - This is Biber 2.16
+[0] Config.pm:314> INFO - Logfile is 'status.blg'
+[85] biber-darwin:340> INFO - === Do Nov 18, 2021, 09:27:37
+[267] Utils.pm:411> ERROR - Cannot find 'status.bcf'!
+[267] Biber.pm:132> INFO - ERRORS: 1
