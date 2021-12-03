@@ -1,5 +1,6 @@
 \section{Einleitung}
-Wenn Kräfte $F_{\symup{i}}$ auf einen Körper wirken, kann es bei hinreichender Kraft zu einer Deformierung des Körpers kommen. Das Elastizitätsmodul $E$ ist eine Kenngröße dieser Deformation und wird in diesem Versuch für zwei Aluminiumkörper bestimmt.
+Wenn Kräfte $F_{\symup{i}}$ auf einen Körper wirken, kann es bei hinreichender Kraft zu einer Deformierung des Körpers kommen.
+Das Elastizitätsmodul $E$ ist eine Kenngröße dieser Deformation und wird in diesem Versuch für zwei Körpeer aus Kupfer bestimmt.
 
 \section{Theorie}
 \label{sec:Theorie}
@@ -16,7 +17,8 @@ definiert und ist eine material- und formabhängige Konstante.
 \end{equation}
 
 \subsection{Durchbiegung eines Stabes bei einseitiger Einspannung}
-Wird ein Stab, wie in \autoref{fig:stab einseitig eingespannt} zu sehen, einseitig eingespannt, verbiegt es sich bereits 
+\label{sec:einseitig}
+Wird ein Stab, wie in \autoref{fig:stab einseitig eingespannt} zu sehen, einseitig eingespannt, verbiegt er sich bereits 
 unter seinem Eigengewicht. An jeder Stelle $x$ des Stabes kann eine Durchbiegung $D(x)$ festgestellt werden.
 Wird weiteres Gewicht an ein Stabende angehängt, wirkt eine größere Gewichtskraft $F_{\symup{G}}$ und der Stab 
 verbiegt sich nochmals mehr und die Durchbiegung $D(x)$ wird an jeder Stelle $x$ größer.
@@ -35,7 +37,7 @@ ihre ursprüngliche Länge beibehält und als \textit{neutrale Phase} bezeichnet
 welche an der neutralen Phase angereifen, sind genau entgegengesetzt und heben sich daher auf. 
 Die \autoref{fig:neutrale phase} verdeutlicht dies.
 
-\begin{figure}
+\begin{figure} [H]
     \centering
     \includegraphics[height=6cm]{content/Abbildungen/neutrale_phase.pdf}
     \caption{Neutrale Phase Q mit wirkenden Zug- und Druckspannungen $\sigma$. \cite{v103}}
@@ -49,4 +51,30 @@ Das an der neutralen Phase $Q$ wirkende Drehmoment lässt sich also schreiben al
 \end{equation}
 Hierbei bezeichnet $y$ den Abstand des Flächenelements d$q$ von der neutralen Phase $x$ und $Q$ einen Querschnitt des Körpers.
 
+\subsection{Durchbiegung eines Stabes bei zweiseitiger Auflage}
+\label{sec:zweiseitig}
 
+Nun wird der Stab mit dem selben Gewicht wie in \autoref{sec:einseitig} belastet, welches hier jedoch in dessen Mitte platziert wird.
+Die Enden des Stabes liegen dabei nur auf und sind nicht wie in \autoref{sec:einseitig} fest eingespannt,
+\autoref{fig:stab beidseitig} verdeutlicht dies.
+
+\begin{figure} [H]
+    \centering
+    \includegraphics[height=6cm]{content/Abbildungen/stab_beidseitig.pdf}
+    \caption{Beidseitig aufliegender Stab. \cite{v103}}
+    \label{fig:stab beidseitig}
+\end{figure}
+
+\subsection{Versuchsapparatur}
+\label{sec:Apparatur}
+
+Um die Durchbiegung genau zu messen, wird die in \autoref{fig:Apparatur} abgebildete Apparatur verwendet.
+Die Stäbe können damit einseitig eingespannt oder beidseitig aufgelegt werden.
+Darüber befinden sich auf einer Schiene zwei Messuhren, mit denen der Abstand zum Stab präzise gemessen werden kann.
+
+\begin{figure} [H]
+    \centering
+    \includegraphics[height=6cm]{content/Abbildungen/Apparatur.pdf}
+    \caption{Versuchsapparatur. \cite{v103}}
+    \label{fig:Apparatur}
+\end{figure}
