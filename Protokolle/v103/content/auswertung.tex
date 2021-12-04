@@ -39,7 +39,7 @@ Die Regression liefert dann einen Wert für die Steigung $m$, aus dem durch umst
 \end{equation}
 
 Das Flächenträgheitsmoment $I$ ist aus \autoref{eq:Flächenträgheitsmoment rund} bekannt, die Gewichtskraft
-bestimmt sich aus $F=mg$.
+bestimmt sich aus $F=Mg$.
 
 \begin{table} [H]
   \centering
@@ -79,7 +79,7 @@ bestimmt sich aus $F=mg$.
 Als nächstes wird die beidseitige Auflage mit Gewicht in der Mitte betrachet,
 die Messwerte finden sich in \autoref{tab:rund beidseitig}.
 Da für diesen Fall die zwei theoretische Formeln (\autoref{eq:Durchbiegung beidseitig 1} und \autoref{eq:Durchbiegung beidseitig 2}) existieren,
-wird nun für jede Hälfte des Stabes ein Plot erzeugt.
+werden nun für jede Hälfte die Werte unabhängig geplottet.
 
 Dementsprechend werden auch zwei Hilfsvariablen verwendet:
 
@@ -140,9 +140,9 @@ liefert abschließend zwei weitere Werte für das Elastizitätsmodul.
 Es resultiert für das Elastizitätsmodul des runden Stabs:
 
 \begin{align}
-  E_{einseitig}&= \notag \\
-  E_{beidseitig,1}&= \notag \\
-  E_{beidseitig,2}&= \notag
+  E_{einseitig}&=\qty{111+-9}{\giga\pascal} \notag \\
+  E_{beidseitig,1}&=\qty{129+-11}{\giga\pascal} \notag \\
+  E_{beidseitig,2}&=\qty{129+-11}{\giga\pascal} \notag
 \end{align}
 
 \subsection{Elastizitätsmodul des eckigen Stabs}  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% ECKIG
@@ -227,7 +227,15 @@ Auch die Messfehler werden unverändert wie in \autoref{sec:Elastizitätsmodul r
 Es resultiert für das Elastizitätsmodul des eckigen Stabs:
 
 \begin{align}
-  E_{einseitig}&= \notag \\
-  E_{beidseitig,1}&= \notag \\
-  E_{beidseitig,2}&= \notag
+  E_{einseitig}&=\qty{98+-4}{\giga\pascal} \notag \\
+  E_{beidseitig,1}&=\qty{106+-6}{\giga\pascal}\notag \\
+  E_{beidseitig,2}&=\qty{113+-16}{\giga\pascal} \notag
 \end{align}
+
+%Elastizitätsmodul rund einseitig: (1.11+/-0.09)e+11
+%Elastizitätsmodul rund beidseitig 1: (1.29+/-0.11)e+11
+%Elastizitätsmodul rund beidseitig 2: (1.29+/-0.11)e+11
+%
+%Elastizitätsmodul eckig einseitig: (9.8+/-0.4)e+10
+%Elastizitätsmodul eckig beidseitig 1: (1.06+/-0.06)e+11
+%Elastizitätsmodul eckig beidseitig 2: (1.13+/-0.16)e+11
