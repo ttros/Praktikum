@@ -23,7 +23,7 @@ Um eine lineare Regressionsrechnung durchzuführen, wird eine Hilfsvariable $\et
   \label{eq:eta einseitig rund}
 \end{equation}
 
-Damit resultiert ein linearer Zusammenhang zwischen $D$ und $\eta(x)$:
+Setzt man $\eta(x)$ in \autoref{eq:Durchbiegung einseitig} ein,resultiert ein linearer Zusammenhang zwischen $D(\eta)$ und $\eta$:
 
 \begin{equation}
   D(\eta)=\frac{F}{2EI}\eta
@@ -76,8 +76,29 @@ bestimmt sich aus $F=mg$.
   \label{fig:rund_einseitig}
 \end{figure}
 
-Als nächstes wird die beidseitige Auflage mit Gewicht in der Mitte betrachet.
-Da für diesen Fall zwei theoretische Formeln existieren, wird nun für jede Hälfte ein Plot ezeugt.
+Als nächstes wird die beidseitige Auflage mit Gewicht in der Mitte betrachet,
+die Messwerte finden sich in \autoref{tab:rund beidseitig}.
+Da für diesen Fall die zwei theoretische Formeln (\autoref{eq:Durchbiegung beidseitig 1} und \autoref{eq:Durchbiegung beidseitig 2}) existieren,
+wird nun für jede Hälfte des Stabes ein Plot erzeugt.
+
+Dementsprechend werden auch zwei Hilfsvariablen verwendet:
+
+\begin{align}
+  \eta_{1}(x)&=3L^{2}x-4x^{3}  \\
+  \eta_{2}(x)&=4x^{3}-12Lx^{2}+9L^{2}x-L^{3}
+\end{align}
+
+Dabei ist $\eta_{1}(x)$ für $0\leq x\leq \frac{L}{2}$ gültig und $\eta_{2}(x)$ für $\frac{L}{2}\leq x\leq L$.
+Eingesetzt in \autoref{eq:Durchbiegung beidseitig 1} und \autoref{eq:Durchbiegung beidseitig 2}
+resultieren erneut die linearen Zusammenhänge:
+
+\begin{align}
+  D_{1}(\eta_{1})=\frac{F}{48EI}\eta_{1} \\
+  D_{2}(\eta_{2})=\frac{F}{48EI}\eta_{2}
+\end{align}
+
+Umstellen der Gleichungen analog zu \autoref{eq:Geradengleichung} und Bestimmung von m durch lineare Regressionen
+liefert abschließend zwei weitere Werte für das Elastizitätsmodul.
 
 \begin{table} [H]
   \centering
