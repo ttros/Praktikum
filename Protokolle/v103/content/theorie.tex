@@ -21,7 +21,7 @@ definiert und ist eine material- und formabhängige Konstante.
 Wird ein Stab, wie in \autoref{fig:stab einseitig eingespannt} zu sehen, einseitig eingespannt, verbiegt er sich bereits 
 unter seinem Eigengewicht. An jeder Stelle $x$ des Stabes kann eine Durchbiegung $D(x)$ festgestellt werden.
 Wird weiteres Gewicht an ein Stabende angehängt, wirkt eine größere Gewichtskraft $F_{\symup{G}}$ und der Stab 
-verbiegt sich nochmals mehr und die Durchbiegung $D(x)$ wird an jeder Stelle $x$ größer.
+verbiegt sich stärker, die Durchbiegung $D(x)$ wird an jeder Stelle $x$ größer.
 \begin{figure}
     \centering
     \includegraphics[height=6cm]{content/Abbildungen/stab_einseitig_eingespannt.pdf}
@@ -51,10 +51,26 @@ Das an der neutralen Phase $Q$ wirkende Drehmoment lässt sich also schreiben al
 \end{equation}
 Hierbei bezeichnet $y$ den Abstand des Flächenelements d$q$ von der neutralen Phase $x$ und $Q$ einen Querschnitt des Körpers.
 
+Mit diesem Ansatz lässt sich eine Formel für die Durchbiegung $D(x)$ aufstellen, wobei $x=0$ den eingespannten Punkt
+und $x=L$ den Endpunkt des Stabes beschreibt:
+
+\begin{equation}
+    D(x)=\frac{F}{2EI}(Lx^{2}-\frac{1}{3}x^{3})
+    \label{eq:Durchbiegung einseitig}
+\end{equation}
+
+Dabei beschreibt $F$ die Gewichskraft, $E$ das Elastizitätsmodul und $I$ das Flächenträgheitsmoment.
+Für einen runden Stab ist $I$ gegeben durch:
+
+\begin{equation}
+    I=\frac{\pi}{4}R^{4}
+    \label{eq:Flächenträgheitsmoment rund}
+\end{equation}
+
 \subsection{Durchbiegung eines Stabes bei zweiseitiger Auflage}
 \label{sec:zweiseitig}
 
-Nun wird der Stab mit dem selben Gewicht wie in \autoref{sec:einseitig} belastet, welches hier jedoch in dessen Mitte platziert wird.
+Nun wird der Stab wieder mit einem Gewicht belastet, welches hier jedoch in dessen Mitte platziert wird.
 Die Enden des Stabes liegen dabei nur auf und sind nicht wie in \autoref{sec:einseitig} fest eingespannt,
 \autoref{fig:stab beidseitig} verdeutlicht dies.
 
@@ -64,6 +80,28 @@ Die Enden des Stabes liegen dabei nur auf und sind nicht wie in \autoref{sec:ein
     \caption{Beidseitig aufliegender Stab. \cite{v103}}
     \label{fig:stab beidseitig}
 \end{figure}
+
+Für die Durchbiegung $D(x)$ erhält man nun 2 Formlen, abhängig von der Position auf dem Stab.
+Für $0\leq x\leq \frac{L}{2}$ gilt:
+
+\begin{equation}
+    D(x)=\frac{F}{48EI}(3L^{2}x-4x^{3})
+    \label{eq:Durchbiegung einseitig}
+\end{equation}
+
+Und für $\frac{L}{2}\leq x\leq L$ ergibt sich:
+
+\begin{equation}
+    D(x)=\frac{F}{48EI}(4x^{3}-12Lx^{2}+9L^{2}x-L^{3})
+    \label{eq:Durchbiegung einseitig}
+\end{equation}
+
+Für einen eckigen Stab mit quadratischem Querschnitt der Kantenlänge $a$ bestimmt sich das Flächenträgheitsmoment zu: 
+
+\begin{equation}
+    I=\frac{1}{12}a^{4}
+    \label{eq:Flächenträgheitsmoment rund}
+\end{equation}
 
 \subsection{Versuchsapparatur}
 \label{sec:Apparatur}
