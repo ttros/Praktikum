@@ -10,11 +10,11 @@ from uncertainties.unumpy import (nominal_values as noms,
 #runder Stab einseitig
 
 X_ohne_Fehler, D_0_rund_ohne_Fehler, D_G_rund_ohne_Fehler= np.genfromtxt('content/Daten/einseitig_rund.txt', unpack = True)
-X = unp.uarray(X_ohne_Fehler*0.01, 0.001)
+X = unp.uarray(X_ohne_Fehler*0.01, 0.002) ###0.001
 L = 0.48
 Eta = L*X**2-(1/3)*X**3
-D_0_rund = unp.uarray(D_0_rund_ohne_Fehler*0.001, 0.00001)
-D_G_rund = unp.uarray(D_G_rund_ohne_Fehler*0.001, 0.00001)
+D_0_rund = unp.uarray(D_0_rund_ohne_Fehler*0.001, 0.00005) ###0.00001
+D_G_rund = unp.uarray(D_G_rund_ohne_Fehler*0.001, 0.00005) ###0.00001
 
 D_X = (D_0_rund-D_G_rund)
 
@@ -25,15 +25,16 @@ B_rund_einseitig=unp.uarray(b_rund_einseitig,std) #B mit Fehler
 
 print(f'M rund einseitig: {M_rund_einseitig}')
 print(f'B rund einseitig: {B_rund_einseitig}')
-
+print(f'Eta: {Eta} \n D(x): {D_X}')
 X = np.linspace(0, 0.08, 100)
 
 plt.plot(X,m_rund_einseitig*X+b_rund_einseitig ,'b', label = 'Fit')
 plt.errorbar(noms(Eta), noms(D_X) , xerr = stds(Eta), yerr = stds(D_X), fmt = 'r.', label='Daten')
 plt.xlabel(r'$\eta(x)$ [$\unit{\cubic\meter}$]')
-plt.ylabel(r'$\Delta D(x)$ [$\unit{\meter}$]')
+plt.ylabel(r'$D(x)$ [$\unit{\meter}$]')
 plt.legend(loc='best')
 
+plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
 plt.savefig('build/plot_rund_einseitig.pdf')
 plt.close()
 
@@ -78,15 +79,16 @@ plt.subplot(1,2,1)
 plt.plot(X,m1_rund_beidseitig*X+b1_rund_beidseitig ,'b', label = 'Fit 1')  ####Gerade 1
 plt.errorbar(noms(Eta_1), noms(D1_X) , xerr = stds(Eta_1), yerr = stds(D1_X), fmt = 'r.', label='Daten 1')
 plt.xlabel(r'$\eta(x)$ [$\unit{\cubic\meter}$]')
-plt.ylabel(r'$\Delta D(x)$ [$\unit{\meter}$]')
+plt.ylabel(r'$D(x)$ [$\unit{\meter}$]')
 plt.legend(loc='best')
 plt.subplot(1,2,2)
 plt.plot(X,m2_rund_beidseitig*X+b2_rund_beidseitig ,'m', label = 'Fit 2')  ####Gerade 2
 plt.errorbar(noms(Eta_2), noms(D2_X) , xerr = stds(Eta_2), yerr = stds(D2_X), fmt = 'g.', label='Daten 2')
 plt.xlabel(r'$\eta(x)$ [$\unit{\cubic\meter}$]')
-#plt.ylabel(r'$\Delta D(x)$ [$\unit{\meter}$]')
+plt.ylabel(r'$D(x)$ [$\unit{\meter}$]')
 plt.legend(loc='best')
 
+plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
 plt.savefig('build/plot_rund_beidseitig.pdf')
 plt.close()
 
@@ -114,9 +116,10 @@ X = np.linspace(0, 0.08, 100)
 plt.plot(X,m_eckig_einseitig*X+b_eckig_einseitig ,'b', label = 'Fit')
 plt.errorbar(noms(Eta), noms(D_X) , xerr = stds(Eta), yerr = stds(D_X), fmt = 'r.', label='Daten')
 plt.xlabel(r'$\eta(x)$ [$\unit{\cubic\meter}$]')
-plt.ylabel(r'$\Delta D(x)$ [$\unit{\meter}$]')
+plt.ylabel(r'$D(x)$ [$\unit{\meter}$]')
 plt.legend(loc='best')
 
+plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
 plt.savefig('build/plot_eckig_einseitig.pdf')
 plt.close()
 
@@ -162,15 +165,16 @@ plt.subplot(1,2,1)
 plt.plot(X,m1_eckig_beidseitig*X+b1_eckig_beidseitig ,'b', label = 'Fit 1')  ####Gerade 1
 plt.errorbar(noms(Eta_1), noms(D1_X) , xerr = stds(Eta_1), yerr = stds(D1_X), fmt = 'r.', label='Daten 1')
 plt.xlabel(r'$\eta(x)$ [$\unit{\cubic\meter}$]')
-plt.ylabel(r'$\Delta D(x)$ [$\unit{\meter}$]')
+plt.ylabel(r'$D(x)$ [$\unit{\meter}$]')
 plt.legend(loc='best')
 plt.subplot(1,2,2)
 plt.plot(X,m2_eckig_beidseitig*X+b2_eckig_beidseitig ,'m', label = 'Fit 2')  ####Gerade 2
 plt.errorbar(noms(Eta_2), noms(D2_X) , xerr = stds(Eta_2), yerr = stds(D2_X), fmt = 'g.', label='Daten 2')
 plt.xlabel(r'$\eta(x)$ [$\unit{\cubic\meter}$]')
-#plt.ylabel(r'$\Delta D(x)$ [$\unit{\milli\meter}$]')
+plt.ylabel(r'$D(x)$ [$\unit{\milli\meter}$]')
 plt.legend(loc='best')
 
+plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
 plt.savefig('build/plot_eckig_beidseitig.pdf')
 plt.close()
 
@@ -196,6 +200,8 @@ E_eckig_einseitig = F_eckig_einseitig/(2*I_eckig*M_eckig_einseitig)
 E1_eckig_beidseitig = F_eckig_beidseitig/(48*I_eckig*M1_eckig_beidseitig)
 E2_eckig_beidseitig = F_eckig_beidseitig/(48*I_eckig*M2_eckig_beidseitig)
 
+E_rund_gesamt = (E_rund_einseitig + E1_rund_beidseitig + E2_rund_beidseitig)/3
+E_eckig_gesamt = (E_eckig_einseitig + E1_eckig_beidseitig + E2_eckig_beidseitig)/3
 
 print('\n')
 print('\n')
@@ -207,3 +213,9 @@ print('\n')
 print(f'Elastizitätsmodul eckig einseitig: {E_eckig_einseitig}')
 print(f'Elastizitätsmodul eckig beidseitig 1: {E1_eckig_beidseitig}')
 print(f'Elastizitätsmodul eckig beidseitig 2: {E2_eckig_beidseitig}')
+print('\n')
+print('\n')
+print(f'Elastizitätsmodul rund {E_rund_gesamt}')
+print(f'Elastizitätsmodul eckig {E_eckig_gesamt}')
+print('\n')
+print('\n')
