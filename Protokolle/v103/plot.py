@@ -171,7 +171,7 @@ plt.subplot(1,2,2)
 plt.plot(X,m2_eckig_beidseitig*X+b2_eckig_beidseitig ,'m', label = 'Fit 2')  ####Gerade 2
 plt.errorbar(noms(Eta_2), noms(D2_X) , xerr = stds(Eta_2), yerr = stds(D2_X), fmt = 'g.', label='Daten 2')
 plt.xlabel(r'$\eta(x)$ [$\unit{\cubic\meter}$]')
-plt.ylabel(r'$D(x)$ [$\unit{\milli\meter}$]')
+plt.ylabel(r'$D(x)$ [$\unit{\meter}$]')
 plt.legend(loc='best')
 
 plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
