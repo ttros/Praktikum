@@ -46,36 +46,33 @@ geringerem Fehler ablesen lassen. Die Fehler von $t$ und $U$ werden zu
   \centering
   \caption{Darstellung der Messwertpaare, welche aus \autoref{fig:aufgabe a - gitter und hilfslinien} abgelesen wurden.}
   \label{tab:aufgabe a}
-  \begin{tabular}{S[table-format=2.0] S[table-format=1.1]}
+  \begin{tabular}{S[table-format=2.0] S[table-format=1.1] c}
     \toprule
-    {$s$ [$\symup{\mu s}$]} & {$U$ [V]} \\
+    {$s$ [$\symup{\mu s}$]} & {$U$ [V]} & {ln($\frac{U}{U_0}$)} \\
     \midrule
-    0 &  5,0 \\
-    6	&  4,2 \\
-    10 & 3,8 \\
-    16 & 3,3 \\
-    20 & 3,0 \\
-    26 & 2,6 \\
-    30 & 2,3 \\
-    36 & 2,0 \\
-    40 & 1,8 \\
-    46 & 1,6 \\
-    50 & 1,4 \\
-    56 & 1,2 \\
-    60 & 1,1 \\
+    0 &  5,0 &  0,00\pm0,02\\
+    6	&  4,2 & -0,17\pm0,02\\
+    10 & 3,8 & -0,27\pm0,02\\
+    16 & 3,3 & -0,41\pm0,03\\
+    20 & 3,0 & -0,51\pm0,03\\
+    26 & 2,6 & -0,65\pm0,03\\
+    30 & 2,3 & -0,77\pm0,04\\
+    36 & 2,0 & -0,91\pm0,05\\
+    40 & 1,8 & -1,02\pm0,05\\
+    46 & 1,6 & -1,13\pm0,06\\
+    50 & 1,4 & -1,27\pm0,07\\
+    56 & 1,2 & -1,42\pm0,08\\
+    60 & 1,1 & -1,51\pm0,09\\
     \bottomrule
   \end{tabular}
 \end{table}
-
 \begin{figure}
   \centering
   \includegraphics{build/plot_a.pdf}
-  \caption{Halblogarithmischer Plot der Wertepaare aus \autoref{tab:aufgabe a} %
-  mit Ausgleichsgerade.}
+  \caption{Halblogarithmischer Plot der Wertepaare aus \autoref{tab:aufgabe a} mit konstantem %
+  Fehler $\Delta f = \qty{0,1}{\hertz}$ und Ausgleichsgerade.}
   \label{fig:plot_a}
 \end{figure}
-
-
 
 Die Parameter der
 Ausgleichsgerade vom Typ $\symup{ln}(\frac{U}{U_{0}}) = m \cdot t + b$ werden zu 
@@ -83,7 +80,7 @@ Ausgleichsgerade vom Typ $\symup{ln}(\frac{U}{U_{0}}) = m \cdot t + b$ werden zu
   m&=-0,02505\pm0,00018\,\unit{\per\second} \\
   b&=0,0136\pm0,0001 \notag
 \end{align} 
-bestimmt. Unter Benutzung der Gauschen-Fehlerformel...!!!!!!!!!!!!!!!
+bestimmt.
 Die Zeitkonstante $RC$ ist folglich
 \begin{gather}
   RC = \frac{1}{m} = (39,92\pm0,28)\,\symup{\mu s}.
@@ -137,25 +134,26 @@ gerundeten Werte aus \autoref{tab:aufgabe c} verwendet, sondern die exakteren We
 \begin{figure}
   \centering
   \includegraphics{build/plot_b.pdf}
-  \caption{Plot der Wertepaare aus \autoref{tab:aufgabe c} mit nicht-linearer Ausgleichsfunktion \autoref{eq:ausgleichsfunktion aufgabe c}.}
+  \caption{Plot der Wertepaare aus \autoref{tab:aufgabe c} mit nicht-linearer Ausgleichsfunktion \autoref{eq:ausgleichsfunktion aufgabe c}.%
+  Hierbei sind die Werte mit einer kostanten Messungenauigkeit von $\Delta \frac{A}{U_0} = 0,035$ und $\Delta \omega = \qty{0,1}{\hertz}$ behaftet.}
   \label{fig:plot_b}
 \end{figure}
 
 \begin{figure}[H]
 Die nicht-lineare Ausgleichsrechnung liefert für die Funktion 
   \begin{equation}
-    \frac{A}{U_{0}} = \frac{1}{\sqrt{1+{\omega}^{2}\cdot (RC)^2}}
+    \frac{A}{U_{0}} = \frac{1}{\sqrt{1+{\omega}^{2}\cdot (RC)^2}} 
     \label{eq:ausgleichsfunktion aufgabe c}
   \end{equation}
 den Wert $RC = (68,750206\pm0,000009)\,\symup{\mu s}$.
 \end{figure}
 
 
-% RC_a = 39.92+/-0.28 [\mu s]
-% Steigung m: -0.02505+/-0.00018
-% Achsenabschnitt b: 1.59580+/-0.00018
-% RC_b = [[-68.75020636093754+/-9.24706974716629e-06]] [\mu s]
-% RC_c = [[69.01295902314953+/-1.9899821596188524e-05]] [\mu s]
+% RC_a = 39.92\pm0.28 [\mu s]
+% Steigung m: -0.02505\pm0.00018
+% Achsenabschnitt b: 1.59580\pm0.00018
+% RC_b = [[-68.75020636093754\pm9.24706974716629e-06]] [\mu s]
+% RC_c = [[69.01295902314953\pm1.9899821596188524e-05]] [\mu s]
 
 \subsection{Bestimmung der Zeitkonstanten $RC$ über die Frequenzabhängigkeit der Phasenverschiebung%
  zwischen $U_{\symup{C}}$ und $U_{0}$}
@@ -178,27 +176,27 @@ den Wert $RC = (68,750206\pm0,000009)\,\symup{\mu s}$.
   \centering
   \caption{Messwert Frequenz $f$, Phasenverschiebung $a$, Periodenlänge $b$. Errechnete Phasenverschiebung $\varphi$.}
   \label{tab:aufgabe d}
-  \begin{tabular}{S[table-format=6.0] S[table-format=3.1] S[table-format=5.0] S[table-format=1.3] S[table-format=1.3]}
+  \begin{tabular}{S[table-format=6.0] S[table-format=3.1] S[table-format=5.0] S[table-format=1.5] S[table-format=1.3]}
     \toprule
     {$f$ [Hz]} & {$a$ [$\symup{\mu}$s]} & {$b$ [$\symup{\mu}$s]} & {$\varphi$ [rad]}%
      & {$\varphi$ [$\frac{\symup{\pi}}{\symup{rad}}$]}\\
     \midrule
-    50      & 0	  & 20000 & 0.000 & 0.000 \\
-    100     & 100 & 10000 & 0.063 & 0.020 \\
-    150     &	100 & 6500  & 0.097 & 0.031 \\
-    200     &	100 & 5000  & 0.126 & 0.040 \\ 
-    500     &	100	& 2000  & 0.314 & 0.100 \\
-    1000    &	100 & 1000  & 0.628 & 0.200 \\
-    1500    & 55  & 630   & 0.549 & 0.175 \\
-    2000    &	50  & 500   & 0.628 & 0.200 \\
-    3000    & 44  & 330   & 0.838 & 0.267 \\
-    4000    & 40  & 250   & 1.005 & 0.320 \\
-    5000    & 36  & 200   & 1.131 & 0.360 \\
-    10000   & 22  & 100   & 1.382 & 0.440 \\
-    20000   & 12  & 52    & 1.450 & 0.462 \\
-    30000   & 8   & 34    & 1.478 & 0.471 \\
-    50000   & 4,9 & 20    & 1.539 & 0.490 \\
-    100000  &	2,5 & 10    & 1.571 & 0.500 \\
+    50      & 0	  & 20000 &     \num{0.0+-0.00003}     & 0.000 \\ 
+    100     & 100 & 10000 &     \num{0.06283+-0.00006} & 0.020 \\ 
+    150     &	100 & 6500  &     \num{0.09666+-0.00009} & 0.031 \\ 
+    200     &	100 & 5000  &     \num{0.12566+-0.00012} & 0.040 \\  
+    500     &	100	& 2000  &     \num{0.3141+-0.0003}   & 0.100 \\ 
+    1000    &	100 & 1000  &     \num{0.6283+-0.0006}   & 0.200 \\ 
+    1500    & 55  & 630   &     \num{0.5485+-0.0010}   & 0.175 \\ 
+    2000    &	50  & 500   &     \num{0.6283+-0.0012}   & 0.200 \\ 
+    3000    & 44  & 330   &     \num{0.8377+-0.0019}   & 0.267 \\ 
+    4000    & 40  & 250   &     \num{1.0053+-0.0025}   & 0.320 \\ 
+    5000    & 36  & 200   &     \num{1.1309+-0.0031}   & 0.360 \\ 
+    10000   & 22  & 100   &     \num{1.3823+-0.0064}   & 0.440 \\ 
+    20000   & 12  & 52    &     \num{1.449+-0.012}     & 0.462 \\ 
+    30000   & 8   & 34    &     \num{1.478+-0.018}     & 0.471 \\ 
+    50000   & 4,9 & 20    &     \num{1.539+-0.032}     & 0.490 \\ 
+    100000  &	2,5 & 10    &     \num{1.570+-0.064}     & 0.500 \\ 
     \bottomrule
   \end{tabular}
 \end{table}
@@ -206,7 +204,7 @@ den Wert $RC = (68,750206\pm0,000009)\,\symup{\mu s}$.
 \begin{figure} [H]
   \centering
   \includegraphics{build/plot_c.pdf}
-  \caption{Plot der Wertepaare aus \autoref{tab:aufgabe d} mit nicht-linearer%
+  \caption{Plot der Wertepaare aus \autoref{tab:aufgabe d} mit konstantem Fehler $\Delta \omega = \qty{0,1}{\hertz}$ und nicht-linearer%
    Ausgleichsfunktion \autoref{eq:Formel für Phasenverschiebung}.}
   \label{fig:plot_c}
 \end{figure}
@@ -278,14 +276,25 @@ zeigt sich auch hier, dass der $RC$-Kreis für bestimmte Frequenzen als Integrat
   \caption{Sinusspannung $U_{0}$ und Kondensatorspannung mit $f=5$kHz.}
   \label{fig:aufgabe d - sinusspannung}
 \end{figure}
-<<<<<<< HEAD
-||||||| ccf210f
-
-=======
 
 % \begin{equation}
 %   \Delta f = \sqrt{{\Bigl(\frac{\symup{d}f}{\symup{d}y_{1}} \cdot \Delta y_{1}\Bigr)}^{2} + ...%
 %    + {\Bigl(\frac{\symup{d}f}{\symup{d}y_{n}} \cdot \Delta y_{n}\Bigr)}^{2} }
 %   \label{eq:gauss-fehler}
 % \end{equation}
->>>>>>> 8f44e9e4d87f56ad8e25c3a3936e5ff03a547087
+    % 0.0\pm1e-05 
+    % 0.02\pm0.000020000999975001253
+    % 0.03076923076923077\pm0.00003077287188287813 
+    % 0.04\pm0.00004000799920015996
+    % 0.1\pm0.00010012492197250394 
+    % 0.2\pm0.0002009975124224178
+    % 0.1746031746031746\pm0.0003186677936749516 
+    % 0.2\pm0.0004019950248448356
+    % 0.26666666666666666\pm0.0006114240788049113 
+    % 0.32\pm0.0008101752896750185
+    % 0.36\pm0.0010160708636704433 
+    % 0.44\pm0.002047828117787233
+    % 0.46153846153846156\pm0.003947237888794773
+    % 0.47058823529411764\pm0.006042992801582347
+    % 0.49000000000000005\pm0.010295751551003941 
+    % 0.5\pm0.02061552812808831
