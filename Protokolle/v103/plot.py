@@ -57,7 +57,7 @@ D2_G_rund = unp.uarray(D2_G_rund_ohne_Fehler*0.001, 0.00001)
 D1_X = (D1_0_rund-D1_G_rund)
 D2_X = (D2_0_rund-D2_G_rund)
 
-X = np.linspace(0, 0.2, 100)
+X = np.linspace(0, 0.17, 100)
 
 m1_rund_beidseitig , b1_rund_beidseitig , r ,p ,std =stats.linregress(noms(Eta_1),noms(D1_X))   ####Fit M1
 
@@ -143,7 +143,7 @@ D2_G_eckig = unp.uarray(D2_G_eckig_ohne_Fehler*0.001, 0.00001)
 D1_X = (D1_0_eckig-D1_G_eckig)
 D2_X = (D2_0_eckig-D2_G_eckig)
 
-X = np.linspace(0, 0.2, 100)
+X = np.linspace(0, 0.17, 100)
 
 m1_eckig_beidseitig , b1_eckig_beidseitig , r ,p ,std =stats.linregress(noms(Eta_1),noms(D1_X))   ####Fit M1
 
