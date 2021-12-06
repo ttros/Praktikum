@@ -10,11 +10,11 @@ from uncertainties.unumpy import (nominal_values as noms,
 #runder Stab einseitig
 
 X_ohne_Fehler, D_0_rund_ohne_Fehler, D_G_rund_ohne_Fehler= np.genfromtxt('content/Daten/einseitig_rund.txt', unpack = True)
-X = unp.uarray(X_ohne_Fehler*0.01, 0.002) ###0.001
+X = unp.uarray(X_ohne_Fehler*0.01, 0.001) ###0.001
 L = 0.48
 Eta = L*X**2-(1/3)*X**3
-D_0_rund = unp.uarray(D_0_rund_ohne_Fehler*0.001, 0.00005) ###0.00001
-D_G_rund = unp.uarray(D_G_rund_ohne_Fehler*0.001, 0.00005) ###0.00001
+D_0_rund = unp.uarray(D_0_rund_ohne_Fehler*0.001, 0.00001) ###0.00001
+D_G_rund = unp.uarray(D_G_rund_ohne_Fehler*0.001, 0.00001) ###0.00001
 
 D_X = (D_0_rund-D_G_rund)
 

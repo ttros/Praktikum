@@ -5,13 +5,13 @@
 \label{sec:Elastizitätsmodul rund}
 
 Die Messwerte für die Durchbiegung des runden Stabes bei einseitiger Einspannung ohne Gewicht $D_{0}(x)$
-und mit Gewicht $D_{G}(x)$ sind in \autoref{tab:rund einseitig} aufgeführt.
+und mit Gewicht $D_{\symup{G}}(x)$ sind in \autoref{tab:rund einseitig} aufgeführt.
 Deren Messfehler wird dabei mit $\Delta D(x) =  0,01\,\symup{mm}$ angesetzt, während bei der horizontalen Position
 $x$ mit einem Fehler von $\Delta x = 0,1\,\symup{cm}$ gerechnet wird.
 Die tatsächliche Durchbiegung $D(x)$ wird aus der Differenz der Werte berechnet:
 
 \begin{equation}
-  D(x)= D_{0}(x)-D_{G}(x) \notag
+  D(x)= D_{0}(x)-D_{\symup{G}}(x) \notag
   \label{eq:Delta D}
 \end{equation}
 
@@ -23,7 +23,7 @@ Um eine lineare Regressionsrechnung durchzuführen, wird eine Hilfsvariable $\et
   \label{eq:eta einseitig rund}
 \end{equation}
 $L$ wird wie in \autoref{fig:stab einseitig eingespannt} zu sehen bestimmt und ergibt sich zu $L=\qty{0,48}{\metre}$.
-Setzt man $\eta(x)$ in \autoref{eq:Durchbiegung einseitig} ein,resultiert ein linearer Zusammenhang zwischen $D(\eta)$ und $\eta$:
+Setzt man $\eta(x)$ in \autoref{eq:Durchbiegung einseitig} ein, resultiert ein linearer Zusammenhang zwischen $D(\eta)$ und $\eta(x)$:
 
 \begin{equation}
   D(\eta)=\frac{F}{2EI}\eta
@@ -31,7 +31,7 @@ Setzt man $\eta(x)$ in \autoref{eq:Durchbiegung einseitig} ein,resultiert ein li
 \end{equation}
 
 Nun wird $\eta(x)$ in Abhängigkeit von $D(x)$ in \autoref{fig:rund_einseitig} geplottet.
-Die Regression liefert dann einen Wert für die Steigung $m$, aus dem durch umstellen das Elastizitätsmodul bestimmt werden kann:
+Die Regression liefert dann einen Wert für die Steigung $m$, aus dem durch Umstellen das Elastizitätsmodul bestimmt werden kann:
 
 \begin{equation}
   \frac{F}{2EI}=m \Leftrightarrow E=\frac{F}{2Im}
@@ -47,7 +47,7 @@ bestimmt sich aus $F=Mg$.
   \label{tab:rund einseitig}
   \begin{tabular}{S[table-format=2.0] S[table-format=2.0] S[table-format=2.0]}
     \toprule
-    {$x$ [cm]} & {$D_{0}(x)$ [mm]} & {$D_{G}(x)$ [mm] ($550\,\symup{g}$)} \\
+    {$x$ [cm]} & {$D_{0}(x)$ [mm]} & {$D_{\symup{G}}(x)$ [mm] ($550\,\symup{g}$)} \\
     \midrule
      3 & 8.00 & 7.95 \\
      6 & 7.93 & 7.82 \\
@@ -154,7 +154,7 @@ Mit \autoref{eq:Elastizitätsmodul aus Steigung} ergibt sich das Elastizitätsmo
   E_{\symup{beidseitig,2}}&=\qty{129+-11}{\giga\pascal}. \notag
 \end{align}
 
-Der Mittelwert als bester Schätzwert für das tatsächliche Elastizitätsmodul $E$ von Kupfer lässt sich zu
+Der Mittelwert, als bester Schätzwert für das tatsächliche Elastizitätsmodul $E$ von Kupfer, lässt sich zu
 \begin{equation}
   \bar{E}_{\symup{rund}} = \qty{123+-10}{\giga\pascal} \notag
 \end{equation}
