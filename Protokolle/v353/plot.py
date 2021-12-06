@@ -16,7 +16,7 @@ M=unp.uarray(m,std)
 B=unp.uarray(b,std)
 
 plt.plot(t, m*t+b, 'b', label='Fit')
-plt.annotate(r'$\symup{ln}(\frac{U}{U_{0}}) =  0,025\cdot t + 1,595$', [-0.8,-0.8])
+plt.annotate(r'$\symup{ln}(\frac{U}{U_{0}}) =  -0,025\cdot t - 0,013$', [-0.8,-0.8])
 plt.errorbar(t, np.log(u/5), xerr = stds(T), yerr = stds(unp.log(U/5)), fmt = "r.", label='Daten')
 #plt.plot(t, np.log(U), 'rx', label='Daten')
 plt.xlabel(r'$t$ [$\symup{\mu}$s]')
