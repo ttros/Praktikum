@@ -88,7 +88,7 @@ plt.close()
 
 ######
 # dynamisch, lang
-t_roh, T_1_c, T_2_c, T_3_c, T_4_c, T_5_c, T_6_c, T_7_c, T_8_c = np.genfromtxt('content/data/data_dynamisch_kurz.txt', unpack = True)
+t_roh, T_1_c, T_2_c, T_3_c, T_4_c, T_5_c, T_6_c, T_7_c, T_8_c = np.genfromtxt('content/data/data_dynamisch_lang.txt', unpack = True)
 t = t_roh * 2
 T_1 = cToK(T_1_c)
 T_2 = cToK(T_2_c)
@@ -100,7 +100,7 @@ T_7 = cToK(T_7_c)
 T_8 = cToK(T_8_c)
 
 plt.plot(t, T_7, '.',markersize = mksz, label = r'$T_{7}$, Edelstahl, nah')
-plt.plot(t, T_8, '.', markersize = mksz, label = r'$T_{8}$, Edelstahl, fern')
+plt.plot(t, T_8, '.', markersize = 1.0, label = r'$T_{8}$, Edelstahl, fern')
 
 plt.xlabel(r'$t / \unit{\second}$')
 plt.ylabel(r'$T / \unit{\kelvin}$')
