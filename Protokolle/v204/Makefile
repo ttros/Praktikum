@@ -1,7 +1,7 @@
 all: build/v204.pdf
 
 # hier Python-Skripte:
-build/plot_plot_statisch.pdf: plot.py ../matplotlibrc ../header-matplotlib.tex | build
+build/plot_statisch.pdf: plot.py ../matplotlibrc ../header-matplotlib.tex | build
 	# so that matplotlib can find the tex header when running
 	# LaTeX in the tmp directory
 	# and set the matplotlibrc
