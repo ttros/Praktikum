@@ -21,14 +21,15 @@ In der Folgenden Tabelle sind Materialeigenschaften der Metallstäbe dargestellt
 
 \subsection{Statische Methode}
 \label{sec:auswertung statische methode}
-Der nachfolgende Plot zeigt den Verlauf der Temperaturen der verschiedenen Metallstäbe. Dabei werden jeweils die Daten der
-fernen Thermoelemente verwendet. Es ist eindeutig zu erkennen, dass die Temperatur des Aluminiumstabes am schnellsten steigt
+In \autoref{fig:temperaturverlauf statisch, fern} ist der Temperaturverlauf der verschiedenen Metallstäbe zu sehen.
+Dabei werden jeweils die Daten der fernen Thermoelemente verwendet.
+Es ist eindeutig zu erkennen, dass die Temperatur des Aluminiumstabes am schnellsten steigt
 und außerdem den höchsten Wert aller Stäbe erreicht. Außerdem wird deutlich, dass die Kurven der beiden Messingstäbe zu Beginn
 nah beieinander liegen. Im Verlauf der Zeit steigt die Temperatur des breiten Messingstabes jedoch höher als die des schmalen
 Messingstabes. Für die Temperatur des Edelstahlstabes ist zunächst kaum eine Erhöhung zu beobachten und auch nach einiger Zeit
 ist der Edelstahlstab deutlich weniger erwärmt als die anderen Stäbe.
 
-\begin{figure}
+\begin{figure} [H]
   \centering
   \includegraphics{build/plot_statisch.pdf}
   \caption{Plot der Temperaturverläufe der fernen Thermoelemente.}
@@ -37,10 +38,10 @@ ist der Edelstahlstab deutlich weniger erwärmt als die anderen Stäbe.
 
 Wie auch schon in \autoref{fig:temperaturverlauf statisch, fern} zeigen sich nach $\qty{700}{\second}$ klare Unterschiede in den
 Temperaturen der Stäbe.
-\begin{table}
+\begin{table} [H]
   \centering
   \caption{Temperaturen der Stäbe nach $\qty{700}{\second}$.}
-  \label{tab:materialeigenschaften}
+  \label{tab:Stabtemperaturen}
   \begin{tabular}{S[table-format=3.2] S[table-format=3.2] S[table-format=3.2] S[table-format=3.2]}
     \toprule
     {$T_{\symup{Messing (schmal)}} / \unit{\kelvin}$} & {$T_{\symup{Messing (breit)}} / \unit{\kelvin}$} &%
@@ -53,10 +54,14 @@ Temperaturen der Stäbe.
 
 Es wird klar, dass Aluminium die beste und Edelstahl die schlechteste Wärmeleitfähigkeit $\kappa$ hat.
 
-\begin{table}
+Als nächstes wird der Wärmestrom in den Stäben für 5 verschiedene Messzeiten bestimmt.
+In \autoref{tab:Temperaturdifferenzen} sind die Temperaturdifferenzen zwischen den zwei Messpunkten von allen
+vier Stäben dargestellt.
+
+\begin{table} [H]
   \centering
   \caption{Temperaturdifferenzen der Stäbe zu ausgewählten Zeitpunkten $t$.}
-  \label{tab:materialeigenschaften}
+  \label{tab:Temperaturdifferenzen}
   \begin{tabular}{l S[table-format=1.2] S[table-format=1.2] S[table-format=1.2] S[table-format=1.2]}
     \toprule
     {$t / \unit{\second}$} & {$\symup{\Delta}T_{\symup{Messing (schmal)}} / \unit{\kelvin}$} & {$\symup{\Delta}T_{\symup{Messing (breit)}} / \unit{\kelvin}$} &%
@@ -71,10 +76,21 @@ Es wird klar, dass Aluminium die beste und Edelstahl die schlechteste Wärmeleit
   \end{tabular}
 \end{table}
 
-\begin{table}
+Der Wärmestrom lässt sich nun durch Umstellen von \autoref{eq:Wärmemenge} bestimmen.
+
+\begin{equation}
+  \frac{\symup{d}Q}{\symup{d}t} = -\kappa A\frac{\symup{\Delta} T}{\symup{\Delta} x} \notag
+  \label{eq:Wärmestrom}
+\end{equation}
+
+Die Wärmeleitfähigkeit $\kappa$ sowie die Querschnittsfläche $A$ der Metalle werden dafür aus \autoref{tab:materialeigenschaften}
+entnommen. Dabei ist der Abstand $\symup{\Delta}x=3\,\symup{cm}$ zwischen den Temperaturmessungen für alle Stäbe gleich.
+Die Ergebnisse sind in \autoref{tab:Wärmestrom} dokumentiert.
+
+\begin{table} [H]
   \centering
   \caption{Wärmestrom der Stäbe zu ausgewählten Zeitpunkten $t$.}
-  \label{tab:materialeigenschaften}
+  \label{tab:Wärmestrom}
   \begin{tabular}{l S[table-format=-1.3] S[table-format=-1.3] S[table-format=-1.3] S[table-format=-1.3]}
     \toprule
     {$t / \unit{\second}$} & {$\left(\frac{\symup{d}Q}{\symup{d}t}\right)_{\symup{Messing (schmal)}} / \frac{\unit{\watt}}{\unit{\second}}$} & {$\left(\frac{\symup{d}Q}{\symup{d}t}\right)_{\symup{Messing (breit)}} / \frac{\unit{\watt}}{\unit{\second}}$} &%
@@ -85,12 +101,29 @@ Es wird klar, dass Aluminium die beste und Edelstahl die schlechteste Wärmeleit
     300 & -0.299 & -0.361  & -0.602 & -0.378 \\
     400 & -0.294 & -0.335  & -0.572 & -0.378 \\
     700 & -0.295 & -0.311  & -0.561 & -0.379 \\ 
-    
     \bottomrule
   \end{tabular}
 \end{table}
 
-\begin{figure}
+Abschließen werden für die statische Methode die Temperaturdifferenzen $T_{7}-T_{8}$ und $T_{2}-T_{1}$,
+also die Differenzen in dem breiten Messingstab und Edelstahlstab, berechnet und gegen die Zeit $t$ aufgetragen.
+Die resultierenden Verläufe sind in \autoref{fig:temperaturdifferenzen, messing, edelstahl} dargestellt.
+
+Vergleicht man die beiden Temperaturdifferenzen fällt auf, dass diese sich zu Beginn nahezu identisch entwickeln.
+Nach $50\,\symup{s}$ erreicht jedoch im Messingstab die Wärme den entfernteren Temperatursensor
+und es findet ein Temperaturausgleich statt.
+
+Somit verringert sich ab diesem Zeitpunkt das Temperaturgefälle im Messingstab aufgrund dessen vergleichsweise
+hohen Wärmeleitfähigkeit, die wie in \autoref{tab:materialeigenschaften} zu erkennen ist fast vier mal größer ist
+als die von Edelstahl.
+Nach $500\,\symup{s}$ wird daher im Messingstab nahezu ein konstantes Temperaturgefälle erreicht.
+
+Durch die geringe Wärmeleitfähigkeit von Edelstahl stellt sich ein Gleichgewicht erst nach  $150\,\symup{s}$ ein.
+Die Temperaturdifferenz ist demtensprechend auch deutlich höher, da die Wärme wesentlich länger braucht
+um das Stabende zu erreichen.
+
+
+\begin{figure} [H]
   \centering
   \includegraphics{build/plot_T_7-8.pdf}
   \caption{Verlauf der Temperaturdifferenzen der fernen und nahen %
@@ -98,7 +131,9 @@ Es wird klar, dass Aluminium die beste und Edelstahl die schlechteste Wärmeleit
   \label{fig:temperaturdifferenzen, messing, edelstahl}
 \end{figure}
 
-\begin{figure}
+\subsection{Dynamische Methode}
+
+\begin{figure} [H]
   \centering
   \includegraphics{build/plot_dynamisch_kurz.pdf}
   \caption{Temperaturverlauf des breiten Messingstabes mit dynamischer Messmethode und %
@@ -106,7 +141,7 @@ Es wird klar, dass Aluminium die beste und Edelstahl die schlechteste Wärmeleit
   \label{fig:temperaturdifferenzen kurz, messing, edelstahl}
 \end{figure}
 
-\begin{figure}
+\begin{figure} [H]
   \centering
   \includegraphics{build/plot_dynamisch_lang.pdf} 
   \caption{Temperaturverlauf des Edelstahlstabes mit dynamischer Messmethode und %
