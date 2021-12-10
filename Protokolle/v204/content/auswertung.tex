@@ -1,5 +1,32 @@
 \section{Auswertung}
 \label{sec:Auswertung}
+In der Folgenden Tabelle sind Materialeigenschaften der Metallstäbe dargestellt.
+\begin{table} [H]
+  \centering
+  \caption{Materialeigenschaften der Metallstäbe.}
+  \label{tab:materialeigenschaften}
+  \begin{tabular}{l S[table-format=1.0] S[table-format=1.1] S[table-format=1.1] S[table-format=4.0] S[table-format=3.0] S[table-format=3.0]}
+    \toprule
+    {Metall} & {Länge / $\unit{\centi\metre}$} & {Breite / $\unit{\centi\metre}$} & %
+    {Dicke / $\unit{\centi\metre}$} & {$\rho / \frac{\unit{\kilo\gram}}{\unit{\cubic\metre}}$} &%
+     {$c / \frac{\unit{\joule}}{\unit{\kilo\gram\kelvin}}$} & {$\kappa / \frac{\unit{\watt}}{\unit{\metre\kelvin}}$ \cite{czichos}}\\
+    \midrule
+    Messing (schmal)  & 9 & 0,7 & 0,4 & 8520 & 385 & 88  \\
+    Messing (breit)   & 9 & 1,2 & 0,4 & 8520 & 385 & 88  \\
+    Aluminium         & 9 & 1,2 & 0,4 & 2800 & 830 & 234 \\
+    Edelstahl         & 9 & 1,2 & 0,4 & 8000 & 400 & 25  \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\subsection{Statische Methode}
+\label{sec:auswertung statische methode}
+Der nachfolgende Plot zeigt den Verlauf der Temperaturen der verschiedenen Metallstäbe. Dabei werden jeweils die Daten der
+fernen Thermoelemente verwendet. Es ist eindeutig zu erkennen, dass die Temperatur des Aluminiumstabes am schnellsten steigt
+und außerdem den höchsten Wert aller Stäbe erreicht. Außerdem wird deutlich, dass die Kurven der beiden Messingstäbe zu Beginn
+nah beieinander liegen. Im Verlauf der Zeit steigt die Temperatur des breiten Messingstabes jedoch höher als die des schmalen
+Messingstabes. Für die Temperatur des Edelstahlstabes ist zunächst kaum eine Erhöhung zu beobachten und auch nach einiger Zeit
+ist der Edelstahlstab deutlich weniger erwärmt als die anderen Stäbe.
 
 \begin{figure}
   \centering
@@ -7,6 +34,24 @@
   \caption{Plot der Temperaturverläufe der fernen Thermoelemente.}
   \label{fig:temperaturverlauf statisch, fern}
 \end{figure}
+
+Wie auch schon in \autoref{fig:temperaturverlauf statisch, fern} zeigen sich nach $\qty{700}{\second}$ klare Unterschiede in den
+Temperaturen der Stäbe.
+\begin{table}
+  \centering
+  \caption{Temperaturen der Stäbe nach $\qty{700}{\second}$.}
+  \label{tab:materialeigenschaften}
+  \begin{tabular}{S[table-format=3.2] S[table-format=3.2] S[table-format=3.2] S[table-format=3.2]}
+    \toprule
+    {$T_{\symup{Messing (schmal)}} / \unit{\kelvin}$} & {$T_{\symup{Messing (breit)}} / \unit{\kelvin}$} &%
+     {$T_{\symup{Aluminium}} / \unit{\kelvin}$} & {$T_{\symup{Edelstahl}} / \unit{\kelvin}$}\\
+    \midrule
+    319,13 & 316,68 & 321,74 & 308,28 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+Es wird klar, dass Aluminium die beste und Edelstahl die schlechteste Wärmeleitfähigkeit $\kappa$ hat.
 
 \begin{figure}
   \centering
