@@ -1,2 +1,27 @@
 \section{Diskussion}
 \label{sec:Diskussion}
+Generell gilt es bei diesem Versuch zu beachten, dass die Isolation der Metallstäbe nicht sonderlich gut ist, wodurch ein Wärmeaustausch mit der 
+Umgebungswärme stattfindet, was wiederum die Messwerte beeinflusst.
+In \autoref{tab:ergebnisse mit literaturwerten} werden die Ergebnisse für den Wärmeleitfähigkeit $\kappa$ der verschiedenen Materialien 
+dargestellt und mit Literaturwerten verglichen. Es fällt auf, dass die Werte für Messing und Edelstahl in guter Übereinstimmung 
+zu den Literaturwerten stehen, wohingegen der Wert für Aluminium stark abweicht. Dies könnten eventuelle Ablesefehler aus dem Plot
+der Temperaturenwellen erklären. Auch denkbar wäre es, dass es sich bei dem Aluminiumstab um eine Aluminiumlegierung handelt. Werte für
+die Wärmeleitfähigkeit von Aluminiumlegierungungen liegen laut \cite{czichos} bei
+\begin{equation}
+    \kappa_{\symup{Al-Legierung}} = (121\,...\,230)\,\unit{\watt\per\metre\kelvin}.
+\end{equation}
+\begin{table} [H]
+    \centering
+    \caption{Ergebnisse der Wärmeleitfähigkeit $\kappa$ im Vergleich zu Literaturwerten.}
+    \label{tab:ergebnisse mit literaturwerten}
+    \begin{tabular}{l S[table-format=3.2] S[table-format=3.0] S[table-format=2.1]}
+      \toprule
+      {Material} & {$\kappa_{\symup{exp}} / \frac{\unit{\watt}}{\unit{\metre\kelvin}}$} &%
+      {$\kappa_{\symup{lit}} / \frac{\unit{\watt}}{\unit{\metre\kelvin}}$} & {Relativer Fehler} \\
+      \midrule
+        Messing     & 94.05  & 88  & 6,9\,\% \\ 
+        Aluminium   & 165,96 & 234 & 29,1\,\%\\
+        Edelstahl   & 12,51  & 14  & 10,1\,\%\\
+      \bottomrule
+    \end{tabular}
+  \end{table}

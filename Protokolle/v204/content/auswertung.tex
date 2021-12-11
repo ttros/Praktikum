@@ -14,7 +14,7 @@ In der Folgenden Tabelle sind Materialeigenschaften der Metallstäbe dargestellt
     Messing (schmal)  & 9 & 0,7 & 0,4 & 8520 & 385 & 88  \\
     Messing (breit)   & 9 & 1,2 & 0,4 & 8520 & 385 & 88  \\
     Aluminium         & 9 & 1,2 & 0,4 & 2800 & 830 & 234 \\
-    Edelstahl         & 9 & 1,2 & 0,4 & 8000 & 400 & 25  \\
+    Edelstahl         & 9 & 1,2 & 0,4 & 8000 & 400 & 14  \\
     \bottomrule
   \end{tabular}
 \end{table}
@@ -64,8 +64,9 @@ vier Stäben dargestellt.
   \label{tab:Temperaturdifferenzen}
   \begin{tabular}{l S[table-format=1.2] S[table-format=1.2] S[table-format=1.2] S[table-format=1.2]}
     \toprule
-    {$t / \unit{\second}$} & {$\symup{\Delta}T_{\symup{Messing (schmal)}} / \unit{\kelvin}$} & {$\symup{\Delta}T_{\symup{Messing (breit)}} / \unit{\kelvin}$} &%
-     {$\symup{\Delta}T_{\symup{Aluminium}} / \unit{\kelvin}$} & {$\symup{\Delta}T_{\symup{Edelstahl}} / \unit{\kelvin}$}\\
+    {} & {Messing schmal} & {Messing breit} & {Aluminium} & {Edelstahl} \\
+    {$t / \unit{\second}$} & {$\symup{\Delta}T / \unit{\kelvin}$} & {$\symup{\Delta}T / \unit{\kelvin}$} &%
+     {$\symup{\Delta}T / \unit{\kelvin}$} & {$\symup{\Delta}T / \unit{\kelvin}$}\\
     \midrule
     100 & 4,89 & 4,01 & 2,61 & 9,05 \\ 
     200 & 3,92 & 3,00 & 1,83 & 9,48 \\
@@ -76,7 +77,7 @@ vier Stäben dargestellt.
   \end{tabular}
 \end{table}
 
-Der Wärmestrom lässt sich nun durch Umstellen von \autoref{eq:Wärmemenge} bestimmen.
+Der Wärmestrom lässt sich nun durch Umstellen von \eqref{eq:Wärmemenge} bestimmen.
 
 \begin{equation}
   \frac{\symup{d}Q}{\symup{d}t} = -\kappa A\frac{\symup{\Delta} T}{\symup{\Delta} x} \notag
@@ -93,14 +94,15 @@ Die Ergebnisse sind in \autoref{tab:Wärmestrom} dokumentiert.
   \label{tab:Wärmestrom}
   \begin{tabular}{l S[table-format=-1.3] S[table-format=-1.3] S[table-format=-1.3] S[table-format=-1.3]}
     \toprule
-    {$t / \unit{\second}$} & {$\left(\frac{\symup{d}Q}{\symup{d}t}\right)_{\symup{Messing (schmal)}} / \frac{\unit{\watt}}{\unit{\second}}$} & {$\left(\frac{\symup{d}Q}{\symup{d}t}\right)_{\symup{Messing (breit)}} / \frac{\unit{\watt}}{\unit{\second}}$} &%
-     {$\left(\frac{\symup{d}Q}{\symup{d}t}\right)_{\symup{Aluminium}} / \frac{\unit{\watt}}{\unit{\second}}$} & {$\left(\frac{\symup{d}Q}{\symup{d}t}\right)_{\symup{Edelstahl}} / \frac{\unit{\watt}}{\unit{\second}}$}\\
+    {} & {Messing schmal} & {Messing breit} & {Aluminium} & {Edelstahl} \\
+    {$t / \unit{\second}$} & {$\left(\frac{\symup{d}Q}{\symup{d}t}\right) / \frac{\unit{\watt}}{\unit{\second}}$} & {$\left(\frac{\symup{d}Q}{\symup{d}t}\right) / \frac{\unit{\watt}}{\unit{\second}}$} &%
+     {$\left(\frac{\symup{d}Q}{\symup{d}t}\right) / \frac{\unit{\watt}}{\unit{\second}}$} & {$\left(\frac{\symup{d}Q}{\symup{d}t}\right) / \frac{\unit{\watt}}{\unit{\second}}$}\\
     \midrule
-    100 & -0.401 & -0.564  & -0.977 & -0.362 \\ 
-    200 & -0.321 & -0.422  & -0.685 & -0.379 \\
-    300 & -0.299 & -0.361  & -0.602 & -0.378 \\
-    400 & -0.294 & -0.335  & -0.572 & -0.378 \\
-    700 & -0.295 & -0.311  & -0.561 & -0.379 \\ 
+    100 & -0.401 & -0.564  & -0.977 & -0.202 \\ 
+    200 & -0.321 & -0.422  & -0.685 & -0.212 \\
+    300 & -0.299 & -0.361  & -0.602 & -0.212 \\
+    400 & -0.294 & -0.335  & -0.572 & -0.212 \\
+    700 & -0.295 & -0.311  & -0.561 & -0.212 \\ 
     \bottomrule
   \end{tabular}
 \end{table}
@@ -132,19 +134,78 @@ um das Stabende zu erreichen.
 \end{figure}
 
 \subsection{Dynamische Methode}
-
+Zur Bestimmung der Wärmeleitfähigkeit von Messing und Aluminium werden nun die gemessenen Temperaturen in \autoref{fig:temperaturwellen, messing} 
+und \autoref{fig:temperaturwellen, aluminium} dargestellt. Dafür müssen aus den Grafiken die Amplituden und der
+Phasendifferenz der Temperaturwellen abgelesen werden. Diese Werte werden dann in \eqref{eq:Kappa} eingesetzt und ergeben die
+Wärmeleitfähigkeit~$\kappa$.
 \begin{figure} [H]
   \centering
   \includegraphics{build/plot_dynamisch_kurz.pdf}
   \caption{Temperaturverlauf des breiten Messingstabes mit dynamischer Messmethode und %
   Periodendauer $T=\qty{80}{\second}$.}
-  \label{fig:temperaturdifferenzen kurz, messing, edelstahl}
+  \label{fig:temperaturwellen, messing}
 \end{figure}
 
+\begin{table} [H]
+  \centering
+  \caption{Abgelesene Amplituden $A$ und Phasendifferenz $\symup{\Delta}t$ und berechnter Wärmeleitfähigkeit $\kappa$ für den %
+  breiten Messingstab.}
+  \label{tab:ergebnisse messing, breit}
+  \begin{tabular}{S[table-format=1.0] S[table-format=1.0] S[table-format=2.1] S[table-format=2.2]}
+    \toprule
+    {$A_{\symup{nah}}/\unit{\kelvin}$} & {$A_{\symup{fern}}/\unit{\kelvin}$} & {$\symup{\Delta}t / \unit{\second}$} &%
+     {$\kappa / \frac{\unit{\watt}}{\unit{\metre\kelvin}}$} \\
+    \midrule
+    6 & 2 & 14,3 & 94.05 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\begin{figure} [H]
+  \centering
+  \includegraphics{build/plot_dynamisch_kurz_alu.pdf}
+  \caption{Temperaturverlauf des Aluminiumstabes mit dynamischer Messmethode und %
+  Periodendauer $T=\qty{80}{\second}$.}
+  \label{fig:temperaturwellen, aluminium}
+\end{figure}
+
+\begin{table} [H]
+  \centering
+  \caption{Abgelesene Amplituden $A$ und Phasendifferenz $\symup{\Delta}t$ und berechnter Wärmeleitfähigkeit $\kappa$ für den %
+  Aluminiumstab.}
+  \label{tab:ergebnisse aluminium}
+  \begin{tabular}{S[table-format=1.0] S[table-format=1.0] S[table-format=1.1] S[table-format=3.2]}
+    \toprule
+    {$A_{\symup{nah}}/\unit{\kelvin}$} & {$A_{\symup{fern}}/\unit{\kelvin}$} & {$\symup{\Delta}t / \unit{\second}$} &%
+     {$\kappa / \frac{\unit{\watt}}{\unit{\metre\kelvin}}$} \\
+    \midrule
+    8 & 4 & 9,1 & 165,96 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+Die Vorgehensweise für die Bestimmung der Wärmeleitfähigkeit $\kappa$ von Edelstahl ist identisch zu der vorherigen, nur werden
+nun die Daten der langen Periodendauer $T=\qty{200}{\second}$ betrachtet. Dies ist in \autoref{fig:temperaturwellen, edelstahl} 
+dargestellt.
 \begin{figure} [H]
   \centering
   \includegraphics{build/plot_dynamisch_lang.pdf} 
   \caption{Temperaturverlauf des Edelstahlstabes mit dynamischer Messmethode und %
   Periodendauer $T=\qty{200}{\second}$.}
-  \label{fig:temperaturdifferenzen lang, messing, edelstahl}
+  \label{fig:temperaturwellen, edelstahl}
 \end{figure}
+
+\begin{table} [H]
+  \centering
+  \caption{Abgelesene Amplituden $A$ und Phasendifferenz $\symup{\Delta}t$ und berechnter Wärmeleitfähigkeit $\kappa$ für den %
+  Aluminiumstab.}
+  \label{tab:ergebnisse edelstahl}
+  \begin{tabular}{S[table-format=1.0] S[table-format=1.0] S[table-format=1.0] S[table-format=2.2]}
+    \toprule
+    {$A_{\symup{nah}}/\unit{\kelvin}$} & {$A_{\symup{fern}}/\unit{\kelvin}$} & {$\symup{\Delta}t / \unit{\second}$} &%
+     {$\kappa / \frac{\unit{\watt}}{\unit{\metre\kelvin}}$} \\
+    \midrule
+    9 & 1,2 & 57 & 12.51 \\
+    \bottomrule
+  \end{tabular}
+\end{table}

@@ -48,11 +48,31 @@ plt.close()
 #Waermeleitfaehigkeit kappa
 k_me = 88
 k_al = 234
-k_es = 25
+k_es = 14
 
 #Querschnitte
 a_breit = 1.2 * 0.4 / 10000
 a_schmal = 0.7 * 0.4 / 10000
+
+#Dichte
+p_me = 8520
+p_al = 2800
+p_es = 8000
+
+#Spezifische waerme
+c_me = 385
+c_al = 830
+c_es = 400
+
+#Funktion fuer Kappa
+def kappa(p,c,A_nah,A_fern,phi):
+    return ((p*c)*(0.03)**2)/(2*phi*np.log((A_nah)/(A_fern)))
+
+kappa_me = kappa(p_me,c_me, 6, 2, 100/7)
+kappa_al = kappa(p_al,c_al, 8, 4, 100/11)
+kappa_es = kappa(p_es,c_es, 9, 1.2, 400/7)
+
+print(f'Kappa me, al, es {kappa_me, kappa_al, kappa_es}')
 
 #Abstand x
 x = 0.03
@@ -159,6 +179,7 @@ plt.close()
 
 ######
 # dynamisch, kurz
+# Messing, breit
 t_roh, T_1_c, T_2_c, T_3_c, T_4_c, T_5_c, T_6_c, T_7_c, T_8_c = np.genfromtxt('content/data/data_dynamisch_kurz.txt', unpack = True)
 t = t_roh * 2
 T_1 = cToK(T_1_c)
@@ -180,6 +201,18 @@ plt.legend(loc='best')
 
 plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
 plt.savefig('build/plot_dynamisch_kurz.pdf')
+plt.close()
+
+plt.plot(t, T_5, '.',markersize = mksz, label = r'$T_{5}$, Aluminium, fern')
+plt.plot(t, T_6, '.', markersize = mksz, label = r'$T_{6}$, Aluminium, nah')
+
+plt.xlabel(r'$t / \unit{\second}$')
+plt.ylabel(r'$T / \unit{\kelvin}$')
+plt.grid()
+plt.legend(loc='best')
+
+plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
+plt.savefig('build/plot_dynamisch_kurz_alu.pdf')
 plt.close()
 ######
 
