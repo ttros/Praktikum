@@ -17,7 +17,7 @@ Das in \autoref{fig:Aufbau Lock-In-Verstaerker} zu sehende Gerät wird wie in \a
 wobei in einer ersten Messreihe der Rauschgenerator überbrückt wird. Der Funktionsgenerator wird auf eine Sinusspannung mit 
 $U_{\symup{sig}}\approx\qty{2}{\volt}$ und eine Frequenz von rund $\qty{1}{\kilo\hertz}$ eingestellt. Dieses Signal wird 
 verstärkt und durch den Bandpassfilter geleitet. Das Referenzsignal $U_{\symup{ref}}$ wird ebenfalls im Funktionsgenerator 
-erzeugt und hat dieselbe Frequenz wie $U_{\symup{sig}}$, wir allerdings im Phasenverschieber um $\symup{\Delta}\phi$ 
+erzeugt und hat dieselbe Frequenz wie $U_{\symup{sig}}$, wird allerdings im Phasenverschieber um $\symup{\Delta}\varphi$ 
 phasenverschoben. Dieses Signal $U_{\symup{ref}}$ wird im Detektor mit dem Signal $U_{\symup{sig}}$ multipliziert und in einem
 Tiefpass nochmals gefiltert. Das Ausgangssignal $U_{\symup{out}}$ wird auf einem Oszilloskop angezeigt.
 
@@ -55,6 +55,5 @@ an den
 Hierbei wird nun nicht mehr die Phase zwischen $U_{\symup{sig}}$ und $U_{\symup{ref}}$ verändert, sondern die blinkende LED 
 wird schrittweise weiter von dem Photodetektor entfernt und es wird die Signalstärke $U_{\symup{out}}$ abhängig von dem 
 Abstand $x$ zwischen LED und Photodetektor mithilfe des Oszilloskops bestimmt. Auch diese Daten werden erneut tabelliert und
-graphisch dargestellt. 
-
-Linearisieren?!?!?!?!?!?!? Wenn ja, in Theorie formel dazu und sagen, was ziel.
+graphisch dargestellt. Dazu wird abermals ein nicht-linearer Fit erstellt, um eine mögliche $\frac{1}{x^2}$-Abhängigkeit der
+Signalstärke zu überprüfen.
