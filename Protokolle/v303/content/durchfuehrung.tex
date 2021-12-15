@@ -1,7 +1,7 @@
 \section{Durchführung}
-\label{sec:Durchführung}
+\label{sec:Durchfuehrung}
 Für den gesamten Versuch wird ein Lock-In-Verstärker mit eingbautem Vorverstärker, Tief- und Bandpass, Phasenverschieber,
-sowie Funktions- und Rauschgenerator verwendet. Außerdem wird ein Oszilloskop
+sowie Funktions- und Rauschgenerator verwendet. Außerdem wird ein Oszilloskop verwendet, um die verschiedenen Signale darzustellen.
 
 \begin{figure} [H]
     \centering
@@ -9,3 +9,52 @@ sowie Funktions- und Rauschgenerator verwendet. Außerdem wird ein Oszilloskop
     \caption{Lock-In-Verstärker ohne Verkabelung.\cite{v303}}
     \label{fig:Aufbau Lock-In-Verstaerker}
 \end{figure}
+
+% Ohne Rauschen
+\subsection{Messung ohne Rauschen}
+\label{sec:Messung ohne Rauschen}
+Das in \autoref{fig:Aufbau Lock-In-Verstaerker} zu sehende Gerät wird wie in \autoref{fig:Schematischer Aufbau} verkabelt, 
+wobei in einer ersten Messreihe der Rauschgenerator überbrückt wird. Der Funktionsgenerator wird auf eine Sinusspannung mit 
+$U_{\symup{sig}}\approx\qty{2}{\volt}$ und eine Frequenz von rund $\qty{1}{\kilo\hertz}$ eingestellt. Dieses Signal wird 
+verstärkt und durch den Bandpassfilter geleitet. Das Referenzsignal $U_{\symup{ref}}$ wird ebenfalls im Funktionsgenerator 
+erzeugt und hat dieselbe Frequenz wie $U_{\symup{sig}}$, wir allerdings im Phasenverschieber um $\symup{\Delta}\phi$ 
+phasenverschoben. Dieses Signal $U_{\symup{ref}}$ wird im Detektor mit dem Signal $U_{\symup{sig}}$ multipliziert und in einem
+Tiefpass nochmals gefiltert. Das Ausgangssignal $U_{\symup{out}}$ wird auf einem Oszilloskop angezeigt.
+
+Im Verlauf der Messung wird die Verschiebung der Phase zwischen $U_{\symup{sig}}$ und $U_{\symup{ref}}$ mit dem Phasenverschieber
+verändert und es wird mithilfe des Oszilloskop die Spannung des Ausgangssignal $U_{\symup{out}}$ gemessen und tabellarisch
+protokolliert, sowie graphisch dargestellt. Für die einzelnen Messpunkte wird ein nicht-linearer Fit bestimmt.
+
+\begin{figure} [H]
+    \centering
+    \includegraphics[height=5cm]{content/Bilder/Aufbau_Schema.png}
+    \caption{Schematischer Aufbau des Lock-In-Verstärkers.\cite{v303}}
+    \label{fig:Schematischer Aufbau}
+\end{figure}
+
+\subsection{Messung mit Rauschen}
+\label{sec:Messung mit Rauschen}
+Die Messung aus \ref{sec:Messung ohne Rauschen} wird nun mit einem eingeschalteten Rauschgenerator wiederholt. Die Amplitude
+des Rauschens liegt hierbei in derselben Größenordnung wie die des Signals $U_{\symup{sig}}$.
+Auch hier erfolgt eine Tabellierung und graphische Darstellung der Messwerte mit anschließendem nicht-linearen Fit.
+
+\subsection{Messung mit einer LED}
+\label{sec:Messung mit einer LED}
+Es wird eine Photodetektorschaltung gemäß \autoref{fig:Photodetektorschaltung} aufgebaut. Der Unterschied zu der vorherigen 
+Schaltung (\autoref{fig:Schematischer Aufbau}) liegt darin, dass nun nicht mehr ein Rauschgenerator verwendet wird, sondern 
+das Ausgabesignals eines Photodetektors, welcher Lichtwellen einer blinkenden LED registriert, analysiert wird. Die LED wird also
+an den 
+
+\begin{figure} [H]
+    \centering
+    \includegraphics[height=5cm]{content/Bilder/Aufbau_led.png}
+    \caption{Schematischer Aufbau der Photodetektorschaltung.\cite{v303}}
+    \label{fig:Schematischer Aufbau LED}
+\end{figure}
+
+Hierbei wird nun nicht mehr die Phase zwischen $U_{\symup{sig}}$ und $U_{\symup{ref}}$ verändert, sondern die blinkende LED 
+wird schrittweise weiter von dem Photodetektor entfernt und es wird die Signalstärke $U_{\symup{out}}$ abhängig von dem 
+Abstand $x$ zwischen LED und Photodetektor mithilfe des Oszilloskops bestimmt. Auch diese Daten werden erneut tabelliert und
+graphisch dargestellt. 
+
+Linearisieren?!?!?!?!?!?!? Wenn ja, in Theorie formel dazu und sagen, was ziel.
