@@ -16,7 +16,7 @@ phi_rad = phi*2*np.pi/360
 def f(phi_rad,A,B):
     return np.sqrt((A*np.cos(phi_rad))**2)+B
 
-# Amplitude normal
+# Amplitude normal #
 
 parameters, pcov = curve_fit(f, phi_rad , U_normal, sigma=None)
 std = np.sqrt(np.diag(pcov))
@@ -41,13 +41,13 @@ plt.close()
 
 r, U_led = np.genfromtxt('content/Daten/data_led.txt', unpack = True)
 
-def f_led(r,C,M):
-    return C/(r**2)+M
+def f_led(r,C):
+    return C/(r**2)
 
 parameters, pcov = curve_fit(f_led, r , U_led, sigma=None)
 std = np.sqrt(np.diag(pcov))
 C= ufloat(parameters[0], std[0])
-print(f'C bei 1/r^2 = {C} [\V]')
+print(f'C bei 1/r^2 = {C} [\Vcm^2]')
 plt.plot(r, U_led, 'rx', label='Daten')
 xx = np.linspace(6, 60, 10000)
 plt.plot(xx, f_led(xx,*parameters), 'b', label='Fit')

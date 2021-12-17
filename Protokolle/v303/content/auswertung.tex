@@ -31,7 +31,7 @@
     \caption{$\symup{\Delta}\varphi = \qty{360}{\degree}$}
   \end{subfigure}
   \caption{Oszilloskopbilder des Ausgabesignals $U_{\symup{sig}}$ für verschiedene Phasenverschiebungen $\symup{\Delta}\varphi$.}
-  \label{fig:test}
+  \label{fig:<Bilder normal}
 \end{figure}
 
 \begin{table} [H]
@@ -70,6 +70,37 @@
 \subsection{Messung mit Rauschen}
 \label{sec:mit rauschen}
 
+\begin{figure}
+  \begin{subfigure}{0.48\textwidth}
+    \centering
+    \includegraphics[height=4cm]{content/Bilder/verrauscht/0.pdf}
+    \caption{$\symup{\Delta}\varphi = \qty{0}{\degree}$}
+  \end{subfigure}
+  \begin{subfigure}{0.48\textwidth}
+    \centering
+    \includegraphics[height=4cm]{content/Bilder/verrauscht/90.pdf}
+    \caption{$\symup{\Delta}\varphi = \qty{90}{\degree}$}
+  \end{subfigure}
+  \begin{subfigure}{0.48\textwidth}
+    \centering
+    \includegraphics[height=4cm]{content/Bilder/verrauscht/180.pdf}
+    \caption{$\symup{\Delta}\varphi = \qty{180}{\degree}$}
+  \end{subfigure}
+  \begin{subfigure}{0.48\textwidth}
+    \centering
+    \includegraphics[height=4cm]{content/Bilder/verrauscht/270.pdf}
+    \caption{$\symup{\Delta}\varphi = \qty{270}{\degree}$}
+  \end{subfigure}
+  \begin{subfigure}{0.48\textwidth}
+    \centering
+    \includegraphics[height=4cm]{content/Bilder/verrauscht/360.pdf}
+    \caption{$\symup{\Delta}\varphi = \qty{360}{\degree}$}
+  \end{subfigure}
+  \caption{Oszilloskopbilder des Ausgabesignals $U_{\symup{sig}}$ für verschiedene Phasenverschiebungen $\symup{\Delta}\varphi$ mit rauschen.}
+  \label{fig:Bilder rausch}
+\end{figure}
+
+
 \begin{table} [H]
   \centering
   \caption{Amplitude des verrauschten Signals in Abhängigkeit der Phasenverschiebung~$\symup{\Delta}\varphi$}
@@ -98,6 +129,8 @@
 % Subsection LED
 \subsection{Messung mit einer LED}
 \label{sec:LED}
+
+Die gemessene Signalstärke $U_{\symup{out}}$ in Abhängigkeit des Abstandes $r$ ist in \autoref{tab:led} dokumentiert.
 
 \begin{table} [H]
   \centering
@@ -133,6 +166,25 @@
   \end{tabular}
 \end{table}
 
+Die Werte werden in \autoref{fig:plot led} graphisch dargestellt.
+Dazu wird eine nicht-lineare Ausgleichsfunktion mit \cite{scipy} bestimmt, um eine mögliche $\frac{1}{r^2}$-Abhängigkeit der
+Signalstärke zu überprüfen. Dafür wird eine Funktion der Form:
+
+\begin{equation}
+  f(r)=\frac{C}{r^2} \notag
+\end{equation}
+
+als Ansatz verwendet.
+Für den Parameter $C$ ergibt sich der Wert:
+
+\begin{align}
+  C &= \qty{8.63+-0.21}{\kilo\volt\square\centi\metre} \notag
+\end{align}
+
+Mit dem Fit lässt sich die $\frac{1}{r^2}$-Abhängigkeit gut bestätigen, in \autoref{fig:plot led} ist eine Korrelation
+von Messwerten und Ausgleichsfunktion deutlich zu erkennen.
+Somit ist die Funktionsweise des Lock-In-Verstärkers verifiziert, da das Rauschen des Umgebungslichtes erfolgreich herausgefiltert
+werden konnte.
 
 \begin{figure}
   \centering
