@@ -28,7 +28,7 @@ plt.plot(phi_rad, U_normal, 'rx', label='Daten')
 xx = np.linspace(0, 2*np.pi, 10000)
 plt.plot(xx, f(xx,*parameters), 'b', label='Fit')
 
-plt.xlabel(r'$\phi / \unit{\degree}$')
+plt.xlabel(r'$\symup{\Delta}\varphi')
 plt.ylabel(r'$U / \unit{\volt}$')
 plt.legend(loc='best')
 plt.grid()
