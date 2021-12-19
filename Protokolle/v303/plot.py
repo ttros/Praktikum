@@ -26,7 +26,10 @@ B= ufloat(parameters[1], std[1])
 print(f'Amplitude normal = {A} [\V]')
 plt.plot(phi_rad, U_normal, 'rx', label='Daten')
 xx = np.linspace(0, 2*np.pi, 10000)
-plt.plot(xx, f(xx,*parameters), 'b', label='Fit')
+#plt.plot(xx, f(xx,*parameters), 'b', label='Fit')
+plt.plot(xx, (2*48/np.pi)*np.cos(xx), 'b', label='Theorie')
+plt.xticks([0, np.pi / 2, np.pi, 3 / 2 * np.pi, 2 * np.pi],
+          [r"$0$", r"$\frac{1}{2}\pi$", r"$\pi$", r"$\frac{3}{2}\pi$", r"$2\pi$"])
 
 plt.xlabel(r'$\symup{\Delta}\varphi')
 plt.ylabel(r'$U / \unit{\volt}$')
