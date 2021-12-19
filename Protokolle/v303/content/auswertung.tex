@@ -1,13 +1,12 @@
 \section{Auswertung}
 \label{sec:Auswertung}
-Die Amplituden der Signale werden für 12 Phasenverschiebungen im Abstand von 30° sowohl für die Messung ohne 
-Rauschen, als auch für die Messung mit Rauschen, gemessen.
+Es werden nun die mithilfe des digitalen Oszilloskopes ermittelten Amplituden des Ausgabesignals ausgewertet.
 
 \subsection{Messung ohne Rauschen}
 \label{sec:ohne rauschen}
-Im Folgen sind Oszilloskopbilder von ausgewählten Phasenverschiebungen für die Messung ohne Rauschen zu sehen.
+In \autoref{fig:Bilder normal} sind Oszilloskopbilder von ausgewählten Phasenverschiebungen für die Messung ohne Rauschen zu sehen.
 
-\begin{figure}
+\begin{figure} [H]
   \begin{subfigure}{0.48\textwidth}
     \centering
     \includegraphics[height=4cm]{content/Bilder/unverrauscht/0.pdf}
@@ -35,11 +34,13 @@ Im Folgen sind Oszilloskopbilder von ausgewählten Phasenverschiebungen für die
     \caption{$\symup{\Delta}\varphi = \qty{360}{\degree}$}
   \end{subfigure}
   \caption{Oszilloskopbilder des Ausgabesignals $U_{\symup{sig}}$ für verschiedene Phasenverschiebungen $\symup{\Delta}\varphi$.}
-  \label{fig:<Bilder normal}
+  \label{fig:Bilder normal}
 \end{figure}
 
 Es zeigt sich, dass sich für das erste Bild \autoref{fig:unverrauscht 0} ein Spannungsverlauf passend zu dem in 
 \autoref{fig:Signalverlaeufe} ergibt.
+Aus den Bildern werden die jeweilgen Amplituden des Ausgabesignals für alle Phasenverschiebungen abgelesen und
+in \autoref{tab:unverrauscht} festgehalten.
 
 \begin{table} [H]
   \centering
@@ -66,7 +67,15 @@ Es zeigt sich, dass sich für das erste Bild \autoref{fig:unverrauscht 0} ein Sp
   \end{tabular}
 \end{table}
 
-\begin{figure}
+Diese Daten werden nun graphisch in \autoref{fig:plot normal} dargestellt und mit einer Theoriekurve verglichen.
+
+THEORIEKURVE???
+
+FIT??
+
+SCHEIßE
+
+\begin{figure} [H]
   \centering
   \includegraphics{build/plot_normal.pdf}
   \caption{Amplitude des Ausgangssignal $U_{\symup{sig}}$ vor dem Tiefpass in Abhängigkeit der Phasenverschiebung~$\varphi$.}
@@ -77,7 +86,10 @@ Es zeigt sich, dass sich für das erste Bild \autoref{fig:unverrauscht 0} ein Sp
 \subsection{Messung mit Rauschen}
 \label{sec:mit rauschen}
 
-\begin{figure}
+Es werden nun die Oszilloskopbilder betrachtet, die sich bei verrauschtem Eingangssignal ergeben haben.
+Diese sind erneut für ausgewählte Phasenverschiebungen in \autoref{fig:Bilder rausch} zu sehen.
+
+\begin{figure} [H]
   \begin{subfigure}{0.48\textwidth}
     \centering
     \includegraphics[height=4cm]{content/Bilder/verrauscht/0.pdf}
@@ -107,6 +119,16 @@ Es zeigt sich, dass sich für das erste Bild \autoref{fig:unverrauscht 0} ein Sp
   \label{fig:Bilder rausch}
 \end{figure}
 
+Vergleicht man die Oszilloskopbilder mit den Bildern in \autoref{fig:Bilder normal}, dann ist sofort
+ein ähnlicher Signalverlauf zu erkennen.
+Der Lock-In-Verstärker hat demnach wie erwartet das Rauschen größtenteils herausgefiltert und das Ausgangssignal
+ist nährungsweise gleich geblieben.
+Bei genauer Betrachtung fallen minimale Sprünge und kleine Unregelmäßigkeiten im Signalverlauf auf,
+hier handelt es sich wahrscheinlich um besonders starke Störungen des Rauschgenerators, die der Lock-In-Verstärker
+nicht vollständig herausfiltern konnte.
+
+Insgesamt verifizieren die Bilder jedoch eindeutig die Funktionsweise des Lock-In-Verstärkers, anschließend
+werden noch die Amplituden des Ausgabesignals analog zu \autoref{sec:ohne rauschen} in \autoref{tab:verrauscht} dargestellt.
 
 \begin{table} [H]
   \centering
@@ -132,6 +154,11 @@ Es zeigt sich, dass sich für das erste Bild \autoref{fig:unverrauscht 0} ein Sp
     \bottomrule
   \end{tabular}
 \end{table}
+
+Die absoluten Werte der Amplituden sind hier deutlich geringer als die des unverrauschten Signals.
+Deren Abhängigkeit von der Phasenverschiebung ist jedoch noch vergleichbar mit
+der unverrauschten Messung in \autoref{tab:unverrauscht}.
+
 
 % Subsection LED
 \subsection{Messung mit einer LED}
