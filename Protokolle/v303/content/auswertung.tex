@@ -117,7 +117,7 @@ Diese sind erneut für ausgewählte Phasenverschiebungen in \autoref{fig:Bilder 
   \label{fig:Bilder rausch}
 \end{figure}
 
-Vergleicht man die Oszilloskopbilder mit den Bildern in \autoref{fig:Bilder normal}, dann ist sofort
+Vergleicht man die Oszilloskopbilder mit den Bildern in \autoref{fig:Bilder normal}, dann ist
 ein ähnlicher Signalverlauf zu erkennen.
 Der Lock-In-Verstärker hat demnach wie erwartet das Rauschen größtenteils herausgefiltert und das Ausgangssignal
 ist nährungsweise gleich geblieben.
@@ -199,8 +199,8 @@ Die gemessene Signalstärke $U_{\symup{out}}$ in Abhängigkeit des Abstandes $r$
 \end{table}
 
 Die Werte werden in \autoref{fig:plot led} graphisch dargestellt.
-Dazu wird eine nicht-lineare Ausgleichsfunktion mit \cite{scipy} bestimmt, um eine mögliche $\frac{1}{r^2}$-Abhängigkeit der
-Signalstärke zu überprüfen. Dafür wird eine Funktion der Form:
+Dazu wird eine nicht-lineare Ausgleichsfunktion mit der Python Erweiterung \textit{scipy} \cite{scipy} bestimmt, um eine mögliche 
+$\frac{1}{r^2}$-Abhängigkeit der Signalstärke zu überprüfen. Dafür wird eine Funktion der Form:
 
 \begin{equation}
   f(r)=\frac{C}{r^2} \notag
