@@ -11,20 +11,21 @@ from uncertainties.unumpy import (nominal_values as noms,
 
 ######################## Plot C #############################
 
-#R=480????????????????????????????
-L=10.11*10**-3
-C=2.093*10**-9
-
+R=559.5 #Innenwiderstand 50
+L=10.11*10**-3 #Gerätedaten
+C=2.093*10**-9 #Gerätedaten
 f_kHz, U_0, U, a, b = np.genfromtxt('content/data/data_c_d.txt', unpack = True)
 
 f = f_kHz*1000
 U_RCL = U/U_0
 
-#def Theorie_c(f, R, L, C):
-#    return (1/np.sqrt((1-L*C*f**2)**2+f**2*R**2*C**2))
+def Theorie_c(w, R, L, C):
+    return (1/np.sqrt((1-L*C*w**2)**2+w**2*R**2*C**2))
 
-plt.plot(f_kHz, U_RCL, 'r', label='Messwertekurve')
-#plt.plot(f_kHz, Theorie_c(2*np.pi*1000*f_kHz, R, L, C), label = "Theoriekurve")
+x = np.linspace(10, 47, 1000)
+
+plt.plot(f_kHz, U_RCL, 'rx', label='Messwerte')
+plt.plot(x, Theorie_c(2*np.pi*1000*x, R, L, C), label = "Theoriekurve")
 plt.plot(33, 14/3.6 , 'go', label = "Maximum der Messwerte")
 plt.xscale('log')
 
@@ -39,7 +40,8 @@ plt.close()
 
 #Plot zwai
 
-plt.plot(f_kHz, U_RCL, 'r', label='Messwertekurve')
+plt.plot(f_kHz, U_RCL, 'rx', label='Messwerte')
+plt.plot(x, Theorie_c(2*np.pi*1000*x, R, L, C), label = "Theoriekurve")
 
 plt.xlabel(r'$f/ \unit{\kilo\hertz}$')
 plt.ylabel(r'$\frac{U_0}{U}$')
@@ -56,7 +58,12 @@ plt.close()
 
 delta_phi = (a/b) * 2 * np.pi
 
-plt.plot(f_kHz, delta_phi, 'r', label='Messwertekurve')
+def Theorie_d(w, R, L, C):
+    return  np.arctan((-w*R*C)/(1-L*C*(w**2)))
+
+plt.plot(f_kHz, delta_phi, 'rx', label='Messwerte')
+plt.plot(x, Theorie_d(2*np.pi*1000*x, R, L, C), label='Theoriekurve')
+
 plt.xscale('log')
 
 plt.xlabel(r'$f/ \unit{\kilo\hertz}$')
@@ -72,13 +79,13 @@ plt.close()
 
 #Plot zwai
 
-plt.plot(f_kHz, delta_phi, 'r', label='Messwertekurve')
+plt.plot(f_kHz, delta_phi, 'rx', label='Messwerte')
 
 plt.xlabel(r'$f/ \unit{\kilo\hertz}$')
 plt.ylabel(r'$\symup{\Delta}\varphi$')
 plt.legend(loc='best')
 plt.grid(which="both")
-plt.ylim(0.75 * np.pi/2, 1.25 * np.pi/2)
+plt.xlim(28, 42)
 plt.yticks([0, np.pi / 4, np.pi / 2, 3 * np.pi/4, np.pi],
            [r"$0$", r"$\frac{1}{4}\pi$", r"$\frac{1}{2}\pi$", r"$\frac{3}{4}\pi$", r"$\pi$"])
 
