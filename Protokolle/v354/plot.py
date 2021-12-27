@@ -59,7 +59,9 @@ plt.close()
 delta_phi = (a/b) * 2 * np.pi
 
 def Theorie_d(w, R, L, C):
-    return  np.arctan((-w*R*C)/(1-L*C*(w**2)))
+    return np.pi/2+np.arctan((1-L*C*(w)**2)/(-w*R*C))
+    #return np.pi/2+np.arctan((-w*R*C/(1-L*C*(w)**2))**(-1))
+    #return np.pi/2+np.arctan((1-L*C*(w)**2)/-w*R*C)
 
 plt.plot(f_kHz, delta_phi, 'rx', label='Messwerte')
 plt.plot(x, Theorie_d(2*np.pi*1000*x, R, L, C), label='Theoriekurve')
@@ -80,6 +82,7 @@ plt.close()
 #Plot zwai
 
 plt.plot(f_kHz, delta_phi, 'rx', label='Messwerte')
+plt.plot(x, Theorie_d(2*np.pi*1000*x, R, L, C), label='Theoriekurve')
 
 plt.xlabel(r'$f/ \unit{\kilo\hertz}$')
 plt.ylabel(r'$\symup{\Delta}\varphi$')
