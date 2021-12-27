@@ -22,7 +22,6 @@ plt.xlabel(r'$t\,/\,\unit{\micro\second}$')
 plt.ylabel(r'$U \,/\, \unit{\volt}$')
 plt.legend(loc='best')
 plt.grid(which="both")
-#plt.yscale('log')
 
 plt.subplot(1, 2, 2)
 m , b , r ,p ,std =stats.linregress(t*x,np.log(noms(A/6)))
@@ -70,10 +69,16 @@ plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
 plt.savefig('build/plot_c.pdf')
 plt.close()
 
-#Plot zwai
+## plot 2 ##
 
-plt.plot(f_kHz, U_RCL, 'rx', label='Messwerte')
-plt.plot(x, Theorie_c(2*np.pi*1000*x, R, L, C), label = "Theoriekurve")
+def Breite(x):
+    return (3.9/np.sqrt(2))*x/x
+
+x_b = np.linspace(28.9, 37.7, 2)
+
+plt.plot(f_kHz, U_RCL, 'r', label='Messwertekurve')
+plt.plot(x_b, Breite(x_b),'c--', label = r'Breite der Messwertekurve: $\symup{\Delta} f = 8.8\,\unit{\kilo\hertz}$')
+plt.plot(33, 14/3.6 , 'go', label = "Maximum der Messwerte")
 
 plt.xlabel(r'$f/ \unit{\kilo\hertz}$')
 plt.ylabel(r'$\frac{U_0}{U}$')
@@ -92,8 +97,6 @@ delta_phi = (a/b) * 2 * np.pi
 
 def Theorie_d(w, R, L, C):
     return np.pi/2+np.arctan((1-L*C*(w)**2)/(-w*R*C))
-    #return np.pi/2+np.arctan((-w*R*C/(1-L*C*(w)**2))**(-1))
-    #return np.pi/2+np.arctan((1-L*C*(w)**2)/-w*R*C)
 
 plt.plot(f_kHz, delta_phi, 'rx', label='Messwerte')
 plt.plot(x, Theorie_d(2*np.pi*1000*x, R, L, C), label='Theoriekurve')
@@ -111,10 +114,12 @@ plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
 plt.savefig('build/plot_d.pdf')
 plt.close()
 
-#Plot zwai
+## plot 2 ##
 
-plt.plot(f_kHz, delta_phi, 'rx', label='Messwerte')
-plt.plot(x, Theorie_d(2*np.pi*1000*x, R, L, C), label='Theoriekurve')
+plt.plot(f_kHz, delta_phi, 'r', label='Messwertekurve')
+plt.axvline(30.4, color='tab:orange', linestyle=':', label=r'$\nu_1 = 30.4\,\unit{\kilo\hertz}$ und $\nu_2 = 39.4\,\unit{\kilo\hertz}$')
+plt.axvline(39.4, color='tab:orange', linestyle=':')
+plt.axvline(34.3, color='g', linestyle=':', label=r'$\nu_{\symup{res}} = 34.3\,\unit{\kilo\hertz}$')
 
 plt.xlabel(r'$f/ \unit{\kilo\hertz}$')
 plt.ylabel(r'$\symup{\Delta}\varphi$')
