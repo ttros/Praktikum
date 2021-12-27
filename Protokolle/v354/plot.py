@@ -9,6 +9,38 @@ from uncertainties import ufloat
 from uncertainties.unumpy import (nominal_values as noms,
                                   std_devs as stds)
 
+######################## Plot A #############################
+A = np.genfromtxt('content/data/data_a.txt', unpack = True)
+t = 27.27 #in micro sec
+
+x = np.linspace(0,13,14)
+xx = np.linspace(0,14, 1000)
+plt.subplot(1, 2, 1)
+plt.plot(t*x, A, 'rx', label='Messwerte')
+
+plt.xlabel(r'$t\,/\,\unit{\micro\second}$')
+plt.ylabel(r'$U \,/\, \unit{\volt}$')
+plt.legend(loc='best')
+plt.grid(which="both")
+#plt.yscale('log')
+
+plt.subplot(1, 2, 2)
+m , b , r ,p ,std =stats.linregress(t*x,np.log(noms(A/6)))
+M=unp.uarray(m,std)
+B=unp.uarray(b,std)
+print(f'Steigung m: {M}')
+print(f'Achsenabschnitt b: {B}')
+plt.plot(t*x,np.log(A/6), 'rx', label='Messwerte')
+plt.plot(t*xx,m*t*xx+b, 'b', label='Fit')
+
+plt.xlabel(r'$t\,/\,\unit{\micro\second}$')
+plt.ylabel(r'$\symup{log}(\frac{U}{U_{0}})$')
+plt.legend(loc='best')
+plt.grid(which="both")
+
+plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
+plt.savefig('build/plot_a.pdf')
+plt.close()
 ######################## Plot C #############################
 
 R=559.5 #Innenwiderstand 50
