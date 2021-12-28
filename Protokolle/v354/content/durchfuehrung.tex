@@ -1,2 +1,39 @@
 \section{Durchführung}
 \label{sec:Durchführung}
+
+Für den Versuch wird ein RCL-Kreis mit den folgenden Größen verwendet:
+
+\begin{align}
+    R_{1} &= \qty{48.1+-0.1}{\ohm} \\ \notag
+    R_{2} &= \qty{509.5+-0.5}{\ohm} \\ \notag
+    C &= \qty{2.093+-0.003}{\nano\farad} \\ \notag
+    L &= \qty{10.11+-0.03}{\milli\henry} \notag
+\end{align}
+
+Dabei kann entweder $R_{1}$ oder $R_{2}$ verwendet werden.
+Außerdem existiert ein dritter Widerstand, der von $1\,\unit{\kilo\ohm}$ bis $10\,\unit{\kilo\ohm}$ frei regelbar ist.
+
+\subsection{Gedämpfter RLC-Kreis}
+\label{sec:Gedämpfter RLC-Kreis}
+
+Im ersten Versuchsteil wird eine Rechteckspannung verwendet. Deren Periode wird so gewählt, dass die Amplitude der Spannung
+mindestens um den Faktor 3 abfällt.
+Für die Dämpfung wird hier der kleinere Widerstand $R_{1}$ genutzt.
+
+Das Oszilloskopbild wird festgehalten und anschließend verwendet, um Wertepaare der Amplitude und Zeit abzulesen.
+Mithilfe dieser Daten kann dann der effektive Dämpfungswiderstand $R_{\symup{eff}}$ bestimmt werden.
+
+\subsection{Aperiodischer Grenzfall}
+\label{sec:Aperiodischer Grenzfall Durchführung}
+
+Es soll nun der Widerstand $R_{\symup{ap}}$ bestimmt werden, bei dem der aperiodische Grenzfall eintritt.
+Dafür wird der selbe Versuchsaufbau wie in \autoref{sec:Gedämpfter RLC-Kreis} verwendet, wobei der Widerstand $R_{1}$
+durch den regelbaren Widerstand ersetzt wird.
+
+Dieser wird zu Beginn auf dem maximalen Wert, also $10\,\unit{\kilo\ohm}$ eingestellt, sodass sich ein überdämpfter Spannungsverlauf ergibt.
+Nun verringert man den Widerstand, bis auf dem Oszilloskop eine Überschwingung zu erkennen ist.
+Zuletzt wird der Widerstand wieder erhöht, bis die Überschwingung gerade verschwindet.
+Dann kann der eingestellte Widerstand $R_{\symup{ap}}$ abgelesen werden.
+
+\subsection{Angeregter RLC-Kreis}
+\label{sec:Angeregter RLC-Kreis}
