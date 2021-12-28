@@ -7,10 +7,58 @@ Resonanzfall zu betrachten.
 \section{Theorie}
 \label{sec:Theorie}
 Ein Schwingkreis besteht aus einer Spule mit der Induktivität~$L$, einem Kondensator mit der Kapazität~$C$, und einem 
-Widerstand~$R$. In einem idealen Schwingkreis ohne Widerstand $R$ gilt die Energieerhaltung, sodass die zur Verfügung stehende Energie zwischen
-der Spule mit der Induktivität $L$ und dem Kondensator mit der Kapazität $C$ verlustfrei oszilliert.
+Widerstand~$R$. In einem idealen Schwingkreis ohne Widerstand $R$ gilt die Energieerhaltung, sodass die zur Verfügung stehende 
+Energie zwischen der Spule mit der Induktivität $L$ und dem Kondensator mit der Kapazität $C$ verlustfrei oszilliert.
 \subsection{Gedämpfte Schwingungen}
-In einem idealen $LC$-Kreis ohne Widerstand $R$ gilt die Energieerhaltung, sodass die zur Verfügung stehende Energie zwischen
-der Spule mit der Induktivität $L$ und dem Kondensator mit der Kapazität $C$ verlustfrei oszilliert. Wird nun ein Widerstand
-mit berücksichtigt, ist festzustellen, dass die Energie weiterhin oszilliert, die Amplituden der einzelnen Schwingungen 
-jedoch exponenziell abnehmen
+Wird ein Widerstand mit berücksichtigt, ist festzustellen, dass die Energie weiterhin oszilliert, die Amplituden der einzelnen 
+Schwingungen jedoch exponenziell abnehmen. Hierbei wird von einer Dämpfung gesprochen und für den Strom ergibt sich folgende 
+Differentialgleichung
+\begin{equation*}
+    \ddot{I}+\frac{R}{L}\dot{I}+\frac{1}{LC}I=0.
+\end{equation*}
+Eine allgemeine Lösung dieser Differentialgleichung lautet
+\begin{equation}
+    I(t) = \symup{e}^{-2\symup{\pi}\mu t} (A_{1}\symup{e}^{\symup{i}2\symup{\pi}\nu t} + A_{2}\symup{e}^{-\symup{i}2\symup{\pi}\nu t}).
+    \label{eq:DGL fuer I komplex}
+\end{equation}
+Hierbei werden die Hilfvariablen $\mu$ und $\nu$ eingführt:
+\begin{align*}
+    \mu &= \frac{R}{4\symup{\pi}L} & \nu = \frac{1}{2\symup{\pi}}\sqrt{\frac{1}{LC}-\frac{R^{2}}{4L^{2}}}.
+\end{align*}
+Nun wird zwischen zwei Fällen unterschieden:
+\\
+\\
+\textbf{1. Schwingfall} \\
+Damit eine gedämpfte Schwingung auftritt, muss $\nu \in \mathbb{R}$ und der Radikant somit positiv sein. Dies wird erfüllt für
+\begin{equation*}
+    \frac{1}{LC} > \frac{R^{2}}{4L^{2}}.
+\end{equation*}
+
+In diesem Fall vereinfacht sich die Differentialgleichung \eqref{eq:DGL fuer I komplex} zu:
+\begin{equation*}
+    I(t)=A_{0} \symup{e}^{-2\symup{\pi}\mu t} \cos(2\symup{\pi}\nu t + \varphi).
+\end{equation*}
+Die Abklingzeit $T_{\symup{ex}}$ ist folglich
+\begin{equation}
+    T_{\symup{ex}}=\frac{1}{2\symup{\pi}\mu}=\frac{2L}{R}.
+    \label{eq:Abklingzeit}
+\end{equation}
+\\
+\\
+\textbf{2. Aperiodischer Grenzfall} \\
+In dem Fall, dass $\nu$ imaginär, also
+\begin{equation*}
+    \frac{1}{LC} < \frac{R^{2}}{4L^{2}}
+\end{equation*}
+gilt, fällt der Strom $I$ proportinal zu einer Exponetialfunktion:
+\begin{equation*}
+    I(t) /propto /symup{e}^{-2\symup{(\pi}\mu-\symup{i}2\symup{\pi}\nu)t}.
+\end{equation*}
+Für den Fall, dass der Radikant von $\nu$ genau null ist, also
+\begin{equation*}
+    \frac{1}{LC} = \frac{R^{2}}{4L^{2}}
+\end{equation*}
+fällt der Strom am schnellsten. Eben dieser Fall wird als \textit{aperiodischer Grenzfall} bezeichnet. Umgestellt nach $R$ ergibt sich
+\begin{equation}
+    R_{\symup{ap}} = 
+\end{equation}
