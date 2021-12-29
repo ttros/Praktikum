@@ -11,7 +11,7 @@ from uncertainties.unumpy import (nominal_values as noms,
 
 ######################## Plot A #############################
 A = np.genfromtxt('content/data/data_a.txt', unpack = True)
-t = 27.27 #in micro sec
+t = 27.27 # 27.27in micro sec
 
 x = np.linspace(0,13,14)
 xx = np.linspace(0,14, 1000)
@@ -33,7 +33,7 @@ plt.plot(t*x,np.log(A/6), 'rx', label='Messwerte')
 plt.plot(t*xx,m*t*xx+b, 'b', label='Fit')
 
 plt.xlabel(r'$t\,/\,\unit{\micro\second}$')
-plt.ylabel(r'$\symup{log}(\frac{U}{U_{0}})$')
+plt.ylabel(r'$\symup{ln}(\frac{U}{U_{0}})$')
 plt.legend(loc='best')
 plt.grid(which="both")
 
