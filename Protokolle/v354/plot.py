@@ -27,6 +27,7 @@ plt.subplot(1, 2, 2)
 m , b , r ,p ,std =stats.linregress(t*x,np.log(noms(A/6)))
 M=unp.uarray(m,std)
 B=unp.uarray(b,std)
+print(f'\n')
 print(f'Steigung m: {M}')
 print(f'Achsenabschnitt b: {B}')
 plt.plot(t*x,np.log(A/6), 'rx', label='Messwerte')
@@ -117,9 +118,9 @@ plt.close()
 ## plot 2 ##
 
 plt.plot(f_kHz, delta_phi, 'r', label='Messwertekurve')
-plt.axvline(30.4, color='tab:orange', linestyle=':', label=r'$\nu_1 = 30.4\,\unit{\kilo\hertz}$ und $\nu_2 = 39.4\,\unit{\kilo\hertz}$')
+plt.axvline(30.4, color='tab:orange', linestyle=':', label=r'$f_1 = 30.4\,\unit{\kilo\hertz}$ und $f_2 = 39.4\,\unit{\kilo\hertz}$')
 plt.axvline(39.4, color='tab:orange', linestyle=':')
-plt.axvline(34.3, color='g', linestyle=':', label=r'$\nu_{\symup{res}} = 34.3\,\unit{\kilo\hertz}$')
+plt.axvline(34.3, color='g', linestyle=':', label=r'$f_{\symup{res}} = 34.3\,\unit{\kilo\hertz}$')
 
 plt.xlabel(r'$f/ \unit{\kilo\hertz}$')
 plt.ylabel(r'$\symup{\Delta}\varphi$')
@@ -140,7 +141,47 @@ R2_f = ufloat(509.5,0.5)
 L_f = ufloat(10.11*(10**(-3)),0.03*(10**(-3)))
 C_f = ufloat(2.093*(10**(-9)),0.003*(10**(-9)))
 
-## b ##
+print(f'\n')
 
+## a ##
+R_eff = R1_f + 50
+print(f'R effektiv Theorie: {R_eff} Ohm')
+print(f'R effektiv Experiement: {-2*(M*10**6)*L} Ohm')
+
+## b ##
 R_ap = 2*unp.sqrt(L_f/C_f)
-print(f'R aperiodisch: {R_ap}')
+print(f'R aperiodisch: {R_ap/1000} kOhm')
+
+## c ##
+delta_omega = (R2_f+50)/L
+delta_f = delta_omega/(2*np.pi)
+omega_0 = unp.sqrt(1/(L*C))
+q = omega_0/delta_omega
+print(f'Breite der Resonanzkurve: {delta_f/1000} kHz')
+print(f'Güte bzw. Resonanzüberhöhung: {q} V')
+
+## d ##
+omega_res = unp.sqrt(1/(L*C) - ((R2_f+50)**2)/(2*(L**2)))
+omega_1 = (R2_f+50)/(2*L) + unp.sqrt( (R2_f+50)**2/(4*(L**2)) + 1/(L*C) )
+omega_2 = -(R2_f+50)/(2*L) + unp.sqrt( (R2_f+50)**2/(4*(L**2)) + 1/(L*C) )
+print(f'Resonanzfrequenz: {omega_res/(1000*2*np.pi)} kHz')
+print(f'Frequenz 1: {omega_1/(1000*2*np.pi)} kHz')
+print(f'Frequenz 2: {omega_2/(1000*2*np.pi)} kHz')
+
+######
+print(f'\n')
+
+##### Ausgabe #####
+
+#Steigung m: -0.0106+/-0.0007
+#Achsenabschnitt b: 0.3013+/-0.0007
+#
+#
+#R effektiv Theorie: 98.10+/-0.10 Ohm
+#R effektiv Experiement: 214+/-14 Ohm
+#R aperiodisch: 4.396+/-0.007 kOhm
+#Breite der Resonanzkurve: 8.808+/-0.008 kHz
+#Güte bzw. Resonanzüberhöhung: 3.9282+/-0.0035 V
+#Resonanzfrequenz: 34.0335+/-0.0010 kHz
+#Frequenz 1: 39.282+/-0.004 kHz
+#Frequenz 2: 30.4739+/-0.0034 kHz
