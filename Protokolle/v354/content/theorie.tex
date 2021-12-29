@@ -11,8 +11,8 @@ Widerstand~$R$. In einem idealen Schwingkreis ohne Widerstand $R$ gilt die Energ
 Energie zwischen der Spule mit der Induktivität $L$ und dem Kondensator mit der Kapazität $C$ verlustfrei oszilliert.
 \begin{figure} [H]
     \centering
-    \includegraphics[height=6cm]{content/Bilder/Gedämpfter Schwingkreis.pdf}
-    \caption{Schaltskizze eines gedämpften Schwingkreises}
+    \includegraphics[height=5cm]{content/Bilder/Gedämpfter Schwingkreis.pdf}
+    \caption{Schaltskizze eines gedämpften Schwingkreises. \cite{v354}}
     \label{fig:Schaltskizze Schwingkreis}
   \end{figure}
 
@@ -30,8 +30,13 @@ Eine allgemeine Lösung dieser Differentialgleichung lautet
 \end{equation}
 Hierbei werden die Hilfvariablen $\mu$ und $\nu$ eingführt:
 \begin{align*}
-    \mu &= \frac{R}{4\symup{\pi}L} & \nu = \frac{1}{2\symup{\pi}}\sqrt{\frac{1}{LC}-\frac{R^{2}}{4L^{2}}}.
+    2\symup{\pi}\mu &= \frac{R}{2L} & 2\symup{\pi}\nu = \sqrt{\frac{1}{LC}-\frac{R^{2}}{4L^{2}}}.
 \end{align*}
+Der effektive Widerstand $R_{\symup{eff}}$ ist demnach
+\begin{equation}
+    R_{\symup{eff}} = 4\symup{\pi}\mu L.
+    \label{eq:effektiver Widerstand}
+\end{equation}
 Nun wird zwischen zwei Fällen unterschieden:
 \\
 \\
@@ -70,7 +75,6 @@ fällt der Strom am schnellsten. Eben dieser Fall wird als \textit{aperiodischer
     R_{\symup{ap}} = 2\sqrt{\frac{L}{C}}.
     \label{eq:Widerstand aperiodischer Grenzfall}
 \end{equation}
-Hierbei bezeichnet $\omega_0$ die Kreisfrequenz des Schwingkreises.
 
 \subsection{Angeregte Schwingungen}
 Für angeregte Schwingungen beschreibt wieder eine Differentialgleichung den Spannungsverlauf des Kondensators:
@@ -88,10 +92,10 @@ gegeben durch
     \label{eq:Phasenverschiebung}
 \end{equation}
 Die charakteristischen Phasenverschiebungungen von $\varphi_1 = \frac{\symup{\pi}}{4}$ und $\varphi_2 = \frac{3\symup{\pi}}{4}$ werden erreicht bei
-\begin{align*}
-    \omega_1&=\frac{R}{2L}+\sqrt{\frac{R^2}{4L^2}+\frac{1}{LC}} \\
-    \omega_2&=-\frac{R}{2L}+\sqrt{\frac{R^2}{4L^2}+\frac{1}{LC}}.
-\end{align*}
+\begin{align}
+    \omega_1&=\frac{R}{2L}+\sqrt{\frac{R^2}{4L^2}+\frac{1}{LC}} \label{eq:omega 1} \\
+    \omega_2&=-\frac{R}{2L}+\sqrt{\frac{R^2}{4L^2}+\frac{1}{LC}}. \label{eq:omega 2}
+\end{align}
 
 Um die Resonanzfrequenz des Schwingkreises zu erhalten muss zunächst der Betrag der Spannung untersucht werden:
 \begin{equation*}
