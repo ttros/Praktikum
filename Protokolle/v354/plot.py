@@ -132,3 +132,10 @@ plt.yticks([0, np.pi / 4, np.pi / 2, 3 * np.pi/4, np.pi],
 plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
 plt.savefig('build/plot_d_2.pdf')
 plt.close()
+
+####### Theorie Berechnungen #######
+
+R1_f = ufloat(48.1,0.1)
+R2_f = ufloat(509.5,0.5)
+L_f = ufloat(10.11*(10**(-3)),0.03*(10**(-3)))
+C_f = ufloat(2.093*(10**(-9)),0.003*(10**(-9)))
