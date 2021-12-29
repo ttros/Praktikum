@@ -72,9 +72,10 @@ Für den Fall, dass der Radikant von $\nu$ genau null ist, also
 \end{equation*}
 fällt der Strom am schnellsten. Eben dieser Fall wird als \textit{aperiodischer Grenzfall} bezeichnet. Umgestellt nach $R$ ergibt sich
 \begin{equation}
-    R_{\symup{ap}} = 2\sqrt{\frac{L}{C}}.
+    R_{\symup{ap}} = 2\sqrt{\frac{L}{C}} = 2L\sqrt{\frac{1}{LC}} = 2L\omega_0.
     \label{eq:Widerstand aperiodischer Grenzfall}
 \end{equation}
+Hierbei bezeichnet $\omega_0$ die Eigenfrequenz des ungedämpften Schwingkreises.
 
 \subsection{Angeregte Schwingungen}
 Für angeregte Schwingungen beschreibt wieder eine Differentialgleichung den Spannungsverlauf des Kondensators:
@@ -117,3 +118,15 @@ wird für $\frac{R}{L^2} \ll \omega_0^2$ angenähert durch
     \symup{\Delta}\omega = \omega_{+}-\omega_{-} \approx \frac{R}{L}.
     \label{eq:Breite Resonanzkurve}
 \end{equation}
+
+Darüber hinaus wird im Fall einer schwachen Dämpfung mit $\frac{R^2}{2L^2} \ll \frac{1}{LC}$ die Resonanzfrequenz~$\omega_{\symup{res}}$ zu der 
+Eigenfrequenz~$\omega_0$ des ungedämpften Systems. Dann gilt:
+\begin{equation}
+    U_{\symup{C,max}} = \frac{1}{\omega_0 RC}U_0 = qU_0 \notag
+\end{equation}
+Dabei wird
+\begin{equation}
+    q:=\frac{1}{\omega_0 RC} = \frac{\omega_0}{\symup{\Delta}\omega}
+    \label{eq:Güte}
+\end{equation}
+als Güte oder Frequenzüberhöhung bezeichnet.
