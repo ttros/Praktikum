@@ -9,6 +9,12 @@ Resonanzfall zu betrachten.
 Ein Schwingkreis besteht aus einer Spule mit der Induktivität~$L$, einem Kondensator mit der Kapazität~$C$, und einem 
 Widerstand~$R$. In einem idealen Schwingkreis ohne Widerstand $R$ gilt die Energieerhaltung, sodass die zur Verfügung stehende 
 Energie zwischen der Spule mit der Induktivität $L$ und dem Kondensator mit der Kapazität $C$ verlustfrei oszilliert.
+\begin{figure} [H]
+    \centering
+    \includegraphics[height=6cm]{content/Bilder/Gedämpfter Schwingkreis.pdf}
+    \caption{Schaltskizze eines gedämpften Schwingkreises}
+    \label{fig:Schaltskizze Schwingkreis}
+  \end{figure}
 
 \subsection{Gedämpfte Schwingungen}
 Wird ein Widerstand mit berücksichtigt, ist festzustellen, dass die Energie weiterhin oszilliert, die Amplituden der einzelnen 
@@ -61,31 +67,49 @@ Für den Fall, dass der Radikant von $\nu$ genau null ist, also
 \end{equation*}
 fällt der Strom am schnellsten. Eben dieser Fall wird als \textit{aperiodischer Grenzfall} bezeichnet. Umgestellt nach $R$ ergibt sich
 \begin{equation}
-    R_{\symup{ap}} = 2L\sqrt{\frac{1}{LC}} = 2L\omega_0.
-    label{eq:Widerstand aperiodischer Grenzfall}
+    R_{\symup{ap}} = 2\sqrt{\frac{L}{C}}.
+    \label{eq:Widerstand aperiodischer Grenzfall}
 \end{equation}
 Hierbei bezeichnet $\omega_0$ die Kreisfrequenz des Schwingkreises.
 
 \subsection{Angeregte Schwingungen}
 Für angeregte Schwingungen beschreibt wieder eine Differentialgleichung den Spannungsverlauf des Kondensators:
 \begin{equation*}
-    LC\dot{U_{\symup{C}}}+RC\dot{U_{\symup{C}}}+U_{\symup{C}} = U_0\symup{e}^{\symup{i}\omega t}.
+    LC\ddot{U}_{\symup{C}}+RC\dot{U}_{\symup{C}}+U_{\symup{C}} = U_0\symup{e}^{\symup{i}\omega t}.
 \end{equation*}
 Gelöst wird diese Differentialgleichung durch
 \begin{equation*}
     U_{\symup{C}}(\omega)=\frac{U_0(1-LC\omega^2-\symup{i}\omega RC)}{(1-LC\omega^2)^{2}+\omega^2R^2\omega^2}.
 \end{equation*}
-Somit ist die Phasenverschiebung zwischen $U_{\symup{C}}$ und der Erregerspannung~$U_{\symup{err}}U_0\symup{e}^{\symup{i}\omega t}$
+Somit ist die Phasenverschiebung zwischen $U_{\symup{C}}$ und der Erregerspannung~$U_{\symup{err}}=U_0\symup{e}^{\symup{i}\omega t}$
 gegeben durch
 \begin{equation}
     \varphi(\omega)=\arctan\left(\frac{-\omega RC}{1-LC\omega^2}\right).
     \label{eq:Phasenverschiebung}
 \end{equation}
+Die charakteristischen Phasenverschiebungungen von $\varphi_1 = \frac{\symup{\pi}}{4}$ und $\varphi_2 = \frac{3\symup{\pi}}{4}$ werden erreicht bei
+\begin{align*}
+    \omega_1&=\frac{R}{2L}+\sqrt{\frac{R^2}{4L^2}+\frac{1}{LC}} \\
+    \omega_2&=-\frac{R}{2L}+\sqrt{\frac{R^2}{4L^2}+\frac{1}{LC}}.
+\end{align*}
+
 Um die Resonanzfrequenz des Schwingkreises zu erhalten muss zunächst der Betrag der Spannung untersucht werden:
 \begin{equation*}
-    |U(\omega)|=|U_{\symup{C}}(\omega) = \frac{U_0}{\sqrt{(1-LC\omega^2)^2+\omega^2R^2C^2}}.
+    |U(\omega)|=|U_{\symup{C}}(\omega)| = \frac{U_0}{\sqrt{(1-LC\omega^2)^2+\omega^2R^2C^2}}.
 \end{equation*}
-Für $\omega \to 0$ und für $\omega \to \inf$ gilt
+Für $\omega \to 0$ und für $\omega \to \infty$ gilt
 \begin{align*}
-    \lim \limits_{}
+    \lim \limits_{\omega \to 0} (U(\omega)) &= U_0 & \lim \limits_{\omega \to \infty} (U(\omega)) &= 0.
 \end{align*}
+Die Resonanzfrequenz, also die Frequenz $\omega$ für die $U(\omega)$ maximal wird, lautet
+\begin{equation}
+    \omega_{\symup{res}} = \sqrt{\frac{1}{LC}-\frac{R^2}{2L^2}}.
+    \label{eq:Resonanzfrequenz}
+\end{equation}
+Ebenfalls wichtig ist die so genannte Breite der Resonanzkurve. Diese ist ein Bereich um das Maximum der Resonanzkurve,
+in dem der Betrag der Amplitude größer ist als das $\frac{1}{\sqrt{2}}$-Fache des Maximums. Die Bereite der Resonanzkurve
+wird für $\frac{R}{L^2} \ll \omega_0^2$ angenähert durch
+\begin{equation}
+    \symup{\Delta}\omega = \omega_{+}-\omega_{-} \approx \frac{R}{L}.
+    \label{eq:Breite Resonanzkurve}
+\end{equation}
