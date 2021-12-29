@@ -99,9 +99,10 @@ Die charakteristischen Phasenverschiebungungen von $\varphi_1 = \frac{\symup{\pi
 \end{align}
 
 Um die Resonanzfrequenz des Schwingkreises zu erhalten muss zunächst der Betrag der Spannung untersucht werden:
-\begin{equation*}
+\begin{equation}
     |U(\omega)|=|U_{\symup{C}}(\omega)| = \frac{U_0}{\sqrt{(1-LC\omega^2)^2+\omega^2R^2C^2}}.
-\end{equation*}
+    \label{eq:Spannung}
+\end{equation}
 Für $\omega \to 0$ und für $\omega \to \infty$ gilt
 \begin{align*}
     \lim \limits_{\omega \to 0} (U(\omega)) &= U_0 & \lim \limits_{\omega \to \infty} (U(\omega)) &= 0.
@@ -119,6 +120,7 @@ wird für $\frac{R}{L^2} \ll \omega_0^2$ angenähert durch
     \label{eq:Breite Resonanzkurve}
 \end{equation}
 
+
 Darüber hinaus wird im Fall einer schwachen Dämpfung mit $\frac{R^2}{2L^2} \ll \frac{1}{LC}$ die Resonanzfrequenz~$\omega_{\symup{res}}$ zu der 
 Eigenfrequenz~$\omega_0$ des ungedämpften Systems. Dann gilt:
 \begin{equation}
@@ -130,3 +132,13 @@ Dabei wird
     \label{eq:Güte}
 \end{equation}
 als Güte oder Frequenzüberhöhung bezeichnet.
+
+Zuletzt soll noch die Resonanzüberhöhung bzw. Güte erwähnt sein. Sie beschreibt den Faktor um den die Spannung am Maximum erhöht wird,
+was im Fall $\omega=\omega_{\symup{res}}$ vorliegt.
+Sie kann bestimmt werden durch die Formel
+\begin{equation}
+    q=\frac{\omega_0}{\symup{\Delta}\omega}
+    \label{eq:Güte}
+\end{equation}
+wobei $\omega_{0}=\frac{1}{LC}$ die Frequenz des ungedämpften Schwingkreises beschreibt.
+>>>>>>> 66423825f0aa25cbce1fe50c834117f2ea5535b0

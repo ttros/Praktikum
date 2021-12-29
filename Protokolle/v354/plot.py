@@ -43,7 +43,7 @@ plt.savefig('build/plot_a.pdf')
 plt.close()
 ######################## Plot C #############################
 
-R=559.5 #Innenwiderstand 50
+R=509.5+50 #Innenwiderstand 50
 L=10.11*10**-3 #Gerätedaten
 C=2.093*10**-9 #Gerätedaten
 f_kHz, U_0, U, a, b = np.genfromtxt('content/data/data_c_d.txt', unpack = True)
@@ -62,7 +62,7 @@ plt.plot(33, 14/3.6 , 'go', label = "Maximum der Messwerte")
 plt.xscale('log')
 
 plt.xlabel(r'$f/ \unit{\kilo\hertz}$')
-plt.ylabel(r'$\frac{U_0}{U}$')
+plt.ylabel(r'$\frac{U}{U_0}$')
 plt.legend(loc='best')
 plt.grid(which="both")
 
