@@ -50,7 +50,7 @@ Sagen, dass Abstand zwischen Peaks immer \qty{27,27}{\micro\second}
 
 Nach der Vorgehensweise aus \autoref{sec:Aperiodischer Grenzfall Durchführung} ergibt sich für den gesuchten Widerstand \\
 \begin{gather*}
-  R_{\symup{ap}} = \qty{3,40+-0.1}{\kilo\ohm}. \\ \notag
+  R_{\symup{ap}} = \qty{3,40+-0.01}{\kilo\ohm}. \\ \notag
 \end{gather*}
 
 Als Referenz wird außerdem der theoretische Wert berechnet, der sich aus \eqref{eq:Widerstand aperiodischer Grenzfall} ergibt.
@@ -58,20 +58,20 @@ Dessen Fehler bestimmt sich mit der gaußschen Fehlerfortpflanzung zu:
 
 \begin{align*}
   \label{eqn:Fehler Rap}
-  \Delta R_{\text{ap}} &= \sqrt{\Bigl(\frac{\symup{d}R_{\text{ap}}}{\symup{d}L}\Delta L \Bigr)^2+\Bigl(\frac{\symup{d}R_{\text{ap}}}{\symup{d}C}\Delta C\Bigr)^2} \\
-  &= \sqrt{\Bigl(\frac{1}{\sqrt{LC}}\Delta L\Bigr)^2+\Bigl(\frac{\sqrt{LC}}{C^2}\Delta C\Bigr)} \\
-  &\approx 12345 \unit{\ohm}
+  \symup{\Delta} R_{\text{ap}} &= \sqrt{\Bigl(\frac{\symup{d}R_{\text{ap}}}{\symup{d}L}\symup{\Delta} L \Bigr)^2+\Bigl(\frac{\symup{d}R_{\text{ap}}}{\symup{d}C}\symup{\Delta} C\Bigr)^2} \\
+  &= \sqrt{\Bigl(\frac{1}{\sqrt{LC}}\symup{\Delta} L\Bigr)^2+\Bigl(\frac{\sqrt{LC}}{C^2}\symup{\Delta} C\Bigr)^2} \\
+  &\approx 7\,\unit{\ohm}
 \end{align*}
 
 Insgesamt erhält man also aus der Theorie:
 \begin{gather*}
-  R_{\symup{ap, theoretisch}} = \qty{3,40+-0.1}{\kilo\ohm}. \\ \notag
+  R_{\symup{ap, theoretisch}} = \qty{4,396+-0.007}{\kilo\ohm}. \\ \notag
 \end{gather*}
 
 \subsection{Frequenzabhängigkeit der Spannung}
 \label{sec:Frequenzabhängigkeit der Spannung}
 
-\begin{table}
+\begin{table} [H]
   \centering
   \caption{Messwertpaare der zur Frequenz $f$ zugehörigen Amplituden $U_{0}$, $U$ sowie der Relativamplitude $\frac{U}{U_{0}}$.}
   \label{tab:Aufgabe c}

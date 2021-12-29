@@ -139,3 +139,8 @@ R1_f = ufloat(48.1,0.1)
 R2_f = ufloat(509.5,0.5)
 L_f = ufloat(10.11*(10**(-3)),0.03*(10**(-3)))
 C_f = ufloat(2.093*(10**(-9)),0.003*(10**(-9)))
+
+## b ##
+
+R_ap = 2*unp.sqrt(L_f/C_f)
+print(f'R aperiodisch: {R_ap}')
