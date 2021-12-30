@@ -3,6 +3,8 @@
 
 \subsection{Zeitabhängigkeit der Amplitude}
 \label{sec:Zeitabhängigkeit der Amplitude}
+Aus dem Ozilloskopbild (\autoref{fig:aufgabe a}) wird die Höhe der einzelnen Peaks abgelesen und in \autoref{tab:Aufgabe a} festgehalten. Der 
+zeitliche Abstand zwischen den Peaks wird zu $\qty{27,27}{\micro\second}$ bestimmt.
 
 \begin{figure} [H]
   \centering
@@ -11,10 +13,9 @@
   \label{fig:aufgabe a}
 \end{figure}
 
-Sagen, dass Abstand zwischen Peaks immer \qty{27,27}{\micro\second}
 \begin{table}
   \centering
-  \caption{Amplitude der einzelnen Peaks aus \autoref{fig:aufgabe a}.}
+  \caption{Amplitude der einzelnen Peaks aus \autoref{fig:aufgabe a} mit einem zeitlichen Abstand von $\qty{27,27}{\micro\second}$.}
   \label{tab:Aufgabe a}
   \begin{tabular}{S[table-format=1.1]}
     \toprule
@@ -38,6 +39,13 @@ Sagen, dass Abstand zwischen Peaks immer \qty{27,27}{\micro\second}
   \end{tabular}
 \end{table}
 
+Die Messwerte werden graphisch dargestellt. Für die logarithmische Darstellung der Messwerte $\frac{U}{U_0}$ mit dem Wert $U_0=\qty{6}{\volt}$
+wird mit der Python-Erweiterung \textit{scipy} \cite{scipy} eine lineare Ausgleichsrechnung durchgeführt und es ergibt sich die Ausgleichsgerade
+\begin{equation}
+  \ln(\frac{U}{U_0})=\qty{-0,0106+-0,0007}{\per\micro\second} \cdot t + (0,3013\pm0,0007).
+  \label{eq:Ausgleichsgerade}
+\end{equation}
+
 \begin{figure} [H]
   \centering
   \includegraphics{build/plot_a.pdf}
@@ -45,10 +53,48 @@ Sagen, dass Abstand zwischen Peaks immer \qty{27,27}{\micro\second}
   \label{fig:plot_a}
 \end{figure}
 
+% Effektiver Widerstand %
+\subsubsection{Effektiver Widerstand $R_{\symup{eff}}$}
+Um den effektiven Widerstand des Schwingkreises herauszufinden, wird \eqref{eq:effektiver Widerstand} verwendet. Der Faktor $2\symup{\pi}\mu$ ergibt
+sich als Steigung der Ausgleichsgeraden \eqref{eq:Ausgleichsgerade}:
+\begin{equation*}
+  R_{\symup{eff, experiment}}=\qty{214+-14}{\ohm}.
+\end{equation*}
+Der theoretisch zu bestimmende Effektivwiderstand $R_{\symup{eff, theorie}}$ setzt sich aus dem verwendeten Widerstand $R_1$ und dem
+Innenwiderstand des Frequenzgenerators von etwa $\qty{50}{\ohm}$ zusammen zu
+\begin{equation*}
+  R_{\symup{eff, theorie}} = \qty{98.10+-0.10}{\ohm}.
+\end{equation*}
+Im Folgenden wird der experiementell ermittelte Widerstand $R_{\symup{eff, experiment}}$ verwendet, da hier auch die Leitungswiderstände 
+berücksichtigt werden.
+
+% Abklingzeit %
+\subsubsection{Abklingzeit $T_{\symup{ex}}$}
+Nach \ref{eq:Abklingzeit} ergibt sich die experimentell ermittelte Abklingzeit $T_{\symup{ex, experimentell}}$ zu
+\begin{equation*}
+  T_{\symup{ex, experimentell}} = \qty{95+-6}{\micro\second}.
+\end{equation*}
+Ebenfalls mithilfe von \ref{eq:Abklingzeit} wird der theoretische Wert der Abklingzeit $T_{\symup{ex, theoretisch}}$ bestimmt zu
+\begin{equation*}
+  T'_{\symup{ex, theoretisch}} = \qty{95}{\micro\second}.
+\end{equation*}
+Die Messunsicherheit von $T_{\symup{ex, theoretisch}}$ wird mithilfe der gaußschen Fehlerfortpflanzung bestimmt
+\begin{align*}
+  \symup{\Delta}T_{\symup{ex, theoretisch}} &= \sqrt{\Bigl(\frac{\symup{d}T_{\text{ex}}}{\symup{d}L}\symup{\Delta} L \Bigr)^2+
+  \Bigl(\frac{\symup{d}T_{\text{ex}}}{\symup{d}R}\symup{\Delta} R\Bigr)^2} \\
+  &=\sqrt{\Bigl(\frac{2}{R}\symup{\Delta} L\Bigr)^2+\Bigl(\frac{-2L}{R^2}\symup{\Delta}R\Bigr)^2} \\
+  &\approx \qty{6}{\micro\second}
+\end{align*}
+Für die theoretische Abklingzeit $T_{\symup{ex, theoretisch}}$ ergibt sich folglich der Wert
+\begin{equation*}
+  T_{\symup{ex, theoretisch}} = \qty{95+-6}{\micro\second}.
+\end{equation*}
+
+%%%%% Aperiodischer Grenzfall %%%%%
 \subsection{Aperiodischer Grenzfall}
 \label{sec:Aperiodischer Grenzfall}
 
-Nach der Vorgehensweise aus \autoref{sec:Aperiodischer Grenzfall Durchführung} ergibt sich für den gesuchten Widerstand \\
+Nach der Vorgehensweise aus \ref{sec:Aperiodischer Grenzfall Durchführung} ergibt sich für den gesuchten Widerstand \\
 \begin{gather*}
   R_{\symup{ap}} = \qty{3,40+-0.01}{\kilo\ohm}. \\ \notag
 \end{gather*}
@@ -76,12 +122,12 @@ aufgeführt. Es wird im weiteren Verlauf mit dem Verhältnis $\frac{U}{U_{0}}$ g
 Frequenzabhängigkeit von $U_0$ relativiert und das Ergebnis nicht verfälscht. 
 
 Zuerst wird $\frac{U}{U_{0}}$ in \autoref{fig:plot_c} halblogarithmisch gegen die Frequenz geplottet.
-Zusätlich wurde hier noch zur Übersichtlichkeit der theoretische Verlauf, der durch \autoref{eq:Spannung} beschrieben wird, eingefügt.
+Zusätlich wurde hier noch zur Übersichtlichkeit der theoretische Verlauf, der durch \eqref{eq:Spannung} beschrieben wird, eingefügt.
 
 Es lässt sich aus \autoref{fig:plot_c} nun die Resonanzüberhöhung $q_{\symup{exp}}$ entnehmen, diese entspricht dem größten Messwert bzw.
 dem experiementellen Maximum:
 \begin{gather*}
-  q_{\symup{exp}} = 3.9\,\unit{\volt}. \notag
+  q_{\symup{exp}} = 3,9\,\unit{\volt}. \notag
 \end{gather*}
 
 Anschließend soll die Breite der Resonanzkurve bestimmt werden.
@@ -90,7 +136,7 @@ Damit werden entsprechend \eqref{eq:Breite Resonanzkurve} $f_+$ und $f_-$ als di
 die Spannung auf das  $\frac{1}{\sqrt{2}}$-Fache des Maximums abgefallen ist.
 Aus deren Differenz ergibt sich dann die Breite der Resonanzkurve experiementell zu
 \begin{gather*}
-  \symup{\Delta}f_{\symup{exp}} = 37.7\,\unit{\kilo\hertz} - 28.9\,\unit{\kilo\hertz} = 8.8\,\unit{\kilo\hertz}. \notag
+  \symup{\Delta}f_{\symup{exp}} = 37,7\,\unit{\kilo\hertz} - 28,9\,\unit{\kilo\hertz} = 8,8\,\unit{\kilo\hertz}. \notag
 \end{gather*}
 
 Als nächstes werden die ermittelten Werte mit den theoretischen Werten verglichen.
@@ -168,15 +214,15 @@ Anschließend wird der Bereich um $\varphi=\frac{\pi}{2}$ in \autoref{fig:plot_d
 Aus dieser Darstellung können nun die Werte für $f_{\symup{res}}$, $f_{1}$ und $f_{2}$ entnommen werden:
 \begin{align*}
   f_{\symup{res, exp}} &= 34.3\,\unit{\kilo\hertz} \\
-  f_{1,exp} &= 30.4\,\unit{\kilo\hertz} \\
-  f_{2,exp} &= 39.4\,\unit{\kilo\hertz}.
+  f_{\symup{1,exp}} &= 30.4\,\unit{\kilo\hertz} \\
+  f_{\symup{2,exp}} &= 39.4\,\unit{\kilo\hertz}.
 \end{align*}
 
 Mithilfe von \eqref{eq:Resonanzfrequenz}, \eqref{eq:omega 1} und \eqref{eq:omega 2} können diese Werte auch theoretisch bestimmt werden zu
 \begin{align*}
   f_{\symup{res, theorie}} &= \qty{34.033+-0.001}{\kilo\hertz} \\
-  f_{1,theorie} &= \qty{30.473+-0.003}{\kilo\hertz} \\
-  f_{2,theorie} &= \qty{39.282+-0.004}{\kilo\hertz}.
+  f_{\symup{1,theorie}} &= \qty{30.473+-0.003}{\kilo\hertz} \\
+  f_{\symup{2,theorie}} &= \qty{39.282+-0.004}{\kilo\hertz}.
 \end{align*}
 Hier zeigt sich ebenfalls eine gute Übereistimmung zwischen den theoretischen und experiementellen Werten.
 
@@ -217,13 +263,13 @@ Hier zeigt sich ebenfalls eine gute Übereistimmung zwischen den theoretischen u
 \begin{figure} [H]
   \centering
   \includegraphics{build/plot_d.pdf}
-  \caption{Frequenzabhängigkeit der Phasenverschiebung}
+  \caption{Frequenzabhängigkeit der Phasenverschiebung.}
   \label{fig:plot_d}
 \end{figure}
 
 \begin{figure} [H]
   \centering
   \includegraphics{build/plot_d_2.pdf}
-  \caption{Linearer Plot der Messwerte als Kurve im Bereich um $\frac{\pi}{2}$}
+  \caption{Linearer Plot der Messwerte als Kurve im Bereich um $\frac{\pi}{2}$.}
   \label{fig:plot_d_2}
 \end{figure}

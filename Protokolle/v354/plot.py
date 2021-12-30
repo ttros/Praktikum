@@ -34,7 +34,7 @@ plt.plot(t*x,np.log(A/6), 'rx', label='Messwerte')
 plt.plot(t*xx,m*t*xx+b, 'b', label='Fit')
 
 plt.xlabel(r'$t\,/\,\unit{\micro\second}$')
-plt.ylabel(r'$\symup{ln}(\frac{U}{U_{0}})$')
+plt.ylabel(r'$\symup{ln}\left(\frac{U}{U_{0}}\right)$')
 plt.legend(loc='best')
 plt.grid(which="both")
 
@@ -78,7 +78,7 @@ def Breite(x):
 x_b = np.linspace(28.9, 37.7, 2)
 
 plt.plot(f_kHz, U_RCL, 'r', label='Messwertekurve')
-plt.plot(x_b, Breite(x_b),'c--', label = r'Breite der Messwertekurve: $\symup{\Delta} f = 8.8\,\unit{\kilo\hertz}$')
+plt.plot(x_b, Breite(x_b),'c--', label = r'Breite der Messwertekurve: $\symup{\Delta} f = 8,8\,\unit{\kilo\hertz}$')
 plt.plot(33, 14/3.6 , 'go', label = "Maximum der Messwerte")
 
 plt.xlabel(r'$f/ \unit{\kilo\hertz}$')
@@ -145,8 +145,14 @@ print(f'\n')
 
 ## a ##
 R_eff = R1_f + 50
+R_eff_exp = -2*(M*10**6)*L
 print(f'R effektiv Theorie: {R_eff} Ohm')
-print(f'R effektiv Experiement: {-2*(M*10**6)*L} Ohm')
+print(f'R effektiv Experiement: {R_eff_exp} Ohm')
+
+T_ex_theorie= (2*L)/(R_eff_exp) * 10**6 # Einheit: micro s
+T_ex_experiment = -1/(M) # Einheit: micro s
+print(f'T_ex_theorie: {T_ex_theorie} micro s')
+print(f'T_ex_experiment: {T_ex_experiment} micro s')
 
 ## b ##
 R_ap = 2*unp.sqrt(L_f/C_f)
@@ -167,6 +173,7 @@ omega_2 = -(R2_f+50)/(2*L) + unp.sqrt( (R2_f+50)**2/(4*(L**2)) + 1/(L*C) )
 print(f'Resonanzfrequenz: {omega_res/(1000*2*np.pi)} kHz')
 print(f'Frequenz 1: {omega_1/(1000*2*np.pi)} kHz')
 print(f'Frequenz 2: {omega_2/(1000*2*np.pi)} kHz')
+
 
 ######
 print(f'\n')
