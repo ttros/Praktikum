@@ -149,7 +149,7 @@ R_eff_exp = -2*(M*10**6)*L
 print(f'R effektiv Theorie: {R_eff} Ohm')
 print(f'R effektiv Experiement: {R_eff_exp} Ohm')
 
-T_ex_theorie= (2*L)/(R_eff_exp) * 10**6 # Einheit: micro s
+T_ex_theorie= (2*L)/(R_eff) * 10**6 # Einheit: micro s 
 T_ex_experiment = -1/(M) # Einheit: micro s
 print(f'T_ex_theorie: {T_ex_theorie} micro s')
 print(f'T_ex_experiment: {T_ex_experiment} micro s')
