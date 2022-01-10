@@ -68,15 +68,15 @@ Innenwiderstand des Frequenzgenerators von etwa $\qty{50}{\ohm}$ zusammen zu
 
 % Abklingzeit %
 \subsubsection{Abklingzeit $T_{\symup{ex}}$}
-Nach \ref{eq:Abklingzeit} ergibt sich die experimentell ermittelte Abklingzeit zu
+Nach \eqref{eq:Abklingzeit} ergibt sich die experimentell ermittelte Abklingzeit zu
 \begin{equation*}
   T_{\symup{ex, experimentell}} = \qty{95+-6}{\micro\second}.
 \end{equation*}
-Ebenfalls mithilfe von \ref{eq:Abklingzeit} wird der theoretische Wert der Abklingzeit bestimmt zu
+Ebenfalls mithilfe von \eqref{eq:Abklingzeit} wird der theoretische Wert der Abklingzeit bestimmt zu
 \begin{equation*}
   T'_{\symup{ex, theoretisch}} = \qty{206.12}{\micro\second}.
 \end{equation*}
-Die Messunsicherheit von $T_{\symup{ex, theoretisch}}$ wird mithilfe der gaußschen Fehlerfortpflanzung bestimmt
+Die Messunsicherheit von $T_{\symup{ex, theoretisch}}$ wird mithilfe der gaußschen Fehlerfortpflanzung bestimmt:
 \begin{align*}
   \symup{\Delta}T_{\symup{ex, theoretisch}} &= \sqrt{\Bigl(\frac{\symup{d}T_{\text{ex}}}{\symup{d}L}\symup{\Delta} L \Bigr)^2+
   \Bigl(\frac{\symup{d}T_{\text{ex}}}{\symup{d}R}\symup{\Delta} R\Bigr)^2} \\
@@ -116,11 +116,11 @@ Insgesamt erhält man also aus der Theorie:
 \label{sec:Frequenzabhängigkeit der Spannung}
 
 In \autoref{tab:Aufgabe c} ist die frequenzabhängige Spannungsamplitude des Frequenzgenerators $U_0$ und des Ausgangssignals $U$
-aufgeführt. Es wird im weiteren Verlauf mit dem Verhältnis $\frac{U}{U_{0}}$ gearbeitet, damit sich eine mögliche
+aufgeführt. Es wird im weiteren Verlauf mit dem Verhältnis~$\frac{U}{U_{0}}$ gearbeitet, damit sich eine mögliche
 Frequenzabhängigkeit von $U_0$ relativiert und das Ergebnis nicht verfälscht. 
 
 Zuerst wird $\frac{U}{U_{0}}$ in \autoref{fig:plot_c} halblogarithmisch gegen die Frequenz geplottet.
-Zusätlich wurde hier noch zur Übersichtlichkeit der theoretische Verlauf, der durch \eqref{eq:Spannung} beschrieben wird, eingefügt.
+Zusätlich wird zur Übersichtlichkeit der theoretische Verlauf, der durch \eqref{eq:Spannung} beschrieben wird, eingefügt.
 
 Es lässt sich aus \autoref{fig:plot_c} nun die Resonanzüberhöhung $q_{\symup{exp}}$ entnehmen, diese entspricht dem größten Messwert bzw.
 dem experiementellen Maximum:
@@ -129,7 +129,7 @@ dem experiementellen Maximum:
 \end{gather*}
 
 Anschließend soll die Breite der Resonanzkurve bestimmt werden.
-Dafür wird der Spannungsverlauf im Resonanzbereich in \autoref{fig:plot_c_2} linear geplottet.
+Dafür wird der Spannungsverlauf im Resonanzbereich in \autoref{fig:plot_c_2} geplottet.
 Damit werden entsprechend \eqref{eq:Breite Resonanzkurve} $f_+$ und $f_-$ als die Frequenzen bestimmt, bei denen
 die Spannung auf das  $\frac{1}{\sqrt{2}}$-Fache des Maximums abgefallen ist.
 Aus deren Differenz ergibt sich dann die Breite der Resonanzkurve experiementell zu
@@ -203,7 +203,7 @@ Also kann auch hier eine gute Übereinstimmung von Theorie und Experiement festg
 Die Messwerte für $a$ und $b$ sind in \autoref{tab:aufgabe d} festgehalten.
 Der Phasenversatz $\varphi$ wird daraus berechnet mit
 \begin{equation}
-  \varphi=\frac{2\pi a}{b}.
+  \varphi=\frac{2\symup{\pi} a}{b}.
 \end{equation}
 In \autoref{fig:plot_d} sind diese Werte halblogarithmisch geplottet.
 Es wurde zusätlich die Theoriekurve entsprechend \eqref{eq:Phasenverschiebung} eingefügt.
@@ -211,9 +211,9 @@ Es wurde zusätlich die Theoriekurve entsprechend \eqref{eq:Phasenverschiebung} 
 Anschließend wird der Bereich um $\varphi=\frac{\pi}{2}$ in \autoref{fig:plot_d_2} linear dargestellt.
 Aus dieser Darstellung können nun die Werte für $f_{\symup{res}}$, $f_{1}$ und $f_{2}$ entnommen werden:
 \begin{align*}
-  f_{\symup{res, exp}} &= 34.3\,\unit{\kilo\hertz} \\
-  f_{\symup{1,exp}} &= 30.4\,\unit{\kilo\hertz} \\
-  f_{\symup{2,exp}} &= 39.4\,\unit{\kilo\hertz}.
+  f_{\symup{res, exp}} &= 34,3\,\unit{\kilo\hertz} \\
+  f_{\symup{1,exp}} &= 30,4\,\unit{\kilo\hertz} \\
+  f_{\symup{2,exp}} &= 39,4\,\unit{\kilo\hertz}.
 \end{align*}
 
 Mithilfe von \eqref{eq:Resonanzfrequenz}, \eqref{eq:omega 1} und \eqref{eq:omega 2} können diese Werte auch theoretisch bestimmt werden zu
