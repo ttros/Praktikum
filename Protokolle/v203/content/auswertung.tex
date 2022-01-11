@@ -1,20 +1,17 @@
 \section{Auswertung}
 \label{sec:Auswertung}
 
-\begin{figure}
-  \centering
-  \includegraphics{plot_1.pdf}
-  \caption{Plot.}
-  \label{fig:plot}
-\end{figure}
+\subsection{Verdampfungswärme von Wasser für $p\,≤\,\qty{100}{\kilo\pascal}$}
+Der Umgebungsdruck $p_0$ wird vor Beginn der Messreihe zu $p_0 = \qty{101,7}{\kilo\pascal}$ bestimmt. Die Messwerte für die Gastemperatur $T$
+und des Drucks $p$ werden tabellarisch erfasst und anschließend graphisch in \autoref{fig:Verdampfungswärme} dargestellt. 
 
 \begin{longtable}{S[table-format=3.0] S[table-format=3.0] | S[table-format=3.0] S[table-format=2.1]}
-  \caption{Messwertepaare Temperatur $T$ und Druck $p$.}\label{tab:Teil 1} \\
+  \caption{Messwertepaare Temperatur $T$ und Druck $p$ mit $p\,≤\,\qty{100}{\kilo\pascal}$.}\label{tab:Teil 1} \\
     \toprule
     {$T\,/\,\unit{\celsius}$} & {$p\,/\,\unit{\milli\bar}$} & {$T\,/\,\unit{\kelvin}$} & {$p\,/\,\unit{\kilo\pascal}$} \\
     \midrule
     \endfirsthead
-    \caption[]{Messwertepaare Temperatur $T$ und Druck $p$. (Fortsetzung)}\\
+    \caption[]{Messwertepaare Temperatur $T$ und Druck $p$ mit $p\,≤\,\qty{100}{\kilo\pascal}$. (Fortsetzung)}\\
     \hline
     \endhead
     \hline
@@ -65,3 +62,87 @@
     112 & 850 & 385 & 85.0 \\
     114 & 864 & 387 & 86.4 \\ 
 \end{longtable}
+
+\begin{figure}
+  \centering
+  \includegraphics{plot_1.pdf}
+  \caption{Graphische Darstellung der Messwertpaare aus \autoref{tab:Teil 1} mit Ausgleichsgerade.}
+  \label{fig:Verdampfungswärme}
+\end{figure}
+
+Mithilfe der 
+\textit{Python}-Erweiterung \textit{scipy}\cite{scipy} wird eine lineare Ausgleichsrechnung durchgeführt und es ergibt sich eine
+Ausgleichsgerade vom Typ
+\begin{equation*}
+  \ln\left(\frac{p}{p_0}\right)= \qty{3220+-80}{\kelvin} \, \frac{1}{T} + (\num{1+-8}).
+\end{equation*}
+Dies enstpricht der Form von \eqref{eq:Druck} und somit ergibt sich die Verdampfungswärme $L$ zu
+\begin{align*}
+  \frac{L}{R} &= \qty{3220+-80}{\kelvin} \\
+  \Leftrightarrow L &= \qty{26,8+-0,7}{\kilo\joule\per\mol}.
+\end{align*}
+Für die Gaskonstante $R$ wird hier der Wert $R = \qty{8,314}{\joule\per\mol\per\kelvin}$ \cite{czichos} verwendet.
+
+Um die innere Verdampfungswärme $L_{\symup{i}}$ zu bestimmen wird der Zusammenhang~ REFERENZZZ!!!!!!\eqref{eq:}, sowie die allgemeine 
+Gasgleichung~ REFERENZZZ!!!!!!!\eqref{eq:} verwendet. Zunächst wird die äußere Verdampfungswärme $L_{\symup{a}}$ für eine 
+Temperatur~$T = \qty{373}{\kelvin}$ abgeschätzt:
+\begin{align*}
+  L_{\symup{a}} &= pV = RT \\
+                &= \qty{3,101}{\kilo\joule\per\mol}
+\end{align*}
+Folglich ergibt sich für die innere Verdampfungswärme $L_{\symup{i}}$ der Wert
+\begin{align*}
+  L_{\symup{i}} &= L - L_{\symup{a}} \\
+                &= \qty{26,8+-0,7}{\kilo\joule\per\mol} - \qty{3,101}{\kilo\joule\per\mol} \\
+                &= \qty{23,7+-0,7}{\kilo\joule\per\mol}.
+\end{align*}
+Bezieht sich die Verdampfungswärme nun nicht mehr auf eine mol-Masse, sondern auf einzelne Moleküle, muss $L_{\symup{i}}$ durch die
+Avogadro-Konstante $N_{\symup{A}}=\qty{6,02e23}{\per\mol}$ \cite{czichos} geteilt werden. Zur Übersichtlichkeit wird $L_{\symup{i, M}}$ in eV angegeben:
+\begin{align*}
+  L_{\symup{i, M}} = \qty{0.278+-0.007}{\electronvolt}
+\end{align*}
+
+%%%%%%%%%%% Kapitel 2 %%%%%%%%%%%
+\subsection{Temperaturabhängigkeit der Verdampfungswärme für $\qty{100}{\kilo\pascal}\,≤\,p\,≤\,\qty{1500}{\kilo\pascal}$}
+Die Messwerte für den Druck $p$ und die Temperatur $T$ werden auch hier zunächst tabellarisch erfasst und anschließend graphisch dargestellt.
+\begin{table}
+  \centering
+  \caption{Messwertepaare Temperatur $T$ und Druck $p$ mit $\qty{100}{\kilo\pascal}\,≤\,p\,≤\,\qty{1500}{\kilo\pascal}$}
+  \label{tab:Teil 2}
+  \begin{tabular}{S[table-format=2.0] S[table-format=3.0] | S[table-format=4.0] S[table-format=3.0]}
+      \toprule
+       {$p\,/\,\unit{\milli\bar}$} & {$T\,/\,\unit{\celsius}$} & {$p\,/\,\unit{\kilo\pascal}$} & {$T\,/\,\unit{\kelvin}$} \\
+      \midrule
+          1	  & 117 & 100  & 390 \\
+          2	  & 134 & 200  & 407 \\
+          3	  & 141 & 300  & 414 \\
+          4	  & 148 & 400  & 421 \\
+          5	  & 154 & 500  & 427 \\
+          6	  & 161 & 600  & 434 \\
+          7	  & 167 & 700  & 440 \\
+          8	  & 172 & 800  & 445 \\
+          9	  & 176 & 900  & 449 \\
+          10	& 180 & 1000 & 453 \\
+          11	& 184 & 1100 & 457 \\
+          12	& 187 & 1200 & 460 \\
+          13	& 191 & 1300 & 464 \\
+          14	& 194 & 1400 & 467 \\
+          15	& 197 & 1500 & 470 \\  
+          \bottomrule 
+  \end{tabular}
+\end{table}
+Auch hier wird eine Ausgleichsrechnung mit \textit{scipy} durchgeführt und es wird ein Fit eingezeichnet. Die Ausgleichsfunktion wird hierbei durch ein 
+allgemeines Polynom 3.~Grades bestimmt.
+Das Polynom lässt sich bestimmen zu
+\begin{align*}
+  p(T) &= a \cdot T^3 + b\cdot T^2 + c \cdot T + d
+\end{align*}
+mit den Parametern
+\begin{align*}
+  a&=\qty{0.00065+-0.00029}{\kilo\pascal\per\cubic\kelvin}
+\end{align*}
+
+A: 0.00065+/-0.00029
+B: -0.7+/-0.4
+C: (2.4+/-1.6)e+02
+D: (-2.8+/-2.3)e+04
