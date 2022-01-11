@@ -83,8 +83,8 @@ Dies enstpricht der Form von \eqref{eq:Druck} und somit ergibt sich die Verdampf
 \end{align*}
 Für die Gaskonstante $R$ wird hier der Wert $R = \qty{8,314}{\joule\per\mol\per\kelvin}$ \cite{czichos} verwendet.
 
-Um die innere Verdampfungswärme $L_{\symup{i}}$ zu bestimmen wird der Zusammenhang~ REFERENZZZ!!!!!!\eqref{eq:}, sowie die allgemeine 
-Gasgleichung~ REFERENZZZ!!!!!!!\eqref{eq:} verwendet. Zunächst wird die äußere Verdampfungswärme $L_{\symup{a}}$ für eine 
+Um die innere Verdampfungswärme $L_{\symup{i}}$ zu bestimmen wird der Zusammenhang~\eqref{eq:Verdampfungswärme}, sowie die allgemeine 
+Gasgleichung~\eqref{eq:Ideale Gasgleichung} verwendet. Zunächst wird die äußere Verdampfungswärme $L_{\symup{a}}$ für eine 
 Temperatur~$T = \qty{373}{\kelvin}$ abgeschätzt:
 \begin{align*}
   L_{\symup{a}} &= pV = RT \\
@@ -139,10 +139,15 @@ Das Polynom lässt sich bestimmen zu
 \end{align*}
 mit den Parametern
 \begin{align*}
-  a&=\qty{0.00065+-0.00029}{\kilo\pascal\per\cubic\kelvin}
+  a&=\qty{0.00065+-0.00029}{\kilo\pascal\per\cubic\kelvin} \\
+  b&=\qty{-0.7+-0.4}{\kilo\pascal\per\square\kelvin} \\
+  c&=\qty{240+-160}{\kilo\pascal\per\kelvin} \\
+  d&=\qty{2800+-2300}{\kilo\pascal}.
 \end{align*}
 
-A: 0.00065+/-0.00029
-B: -0.7+/-0.4
-C: (2.4+/-1.6)e+02
-D: (-2.8+/-2.3)e+04
+\begin{figure}[H]
+  \centering
+  \includegraphics{plot_2.pdf}
+  \caption{Graphische Darstellung der Messwertpaare aus \autoref{tab:Teil 2} mit Ausgleichspolynom 3. Grades.}
+  \label{fig:3.Grad Fit}
+\end{figure}
