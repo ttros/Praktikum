@@ -9,27 +9,37 @@ from uncertainties import ufloat
 from uncertainties.unumpy import (nominal_values as noms,
                                   std_devs as stds)
 
-############### Plot 1 ###############
-T, p = np.genfromtxt('content/data/data_1.txt', unpack = True)
+# %%%%% Daten 1 in SI-Einheiten %%%%% #
+T_messung, p_messung = np.genfromtxt('content/data/data_1.txt', unpack = True)
 
+
+T = T_messung + 273.15      # T in K
+p = p_messung * 10**(-1)       # p in kPa
+
+np.savetxt('data_1_si.txt', np.column_stack([T, p]),fmt=['%d', '%.1f'], header="T / K, p / kPa")
+# %%%%% Daten 1 in SI-Einheiten %%%%% #
+
+############### Plot 1 ################
 plt.plot(T,p,'rx', label='Messwerte')
 
-def f(A,B,T):
-    return A*(np.e)**(B*T)
+def f(T,A,B):
+    return A*(np.e)**(-B*1/T)
 
-parameters, pcov = curve_fit(f, T , p, sigma=None)
+parameters, pcov = curve_fit(f, T, p, sigma=None)
 A = parameters[0]
 B = parameters[1]
-print(f'A: {A}')
+print(f'\n\nA: {A}')
 print(f'B: {B}')
+print(f'L = {B*8.314}')
+print(f'\n\n')
 
 xx = np.linspace(20, 100, 10000)
-#plt.plot(xx, f(A,B,xx), 'b', label = 'Fit')
+plt.plot(T, f(T,*parameters), 'b', label = 'Fit')
 
 #plt.yscale('log')
 
-plt.xlabel(r'$T\,/\,\unit{\celsius}$')
-plt.ylabel(r'$p \,/\, \unit{\milli\bar}$')
+plt.xlabel(r'$T \,/\,\unit{\kelvin}$')
+plt.ylabel(r'$p \,/\, \unit{\kilo\pascal}$')
 plt.legend(loc='best')
 plt.grid(which="both")
 
