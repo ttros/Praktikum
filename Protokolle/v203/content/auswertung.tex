@@ -106,7 +106,7 @@ Avogadro-Konstante $N_{\symup{A}}=\qty{6,02e23}{\per\mol}$ \cite{czichos} geteil
 %%%%%%%%%%% Kapitel 2 %%%%%%%%%%%
 \subsection{Temperaturabhängigkeit der Verdampfungswärme für $\qty{100}{\kilo\pascal}\,≤\,p\,≤\,\qty{1500}{\kilo\pascal}$}
 \label{sec:Auswertung_2}
-Um die Abhängigkeit der Verdampfungswärme von der Temperatur $L(T)$ in diesem Fall zu bestimmen, muss die 
+Um die Abhängigkeit der Verdampfungswärme von der Temperatur $L(T)$ zu bestimmen, muss die 
 Clausius-Clapeyronsche~Gleichung~\eqref{eq:Clausius-Clapeyronsche Gleichung} umgestellt werden:
 \begin{align*}
   \Rightarrow L = T(V_{\symup{D}}-V_{\symup{F}})\frac{\symup{d}p}{\symup{d}T}
@@ -126,7 +126,8 @@ Ingesamt folgt dann für $L$:
   \label{eq:L(T)}
 \end{align}
 
-Die Messwerte für den Druck $p$ und die Temperatur $T$ werden auch hier zunächst tabellarisch erfasst und anschließend graphisch dargestellt.
+Um die benötigte Funktion $p(T)$ zu bestimmen, werden die Messwerte für den Druck $p$ und die Temperatur $T$ verwendet.
+Diese sind in \autoref{tab:Teil 2} aufgeführt.
 \begin{table}[H]
   \centering
   \caption{Messwertepaare Temperatur $T$ und Druck $p$ mit $\qty{100}{\kilo\pascal}\,≤\,p\,≤\,\qty{1500}{\kilo\pascal}$}
@@ -153,8 +154,9 @@ Die Messwerte für den Druck $p$ und die Temperatur $T$ werden auch hier zunäch
           \bottomrule 
   \end{tabular}
 \end{table}
-Um eine Funktion $p(T)$ zu bestimmen wird auch her mit \textit{scipy} eine Ausgleichsrechnung durchgeführt und es wird ein Fit eingezeichnet. 
-Die Ausgleichsfunktion wird hierbei durch ein allgemeines Polynom 3.~Grades bestimmt.
+Zur Ermittlung von $p(T)$ wird mit \textit{scipy} eine Ausgleichsrechnung durchgeführt.
+Die Daten und der zugehörige Fit sind in \autoref{fig:3.Grad Fit} dargestellt.
+Die Ausgleichsfunktion wird hierbei durch ein allgemeines Polynom 3.~Grades definiert.
 Das Polynom lässt sich bestimmen zu
 \begin{align*}
   p(T) &= a \cdot T^3 + b\cdot T^2 + c \cdot T + d

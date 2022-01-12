@@ -113,19 +113,15 @@ plt.plot(x, L_plus(x,*parameters*10**3), 'r')
 plt.xlabel(r'$T \,/\,\unit{\kelvin}$')
 plt.ylabel(r'$L_{+}(T) \,/\, \unit{\joule\per\mol}$')
 plt.grid(which="both")
-
 plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
 plt.savefig('build/plot_L_plus.pdf')
 plt.close()
-
-
 
 plt.plot(xx, L_minus(x,*parameters*10**3), 'r')
 
 plt.xlabel(r'$T \,/\,\unit{\kelvin}$')
 plt.ylabel(r'$L_{-}(T) \,/\, \unit{\joule\per\mol}$')
 plt.grid(which="both")
-
 plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
 plt.savefig('build/plot_L_minus.pdf')
 plt.close()
