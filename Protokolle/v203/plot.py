@@ -8,6 +8,8 @@ import uncertainties.unumpy as unp
 from uncertainties import ufloat
 from uncertainties.unumpy import (nominal_values as noms,
                                   std_devs as stds)
+import scipy.constants as const
+
 # %%%%%%%%%%%%%%%%%%%%%% TEIL 1 %%%%%%%%%%%%%%%%%%%%%% #
 ####### Daten 1 in SI-Einheiten #######
 T_messung, p_messung = np.genfromtxt('content/data/data_1.txt', unpack = True)
@@ -67,7 +69,7 @@ np.savetxt('content/data/data_2_si.txt', np.column_stack([p_2, T_2]),fmt=['%d', 
 plt.plot(T_2,p_2,'rx', label='Messwerte')
 
 def f(T,a,b,c,d):
-    return a*T**3 + b*T**2 + c*T + d
+    return a*(T**3) + b*(T**2) + c*T + d
 
 parameters, pcov = curve_fit(f, T_2 , p_2, sigma=None)
 std = np.sqrt(np.diag(pcov))
@@ -97,22 +99,28 @@ print(f'D: {D}')
 print(f'\n\n')
 ############## Ausgabe 2 ##############
 ############## Plot 3,4 ###############
-a = noms(A)
-b = noms(B)
-c = noms(C)
-d = noms(D)
-a_tilde = 0.9 # Jm^3/mol^2 aus Aufgabenstellung
-R = 8.314 # Gaskonstante
+R=const.gas_constant
+C=0.9
+def L_plus(x,a,b,c,d):
+    return ((((R*x)/2)+np.sqrt(((R**2*x**2)/2)-C*(a*x**3+b*x**2+c*x+d)))*((3*a*x**3+2*b*x**2+c*x)/(a*x**3+b*x**2+c*x+d)))
+def L_minus(x,a,b,c,d):
+    return ((((R*x)/2)-np.sqrt(((R**2*x**2)/2)-C*(a*x**3+b*x**2+c*x+d)))*((3*a*x**3+2*b*x**2+c*x)/(a*x**3+b*x**2+c*x+d)))
 
-def L_minus(T,a,b,c,d,a_tilde,R):
-    return ((T*(3*a*T**2 + 2*b*T + c)) / (a*T**3 + b*T**2 + c*T + d)) * (((R*T)/2) - np.sqrt((R**2 * T**2)/4 - a_tilde*10**3*(a*T**3 + b*T**2 + c*T + d)))
+x = np.linspace(390, 470, 1000)
 
-def L_plus(T,a,b,c,d,a_tilde,R):
-    return ((T*(3*a*T**2 + 2*b*T + c)) / (a*T**3 + b*T**2 + c*T + d)) * (((R*T)/2) + np.sqrt((R**2 * T**2)/4 - a_tilde*10**3*(a*T**3 + b*T**2 + c*T + d)))
+plt.plot(x, L_plus(x,*parameters*10**3), 'r')
 
-xx = np.linspace(370, 480, 1000)
+plt.xlabel(r'$T \,/\,\unit{\kelvin}$')
+plt.ylabel(r'$L_{+}(T) \,/\, \unit{\joule\per\mol}$')
+plt.grid(which="both")
 
-plt.plot(xx, L_minus(xx,a,b,c,d,a_tilde,R), 'b')
+plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
+plt.savefig('build/plot_L_plus.pdf')
+plt.close()
+
+
+
+plt.plot(xx, L_minus(x,*parameters*10**3), 'r')
 
 plt.xlabel(r'$T \,/\,\unit{\kelvin}$')
 plt.ylabel(r'$L_{-}(T) \,/\, \unit{\joule\per\mol}$')
@@ -120,16 +128,6 @@ plt.grid(which="both")
 
 plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
 plt.savefig('build/plot_L_minus.pdf')
-plt.close()
-
-plt.plot(xx, L_plus(xx,a,b,c,d,a_tilde,R), 'b')
-
-plt.xlabel(r'$T \,/\,\unit{\kelvin}$')
-plt.ylabel(r'$L_{-}(T) \,/\, \unit{\joule\per\mol}$')
-plt.grid(which="both")
-
-plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
-plt.savefig('build/plot_L_plus.pdf')
 plt.close()
 ############## Plot 3,4 ###############
 # %%%%%%%%%%%%%%%%%%%%%% TEIL 2 %%%%%%%%%%%%%%%%%%%%%% #
