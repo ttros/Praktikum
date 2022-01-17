@@ -1,7 +1,7 @@
 \section{Auswertung}
 \label{sec:Auswertung}
 
-\subsection{Verdampfungswärme von Wasser für $p\,≤\,\qty{100}{\kilo\pascal}$}
+\subsection{Verdampfungswärme von Wasser bis 100\,kPa}
 \label{sec:Auswertung 1}
 Der Umgebungsdruck $p_0$ wird vor Beginn der Messreihe zu $p_0 = \qty{101,7}{\kilo\pascal}$ bestimmt. Die Messwerte für die Gastemperatur $T$
 und des Drucks $p$ werden tabellarisch erfasst und anschließend graphisch in \autoref{fig:Verdampfungswärme} dargestellt. 
@@ -72,12 +72,12 @@ und des Drucks $p$ werden tabellarisch erfasst und anschließend graphisch in \a
 \end{figure}
 
 Mithilfe der 
-\textit{Python}-Erweiterung \textit{scipy}\cite{scipy} wird eine lineare Ausgleichsrechnung durchgeführt und es ergibt sich eine
+\textit{Python}-Erweiterung \textit{scipy}\,\cite{scipy} wird eine lineare Ausgleichsrechnung durchgeführt und es ergibt sich eine
 Ausgleichsgerade vom Typ
 \begin{equation*}
   \ln\left(\frac{p}{p_0}\right)= \qty{3220+-80}{\kelvin} \, \frac{1}{T} + (\num{1+-8}).
 \end{equation*}
-Dies enstpricht der Form von \eqref{eq:Druck} und somit ergibt sich die Verdampfungswärme $L$ zu
+Dies enstpricht der logarithmierten Form von \eqref{eq:Druck} und somit ergibt sich die Verdampfungswärme $L$ zu
 \begin{align*}
   \frac{L}{R} &= \qty{3220+-80}{\kelvin} \\
   \Leftrightarrow L &= \qty{26,8+-0,7}{\kilo\joule\per\mol}.
@@ -104,7 +104,7 @@ Avogadro-Konstante $N_{\symup{A}}=\qty{6,02e23}{\per\mol}$ \cite{czichos} geteil
 \end{align*}
 
 %%%%%%%%%%% Kapitel 2 %%%%%%%%%%%
-\subsection{Temperaturabhängigkeit der Verdampfungswärme für $\qty{100}{\kilo\pascal}\,≤\,p\,≤\,\qty{1500}{\kilo\pascal}$}
+\subsection{Temperaturabhängigkeit der Verdampfungswärme von 100 bis 1500\,kPa}
 \label{sec:Auswertung_2}
 Um die Abhängigkeit der Verdampfungswärme von der Temperatur $L(T)$ zu bestimmen, muss die 
 Clausius-Clapeyronsche~Gleichung~\eqref{eq:Clausius-Clapeyronsche Gleichung} umgestellt werden:
