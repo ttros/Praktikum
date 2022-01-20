@@ -1,12 +1,64 @@
 \section{Auswertung}
 \label{sec:Auswertung}
 
-----------Kurzes Pendel----------
+Die Versuchsergebnisse der beiden Pendellängen werden getrennt ausgewertet.
 
+\subsection{Kurzes Pendel}
+\label{Kurzes Pendel}
 
-Mittelwert 1. Pendel: 1.4466+/-0.0033 s
-Mittelwert 2. Pendel: 1.448+/-0.006 s
+Zuerst werden die Schwingungsdauern $T_1$ und $T_2$ der einzelnen Pendel ausgewertet.
+Dabei wurde die Zeit jeweils für fünf Perioden gemessen, die Messwerte dazu stehen in \autoref{tab:kurze Pendel einzeln}
 
+\begin{table}[H]
+    \centering
+    \caption{Messwerte für die Schwingungsdauern der einzelnen Pendel.}
+    \label{tab:kurze Pendel einzeln}
+    \begin{tabular}{S[table-format=1.2] S[table-format=1.2]}
+        \toprule
+        {$5\cdot T_1$ / s} & {$5\cdot T_2$ / s} \\
+        \midrule
+            7.27 & 7.06 \\
+            7.21 & 7.27 \\
+            7.20 & 7.28 \\
+            7.14 & 7.33 \\
+            7.26 & 7.07 \\
+            7.26 & 7.33 \\
+            7.25 & 7.31 \\
+            7.21 & 7.26 \\
+            7.33 & 7.25 \\
+            7.20 & 7.26 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+Aus diesen Werten wird der Mittelwert mitsamt seinem Fehler bestimmt.
+Die dafür verwendeten Formeln lauten:
+
+\begin{equation}  
+    \label{eqn:Mittelwert}
+    \bar{T} = \frac{1}{N} \sum_{k=1}^{N} T_{\text{k}}
+\end{equation}
+
+\begin{equation}  
+    \label{eqn:Standartabweichung}
+    \sigma = \sqrt{\frac{1}{N}\sum_{k=1}^{N}(T_{\symup{k}}-\bar{T})^2 }
+\end{equation}
+
+\begin{equation}
+    \label{eqn:Mittelwertfehler}
+    \increment \bar{T} = \frac{\sigma}{\sqrt{N}} 
+\end{equation}
+
+Es ergeben sich daraus die Mittelwerte:
+
+\begin{align*}
+\bar{T_1} &= \qty{1.446+-0.003}{\second} \\
+\bar{T_2} &= \qty{1.448+-0.006}{\second}
+\end{align*}
+
+Mit den Fehlertoleranzen lassen sich die beiden Werte vereinen.
+Daher können die Pendel als identisch angenommen werden,
+und somit nun deren Verhalten bei Kopplung untersucht werden.
 
 Mittelwert gleichphasig: 1.454+/-0.009 s
 gleichphasig theoretisch: 1.4185033534428875 s
@@ -21,9 +73,8 @@ Mittelwert gekoppelt: 1.621+/-0.008 s
 Mittelwert Schwebung: 36.07+/-0.15 s
 Schwebung theoretisch: 57+/-19 s
 
-
-----------Langes Pendel----------
-
+\subsection{Langes Pendel}
+\label{Langes Pendel}
 
 Mittelwert 1. Pendel: 1.973+/-0.005 s
 Mittelwert 2. Pendel: 1.974+/-0.006 s
