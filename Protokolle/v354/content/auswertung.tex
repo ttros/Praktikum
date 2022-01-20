@@ -3,8 +3,8 @@
 
 \subsection{Zeitabhängigkeit der Amplitude}
 \label{sec:Zeitabhängigkeit der Amplitude}
-Aus dem Ozilloskopbild (\autoref{fig:aufgabe a}) wird die Höhe der einzelnen Peaks abgelesen und in \autoref{tab:Aufgabe a} festgehalten. Der 
-zeitliche Abstand zwischen den Peaks wird zu $\qty{27,27}{\micro\second}$ bestimmt.
+Aus dem Ozilloskopbild (\autoref{fig:aufgabe a}) wird die Höhe der einzelnen Peaks zu den jeweiligen Zeitpunkten abgelesen 
+und in \autoref{tab:Aufgabe a} festgehalten.
 
 \begin{figure} [H]
   \centering
@@ -15,26 +15,26 @@ zeitliche Abstand zwischen den Peaks wird zu $\qty{27,27}{\micro\second}$ bestim
 
 \begin{table}
   \centering
-  \caption{Amplitude der einzelnen Peaks aus \autoref{fig:aufgabe a} mit einem zeitlichen Abstand von $\qty{27,27}{\micro\second}$.}
+  \caption{Amplitude der einzelnen Peaks aus \autoref{fig:aufgabe a} zu den jeweiligen Zeitpunkten $t$.}
   \label{tab:Aufgabe a}
-  \begin{tabular}{S[table-format=1.1]}
+  \begin{tabular}{S[table-format=3.1] S[table-format=1.1]}
     \toprule
-    {$U\,/\,\unit{\volt}$} \\
+    {$t$\,/\,$\unit{\micro\second}$} & {$U\,/\,\unit{\volt}$} \\
     \midrule
-    6.0 \\
-    5.0 \\
-    4.1 \\
-    3.3 \\
-    2.7 \\
-    2.2 \\
-    1.8 \\
-    1.4 \\
-    1.1 \\
-    0.8 \\
-    0.5 \\
-    0.4 \\
-    0.2 \\
-    0.1 \\
+    27,3  & 6.0 \\
+    54,5  & 5.0 \\
+    81,8  & 4.1 \\
+    109,0 & 3.3 \\
+    136,3 & 2.7 \\
+    163,6 & 2.2 \\
+    190,7 & 1.8 \\
+    218,1 & 1.4 \\
+    246,4 & 1.1 \\
+    272,8 & 0.8 \\
+    300,1 & 0.5 \\
+    327,2 & 0.4 \\
+    354,5 & 0.2 \\
+    381,9 & 0.1 \\
     \bottomrule
   \end{tabular}
 \end{table}
@@ -122,10 +122,9 @@ Frequenzabhängigkeit von $U_0$ relativiert und das Ergebnis nicht verfälscht.
 Zuerst wird $\frac{U}{U_{0}}$ in \autoref{fig:plot_c} halblogarithmisch gegen die Frequenz geplottet.
 Zusätlich wird zur Übersichtlichkeit der theoretische Verlauf, der durch \eqref{eq:Spannung} beschrieben wird, eingefügt.
 
-Es lässt sich aus \autoref{fig:plot_c} nun die Resonanzüberhöhung $q_{\symup{exp}}$ entnehmen, diese entspricht dem größten Messwert bzw.
-dem experiementellen Maximum:
+Es lässt sich aus \autoref{fig:plot_c} und mithilfe von \eqref{eq:Güte} nun die Resonanzüberhöhung $q_{\symup{exp}}$ bestimmen.
 \begin{gather*}
-  q_{\symup{exp}} = 3,9\,\unit{\volt}. \notag
+  q_{\symup{exp}} = \num{3,9}. \notag
 \end{gather*}
 
 Anschließend soll die Breite der Resonanzkurve bestimmt werden.
@@ -146,8 +145,12 @@ und steht somit in guter Übereinstimmung mit dem experiementellen Ergebnis.
 
 Die Resonanzüberhöhung lässt sich ebenfalls mit \eqref{eq:Güte} theoretisch berechnen und lautet
 \begin{gather*}
-  q_{\symup{theorie}} = \qty{3.928+-0.003}{\volt}. \notag
+  q_{\symup{theorie}} = \num{3.928+-0.003}. \notag
 \end{gather*}
+Hierfür wird die Resonazfrequenz $\omega_{\symup{res}}$ mithilfe von \eqref{eq:Resonanzfrequenz} berechnet:
+\begin{equation*}
+  \omega_{\symup{res}} = \qty{213.839+-0.006e3}{\per\second}
+\end{equation*}
 Also kann auch hier eine gute Übereinstimmung von Theorie und Experiement festgestellt werden.
 
 \begin{table} [H]
@@ -186,7 +189,7 @@ Also kann auch hier eine gute Übereinstimmung von Theorie und Experiement festg
 \begin{figure} [H]
   \centering
   \includegraphics{build/plot_c.pdf}
-  \caption{Frequenzabhängigkeit der Spannung}
+  \caption{Frequenzabhängigkeit der Spannung mit Theoriekurve \eqref{eq:Spannung}}
   \label{fig:plot_c}
 \end{figure}
 

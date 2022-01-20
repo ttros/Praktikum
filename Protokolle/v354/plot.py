@@ -58,6 +58,7 @@ x = np.linspace(10, 47, 1000)
 
 plt.plot(f_kHz, U_RCL, 'rx', label='Messwerte')
 plt.plot(x, Theorie_c(2*np.pi*1000*x, R, L, C), label = "Theoriekurve")
+#plt.plot(34, 14/3.6+0.05 , 'go', label = "Maximum")  #############
 plt.plot(33, 14/3.6 , 'go', label = "Maximum der Messwerte")
 plt.xscale('log')
 
@@ -171,6 +172,7 @@ omega_res = unp.sqrt(1/(L*C) - ((R2_f+50)**2)/(2*(L**2)))
 omega_1 = (R2_f+50)/(2*L) + unp.sqrt( (R2_f+50)**2/(4*(L**2)) + 1/(L*C) )
 omega_2 = -(R2_f+50)/(2*L) + unp.sqrt( (R2_f+50)**2/(4*(L**2)) + 1/(L*C) )
 print(f'Resonanzfrequenz: {omega_res/(1000*2*np.pi)} kHz')
+print(f'Resonanzfrequenz: {omega_res/(1000)} kHz')
 print(f'Frequenz 1: {omega_1/(1000*2*np.pi)} kHz')
 print(f'Frequenz 2: {omega_2/(1000*2*np.pi)} kHz')
 
