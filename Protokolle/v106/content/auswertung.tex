@@ -4,7 +4,7 @@
 Die Versuchsergebnisse der beiden Pendellängen werden getrennt ausgewertet.
 
 \subsection{Kurzes Pendel}
-\label{Kurzes Pendel}
+\label{sec:Kurzes Pendel}
 
 Zuerst werden die Schwingungsdauern $T_1$ und $T_2$ der einzelnen Pendel ausgewertet.
 Dabei wurde die Zeit jeweils für fünf Perioden gemessen, die Messwerte dazu stehen in \autoref{tab:kurze Pendel einzeln}.
@@ -125,7 +125,7 @@ Die Messwerte hierfür finden sich in \autoref{tab:kurze Pendel gekoppelt}.
     \label{tab:kurze Pendel gekoppelt}
     \begin{tabular}{S[table-format=1.2] S[table-format=2.2]}
         \toprule
-        {$5\cdot T$ / s} & {$5\cdot T_{\symup{S}}$ / s} \\
+        {$5\cdot T$ / s} & {$T_{\symup{S}}$ / s} \\
         \midrule
             8.02 & 35.97 \\
             8.12 & 35.84 \\
@@ -151,7 +151,12 @@ Abschließend wird für die Schwebungsdauer mit \eqref{eq:T_S} ein theoretischer
 \end{gather*}
 
 \subsection{Langes Pendel}
-\label{Langes Pendel}
+\label{sec:Langes Pendel}
+
+Die Auswertung für das lange Pendel ist vollständig analog zum kurzen Pendel.
+Da alle Formeln identisch verwendet werden, folgen hier nur die Ergebnisse.
+
+Die individuellen Schwingungsdauern der Pendel finden sich in \autoref{tab:lange Pendel einzeln}.
 
 \begin{table}[H]
     \centering
@@ -174,6 +179,17 @@ Abschließend wird für die Schwebungsdauer mit \eqref{eq:T_S} ein theoretischer
         \bottomrule
     \end{tabular}
 \end{table}
+
+Gemittelt ergeben sich folgende Werte:
+\begin{align*}
+    \bar{T_1} &= \qty{1.973+-0.005}{\second} \\
+    \bar{T_2} &= \qty{1.974+-0.006}{\second}.
+\end{align*}
+Wie in \autoref{sec:Kurzes Pendel} liegen die Mittelwerte innerhalb ihrer gegenseitigen
+Fehlertoleranzen und die Pendel können als identisch angenommen werden.
+
+Für die gleichphasige und gegenphasige Schwingung sind die Messwerte in \autoref{tab:lange Pendel gleichsinnig und gegensinnig}
+festgehalten.
 
 \begin{table}[H]
     \centering
@@ -198,6 +214,17 @@ Abschließend wird für die Schwebungsdauer mit \eqref{eq:T_S} ein theoretischer
     \end{tabular}
 \end{table}
 
+Die Ergebnisse für deren Mittelwerte, die neue Kopplungskonstante $\kappa$ und die Theoriewerte lauten:
+\begin{align*}
+    \bar{T}_{+,\symup{exp}} &= \qty{1.976+-0.004}{\second} \\
+    \bar{T}_{+,\symup{theorie}} &= \qty{2.006}{\second} \\
+    \bar{T}_{-,\symup{exp}} &= \qty{1.732+-0.007}{\second} \\
+    \kappa &= \qty{0.131+-0.004}{} \\
+    \bar{T}_{-,\symup{theorie}} &= \qty{1.9799+-0.0008}{\second}
+\end{align*}
+
+Zuletzt wird wieder die Schwebungsdauer untersucht, die Messwerte finden sich in \autoref{tab:lange Pendel gekoppelt}.
+
 \begin{table}[H]
     \centering
     \caption{Messwerte für die Schwingungsdauer der gekoppelten Schwingung und der Schwebungsdauer bei
@@ -205,7 +232,7 @@ Abschließend wird für die Schwebungsdauer mit \eqref{eq:T_S} ein theoretischer
     \label{tab:lange Pendel gekoppelt}
     \begin{tabular}{S[table-format=1.2] S[table-format=2.2]}
         \toprule
-        {$5\cdot T$ / s} & {$5\cdot T_{\symup{S}}$ / s} \\
+        {$5\cdot T$ / s} & {$T_{\symup{S}}$ / s} \\
         \midrule
         8.20 & 14.88 \\
         8.24 & 13.91 \\
@@ -221,19 +248,12 @@ Abschließend wird für die Schwebungsdauer mit \eqref{eq:T_S} ein theoretischer
     \end{tabular}
 \end{table}
 
-Mittelwert 1. Pendel: 1.973+/-0.005 s
-Mittelwert 2. Pendel: 1.974+/-0.006 s
-
-
-Mittelwert gleichphasig: 1.976+/-0.004 s
-gleichphasig theoretisch: 2.0060666807106475 s
-
-
-Mittelwert gegenphasig: 1.732+/-0.007 s
-Kappa: 0.131+/-0.004
-gegenphasig theoretisch: 1.9799+/-0.0008 s
-
-
-Mittelwert gekoppelt: 1.694+/-0.014 s
-Mittelwert Schwebung: 14.43+/-0.13 s
-Schwebung theoretisch: 14.1+/-0.5 s
+Hier ergeben sich die Mittelwerte:
+\begin{gather*}
+    \bar{T}_{\symup{Schwingung},\symup{exp}} = \qty{1.694+-0.014}{\second} \\
+    \bar{T}_{\symup{Schwebung},\symup{exp}} = \qty{14.43+-0.13}{\second}.
+\end{gather*}
+Der Theoriewert bestimmt sich für das lange Pendel zu:
+\begin{gather*}
+    \bar{T}_{\symup{Schwebung},\symup{theorie}} = \qty{14.1+-0.5}{\second}.
+\end{gather*}
