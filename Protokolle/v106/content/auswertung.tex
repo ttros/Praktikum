@@ -109,8 +109,17 @@ mit \eqref{eq:Kopplungskonstante} ermittelt.
     \kappa = \qty{0.025+-0.008}{}
 \end{gather*}
 
+Die Messunsicherheit von $\kappa$ wird über die Gaußsche Fehlerfortpflanzung bestimmt:
+\begin{align*}
+    \increment \kappa = \sqrt{(\increment \bar{T}_{+})^2 \cdot \left( \frac{4 \bar{T}_{+} \bar{T}_{-}^2}{(\bar{T}_{+}^2 + \bar{T}_{-}^2)^2}\right)^2
+                           +(\increment \bar{T}_{-})^2 \cdot \left( \frac{-4 \bar{T}_{-} \bar{T}_{+}^2}{(\bar{T}_{+}^2 + \bar{T}_{-}^2)^2}\right)^2 }. 
+\end{align*}
+
 Damit kann nun der theoretische Wert für die Schwingungsdauer der gegenphasigen Schwingung mithilfe von \eqref{eq:T-}
-bestimmt werden.
+bestimmt werden. Der Fehler davon wird berechnet über:
+\begin{align*}
+    \increment \bar{T}_{-} = \increment \kappa \cdot 2 \pi \sqrt{\frac{l}{g + 2\kappa }^2} 
+\end{align*}
 \begin{gather*}
     \bar{T}_{-,\symup{theorie}} = \qty{1.414+-0.001}{\second}
 \end{gather*}
@@ -149,6 +158,10 @@ Abschließend wird für die Schwebungsdauer mit \eqref{eq:T_S} ein theoretischer
 \begin{gather*}
     \bar{T}_{\symup{Schwebung},\symup{theorie}} = \qty{57+-19}{\second}
 \end{gather*}
+Auch hier wird der Fehler über die Gaußsche Fehlerfortpflanzung bestimmt:
+\begin{equation}\label{eqn:fehlerts}
+    \increment \bar{T}_{\text{Schwebung}} = \increment \bar{T}_{-,\symup{theorie}} \cdot \left(\frac{\bar{T}_{+}^2}{(\bar{T}_{+} - \bar{T}_{-})^2}\right).
+  \end{equation}
 
 \subsection{Langes Pendel}
 \label{sec:Langes Pendel}
