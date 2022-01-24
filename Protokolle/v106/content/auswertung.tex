@@ -87,17 +87,17 @@ Die Messwerte für die gleichphasige und gegenphasige Schwingung der Pendel sind
 \end{table}
 
 Mithilfe von \eqref{eqn:Mittelwert}, \eqref{eqn:Standartabweichung} und \eqref{eqn:Mittelwertfehler}
-wird zuerst der Mittelwerte der gleichphasigen Schwingung berechnet zu:
+wird zuerst der Mittelwert der gleichphasigen Schwingung berechnet zu:
 \begin{gather*}
     \bar{T}_{+,\symup{exp}} = \qty{1.454+-0.009}{\second}
 \end{gather*}
 Dieses Messergebnis wird im folgenden mit dem Theoriewert verglichen. Dieser entspricht genau der Schwingungsdauer
-eines einzelnen Pendels und lässt sich daher mit Hilfe von \eqref{eq:Schwingungsdauer} berechnen.
+eines einzelnen Pendels \eqref{eq:T+}:
 \begin{gather*}
     \bar{T}_{+,\symup{theorie}} = \qty{1.418}{\second}
 \end{gather*}
 
-Als nächstes wird analog zur gleichphasigen Schwingung der Mittelwert der gegenphasigen Schwingung berechnet.
+Als Nächstes wird analog zur gleichphasigen Schwingung der Mittelwert der gegenphasigen Schwingung berechnet.
 \begin{gather*}
     \bar{T}_{-,\symup{exp}} = \qty{1.418+-0.008}{\second}
 \end{gather*}
@@ -118,7 +118,7 @@ Die Messunsicherheit von $\kappa$ wird über die Gaußsche Fehlerfortpflanzung b
 Damit kann nun der theoretische Wert für die Schwingungsdauer der gegenphasigen Schwingung mithilfe von \eqref{eq:T-}
 bestimmt werden. Der Fehler davon wird berechnet über:
 \begin{align*}
-    \increment \bar{T}_{-} = \increment \kappa \cdot 2 \pi \sqrt{\frac{l}{g + 2\kappa }^2} 
+    \increment \bar{T}_{-} = \increment \kappa \cdot 2 \pi \sqrt{\left(\frac{l}{g + 2\kappa }\right)^2} 
 \end{align*}
 \begin{gather*}
     \bar{T}_{-,\symup{theorie}} = \qty{1.414+-0.001}{\second}
@@ -198,7 +198,7 @@ Gemittelt ergeben sich folgende Werte:
     \bar{T_1} &= \qty{1.973+-0.005}{\second} \\
     \bar{T_2} &= \qty{1.974+-0.006}{\second}.
 \end{align*}
-Wie in \autoref{sec:Kurzes Pendel} liegen die Mittelwerte innerhalb ihrer gegenseitigen
+Wie in \ref{sec:Kurzes Pendel} liegen die Mittelwerte innerhalb ihrer gegenseitigen
 Fehlertoleranzen und die Pendel können als identisch angenommen werden.
 
 Für die gleichphasige und gegenphasige Schwingung sind die Messwerte in \autoref{tab:lange Pendel gleichsinnig und gegensinnig}
