@@ -1,0 +1,8 @@
+#Länge in mm. Amplitude ausgehend in V. Amplitude eingehend in V. Output in dB
+40.4	0.84	0.63	10
+61.5	1.00	0.50	20	
+80.5	1.16	0.41	25
+120.5	1.22	0.11	30
+101.9	1.23	0.17	30
+160.9	1.23	0.32	30
+142.0	1.23	0.30	30

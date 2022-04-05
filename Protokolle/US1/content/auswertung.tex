@@ -1,12 +1,83 @@
 \section{Auswertung}
 \label{sec:Auswertung}
 
-\begin{figure}
+% $c$-Bestimmung mit Impuls-Echo-Verfahren
+\subsection{Messung der Schallgeschwindigkeit mit Impuls-Echo-Verfahren}
+\begin{table}[H]
   \centering
-  \includegraphics{plot.pdf}
-  \caption{Plot.}
-  \label{fig:plot}
+  \caption{Daten $c$-Bestimmung mit Impuls-Echo-Verfahren.}
+  \label{tab:c_IE}
+  \begin{tabular}{S[table-format=3.1] S[table-format=3.0] S[table-format=2.1]}
+      \toprule
+       {$l\,/\,\unit{\milli\metre}$} & {$\symup{\Delta}\tilde{t}\,/\,\unit{\micro\second}$} & {$\symup{\Delta}t\,/\,\unit{\micro\second}$} \\
+      \midrule
+         40,4	&  30 & 15,0\\
+         61,5	&  46 & 23,0\\
+         80,5	&  60 & 30,0\\
+        120,5	&  88 & 44,0\\
+        101,9	&  75 & 37,5\\
+        160,9	& 104 & 52,0\\
+        142,0	&  75 & 37,5\\ 
+      \bottomrule 
+  \end{tabular}
+\end{table}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics{c-Bestimmung_IE.pdf}
+  \caption{Graphische Darstellung der Messwertpaare aus \autoref{tab:c_IE} mit Ausgleichsgerade.}
+  \label{fig:c_IE}
 \end{figure}
 
+% $c$-Bestimmung mit Durchschallungs-Verfahren
+\subsection{Messung der Schallgeschwindigkeit mit Durchschallungs-Verfahren}
+\begin{table}[H]
+  \centering
+  \caption{Daten $c$-Bestimmung mit Durchschallungs-Verfahren.}
+  \label{tab:c_D}
+  \begin{tabular}{S[table-format=2.1] S[table-format=2.0]}
+      \toprule
+       {$l\,/\,\unit{\milli\metre}$} & {$\symup{\Delta}t\,/\,\unit{\micro\second}$} \\
+      \midrule
+         40,4	& 15\\
+         61,5	& 23\\
+         80,5	& 30\\
+        120,5	& 44\\
+      \bottomrule 
+  \end{tabular}
+\end{table}
 
-Siehe \autoref{fig:plot}!
+\begin{figure}[H]
+  \centering
+  \includegraphics{c-Bestimmung_D.pdf}
+  \caption{Graphische Darstellung der Messwertpaare aus \autoref{tab:c_D} mit Ausgleichsgerade.}
+  \label{fig:c_D}
+\end{figure}
+
+% Messung der Dämpfung mit Impuls-Echo-Verfahren
+\subsection{Messung der Dämpfung mit Impuls-Echo-Verfahren}
+\begin{table}[H]
+  \centering
+  \caption{Daten Dämpfungsbestimmung mit Impuls-Echo-Verfahren.}
+  \label{tab:Dämpfung}
+  \begin{tabular}{S[table-format=2.1] S[table-format=1.2] S[table-format=1.2]}
+      \toprule
+       {$l\,/\,\unit{\milli\metre}$} & {$A_{\symup{out}}\,/\,\unit{\volt}$} & {$A_{\symup{in}}\,/\,\unit{\volt}$} \\
+      \midrule
+         40,4	& 0,84 & 0,63\\
+         61,5	& 1,00 & 0,50\\
+         80,5	& 1,16 & 0,41\\
+        120,5	& 1,22 & 0,11\\
+        101,9	& 1,23 & 0,17\\
+        160,9	& 1,23 & 0,32\\
+        142,0	& 1,23 & 0,30\\ 
+      \bottomrule 
+  \end{tabular}
+\end{table}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics{Daempfungsbestimmung.pdf}
+  \caption{Logarithmische Darstellung des Amplitudenverhältnisses aus \autoref{tab:Dämpfung} mit Ausgleichsgerade.}
+  \label{fig:Dämpfung}
+\end{figure}
