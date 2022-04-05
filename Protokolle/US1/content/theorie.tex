@@ -1,4 +1,51 @@
+\section{Zielsetzung}
+Ziel des Versuches ist, die Grundlagen der Ultraschalltechnik zu verstehen und anzuwenden.
+Dafür wird die Schallgeschwindigkeit in Acryl sowie die Schalldämpfung untersucht, ausßerdem
+wird ein Augenmodell mithilfe der Ultraschalltechnik vermessen.
+
 \section{Theorie}
 \label{sec:Theorie}
 
-\cite{sample}
+\subsection{Ultraschall}
+\label{sec:Ultraschall}
+
+Bei Schall handelt es sich allgemein um eine longitudinale Welle, welche sich aufgrund von Druckschwankungen
+in einem Medium fortbewegt.
+Das menschliche Gehöhr kann diese in einem Frequenzbereich von ca. $16\,\unit{\hertz}$ bis $20\,\unit{\kilo\hertz}$
+wahrnehmen. Schallwellen mit höhren Frequenzen zwischen $20\,\unit{\kilo\hertz}$ und $1\,\unit{\giga\hertz}$ werden als
+Ultraschall bezeichnet. \\
+Die Ultraschallwellen breiten sich mit einer vom Medium abhängigen Schallgeschwindigkeit $c$ aus.
+Weiterhin ist die akustische Impedanz (auch Schallkennwiderstand) $Z=\rho \cdot c$ von Interesse, sie hängt
+von der Schallgeschwindigkeit sowie von der Dichte des Mediums ab. \\
+Während der Ausbreitung verlieren die Schallwellen aufgrund von Absorption an Energie, ihre Intensität nimmt ab.
+Es besteht ein exponentieller Zusammenhang zwischen der Intensität und der zurückgelegten Strecke:
+\begin{equation}
+    \label{eq:Dämpfung}
+    I(x)=I_{0}\symup{e}^{-\alpha x}
+\end{equation}
+Aufgrund der hohen Absorption von Luft wird zwischen Schallgeber und Material ein Kontaktmittel verwendet.
+
+Zur Erzeugung von Ultraschall wird unter anderem der sogenannte reziproke piezo-elektrischen Effekt verwendet.
+Piezo-elektrische Kristalle schwingen in elektrischen Wechselfeldern und strahlen dabei Ultraschallwellen ab.
+Der selbe Effekt funktioniert umgekehrt, somit kann ein solcher Kristall auch als Empfänger verwendet werden,
+der abhängig von der Schallintensität ein elektrisches Signal abgibt.
+
+\subsection{Messverfahren}
+\label{sec:Messverfahren}
+Um Informationen über das zu untersuchende Material mithilfe von Ultraschall zu gewinnen, werden unter anderem
+Laufzeitmessungen durchgeführt. Dabei gibt es zwei wesentliche Verfahren.
+
+Beim \textit{Durchschallungs-Verfahren} wird mit einem Sender ein kurzzeitiger Schallimpuls in die Probe gegeben.
+Am anderen Ende der Probe wird das Signal dann wieder empfangen, aus der Laufzeit lässt sich die Länge berechnen:
+\begin{equation}
+    \label{eq:Durchschall}
+    s=c\cdot t
+\end{equation}
+
+Die andere Möglichkeit nennt sich \textit{Impuls-Echo-Verfahren}. Hier wird der Sender gleichzeitig als Empfänger verwendet.
+Der gesendete Impuls refelektiert am Ende der Probe und wird so wieder empfangen.
+Für die Längenberechnung zählt hier daher nur die halbe Zeit:
+\begin{equation}
+    \label{eq:Impuls-Echo}
+    s=\frac{1}{2} c\cdot t
+\end{equation}
