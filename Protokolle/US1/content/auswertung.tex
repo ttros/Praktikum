@@ -1,11 +1,46 @@
 \section{Auswertung}
 \label{sec:Auswertung}
 
-\subsection{Analyse des Messverfahrens}
-\label{sec:Analyse des Messverfahrens}
+\subsection{Verifizierung des Messverfahrens}
+\label{sec:Verifizierung des Messverfahrens}
+Damit die Funktionalität des Versuchaufbaus überprüft werden kann, wird die $\qty{2}{\mega\hertz}$ Ultraschallsonde mit bidestilliertem Wasser an 
+eine Acrylplatte mit bereits bekannter Dicke $d=\qty{10}{mm}$ gekoppelt. Aus \autoref{fig:Geräteeinstellung} wird die doppelte Laufzeit der 
+Ultraschallwelle zu $\symup{\Delta}\tilde{t}=\qty{8}{\micro\second}$ bestimmt. Mit \eqref{eq:Impuls-Echo} wird somit die Schallgeschwindigkeit in Acryl
+zu $c=\qty{2500}{\metre\per\second}$ bestimmt.
+\begin{figure}[H]
+  \centering
+  \includegraphics[height=6.5cm]{content/Abbildungen/Geräteeinstellung.pdf}
+  \caption{Ausgabe der Vermessung der $\qty{10}{mm}$ Acrylplatte.}
+  \label{fig:Geräteeinstellung}
+\end{figure}
 
 % $c$-Bestimmung mit Impuls-Echo-Verfahren
 \subsection{Messung der Schallgeschwindigkeit mit Impuls-Echo-Verfahren}
+\label{sec:c_IE}
+Für diesen Teil des Versuches werden Zylinder übereinandergestellt und mit bidestilliertem Wasser gekoppelt, um so mehrere verschiedene Längen 
+zu erreichen. Die Laufzeiten der Schallwellen werden abhängig von der Länge der Zylinder in \autoref{tab:c_IE} aufgeführt und in \autoref{fig:c_IE}
+graphisch dargestellt.
+
+Nach \eqref{eq:Durchschall} sollte ein linearer Zusammenhang vorliegen. Mithilfe der \textit{python}-Erweiterung \textit{scipy}\cite{scipy} wird eine
+lineare Ausgleichsrechnung durchgeführt\footnote{Anm: Der grau hinterlegte Messwert %
+wurde nicht bei der linearen Regression betrachtet, da hier sehr wahrscheinlich ein falscher Peak abgelesen wurde.}, welche für die Geradengleichung
+
+\begin{equation*}
+  l(\symup{\Delta}t) = m \cdot \symup{\Delta}t + b
+\end{equation*}
+
+folgende Parameter liefert:
+\begin{align*}
+  m_{\symup{IE}} &= \qty{313(21)e-6}{\second\per\metre}\\
+  b_{\symup{IE}} &= \qty{0.4(2.1)e-5}{\metre} \\
+\end{align*}
+Daraus lässt sich schließen, dass die Schallgeschwindigkeit in Acryl hier zu
+\begin{equation*}
+  c_{\symup{IE}} = \frac{1}{m} = \qty{3.19(0.22)e3}{\metre\per\second}
+\end{equation*}
+bestimmt wird.
+Der Parameter $b$ spiegelt hier die Dicke der Anpassungschicht wider.
+
 \begin{table}[H]
   \centering
   \caption{Daten $c$-Bestimmung mit Impuls-Echo-Verfahren.}
@@ -34,6 +69,16 @@
 
 % $c$-Bestimmung mit Durchschallungs-Verfahren
 \subsection{Messung der Schallgeschwindigkeit mit Durchschallungs-Verfahren}
+Die Auswertung der Messwerte erfolt analog zu \ref{sec:c_IE}. Hier liefert die lineare Ausgleichsrechnung die Werte
+\begin{align*}
+  m_{\symup{D}} &= \qty{361(5)e-6}{\second\per\metre} \\
+  b_{\symup{D}} &= \qty{1(5)e-6}{\metre}. \\
+\end{align*}
+Daraus folgt für die Schallgeschwindigkeit
+\begin{equation*}
+  c_{\symup{D}} = \qty{2.77(0.04)e+03}{\metre\per\second}.
+\end{equation*}
+
 \begin{table}[H]
   \centering
   \caption{Daten $c$-Bestimmung mit Durchschallungs-Verfahren.}
@@ -59,6 +104,21 @@
 
 % Messung der Dämpfung mit Impuls-Echo-Verfahren
 \subsection{Messung der Dämpfung mit Impuls-Echo-Verfahren}
+Für die Bestimmung des Dämpfungskoeffizienten $\alpha$ wird das Verhältnis der Amplituden der ausgesendeten und der einfallenden Ultraschallwelle
+gebildet. Dieses Verhältnis wird logarithmisch gegenüber der doppelten Länge der Acrylzylinder aufgetragen und es wird eine lineare Ausgleichsrechnung 
+durchgeführt.\footnote{Anm: Die grau hinterlegten Messwerte wurden für die Ausgleichsrechnung nicht berücksichtigt, da hier davon auszugehen ist, dass 
+Kopplung zweier Zylinder nicht ausreichend gut war. Dies hatte vermutlich zur Folge, dass der Peak der eigentlichen Reflexion am Ende des Zylinders
+im Hintergrundrauschen untergegangen ist.}
+\begin{align*}
+  m_{\symup{Dämpfung}} &= \qty{-13.8(1.3)}{\per\metre} \\
+  b_{\symup{Dämpfung}} &= \qty{0.9(1.3)}{\metre}
+\end{align*}
+Nach \eqref{eq:Dämpfung} liegt ein exponenzieller Zusammenhang zwischen Signalstärke und zurückgelegter Strecke vor. Folglich liefert die 
+Steigung der linearen Regressiongeraden den Dämpfungskoeffizienten $\alpha$.
+\begin{equation}
+    \alpha = \qty{13.8(1.3)}{\per\metre}
+\end{equation}
+
 \begin{table}[H]
   \centering
   \caption{Daten Dämpfungsbestimmung mit Impuls-Echo-Verfahren.}

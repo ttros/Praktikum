@@ -11,13 +11,28 @@ from uncertainties.unumpy import (nominal_values as noms,
 import scipy.constants as const
 
 # %%%%% c-Bestimmung I-E-Verfahren %%%%%
-l, t_ = np.genfromtxt('content/data/c-Bestimmung_IE.txt', unpack = True)
-t = t_/2
+l_, t_ = np.genfromtxt('content/data/c-Bestimmung_IE.txt', unpack = True)
+l = l_ * 10**(-3)
+t = t_/2 * 10**(-6)
+plt.plot(l[-1],t[-1], color='dimgray', marker='x')
+l = np.delete(l, -1)
+t = np.delete(t, -1)
 print(t[-2])
 plt.plot(l,t,'rx',label='Messwerte')
 
-plt.xlabel(r'$l \,/\,\unit{\milli\metre}')
-plt.ylabel(r'$\symup{\Delta}t$ \,/\, \unit{\micro\second}')
+m , b , r ,p ,std =stats.linregress(l,t)
+M=unp.uarray(m,std)
+B=unp.uarray(b,std)
+
+print(f'm: {M}')
+print(f'c: {1/M}')
+print(f'b: {B}')
+
+xx = np.linspace(38*10**-3,162*10**-3, 1000)
+plt.plot(xx,m*xx+b, 'b', label='Fit')
+
+plt.xlabel(r'$l \,/\,\unit{\metre}')
+plt.ylabel(r'$\symup{\Delta}t$ \,/\, \unit{\second}')
 plt.legend(loc='best')
 plt.grid(which="both")
 
@@ -26,11 +41,25 @@ plt.savefig('build/c-Bestimmung_IE.pdf')
 plt.close()
 
 # %%%%% c-Bestimmung D-Verfahren %%%%%
-l, t = np.genfromtxt('content/data/c-Bestimmung_D.txt', unpack = True)
-plt.plot(l,t,'rx',label='Messwerte')
+l_2, t_2 = np.genfromtxt('content/data/c-Bestimmung_D.txt', unpack = True)
+l2 = l_2 * 10**(-3)
+t2 = t_2 * 10**(-6)
 
-plt.xlabel(r'$l \,/\,\unit{\milli\metre}')
-plt.ylabel(r'$\symup{\Delta}t$ \,/\, \unit{\micro\second}')
+plt.plot(l2,t2,'rx',label='Messwerte')
+
+m , b , r ,p ,std =stats.linregress(l,t)
+M=unp.uarray(m,std)
+B=unp.uarray(b,std)
+
+print(f'm2: {M}')
+print(f'c2: {1/M}')
+print(f'b2: {B}')
+
+xx = np.linspace(38*10**-3,122*10**-3, 1000)
+plt.plot(xx,m*xx+b, 'b', label='Fit')
+
+plt.xlabel(r'$l \,/\,\unit{\metre}')
+plt.ylabel(r'$\symup{\Delta}t$ \,/\, \unit{\second}')
 plt.legend(loc='best')
 plt.grid(which="both")
 
@@ -39,15 +68,31 @@ plt.savefig('build/c-Bestimmung_D.pdf')
 plt.close()
 
 # %%%%% Daempfungsbestimmung IE-Verfahren %%%%%
-l, A_out, A_in, output = np.genfromtxt('content/data/Daempfung_IE.txt', unpack = True)
+l_3, A_out, A_in, output = np.genfromtxt('content/data/Daempfung_IE.txt', unpack = True)
 
 A = A_in/A_out
+l3= 2*l_3 * 10**-3
+print(f'A: {A}')
+plt.plot(l3[-1],np.log(A[-1]), color='dimgray', marker='x')
+plt.plot(l3[-2],np.log(A[-2]), color='dimgray', marker='x')
+l3 = np.delete(l3, [5,6])
+A = np.delete(A, [5,6])
+print(l3)
+plt.plot(l3,np.log(A),'rx',label='Messwerte') #Achsenbeschriftung anpassen!
 
-plt.plot(l,np.log(A),'rx',label='Messwerte') #Achsenbeschriftung anpassen!
+m , b , r ,p ,std =stats.linregress(l3,np.log(A))
+M=unp.uarray(m,std)
+B=unp.uarray(b,std)
 
+print(f'm2: {M}')
+print(f'c2: {1/M}')
+print(f'b2: {B}')
 
-plt.xlabel(r'$l \,/\,\unit{\milli\metre}')
-plt.ylabel(r'$\symup{\Delta}t$ \,/\, \unit{\micro\second}')
+xx = np.linspace(2*38*10**-3,2*162*10**-3, 1000)
+plt.plot(xx,m*xx+b, 'b', label='Fit')
+
+plt.xlabel(r'$2 \cdot l \,/\,\unit{\metre}')
+plt.ylabel(r'$\ln(\frac{A_{\symup{in}}}{A_{\symup{out}}})$')
 plt.legend(loc='best')
 plt.grid(which="both")
 
