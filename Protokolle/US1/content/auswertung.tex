@@ -3,16 +3,34 @@
 
 \subsection{Verifizierung des Messverfahrens}
 \label{sec:Verifizierung des Messverfahrens}
-Damit die Funktionalität des Versuchaufbaus überprüft werden kann, wird die $\qty{2}{\mega\hertz}$ Ultraschallsonde mit bidestilliertem Wasser an 
-eine Acrylplatte mit bereits bekannter Dicke $d=\qty{10}{mm}$ gekoppelt. Aus \autoref{fig:Geräteeinstellung} wird die doppelte Laufzeit der 
-Ultraschallwelle zu $\symup{\Delta}\tilde{t}=\qty{8}{\micro\second}$ bestimmt. Mit \eqref{eq:Impuls-Echo} wird somit die Schallgeschwindigkeit in Acryl
-zu $c=\qty{2500}{\metre\per\second}$ bestimmt.
+In \autoref{fig:Geräteeinstellung} ist das Ergebnis des Testscans dargestellt. Daraus wird die doppelte Laufzeit der
+Ultraschallwelle zu $\symup{\Delta}\tilde{t}=\qty{8}{\micro\second}$ bestimmt.
+Hierfür wurde der zweite Peak (mit gelber Linie markiert) verwendet, da dieser dem einfach reflektierten Puls entspricht.
+
 \begin{figure}[H]
   \centering
   \includegraphics[height=6.5cm]{content/Abbildungen/Geräteeinstellung.pdf}
   \caption{Ausgabe der Vermessung der $\qty{10}{mm}$ Acrylplatte.}
   \label{fig:Geräteeinstellung}
 \end{figure}
+
+Mit \eqref{eq:Impuls-Echo} wird somit die Schallgeschwindigkeit in Acryl zu $c_{\symup{exp}}=\qty{2500}{\metre\per\second}$ berechnet.
+Verglichen mit dem theoretische Wert von $c_{\symup{theorie}}=\qty{2730}{\metre\per\second}$ ist zwar eine Abweichung festzustellen,
+aber prinzipiell konnte die Schallgeschwindigkeit korrekt nachvollzogen werden.
+Die Dicke der Platte lässt sich nun bestimmen, indem die berechnete Schallgeschwindigkeit im Programm eingetragen wird.
+Der Tiefenscan in \autoref{fig:Plattendicke} ergibt eine Dicke von ca. $\qty{12}{mm}$ (mit gelber Linie markiert), die mit der tatsächlichen
+Dicke unter Berücksichtigung von Ableseungenauigkeiten vereinbar ist.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[height=6.5cm]{content/Abbildungen/Plattendicke.pdf}
+  \caption{Ausgabe des Tiefenscan der Acrylplatte.}
+  \label{fig:Plattendicke}
+\end{figure}
+
+Zusammenfassend konnte somit das Verfahren der Ultraschallvermessung als korrekt bestätigt werden,
+da sowohl die Schallgeschwindigkeit als auch die Plattendicke mithilfe der Lauftzeit des Ultraschallwelle
+berechnet werden konnten.
 
 % $c$-Bestimmung mit Impuls-Echo-Verfahren
 \subsection{Messung der Schallgeschwindigkeit mit Impuls-Echo-Verfahren}
