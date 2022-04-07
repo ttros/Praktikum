@@ -15,7 +15,7 @@ Hierfür wurde der zweite Peak (mit gelber Linie markiert) verwendet, da dieser 
 \end{figure}
 
 Mit \eqref{eq:Impuls-Echo} wird somit die Schallgeschwindigkeit in Acryl zu $c_{\symup{exp}}=\qty{2500}{\metre\per\second}$ berechnet.
-Verglichen mit dem theoretische Wert von $c_{\symup{theorie}}=\qty{2730}{\metre\per\second}$ ist zwar eine Abweichung festzustellen,
+Verglichen mit dem theoretische Wert von $c_{\symup{theorie}}=\qty{2730}{\metre\per\second}$\cite{c_Acryl} ist zwar eine Abweichung festzustellen,
 aber prinzipiell konnte die Schallgeschwindigkeit korrekt nachvollzogen werden.
 Die Dicke der Platte lässt sich nun bestimmen, indem die berechnete Schallgeschwindigkeit im Programm eingetragen wird.
 Der Tiefenscan in \autoref{fig:Plattendicke} ergibt eine Dicke von ca. $\qty{12}{mm}$ (mit gelber Linie markiert), die mit der tatsächlichen
@@ -128,8 +128,8 @@ durchgeführt.\footnote{Anm: Die grau hinterlegten Messwerte wurden für die Aus
 Kopplung zweier Zylinder nicht ausreichend gut war. Dies hatte vermutlich zur Folge, dass der Peak der eigentlichen Reflexion am Ende des Zylinders
 im Hintergrundrauschen untergegangen ist.}
 \begin{align*}
-  m_{\symup{Dämpfung}} &= \qty{-13.8(1.3)}{\per\metre} \\
-  b_{\symup{Dämpfung}} &= \qty{0.9(1.3)}{\metre}
+  m_{\symup{Daempfung}} &= \qty{-13.8(1.3)}{\per\metre} \\
+  b_{\symup{Daempfung}} &= \qty{0.9(1.3)}{\metre}
 \end{align*}
 Nach \eqref{eq:Dämpfung} liegt ein exponenzieller Zusammenhang zwischen Signalstärke und zurückgelegter Strecke vor. Folglich liefert die 
 Steigung der linearen Regressiongeraden den Dämpfungskoeffizienten $\alpha$.
@@ -164,3 +164,41 @@ Steigung der linearen Regressiongeraden den Dämpfungskoeffizienten $\alpha$.
 \end{figure}
 
 \subsection{Vermessung des Augenmodells}
+Die Ultraschalluntersuchung des Augenmodells zeigt wesentliche Peaks bei den Laufzeiten
+\begin{align*}
+  \symup{\Delta}\tilde{t}_1 &= \qty{10,8}{\micro\second} \\
+  \symup{\Delta}\tilde{t}_2 &= \qty{16,4}{\micro\second} \\
+  \symup{\Delta}\tilde{t}_3 &= \qty{22,9}{\micro\second} \\
+  \symup{\Delta}\tilde{t}_4 &= \qty{71,4}{\micro\second}. \\
+\end{align*}
+\begin{figure}[H]
+  \centering
+  \includegraphics[height=6cm]{content/Abbildungen/Auge.pdf}
+  \caption{Ausgabe der Vermessung des Augenmodells.}
+  \label{fig:Messung Auge}
+\end{figure}
+Da das Augenmodell, aus verschiedenen Materialien besteht, müssen für die Berechnung der Abmessungen die verschiedenen 
+Schallgeschwindigkeiten (\cite{czichos}, \cite{US1}) berücksichtigt werden. Dabei wird die Schallgeschwindigkeit in der vorderen, sowie der
+hinteren Augenkammer, mit der von Wasser angenähert.
+\begin{align*}
+  c_{\symup{Augenkammer}} &= \qty{1483} {\metre\per\second} \\
+  c_{\symup{Linse}} &= \qty{2500}{\metre\per\second} \\
+  c_{\symup{Glaskoerper}} &= \qty{1410}{\metre\per\second} \\
+\end{align*}
+Mithilfe von \eqref{eq:Impuls-Echo} und der \autoref{fig:Schema Auge} folgt für die Abmessungen des Augenmodells:
+\begin{table}[H]
+  \centering
+  \caption{Abmessungen des Augenmodells.}
+  \label{tab:Abmessungen Auge}
+  \begin{tabular}{l c S[table-format=1.2]}
+      \toprule
+       {Abstand} & {$c$} & {$d\,/\,\unit{\centi\meter}$} \\
+      \midrule
+         {Hornhaut - Iris} & {$c_{\symup{Augenkammer}}$}      & {\num{0.80}} \\
+         {Iris - Anfang Linse} & {$c_{\symup{Augenkammer}}$}  & {\num{0.42}} \\
+         {Anfang Linse - Ende Linse} & {$c_{\symup{Linse}}$}  & {\num{1.65}} \\
+         {Ende Linse - Retina} & {$c_{\symup{Glaskoerper}}$}  & {\num{2.17}} \\
+      \bottomrule 
+  \end{tabular}
+\end{table}
+

@@ -99,3 +99,23 @@ plt.grid(which="both")
 plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
 plt.savefig('build/Daempfungsbestimmung.pdf')
 plt.close()
+
+# %%%%% Abmessungen Auge %%%%%
+a, t_4 = np.genfromtxt('content/data/Auge.txt', unpack = True)
+t4 = t_4 / 2 * 10**-6
+print(f't4: {t4}')
+c_1 = 1483
+c_2 = 2500
+c_3 = 1410
+
+def d(t,c,c_old):
+    return (c*t*10**2 - c_old)  #output in cm
+
+d1 = d(t4[0],c_1,0)
+d2 = d(t4[1],c_1,d1)
+d3 = d(t4[2],c_2,d1+d2)
+d4 = d(t4[3],c_3,d1+d2+d3)
+print(f'd1: {d1}')
+print(f'd2: {d2}')
+print(f'd3: {d3}')
+print(f'd4: {d4}')
