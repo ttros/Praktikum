@@ -36,7 +36,7 @@ plt.ylabel(r'$\symup{\Delta}t$ \,/\, \unit{\second}')
 plt.legend(loc='best')
 plt.grid(which="both")
 
-plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
+plt.tight_layout(pad=0, h_pad=1.10, w_pad=1.08)
 plt.savefig('build/c-Bestimmung_IE.pdf')
 plt.close()
 
