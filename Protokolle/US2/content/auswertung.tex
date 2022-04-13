@@ -1,2 +1,148 @@
 \section{Auswertung}
 \label{sec:Auswertung}
+
+% Abmessungen Acrylblock
+\subsection{Abmessungen des Acrylblocks}
+\label{sec:Abmessungen}
+Die Höhe des Acrylblocks wird zu
+\begin{equation*}
+    h = \qty{80,5}{\milli\metre}
+\end{equation*}
+bestimmt. Aus der Höhe und den Abständen der Bohrungen zu der oberen und der unteren Kante wird außerdem der Durchmesser berechnet.
+\begin{table}[H]
+    \centering
+    \caption{Abmessungen des Acrylblocks.}
+    \label{tab:Schieblehre}
+    \begin{tabular}{S[table-format=2.0] S[table-format=2.1] S[table-format=2.1] S[table-format=2.1]}
+        \toprule
+         {Lochnummer} & {$s_{\symup{oben}}\,/\,\unit{\milli\metre}$} & {$s_{\symup{unten}}\,/\,\unit{\milli\metre}$} %
+         & {$d\,/\,\unit{\milli\metre}$}\\
+        \midrule
+         1	& 13.1	& 61.3 &  6.1 \\
+         2	& 21.7	& 53.9 &  4.9 \\
+         3	& 30.2	& 46.3 &  4.0 \\
+         4	& 38.8	& 39.0 &  2.7 \\
+         5	& 46.6	& 31.0 &  2.9 \\
+         6	& 54.8	& 23.0 &  2.7 \\
+         7	& 63.6	& 15.0 &  1.9 \\
+         8	& 70.5	&  7.0 &  3.0 \\
+         9	& 10.3	& 55.4 & 14.8 \\
+         10	& 59.6	& 19.5 &  1.4 \\
+         11	& 61.3	& 17.9 &  1.3 \\
+        \bottomrule 
+    \end{tabular}
+  \end{table}
+
+% c_Acryl
+\subsection{Bestimmung der Schallgeschwindigkeit in Acryl}
+Aus der Laufzeit der Ultraschallwellen und der aus \ref{sec:Abmessungen} bekannten Positionen der Bohrungen wird ein Plot erstellt. Mithilfe einer 
+linearen Ausgleichsrechnung mit der \textit{python}-Erweiterung \textit{scipy} \cite{scipy} wird eine Regressiongerade vom Typ $y=mx+b$ mit den
+Parametern
+\begin{align*}
+    m &= \qty{360.3(3.0)e-6}{\second\per\metre} \\
+    b &= \qty{0.7(3.0)e-6}{\second}
+\end{align*}
+bestimmt. Aus \eqref{eq:Impuls-Echo} wird die Schallgeschwindigkeit in Acryl zu
+\begin{equation*}
+    c_{\symup{exp}} = \frac{1}{m} = \qty{2775+-23}{\metre\per\second}
+\end{equation*}
+berechnet. Der Parameter $b$ beschreibt die Laufzeit des Schallimpules in der Kopplungsschicht. Mit der Schallgeschwindigkeit in der Kopplungsschicht
+von $c_{\symup{Wasser}} = \qty{1483}{\metre\per\second}$ \cite{czichos} kann die Dicke der Kopplungsschicht $\tilde{d_{\symup{K}}}$ bestimmt werden.
+\begin{equation*}
+    \tilde{d_{\symup{K}}} = c_{\symup{Wasser}} \cdot b = \qty{1+-4}{\milli\metre}
+\end{equation*}
+
+\begin{table}[H]
+    \centering
+    \caption{Daten $c$-Bestimmung mit Impuls-Echo-Verfahren.}
+    \label{tab:c-bestimmung}
+    \begin{tabular}{S[table-format=1.0] S[table-format=2.1] S[table-format=2.1]}
+        \toprule
+         {Lochnummer} & {$s_{\symup{oben}}\,/\,\unit{\milli\metre}$} & {$\symup{\Delta}t\,/\,\unit{\micro\second}$} \\
+        \midrule
+         1	& 13,1	& 10,7 \\
+         2	& 21,7	& 16,9 \\
+         3	& 30,2	& 23,1 \\
+         4	& 38,8	& 29,5 \\
+         5	& 46,6	& 35,3 \\
+         6	& 54,8	& 41,0 \\
+         7	& 63,6	& 46,8 \\ 
+        \bottomrule 
+    \end{tabular}
+  \end{table}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics{c-bestimmung.pdf}
+    \caption{Graphische Darstellung der Messwertpaare aus \autoref{tab:c-bestimmung} mit Ausgleichsgerade.}
+    \label{fig:c-bestimmung}
+  \end{figure}
+
+% Dicke Kopplungsschicht
+\subsection{Berechnung der Dicke der Kopplungsschicht}
+Die aus der linearen Regression bestimmte Dicke der Kopplungsschicht weist eine große Messunsicherheit auf, weshalb hier mit einer anderen
+Berechnungsmethode versucht wird, diese Unsicherheit zu verringern.
+
+Dafür wird der aus \ref{sec:Abmessungen} bekannte Abstand der Bohrungen zur Oberkante und ein Literaturwert für die Schallgeschwindigkeit
+in Acryl von $c_{\symup{Acryl}} = \qty{2730}{\metre\per\second}$ \cite{c_Acryl} verwendet, um so die theoretische Laufzeit des Schallimpules 
+zu berechnen. Aus der Differenz der tatsächlichen und der theoretischen Laufzeit aus \autoref{tab:c-bestimmung} kann so wieder mit der 
+Schallgeschwindigkeit in der Kopplungsschicht die Dicke dieser zu
+\begin{equation*}
+    d{\symup{K}} = \qty{0.68+-0.22}{\milli\metre}
+\end{equation*}
+bestimmt werden.
+
+Im Folgenden wird aufrund der geringeren Messunsicherheit dieser Wert verwendet.
+
+% Vermessung mit A-Scan
+\subsection{Vermessung des Acrylzylinder mit einem A-Scan}
+Die Abstände der Bohrungen zu der oberen und unteren Seite des Acrylblocks müssen um die Dicke der Anpassungsschicht korrigiert werden. 
+Zur Veranschaulichung wird außerdem die relative Abweichung der korrigierten Messwerte zu den Werten aus \ref{sec:Abmessungen} angegeben.
+
+  \begin{table}[H]
+    \centering
+    \caption{Unkorrigierte Daten der Vermessung des Acrylblocks mit einem A-Scan.}
+    \label{tab:a-scan}
+    \begin{tabular}{S[table-format=2.0] S[table-format=2.1] S[table-format=2.1] S[table-format=2.1]}
+        \toprule
+         {Lochnummer} & {$\tilde{s_{\symup{oben}}}\,/\,\unit{\milli\metre}$} & {$\tilde{s_{\symup{unten}}}\,/\,\unit{\milli\metre}$} \\
+        \midrule
+         1	& 14.7 & 62.5 \\
+         2	& 23.1 & 55.1 \\
+         3	& 31.6 & 47.6 \\
+         4	& 40.0 & 40.2 \\
+         5	& 48.1 & 32.2 \\
+         6	& 56.0 & 24.1 \\
+         7	& 63.9 & 16.3 \\
+         8	& 72.3 &  8.4 \\
+         9	& 16.6 & 56.7 \\
+         10	& 60.7 & 20.7 \\
+         11	& 62.4 & 19.2 \\
+        \bottomrule 
+    \end{tabular}
+  \end{table}
+
+  \begin{table}[H]
+    \centering
+    \caption{Korrigierte Daten der Vermessung des Acrylblocks mit einem A-Scan.}
+    \label{tab:a-scan}
+    \begin{tabular}{S[table-format=2.0] S[table-format=2.1] S[table-format=2.1] S[table-format=2.1]}
+        \toprule
+         {Lochnummer} & {$\tilde{s_{\symup{oben}}}\,/\,\unit{\milli\metre}$} & {$\tilde{s_{\symup{unten}}}\,/\,\unit{\milli\metre}$} \\
+        \midrule
+         1	& 14.7 & 62.5 \\
+         2	& 23.1 & 55.1 \\
+         3	& 31.6 & 47.6 \\
+         4	& 40.0 & 40.2 \\
+         5	& 48.1 & 32.2 \\
+         6	& 56.0 & 24.1 \\
+         7	& 63.9 & 16.3 \\
+         8	& 72.3 &  8.4 \\
+         9	& 16.6 & 56.7 \\
+         10	& 60.7 & 20.7 \\
+         11	& 62.4 & 19.2 \\
+        \bottomrule 
+    \end{tabular}
+  \end{table}
+% Vermessung mit B-Scan
+\subsection{Vermessung des Acrylzylinder mit einem B-Scan}
