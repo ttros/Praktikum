@@ -1,4 +1,60 @@
+\section{Zielsetzung}
+Ziel des Versuches ist, zwei unterschiedliche Scanmethoden der Ultraschalltechnik anzuwenden
+und damit die Fehlstellen in einem Acrylblock zu bestimmen.
+Anschließend soll ein Brustmodell mit der selben Technik auf mögliche Tumore untersucht werden.
+
 \section{Theorie}
 \label{sec:Theorie}
 
-\cite{sample}
+\subsection{Ultraschall}
+\label{sec:Ultraschall}
+
+Bei Schall handelt es sich allgemein um eine longitudinale Welle, welche sich als Druckschwankung
+in einem Medium fortbewegt.
+Das menschliche Gehöhr kann diese in einem Frequenzbereich von ca. $16\,\unit{\hertz}$ bis $20\,\unit{\kilo\hertz}$
+wahrnehmen. Schallwellen mit höheren Frequenzen zwischen $20\,\unit{\kilo\hertz}$ und $1\,\unit{\giga\hertz}$ werden als
+Ultraschall bezeichnet. \\
+Die Ultraschallwellen breiten sich mit einer vom Medium abhängigen Schallgeschwindigkeit $c$ aus.
+Weiterhin ist die akustische Impedanz (auch Schallkennwiderstand) $Z=\rho \cdot c$ von Interesse, sie hängt
+von der Schallgeschwindigkeit sowie von der Dichte des Mediums ab. \\
+Während der Ausbreitung verlieren die Schallwellen aufgrund von Absorption an Energie, ihre Intensität nimmt ab.
+Es besteht ein exponentieller Zusammenhang zwischen der Intensität und der zurückgelegten Strecke:
+\begin{equation}
+    \label{eq:Dämpfung}
+    I(x)=I_{0}\symup{e}^{-\alpha x}
+\end{equation}
+Aufgrund des hohen Absorptionskoeffizienten von Luft wird zwischen Schallgeber und Material ein Kontaktmittel verwendet.
+
+Zur Erzeugung von Ultraschall wird unter anderem der sogenannte reziproke piezo-elektrische Effekt verwendet.
+Piezo-elektrische Kristalle schwingen in elektrischen Wechselfeldern und strahlen dabei Ultraschallwellen ab.
+Derselbe Effekt funktioniert umgekehrt, somit kann ein solcher Kristall auch als Empfänger verwendet werden,
+der abhängig von der Schallintensität ein elektrisches Signal emittiert.
+
+\subsection{Messverfahren}
+\label{sec:Messverfahren}
+Um Informationen über das zu untersuchende Material mithilfe von Ultraschall zu gewinnen, werden unter anderem
+Laufzeitmessungen durchgeführt. Dabei gibt es zwei wesentliche Verfahren.
+
+Beim \textit{Durchschallungs-Verfahren} wird mit einem Sender ein kurzzeitiger Schallimpuls in die Probe gegeben.
+Am anderen Ende der Probe wird das Signal dann wieder empfangen, aus der Laufzeit lässt sich die Länge berechnen:
+\begin{equation}
+    \label{eq:Durchschall}
+    s=c\cdot t
+\end{equation}
+
+Die andere Möglichkeit nennt sich \textit{Impuls-Echo-Verfahren}. Hier wird der Sender gleichzeitig als Empfänger verwendet.
+Der gesendete Impuls wird am Ende der Probe reflektiert und somit wieder empfangen.
+Für die Längenberechnung zählt hier deshalb nur die halbe Zeit:
+\begin{equation}
+    \label{eq:Impuls-Echo}
+    s=\frac{1}{2} c\cdot t
+\end{equation}
+
+Die gesammelten Daten lassen sich auf zwei verschiedene Arten darstellen,
+den sogenannten \textit{A-Scan} und \textit{B-Scan}.
+\begin{itemize}
+    \item Beim \textit{A-Scan} handelt es sich um ein eindimensionales Verfahren, es werden die Amplituden
+    des Echos in Abhängigkeit der Laufzeit oder der Laufstrecke dargestellt.
+    \item Beim \textit{B-Scan} werden die Messdaten zweidimensional dargestellt. DIe Echoamplituden werden
+    in Form von Helligkeitsstufen dargestellt, somit kann ein zweidimensionales Schnittbild erzeugt werden.
+\end{itemize}
