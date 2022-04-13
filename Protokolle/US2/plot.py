@@ -62,6 +62,7 @@ d_kopplung_array = c_h2o * diff_c
 d_kopplung = ufloat(np.mean(d_kopplung_array), np.std(d_kopplung_array))
 print(f'Kopplungsschicht nach Rechnung in mm: {d_kopplung*10**3}')
 print(f'noms: {noms(d_kopplung)}')
+
 # %%%%% A-Scan %%%%%
 loch_a, oben_a_, unten_a_ = np.genfromtxt('content/data/a-scan.txt', unpack = True)
 oben_a = oben_a_ * 10**-3 - 2*noms(d_kopplung)  #in m ohne Anpassungsschicht
@@ -70,6 +71,7 @@ unten_a = unten_a_ * 10**-3 - 2*noms(d_kopplung)#in m ohne Anpassungsschicht
 d_a = hoehe - oben_a - unten_a
 d_a_ausgabe = np.around(d_a*10**3, decimals = 1)
 print(f'Durchmesser A-Scan      in mm: {d_a*10**3}')
+
 # %%%%% B-Scan %%%%%
 loch_b, oben_b_, unten_b_ = np.genfromtxt('content/data/b-scan.txt', unpack = True)
 oben_b = oben_b_ * 10**-3  - 2*noms(d_kopplung) #in m ohne Anapssungsschicht
@@ -78,3 +80,21 @@ unten_b = unten_b_ * 10**-3 - 2*noms(d_kopplung)#in m ohne Anpassungsschicht
 d_b = hoehe - oben_b - unten_b 
 d_b_ausgabe = np.around(d_b*10**3, decimals = 2)
 print(f'Durchmesser B-Scan      in mm: {d_b*10**3}')
+print(f'\n')
+print(f'\n')
+print(f'\n')
+print(f'\n')
+print(f'\n')
+print(f'Korrigierter A-Scan oben: {np.around(oben_a*10**3, decimals = 1)}')
+print(f'Relative Abweichung: {np.around(np.abs(oben_sch-oben_a)/oben_sch*100, decimals = 2)}')
+print(f'Korrigierter A-Scan unten: {np.around(unten_a*10**3, decimals = 1)}')
+print(f'Relative Abweichung: {np.around(np.abs(unten_sch-unten_a)/unten_sch*100, decimals = 2)}')
+print(f'Korrigierter B-Scan oben: {np.around(oben_b*10**3, decimals = 1)}')
+print(f'Relative Abweichung: {np.around(np.abs(oben_sch-oben_b)/oben_sch*100, decimals = 2)}')
+print(f'Korrigierter B-Scan unten: {np.around(unten_b*10**3, decimals = 1)}')
+print(f'Relative Abweichung: {np.around(np.abs(unten_sch-unten_b)/unten_sch*100,decimals = 2)}')
+print(f'\n')
+print(f'\n')
+print(f'\n')
+print(f'\n')
+print(f'\n')
