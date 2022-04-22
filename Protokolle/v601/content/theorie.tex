@@ -28,4 +28,61 @@ wobei ein Lichtquant mit der Energie
 emittiert wird.
 
 \subsection{Idealisierte Franck-Hertz-Kurve}
-\label{sec:Frank-Hertz-Kurve}
+\label{sec:Idealisierte Frank-Hertz-Kurve}
+Die Energieniveaus der Hg-Atome lassen sich mit einer Franck-Hertz-Röhre bestimmen.
+\begin{figure}[H]
+    \centering
+    \includegraphics[height=6cm]{content/pics/FH-Aufbau.pdf}
+    \caption{Aufbau einer Franck-Hertz-Röhre.\cite{v601}}
+    \label{fig:Aufbau}
+\end{figure}
+Dafür wird eine Heizspannung an einer Glühkathode angelegt, wodurch Elektronen aufgrund des glühelektrischen Effekts austreten.
+Diese Elektronen werden mit einer Beschleunigungsspannung $U_{\symup{B}}$ zu der Beschleunigungsanode hin beschleunigt.
+Dabei kommt es zu den in \ref{sec:Anregung} beschriebenen Stößen zwischen den Elektronen und den Hg-Atomen. Die Energie der Elektronen 
+nach den Stößen wird mithilfe der Gegenfeldmethode bestimmt. Demnach gilt für die kinetische Energie der Elektronen
+\begin{equation}
+    \frac{m_{\symup{e}}v^2}{2}≥eU_{\symup{A}}
+    \label{eq:E-kin}
+\end{equation}
+wobei hier $U_{\symup{A}}$ die Bremsspannung beschreibt. Dies ergibt sich aus der Tatsache, dass nur Elektronen mit hinreichend großer
+kinetischer Energie die Auffangelektrode erreichen.
+
+Die Elektronen können bei großer Beschleunigungsspannung nach einem Stoß erneut beschleunigt werden, sodass sich der Strom an der
+Auffangelektrode idealerweise wie in \autoref{fig:FH-Ideal} verhält.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[height=6cm]{content/pics/FH-Ideal.pdf}
+    \caption{Idealisierte Franck-Hertz-Kurve.\cite{v601}}
+    \label{fig:FH-Ideal}
+\end{figure}
+
+\subsection{Störeffekte}
+\label{sec:Störeffekte}
+Aufgrund experimenteller Beschränkungen weicht die tatsächlich zu beobachtende Franck-Hertz-Kurve von der idealisierten ab. 
+Gründe und deren Effekte dafür werden im Folgenden aufgeführt.
+
+\subsubsection{Kontaktpotential}
+In der zu verwendenden Franck-Hertz-Röhre werden für die Glüh- und die Auffangelektrode unterschiedliche Materialien verwendet. 
+Dadurch ist das Fermi-Potential zwischen den Materialien nicht ausgeglichen, was zu einer Veränderung der tatsächlichen 
+Beschleunigungsspannung führt. Daher ist die Franck-Hertz-Kurve verschoben. Dies lässt sich aber durch die Verwendung von 
+Relativwerten herausrechnen.
+
+\subsubsection{Energiespektrum der Elektronen}
+Die aus der Glühkathode austretenden Elektronen sind nicht monoenergetisch, da sie bereits im Inneren der Kathode ein Energiespektrum 
+besitzen. Folglich weist die Franck-Hertz-Kurve keine diskreten Peaks auf und ist stattdessen abgeflacht und verbreitert.
+
+\subsubsection{Dampfdruck}
+Die Atome in der Franck-Hertz-Röhre müssen eine mittlere freie Weglänge $\bar{w}$ haben, die klein gegenüber dem Abstand zwischen 
+der Glüh- und der Auffangelektrode ist, damit viele Stöße zwischen Elektronen und Hg-Atomen auftreten.
+
+Die freie Weglänge $\bar{w}$ lässt sich über den Dampfdruck regulieren, welcher wiederum durch die Temperatur $T$ gegeben 
+ist. Aus der kinetischen Gastheorie folgt der Zusammenhang
+\begin{align}
+    \bar{w}(T) &= \frac{0,0029}{\num{5.5e7} \symup{e}^{\frac{-6876}{T}}}. & [\bar{w}] &= \unit{\centi\metre} \label{eq:freie weglänge} %\\
+     %{}& [T] &= \unit{\kelvin} \notag
+\end{align}
+
+Es ergibt sich, dass die Wahrscheinlichkeit für die erwünschten unelastischen Stöße für eine bestimmten Temperaturbereich optimal ist. Ist 
+die Temperatur gering, ist auch die Stoßwahrscheinlichkeit niedrig. Im Fall einer hohen Temperatur kommt es vemehrt zu elastischen Stößen 
+und somit zu keiner Anregung der Hg-Atome.
