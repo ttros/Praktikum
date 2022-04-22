@@ -30,3 +30,20 @@ plt.grid(which="both")
 plt.tight_layout(pad=0, h_pad=1.10, w_pad=1.08)
 plt.savefig('build/Differentielle_Energie_145Grad.pdf')
 plt.close()
+
+
+E_1 = [5,5,5,5.5]
+E_1_mean = np.mean(E_1)
+E_1_err = np.std(E_1)
+E_1_= ufloat(E_1_mean,E_1_err)
+c=3*10**8
+h=4.136*10**-15
+print(f'Anregungsenergie Reihe 1: {E_1_} eV')
+print(f'Emittierte Strahlung 1: {c*h/E_1_*10**9} nm')
+
+E_2 = [4.5,5,5.3,5.1,5.1,5.1,5.9]
+E_2_mean = np.mean(E_2)
+E_2_err = np.std(E_2)
+E_2_= ufloat(E_2_mean,E_2_err)
+print(f'Anregungsenergie Reihe 2: {E_2_} eV')
+print(f'Emittierte Strahlung 2: {c*h/E_2_*10**9} nm')
