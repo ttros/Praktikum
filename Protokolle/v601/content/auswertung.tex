@@ -4,8 +4,8 @@
 \subsection{Diffferentielle Energieverteilung der Elektronen}
 
 Zu Beginn wird die Messung bei $T=20\,\unit{\celsius}$ ausgewertet.
-Die mithilfe des xy-Schreibers erzeugte Grafik ist in \autoref{fig:Int Energie 20 Grad} dargestellt.
-Sie stellt die Integrale Energieverteilung der Elektronen dar.
+Die mithilfe des analogen x-y-Schreibers erzeugte Grafik ist in \autoref{fig:Int Energie 20 Grad} dargestellt.
+Sie stellt die integrale Energieverteilung der Elektronen dar.
 
 \begin{figure}[H]
   \centering
@@ -14,22 +14,22 @@ Sie stellt die Integrale Energieverteilung der Elektronen dar.
   \label{fig:Int Energie 20 Grad}
 \end{figure}
 
-Um nun die differentielle Energieverteilung der Elektronen zu erhalten, werden an zehn Werten
+Um nun die differentielle Energieverteilung der Elektronen zu erhalten, werden an mehreren Werten
 für $U_A$ kleine Steigungsdreiecke verwendet.
-Deren Länge wird zu $\symup{\Delta}U_A=0.5\,\unit{\volt}$ gewählt. Dann berechnet sich die lokale
+Deren Länge wird zu $\symup{\Delta}U_{\symup{A}}=0.5\,\unit{\volt}$ gewählt. Dann berechnet sich die lokale
 Änderung des Auffängerstroms über die Gleichung
 \begin{equation*}
-\symup{\Delta}I_A(U_A)=I_A(U_A)-I_A(U_A+\symup{\Delta}U_A).
+\symup{\Delta}I_{\symup{A}}(U_{\symup{A}})=I_{\symup{A}}(U_{\symup{A}})-I_{\symup{A}}(U_{\symup{A}}+\symup{\Delta}U_{\symup{A}}).
 \end{equation*}
 Die so ermittelten Wertepaare sind in \autoref{tab:Diff Energie 20 Grad} festgehalten.
 
 \begin{table}[H]
   \centering
-  \caption{Abgelesene Wertepaare für $U_A$ und $\symup{\Delta}I_A$ aus zehn Steigungsdreiecken in \autoref{fig:Int Energie 20 Grad}}
+  \caption{Abgelesene Wertepaare für $U_{\symup{A}}$ und $\symup{\Delta}I_{\symup{A}}$ aus zehn Steigungsdreiecken in \autoref{fig:Int Energie 20 Grad}}
   \label{tab:Diff Energie 20 Grad}
   \begin{tabular}{S[table-format=1.1] S[table-format=1.1] S[table-format=2.0]}
       \toprule
-       {$U_A\,/\,\unit{\volt}$} & {$\symup{\Delta}U_A\,/\,\unit{\volt}$} & {$\symup{\Delta}I_A(U_A)\,/\,\unit{\ampere}$} \\
+       {$U_{\symup{A}}\,/\,\unit{\volt}$} & {$\symup{\Delta}U_{\symup{A}}\,/\,\unit{\volt}$} & {$\symup{\Delta}I_{\symup{A}}(U_{\symup{A}})\,/\,\unit{\ampere}$} \\
       \midrule
       0.0 & 0.5 &	3 \\
       0.5 & 0.5 &	2 \\
@@ -53,19 +53,19 @@ Die so ermittelten Wertepaare sind in \autoref{tab:Diff Energie 20 Grad} festgeh
 
 In \autoref{fig:Diff Energie 20Grad} sind die Werte geplottet, zusammen beschreiben sie den Verlauf der gesuchten differentiellen
 Energieverteilung.
-Aufgrund der geringen Temperatur finden hier so gut wie keine Wechselwirkungen von Elektronen und HG-Atomen statt.
-Die freie Weglänge der Elektronen im Quecksilberdampf beträgt bei dieser Temperatur nach \autoref{eq:freie weglänge}
+Aufgrund der geringen Temperatur finden hier so gut wie keine Wechselwirkungen von Elektronen und Hg-Atomen statt.
+Die freie Weglänge der Elektronen im Quecksilberdampf beträgt bei dieser Temperatur nach \eqref{eq:freie weglänge}
 $\bar{w}(T) = 0,810\,\unit{\centi\meter}$. Sie ist damit beinahe so lang wie der Abstand zwischen Kathode und
 Beschleunigungselektrode, somit finden nur sehr wenige Stöße statt.
 
 Aus dem Kurvenverlauf lässt sich schließen, dass die Änderung des Auffängerstroms zunächst mit steigendem $U_A$ zunimmt.
-Bei $U_A=7\,\unit{\volt}$ nimmt sie ihr Maximum an, dannach fällt die Änderung wieder schnell ab.
-Dies bedeutet, dass die meisten Elektronen eine Energie im Bereich um $U_A=7\,\unit{\electronvolt}$ aufweisen.
+Bei $U_{\symup{A}}=7\,\unit{\volt}$ nimmt sie ihr Maximum an, dannach fällt die Änderung wieder schnell ab.
+Dies bedeutet, dass die meisten Elektronen eine Energie im Bereich um $U_{\symup{A}}=7\,\unit{\electronvolt}$ aufweisen.
 Eine Erhöhung der Bremsspannung hat in diesem Bereich also einen besonders großen Einfluss auf den Auffängerstrom.
 
 Das Kontaktpotential $K$ berechnet sich somit aus der Differenz der tatsächlichen Beschleunigungsspannung und der des Peaks:
 \begin{equation*}
-  K=U_B-U_{\symup{Peak}}=(15-7)\,\unit{\volt}=8\,\unit{\volt}
+  K=U_{\symup{B}}-U_{\symup{Peak}}=(15-7)\,\unit{\volt}=8\,\unit{\volt}
 \end{equation*}
 
 \begin{figure}[H]
@@ -90,7 +90,7 @@ Die Auswertung der Messreihe für $T=145\,\unit{\celsius}$ erfolgt analog zur ni
   \label{tab:Diff Energie 145 Grad}
   \begin{tabular}{S[table-format=1.1] S[table-format=1.1] S[table-format=2.0]}
       \toprule
-       {$U_A\,/\,\unit{\volt}$} & {$\symup{\Delta}U_A\,/\,\unit{\volt}$} & {$\symup{\Delta}I_A(U_A)\,/\,\unit{\ampere}$} \\
+       {$U_{\symup{A}}\,/\,\unit{\volt}$} & {$\symup{\Delta}U_{\symup{A}}\,/\,\unit{\volt}$} & {$\symup{\Delta}I_{\symup{A}}(U_{\symup{A}})\,/\,\unit{\ampere}$} \\
       \midrule
       0.0 & 0.5 &	15 \\
       0.5 & 0.5 &	15 \\
@@ -115,7 +115,7 @@ zwischen den Elektronen und Hg-Atomen stattfinden. Dabei werden die Elektronen g
 eine geringe kinetische Energie in z-Richtung.
 Dies lässt sich durch die geringe freie Weglänge bestätigen, die legiglich $\bar{w}(T) = 7,303\,\unit{\micro\meter}$ beträgt.
 
-\subsection{Franck-Hertz Kurve}
+\subsection{Franck-Hertz-Kurve}
 
 Zur Bestimmung der Anregungsenergie der Hg-Atome werden die zwei aufgezeichneten Kurven getrennt ausgewertet.
 Entscheidend sind die relativen Abstände der Peaks zueinander, deren Mittelwert entspricht direkt der
@@ -129,12 +129,12 @@ gesuchten Anregungsenergie. Die erste Kurve ist in \autoref{fig:FHZ 166Grad} dar
 \end{figure}
 
 Die jeweiligen Abstände der Peaks sind beretis auf der x-Achse vermerkt, somit muss nur noch deren
-Mittelwert bestimmt werden. Mithilfe der Python Erweiterung \textit{uncertainties} \cite{uncertainties} 
+Mittelwert bestimmt werden. Mithilfe der Python Erweiterung \textit{uncertainties}~\cite{uncertainties} 
 ergibt sich als Ergebnis der ersten Versuchsreihe:
 \begin{gather*}
     \bar{E_1}=\qty{5.12+-0.22}{\electronvolt}.
 \end{gather*}
-Mithilfe von \autoref{eq:Einstein ist smart} wird berechnet sich die Wellenlänge der beim Übergang in den
+Mithilfe von \eqref{eq:Einstein ist smart} wird berechnet sich die Wellenlänge der beim Übergang in den
 Grundzustand emittierten Strahlung zu:
 \begin{gather*}
   \lambda_1=\qty{242+-10}{\nano\meter}.
