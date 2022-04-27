@@ -1,4 +1,58 @@
 \section{Auswertung}
 \label{sec:Auswertung}
 
+\subsection{Überprüfung der Bragg-Bedingung}
+Zur Überprüfung der Bragg-Bedingung werden die Messwerte graphisch in \autoref{fig:Bragg} dargestellt und es wird das Maximum bei
+$\theta_{\symup{exp}}=\qty{13.85}{\degree}$ abgelesen. Da der theoretische Bragg-Winkel bei $\theta_{\symup{theorie}} = \qty{14}{\degree}$
+liegt, beläuft sich die relative Abweichung hier auf rund $\symup{\Delta}\theta = \qty{1,1}{\percent}$.
 
+\begin{figure}[H]
+  \centering
+  \includegraphics[height=8cm]{build/Bragg.pdf}
+  \caption{Überprüfung der Bragg-Bedingung liefert experimentellen Bragg-Winkel von $\theta_{\symup{exp}}=\qty{13.85}{\degree}.$}
+  \label{fig:Bragg}
+\end{figure}
+
+\subsection{Emissionsspektrum einer Cu-Röhre}
+Die Daten zu der breiten Messreihe des Emissionsspektrum werden in \autoref{fig:Emissionsspektrum} visualisiert. Der Bremsberg, sowie die 
+$K_{\alpha}$- und $K_{\beta}$-Linien sind deutlich zu erkennen und lassen sich zu
+\begin{align*}
+    K_{\alpha} &= \qty{22,4}{\degree} \\
+    K_{\beta} &= \qty{20,2}{\degree}
+\end{align*}
+bestimmen. Der Grenzwinkel $\theta_{\symup{Grenz}}$ ist nicht besonders deutlich zu sehen, kann aber auf etwa
+\begin{equation*}
+  \theta_{\symup{Grenz}} = \qty{5,2}{\degree}
+\end{equation*}
+geschätzt werden. Daraus folgt mit \eqref{eq: Formel theta Wellenlänge} eine minimale Wellenlänge von 
+\begin{equation*}
+  \lambda_{\symup{min}} = \qty{99999}{\pico\metre}
+\end{equation*}
+und eine maximale Energie von
+\begin{equation*}
+  E_{\symup{max}} = \qty{99999}{\electronvolt}.
+\end{equation*}
+VERGLEICH MIT THEORIEWERTEN IN DISKUSSION
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[height=8cm]{build/Emissionsspektrum.pdf}
+  \caption{Emissionsspektrum der Cu-Röhre mit Markierungen des Bremsbergs, sowie der $K_{\alpha}$- und $K_{\beta}$-Linien.}
+  \label{fig:Emissionsspektrum}
+\end{figure}
+
+In \autoref{fig:Detailspektrum} sind die Daten der Aufzeichung des Detailspektrums dargestellt. Damit das Auflösungsvermögen
+der Apperatur bestimmt werden kann, werden die Halbwertsbreiten der $K_{\alpha}$- und $K_{\beta}$-Linien in den Plot eingezeichnet 
+und die Schnittpunkte mit der Messwertkurve bestimmt. So ergeben sich für jeden Peak zwei Winkel, denen über \eqref{eq: Winkel zu Energie}
+Energien zugeordnet werden können. Die Energiedifferenz dieser Energien $\symup{\Delta}E$ wird verwendet, um über
+\begin{equation*}
+  A = \frac{E}{\symup{\Delta}E}
+\end{equation*}
+das Auflösungsvermögen zu berechnen. 
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[height=8cm]{build/Detailspektrum.pdf}
+  \caption{Detailspektrum der Cu-Röhre mit eingezeichneten Halbwertsbreiten der $K_{\alpha}$- und $K_{\beta}$-Linien.}
+  \label{fig:Detailspektrum}
+\end{figure}
