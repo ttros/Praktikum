@@ -1,2 +1,71 @@
 \section{Durchführung}
 \label{sec:Durchführung}
+
+Für den Versuch wird eine Kupfer-Röntgenröhre verwendet, deren Röntgenstrahlung wird an einem
+LiF-Kristall gebrochen und mit einem Geiger-Müller-Zählrohr gemessen.
+Die Röntgenröhre erzeugt Elektronen mit einer Energie von $\qty{35}{\kilo\electronvolt}$ mit einem
+Emmissionsstrom von $\qty{1}{\milli\ampere}$.
+Der verwendete LiF-Kristall besitzt eine Gitterkonstante von $d=\qty{201.4}{\pico\metre}$.
+
+\subsection{Vorbereitung}
+\label{sec:Vorbereitung}
+
+Zur Vorbereitung auf den Versuch sollen Literaturwerte zu den $K_{\symup{\alpha}}$ und $K_{\symup{\beta}}$
+Linien von Kupfer recherchiert werden. Zusätlich wurde aus diesen Werten mithilfe von \autoref{eq:Energie}
+und \autoref{eq:Bragg} der zugehörige Braggwinkel berechnet.
+\begin{align*}
+    K_{\symup{\alpha}} &= \qty{8}{\kilo\electronvolt} \\
+    \theta_{\symup{\alpha}} &= \qty{22.66}{\degree}\\
+    K_{\symup{\beta}} &= \qty{8.95}{\kilo\electronvolt}\\
+    \theta_{\symup{\beta}} &= \qty{20.14}{\degree}
+\end{align*}
+
+Für die Auswertung der Absorptionsmessung werden Literaturwerte für die $K$-Kanten verschiedener Elemente benötigt.
+Auch hier werden direkt mit \autoref{eq:Energie} und \autoref{eq:Bragg} der Braggwinkel sowie mit \autoref{eq:sigma_K} die
+Abschirmkonstante berechnet, alle Werte finden sich in \autoref{tab:theoriewerte}.
+
+\begin{table} [H]
+    \centering
+    \caption{Literaturwerte für die Absorptionsenergie $E_{\symup{K}}$, sowie errechnete Werte für
+            $\theta_{\symup{K}}$ und $\sigma_{\symup{K}}$. Dabei ist $Z$ die Ordnungszahl des jeweiligen Elements \cite{Ekabs}}
+    \label{tab:theoriewerte}
+    \begin{tabular}{l c S S S}
+        \toprule
+         & Z & {$E_{\symup{K}}^{\symup{Lit}} \mathbin{/} \unit{\kilo\electronvolt}$} & 
+         {$\Theta_{\symup{K}}^{\symup{Lit}} \mathbin{/} \unit{\degree}$} & {$\sigma_{\symup{K}}$} \\
+        \midrule
+        Zink         & 30 &  9.65 & 18.60 & 3.56 \\
+        Gallium      & 31 & 10.37 & 17.29 & 3.61 \\
+        Germanium    & 32 & 11.10 & 16.20 & 3.68 \\
+        Brom         & 35 & 13.47 & 13.23 & 3.85 \\
+        Rubidium     & 37 & 15.20 & 11.70 & 3.94 \\
+        Strontium    & 38 & 16.10 & 11.04 & 4.00 \\
+        Zirconium    & 40 & 17.99 &  9.86 & 4.10 \\
+    \bottomrule
+    \end{tabular}
+\end{table}
+
+\subsection{Messung}
+
+Ziel der ersten Messung ist es, die Braggbedingung zu prüfen. Dafür wird der Li-F Kristall auf einen festen Winkel
+von $\theta=\qty{14}{\degree}$ eingestellt. Mithilfe des Geiger-Müller-Zählrohrs wird nun die Intensität der Röntgenstrahlung
+in einem Bereich zwischen $\qty{26}{\degree}$ und $\qty{30}{\degree}$ gemessen, dabei beträgt der Winkelzuwachs
+$\symup{\Delta\alpha}=\qty{0.1}{\degree}$ mit einer Integrationszeit von $\Delta t=\qty{5}{\second}$.
+
+Als nächstes soll das Emmisionsspektrum der Cu-Röntgenröhre untersucht werden. Dafür wird der Winkel des LiF-Kristall an den des
+Geiger-Müller-Zählrohrs gekoppelt, damit die Braggbedingung zu jedem Zeitpunkt erfüllt ist.
+Es wird in einem Bereich zwischen $\qty{4}{\degree}$ und $\qty{26}{\degree}$ gemessen, diesmal mit
+$\symup{\Delta\alpha}=\qty{0.2}{\degree}$ und wie vorher $\Delta t=\qty{5}{\second}$.
+
+Direkt dannach soll der Bereich um die $K_{\symup{\alpha}}$ und $K_{\symup{\beta}}$ Kanten genauer untersucht werden.
+Dafür wird in einem möglichst kleinem Winkelbereich diese Stelle erneut vermessen, um für eine gute Auflösung
+zu sorgen wird $\symup{\Delta\alpha}=\qty{0.1}{\degree}$ gewählt, $\Delta t=\qty{5}{\second}$ bleibt gleich.
+
+Die weiteren Messungen dienen zur Untersuchung des Absorptionsspektrums und werden mit fünf verschiedenen
+Elementen durchgeführt.
+Vor jeder Messung wird eine dünne Schicht des Absorbers direkt vor dem Geiger-Müller-Zählrohr befestigt.
+Anschließend wird in einem geeigneten Messbereich, der um den in \autoref{tab:theoriewerte} berechneten Braggwinkel liegt,
+eine Messung mit einem Winkelzuwachs von $\symup{\Delta\alpha}=\qty{0.1}{\degree}$ gestartet.
+Die Integrationszeit wird hier auf $\Delta t=\qty{20}{\second}$ eingestellt.
+
+Alle Messwerte werden digital erfasst und zur Auswertung in \textit{.txt} Dateien abgespeichert.

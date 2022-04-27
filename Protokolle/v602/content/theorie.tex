@@ -80,20 +80,21 @@ $\sigma_1$, $\sigma_2$ und $\sigma_3$ berechnen.
 Wenn die Emissionsenergien der $K_{\symup{\alpha}}$- und $K_{\symup{\beta}}$-Linie sowie die Absorptionsenergie
 $E_{K\text{, abs}}$ bekannt sind, lassen sich die Abschirmkonstanten über
 \begin{align}
-    \label{eqn:Sigma_Kupfer}
+    \label{eq:Sigma_Kupfer}
     E_{K \text{, abs}} &= R_\infty (z - \sigma_1)^2 \\
-    \label{eqn:Sigma_Kupfer2}
+    \label{eq:Sigma_Kupfer2}
     E_{K \text{,} \alpha} &= R_\infty \frac{1}{n^2} (z - \sigma_1)^2 - R_\infty \frac{1}{m^2} (z - \sigma_2)^2 \\
-    \label{eqn:Sigma_Kupfer3}
+    \label{eq:Sigma_Kupfer3}
     E_{K \text{,} \beta} &= R_\infty \frac{1}{n^2} (z - \sigma_1)^2 - R_\infty \frac{1}{l^2} (z - \sigma_3)^2, 
 \end{align}
 bestimmen, wobei für Kupfer $n = 1$, $m = 2$ und $l = 3$ gilt.
+Ein Theoriewert für die Absorptionsenergie lautet $E_{K\text{, abs}}=\qty{8,988}{\kilo\electronvolt}$ \cite{Ekabs}.
 
 Eine andere Möglichkeit zur Bestimmung der Abschirmkonstante erfolgt über Betrachtung dees Absorptionsspektrums.
-Für die $K$-Schale lässt sich die Abschirmkonstante $\sigma_{\symup{k}}$ über
+Für die $K$-Schale lässt sich die Abschirmkonstante $\sigma_{\symup{K}}$ über
 \begin{equation}
-    \label{eqn:sigma_K}
-    \sigma_{\symup{k}} = z - \sqrt{\frac{E_{\symup{K}}}{R_\infty} - \frac{\alpha^2 z^4}{4}}
+    \label{eq:sigma_K}
+    \sigma_{\symup{K}} = z - \sqrt{\frac{E_{\symup{K}}}{R_\infty} - \frac{\alpha^2 z^4}{4}}
 \end{equation}
 bestimmen, insofern die Energie der $K$-Kante bekannt ist.
 In der Gleichung beschreibt $\alpha$ die Sommerfeldsche Feinstrukturkonstante.
@@ -103,15 +104,17 @@ In der Gleichung beschreibt $\alpha$ die Sommerfeldsche Feinstrukturkonstante.
 
 Um die Energie der Röntgenstrahlung zu bestimmen, bietet sich eine Messung der Wellenlänge $\lambda$ an.
 Die Energie lässt sich dann leicht über
-\begin{equation*}
+\begin{equation}
+    \label{eq:Energie}
     E=\frac{hc}{\lambda}
-\end{equation*}
+\end{equation}
 bestimmen.
 Lässt man Röntgenstrahlung auf ein dreidimensionales Gitter fallen, werden die Photonen an jedem Atom des Gitters gebeugt.
 Daher gibt es einen Glanzwinkel $\theta$, bei dem kontruktive Interferenz auftritt, dieser Winkel lässt sich leicht messen.
 Diese sognannte Bragg'sche Refelexion ist in \autoref{fig:bragg} dargestellt.
 Bei bekannter Gitterkonstante $d$ kann dann die Wellenlänge mithilfe der Bragg'schen Bedingung
 \begin{equation}
+    \label{eq:Bragg}
     2d\sin(\theta)=n\lambda
 \end{equation}
 berechnet werden.
