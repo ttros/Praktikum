@@ -5,7 +5,7 @@ import scipy.optimize as op
 
 
 # Konstanten
-R = 16.6    #Rydbergenergie in eV
+R = 13.6    #Rydbergenergie in eV
 d_lif = 201.4*10**-12 # Gitter in m
 alpha = 7.297*10**-3
 h = const.h 
@@ -14,7 +14,7 @@ c = const.c
 
 # Funktionen
 def sigmak(Z, E):                                                   # Funktion zur Berechnung der Abschirmkonstante
-    return Z - np.sqrt((E*1000/R) - (((alpha**2)*(Z**4))/4))
+    return Z - np.sqrt((E/R) - (((alpha**2)*(Z**4))/4))
 
 def wave_length(theta):
     return 2*d_lif* np.sin(theta*np.pi/180)
@@ -22,6 +22,9 @@ def wave_length(theta):
 def E_K(theta):                                                     # Gibt zu theta zugehörige Energie in eV an
     wave_length = 2*d_lif* np.sin(theta*np.pi/180)
     return h * c / (wave_length*e)
+
+def rel(messwert, theoriewert):
+    return abs(messwert-theoriewert) / theoriewert *100             # Gibt relativen Fehler in % an
 
 
 # Ueberprüfen der Bragg-Bedingung
@@ -92,7 +95,18 @@ plt.savefig('build/Detailspektrum.pdf')
 plt.close()
 print('----------------------')
 print(f'K_beta Linie Halbwertsbreite:   0.5°')
+print(f'K_beta Linie links:   20.05° -->    {E_K(20.05)} eV')
+print(f'K_beta Linie rechts:   20.55° -->   {E_K(20.55)} eV')
+print(f'K_beta Linie Delta E:   {E_K(20.05)-E_K(20.55)} eV')
+print(f'K_beta Linie E:         {E_K(20.3)} eV')
+print(f'K_beta A:               {E_K(20.3)/(E_K(20.05)-E_K(20.55))}')
+print('----------------------')
 print(f'K_alpha Linie Halbwertsbreite:  0.5°')
+print(f'K_alpha Linie links:   22.35° -->   {E_K(22.35)} eV')
+print(f'K_alpha Linie rechts:   22.85° -->  {E_K(22.85)} eV')
+print(f'K_alpha Linie Delta E:  {E_K(22.35)-E_K(22.85)} eV')
+print(f'K_beta Linie E:         {E_K(22.5)} eV')
+print(f'K_beta A:               {E_K(20.5)/(E_K(22.35)-E_K(22.85))}')
 print('----------------------')
 
 # Absorptionsspektren
@@ -116,6 +130,8 @@ plt.ylabel(r'$\symup{Imp} \mathbin{/} \unit{\second}$')
 plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
 plt.savefig('build/Zn.pdf')
 plt.close()
+
+Theta_K_Zn = 18.60
 
 print('----------------------')
 print(f'Theta_K Zn: 18.60°')
@@ -142,6 +158,8 @@ plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
 plt.savefig('build/Br.pdf')
 plt.close()
 
+Theta_K_Br = 13.18
+
 print(f'Theta_K Br: 13.18°')
 
 # Ga
@@ -165,6 +183,8 @@ plt.ylabel(r'$\symup{Imp} \mathbin{/} \unit{\second}$')
 plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
 plt.savefig('build/Ga.pdf')
 plt.close()
+
+Theta_K_Ga = 17.32
 
 print(f'Theta_K Ga: 17.32°')
 
@@ -190,6 +210,8 @@ plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
 plt.savefig('build/Sr.pdf')
 plt.close()
 
+Theta_K_Sr = 11.02
+
 print(f'Theta_K Sr: 11.02°')
 
 # Zr
@@ -213,5 +235,83 @@ plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
 plt.savefig('build/Zr.pdf')
 plt.close()
 
-print(f'Theta_K Zr: 9,90°')
+Theta_K_Zr = 9.90
+
+print(f'Theta_K Zr: 9.90°')
 print('----------------------')
+
+# Berechnung Energien zu Thetas
+
+E_Zn = E_K(Theta_K_Zn) / 1000 # in keV
+E_Br = E_K(Theta_K_Br) / 1000 # in keV
+E_Ga = E_K(Theta_K_Ga) / 1000 # in keV
+E_Sr = E_K(Theta_K_Sr) / 1000 # in keV
+E_Zr = E_K(Theta_K_Zr) / 1000 # in keV
+print('----------------------')
+print(f'E_Zn: {E_Zn}')
+print(f'E_Br: {E_Br}')
+print(f'E_Ga: {E_Ga}')
+print(f'E_Sr: {E_Sr}')
+print(f'E_Zr: {E_Zr}')
+print('----------------------')
+
+# Berechnung Abschirmkonstanten zu Energien
+sigma_Zn = sigmak(30,E_Zn*1000)
+sigma_Br = sigmak(35,E_Br*1000)
+sigma_Ga = sigmak(31,E_Ga*1000)
+sigma_Sr = sigmak(38,E_Sr*1000)
+sigma_Zr = sigmak(40,E_Zr*1000)
+print('----------------------')
+print(f'sigma_Zn: {sigma_Zn}')
+print(f'sigma_Br: {sigma_Br}')
+print(f'sigma_Ga: {sigma_Ga}')
+print(f'sigma_Sr: {sigma_Sr}')
+print(f'sigma_Zr: {sigma_Zr}')
+print('----------------------')
+
+# Berechnung der relativen Fehler
+print('----------------------')
+print(f'Delta theta_K_Zn: {rel(Theta_K_Zn,18.6)}')
+print(f'Delta theta_K_Br: {rel(Theta_K_Br,13.23)}')
+print(f'Delta theta_K_Ga: {rel(Theta_K_Ga,17.29)}')
+print(f'Delta theta_K_Sr: {rel(Theta_K_Sr,11.04)}')
+print(f'Delta theta_K_Zr: {rel(Theta_K_Zr,9.86)}')
+print('----------------------')
+print(f'Delta E_Zn: {rel(E_Zn,9.65)}')
+print(f'Delta E_Br: {rel(E_Br,13.47)}')
+print(f'Delta E_Ga: {rel(E_Ga,10.37)}')
+print(f'Delta E_Sr: {rel(E_Sr,16.1)}')
+print(f'Delta E_Zr: {rel(E_Zr,17.99)}')
+print('----------------------')
+print(f'Delta sigma_Zn: {rel(sigma_Zn,3.56)}')
+print(f'Delta sigma_Br: {rel(sigma_Br,3.85)}')
+print(f'Delta sigma_Ga: {rel(sigma_Ga,3.61)}')
+print(f'Delta sigma_Sr: {rel(sigma_Sr,4.00)}')
+print(f'Delta sigma_Zr: {rel(sigma_Zr,4.10)}')
+print('----------------------')
+print('----------------------')
+print('######################')
+
+# Abschirmkonstanten
+# Abschirmkonstanten
+sigma1 = 29 - np.sqrt(8.988*1000/R)
+print("sigma_1 von Kupfer: ", sigma1)
+sigma2 = 29 - np.sqrt(4*(29 - sigma1)**2 - 4*(8.04*1000/R))
+print("sigma_2 von Kupfer: ", sigma2)
+sigma3 = 29 - np.sqrt(9*(29 - sigma1)**2 - 9*(8.87*1000/R))
+print("sigma_3 von Kupfer: ", sigma3)
+
+
+# Theorie
+sigma1t = 29 - np.sqrt(8.988*1000/R)
+print("sigma_1t von Kupfer: ", sigma1t)
+sigma2t = 29 - np.sqrt(4*(29 - sigma1)**2 - 4*(8*1000/R))
+print("sigma_2t von Kupfer: ", sigma2t)
+sigma3t = 29 - np.sqrt(9*(29 - sigma1)**2 - 9*(8.95*1000/R))
+print("sigma_3t von Kupfer: ", sigma3t)
+
+# Abweichungen
+ds1 = np.abs(sigma1-sigma1t)/sigma1t
+ds2 = np.abs(sigma2-sigma2t)/sigma2t
+ds3 = np.abs(sigma3-sigma3t)/sigma3t
+print("Abweichungen zu sigma1,2,3: ", ds1, ds2, ds3)

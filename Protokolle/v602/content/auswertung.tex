@@ -24,15 +24,15 @@ bestimmen. Der Grenzwinkel $\theta_{\symup{Grenz}}$ ist nicht besonders deutlich
 \begin{equation*}
   \theta_{\symup{Grenz}} = \qty{5,2}{\degree}
 \end{equation*}
-geschätzt werden. Daraus folgt mit \eqref{eq: Formel theta Wellenlänge} eine minimale Wellenlänge von 
+geschätzt werden. Daraus folgt mit \eqref{eq:Energie} und \eqref{eq:Bragg} eine minimale Wellenlänge von 
 \begin{equation*}
-  \lambda_{\symup{min}} = \qty{99999}{\pico\metre}
+  \lambda_{\symup{min}} = \qty{36.51}{\pico\metre}
 \end{equation*}
 und eine maximale Energie von
 \begin{equation*}
-  E_{\symup{max}} = \qty{99999}{\electronvolt}.
+  E_{\symup{max}} = \qty{33.96}{\kilo\electronvolt}.
 \end{equation*}
-VERGLEICH MIT THEORIEWERTEN IN DISKUSSION
+
 
 \begin{figure}[H]
   \centering
@@ -43,7 +43,7 @@ VERGLEICH MIT THEORIEWERTEN IN DISKUSSION
 
 In \autoref{fig:Detailspektrum} sind die Daten der Aufzeichung des Detailspektrums dargestellt. Damit das Auflösungsvermögen
 der Apperatur bestimmt werden kann, werden die Halbwertsbreiten der $K_{\alpha}$- und $K_{\beta}$-Linien in den Plot eingezeichnet 
-und die Schnittpunkte mit der Messwertkurve bestimmt. So ergeben sich für jeden Peak zwei Winkel, denen über \eqref{eq: Winkel zu Energie}
+und die Schnittpunkte mit der Messwertkurve bestimmt. So ergeben sich für jeden Peak zwei Winkel, denen über \eqref{eq:Energie} und \eqref{eq:Bragg}
 Energien zugeordnet werden können. Die Energiedifferenz dieser Energien $\symup{\Delta}E$ wird verwendet, um über
 \begin{equation*}
   A = \frac{E}{\symup{\Delta}E}
@@ -56,3 +56,39 @@ das Auflösungsvermögen zu berechnen.
   \caption{Detailspektrum der Cu-Röhre mit eingezeichneten Halbwertsbreiten der $K_{\alpha}$- und $K_{\beta}$-Linien.}
   \label{fig:Detailspektrum}
 \end{figure}
+
+\begin{table}
+  \centering
+  \caption{Darstellung des Auflösungsvermögens.}
+  \label{tab:Auflösungsvermögen}
+  \begin{tabular}{c S[table-format=1.2] S[table-format=1.2] S[table-format=2.1]}
+    \toprule
+    {K-Linie} & {$E \mathbin{/} \unit{\kilo\electronvolt}$} & {$\symup{\Delta}E \mathbin{/} \unit{\kilo\electronvolt}$} &%
+    {$A$}\\
+    \midrule
+    $\alpha$  & 8,04 & 0,17 & 52,3 \\
+    $\beta$   & 8,87 & 0,21 & 42,4 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+In einem nächsten Schritt werden mit \eqref{eq:Sigma_Kupfer}, \eqref{eq:Sigma_Kupfer2}, und \eqref{eq:Sigma_Kupfer3}, sowie den
+Energien der K-Linien aus \autoref{tab:Auflösungsvermögen} die Abschirmkonstanten berechnet. 
+
+\begin{table}
+  \centering
+  \caption{Darstellung der Abschirmkonstanten. Die Berechnung erfolgt sowohl für die Energien aus \autoref{tab:Auflösungsvermögen}, %
+  als auch für Theoriewerte.}
+  \label{tab:Abschirmkonstanten}
+  \begin{tabular}{c S[table-format=2.2] S[table-format=2.2] S[table-format=2.2]}
+    \toprule
+    {$\sigma_{\symup{n}}$} & {experimentell} & {theoretisch} & {relative Abweichung}\\
+    \midrule
+    $\sigma_1$  & {}    & 3.29  & {}        \\
+    $\sigma_2$  & 12.30 & 11.95 & 2,91\,\%  \\
+    $\sigma_3$  & 20.16 & 23.99 & 15,94\,\% \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\subsection{Absorptionsspektrum verschiedener Elemente}
