@@ -54,11 +54,22 @@ Die so ermittelten Wertepaare sind in \autoref{tab:Diff Energie 20 Grad} festgeh
 In \autoref{fig:Diff Energie 20Grad} sind die Werte geplottet, zusammen beschreiben sie den Verlauf der gesuchten differentiellen
 Energieverteilung.
 Aufgrund der geringen Temperatur finden hier so gut wie keine Wechselwirkungen von Elektronen und Hg-Atomen statt.
-Die freie Weglänge der Elektronen im Quecksilberdampf beträgt bei dieser Temperatur nach \eqref{eq:freie weglänge}
-$\bar{w}(T) = 0,810\,\unit{\centi\meter}$. Sie ist damit beinahe so lang wie der Abstand zwischen Kathode und
-Beschleunigungselektrode, somit finden nur sehr wenige Stöße statt.
+Für den Dampfdruck und die mittlere freie Weglänge ergeben sich mit den Formeln \eqref{eq:p_sät} und \eqref{eq:freie weglänge} die Werte
+\begin{align*}
+  p_{\symup{saet}} &= \qty{0.0036}{\milli\bar} \\
+  \bar{w}(T) &= 0,810\,\unit{\centi\meter}.
+\end{align*}
+Der Abstand $a$ zwischen Kathode und Beschleunigungselektrode wird auf $a\approx\qty{1}{\centi\metre}$ geschätzt und es wird das
+Verhältnis $\frac{a}{\bar{w}}$ bestimmt, um eine gute Aussage über die Anzahl der Stöße treffen zu können. Ein großer Wert bedeutet hier, dass
+viele Stöße stattfinden. Es folgt
+\begin{equation*}
+  \frac{a}{\bar{w}} = \num{1,23}.
+\end{equation*}
+% Die freie Weglänge der Elektronen im Quecksilberdampf beträgt bei dieser Temperatur nach \eqref{eq:freie weglänge}
+% $\bar{w}(T) = 0,810\,\unit{\centi\meter}$. Sie ist damit beinahe so lang wie der Abstand zwischen Kathode und
+% Beschleunigungselektrode, somit finden nur sehr wenige Stöße statt.
 
-Aus dem Kurvenverlauf lässt sich schließen, dass die Änderung des Auffängerstroms zunächst mit steigendem $U_A$ zunimmt.
+Aus dem Kurvenverlauf lässt sich schließen, dass die Änderung des Auffängerstroms zunächst mit steigendem $U_{\symup{A}}$ zunimmt.
 Bei $U_{\symup{A}}=7\,\unit{\volt}$ nimmt sie ihr Maximum an, dannach fällt die Änderung wieder schnell ab.
 Dies bedeutet, dass die meisten Elektronen eine Energie im Bereich um $U_{\symup{A}}=7\,\unit{\electronvolt}$ aufweisen.
 Eine Erhöhung der Bremsspannung hat in diesem Bereich also einen besonders großen Einfluss auf den Auffängerstrom.
@@ -114,12 +125,24 @@ Aufgrund der deutlich höheren Temperatur können viele elastische Stöße
 zwischen den Elektronen und Hg-Atomen stattfinden. Dabei werden die Elektronen gestreut und besitzen nur noch
 eine geringe kinetische Energie in z-Richtung.
 Dies lässt sich durch die geringe freie Weglänge bestätigen, die legiglich $\bar{w}(T) = 7,303\,\unit{\micro\meter}$ beträgt.
+Der Dampfdruck und das Verhältnis $\frac{a}{\bar{w}}$ bestimmen sich zu
+\begin{align*}
+  p_{\symup{saet}} &= \qty{3.97}{\milli\bar} \\
+  \frac{a}{\bar{w}} &= \num{1369}.
+\end{align*}
 
 \subsection{Franck-Hertz-Kurve}
+\label{sec:Franck-Hertz-Kurve}
 
 Zur Bestimmung der Anregungsenergie der Hg-Atome werden die zwei aufgezeichneten Kurven getrennt ausgewertet.
 Entscheidend sind die relativen Abstände der Peaks zueinander, deren Mittelwert entspricht direkt der
 gesuchten Anregungsenergie. Die erste Kurve ist in \autoref{fig:FHZ 166Grad} dargestellt.
+Für den Dampfdruck, die mittlere freie Weglänge, und das Verhältnis $\frac{a}{\bar{w}}$ ergibt sich
+\begin{align*}
+  p_{\symup{saet}} &= \qty{8.72}{\milli\bar} \\
+  \bar{w}(T) &= \qty{3.33}{\micro\meter} \\
+  \frac{a}{\bar{w}} &= \num{3006}.
+\end{align*}
 
 \begin{figure}[H]
   \centering
@@ -141,6 +164,12 @@ Grundzustand emittierten Strahlung zu:
 \end{gather*}
 
 Für die zweite Messreihe wird identisch vorgegangen, die zugehörige Frank-Hertz Kurve ist in \autoref{fig:FHZ 195Grad} zu sehen.
+Die Werte für Dampfdruck, freie Weglänge, und das Verhältnis $\frac{a}{\bar{w}}$ ergeben sich hier zu
+\begin{align*}
+  p_{\symup{saet}} &= \qty{22.99}{\milli\bar} \\
+  \bar{w}(T) &= \qty{1.26}{\micro\meter} \\
+  \frac{a}{\bar{w}} &= \num{7929}.
+\end{align*}
 
 \begin{figure}[H]
   \centering

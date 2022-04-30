@@ -47,3 +47,28 @@ E_2_err = np.std(E_2)
 E_2_= ufloat(E_2_mean,E_2_err)
 print(f'Anregungsenergie Reihe 2: {E_2_} eV')
 print(f'Emittierte Strahlung 2: {c*h/E_2_*10**9} nm')
+
+
+def p(T):
+    return 5.5*10**7*np.e**(-6876/T)
+
+def w(T):
+    return 0.0029/p(T)
+
+def verh(T):
+    return 1/w(T)
+
+def korrekturistdoof(T):
+    print(f'--------------------')
+    print(f'T = {T} °C')
+    print(f'p({T}°C) = {p(T+273.15)} mbar')
+    print(f'w({T}°C) = {w(T+273.15)} cm')
+    print(f'Verhaeltnis: {verh(T+273.15)}')
+    print(f'--------------------')
+    return
+
+korrekturistdoof(20)
+korrekturistdoof(145)
+korrekturistdoof(166)
+korrekturistdoof(195)
+    
