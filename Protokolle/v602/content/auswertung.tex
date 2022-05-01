@@ -168,7 +168,7 @@ Abweichungen zu den Theoriewerten aufgeführt.
 \end{table}
 
 \subsubsection{Bestimmung der Rydbergkonstanten}
-Aus dem Moseleyschen Gesetz \eqref{eq:moseley} !!!!! folgt ein linearer Zusammenhang zwischen $\sqrt{E_{\symup{K}}}$ und $Z$. Der 
+Aus dem Moseleyschen Gesetz \eqref{eq:Rydbergenergie} folgt ein linearer Zusammenhang zwischen $\sqrt{E_{\symup{K}}}$ und $Z$. Der 
 Proportionalitätsfaktor ist die Rydbergenergie $R_\infty$. Die Daten werden in dem Diagramm \autoref{fig:moseley} dargestellt und es wird
 mit der python-Erweiterung \textit{scipy}\,\cite{scipy} eine lineare Ausgleichsrechnung durchgeführt.
 
@@ -181,11 +181,11 @@ mit der python-Erweiterung \textit{scipy}\,\cite{scipy} eine lineare Ausgleichsr
 
 Die lineare Ausgleichsrechnung liefert die Gerade vom Typ $y = mx +b$ mit den Parametern
 \begin{align*}
-  m &= \qty{3,57+-0.02}{\sqrt{\unit{\electronvolt}}} \\
-  b &= \qty{-8,93+-0.54}{\sqrt{\unit{\electronvolt}}}.
+  m &= \qty{3,792+-0.005}{\sqrt{\unit{\electronvolt}}} \\
+  b &= \qty{-2.03+-0.15}{\sqrt{\unit{\electronvolt}}}.
 \end{align*}
 Für die Rydbergenergie ergibt sich demnach 
 \begin{align*}
-  R_{\infty} = \qty{12.76+-0.11}{\electronvolt}
+  R_{\infty} = \qty{14.38+-0.04}{\electronvolt}
 \end{align*}
-was einer relativen Abweichung zum Theoriewert von rund $\symup{\Delta}R_{\infty} = \qty{6.2}{\percent}$ entspricht.
+was einer relativen Abweichung zum Theoriewert von rund $\symup{\Delta}R_{\infty} = \qty{5.74}{\percent}$ entspricht.

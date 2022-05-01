@@ -321,7 +321,7 @@ print("Abweichungen zu sigma1,2,3: ", ds1, ds2, ds3)
 # ZETS = [30-sigma_kzn, 31-sigma_kga, 35- sigma_kbr, 38-sigma_ksr, 40-sigma_kzr]
 E_ = [E_Zn*1000, E_Ga*1000, E_Br*1000, E_Sr*1000, E_Zr*1000]
 E_root = np.sqrt(E_)
-Z = [30,31,35,38,40]
+Z = [30-sigma_Zn,31-sigma_Ga,35-sigma_Br,38-sigma_Sr,40-sigma_Zr]
 
 # Fit
 def linfit(x,m,b):
@@ -331,7 +331,7 @@ params, pcov = op.curve_fit(linfit, Z, E_root)
 std = np.sqrt(np.diag(pcov))
 print(f'Params:{params}')
 print(f'std: {std}')
-x = np.linspace(29, 41, 100)
+x = np.linspace(26, 36, 100)
 
 R_inf_root = ufloat(params[0],std[0])
 b_root = ufloat(params[1], std[1])
@@ -345,13 +345,14 @@ print(f'Delta R_inf: {rel(R_inf,R)} %')
 plt.plot(x, linfit(x, *params), color = "dodgerblue", label = "Fit")
 plt.plot(Z, E_root, 'x', color='indianred',label='Messwerte')
 plt.grid()
-plt.xlabel(r'$Z')
+plt.xlabel(r'$Z_{\symup{eff}}')
 #plt.xlabel(r'$z_\text{eff}$')
 plt.ylabel(r'$\sqrt{E_\text{K}}\mathbin{/}\sqrt{\symup{eV}} $')
 #plt.xlim(26, 36)
 #plt.ylim(95, 135)
 plt.legend()
 
+plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
 plt.savefig('build/Rydberg.pdf')
 #plt.show()
 plt.close()
