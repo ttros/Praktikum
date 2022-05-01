@@ -2,7 +2,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import scipy.constants as const
 import scipy.optimize as op
-
+from uncertainties import ufloat
 
 # Konstanten
 R = 13.6    #Rydbergenergie in eV
@@ -57,7 +57,7 @@ plt.plot(theta2, imps2, '.', color='indianred',label='Messwerte')
 plt.plot(theta2[6:80], imps2[6:80], '-', color='dodgerblue',label='Bremsberg')
 # plt.plot(10, 800, 'v', color='dodgerblue', label='Bremsberg')
 plt.plot(theta2[79:85], imps2[79:85], '-', color='forestgreen', label=r'$K_{\beta}$-Linie')
-plt.axvline(x=20.2, color='limegreen', linestyle = "dotted")
+plt.axvline(x=20.2, color='mediumseagreen', linestyle = "dotted")
 # plt.plot(20.2, 1800, 'v', color='forestgreen', label=r'$K_{\beta}$-Linie')
 # plt.plot(22.5, 5000, 'v', color='darkorange', label=r'$K_{\alpha}$-Linie')
 plt.plot(theta2[89:98], imps2[89:98], '-', color='darkorange', label=r'$K_{\alpha}$-Linie')
@@ -271,16 +271,16 @@ print('----------------------')
 
 # Berechnung der relativen Fehler
 print('----------------------')
-print(f'Delta theta_K_Zn: {rel(Theta_K_Zn,18.6)}')
+print(f'Delta theta_K_Zn: {rel(Theta_K_Zn,18.60)}')
 print(f'Delta theta_K_Br: {rel(Theta_K_Br,13.23)}')
 print(f'Delta theta_K_Ga: {rel(Theta_K_Ga,17.29)}')
 print(f'Delta theta_K_Sr: {rel(Theta_K_Sr,11.04)}')
-print(f'Delta theta_K_Zr: {rel(Theta_K_Zr,9.86)}')
+print(f'Delta theta_K_Zr: {rel(Theta_K_Zr, 9.86)}')
 print('----------------------')
-print(f'Delta E_Zn: {rel(E_Zn,9.65)}')
+print(f'Delta E_Zn: {rel(E_Zn, 9.65)}')
 print(f'Delta E_Br: {rel(E_Br,13.47)}')
 print(f'Delta E_Ga: {rel(E_Ga,10.37)}')
-print(f'Delta E_Sr: {rel(E_Sr,16.1)}')
+print(f'Delta E_Sr: {rel(E_Sr,16.10)}')
 print(f'Delta E_Zr: {rel(E_Zr,17.99)}')
 print('----------------------')
 print(f'Delta sigma_Zn: {rel(sigma_Zn,3.56)}')
@@ -315,3 +315,45 @@ ds1 = np.abs(sigma1-sigma1t)/sigma1t
 ds2 = np.abs(sigma2-sigma2t)/sigma2t
 ds3 = np.abs(sigma3-sigma3t)/sigma3t
 print("Abweichungen zu sigma1,2,3: ", ds1, ds2, ds3)
+
+# Plot Rydbergkonstante
+# EHS = [np.sqrt(E_absorbzn*1000), np.sqrt(E_absorbga*1000), np.sqrt(E_absorbbr*1000),  np.sqrt(E_absorbsr*1000),  np.sqrt(E_absorbzr*1000)]
+# ZETS = [30-sigma_kzn, 31-sigma_kga, 35- sigma_kbr, 38-sigma_ksr, 40-sigma_kzr]
+E_ = [E_Zn*1000, E_Ga*1000, E_Br*1000, E_Sr*1000, E_Zr*1000]
+E_root = np.sqrt(E_)
+Z = [30,31,35,38,40]
+
+# Fit
+def linfit(x,m,b):
+    return m*x+b
+
+params, pcov = op.curve_fit(linfit, Z, E_root)
+std = np.sqrt(np.diag(pcov))
+print(f'Params:{params}')
+print(f'std: {std}')
+x = np.linspace(29, 41, 100)
+
+R_inf_root = ufloat(params[0],std[0])
+b_root = ufloat(params[1], std[1])
+b = b_root**2
+R_inf = R_inf_root**2
+
+print(f'Rydberenergie: {R_inf} eV')
+print(f'b_root : {b_root}')
+print(f'Delta R_inf: {rel(R_inf,R)} %')
+
+plt.plot(x, linfit(x, *params), color = "dodgerblue", label = "Fit")
+plt.plot(Z, E_root, 'x', color='indianred',label='Messwerte')
+plt.grid()
+plt.xlabel(r'$Z')
+#plt.xlabel(r'$z_\text{eff}$')
+plt.ylabel(r'$\sqrt{E_\text{K}}\mathbin{/}\sqrt{\symup{eV}} $')
+#plt.xlim(26, 36)
+#plt.ylim(95, 135)
+plt.legend()
+
+plt.savefig('build/Rydberg.pdf')
+#plt.show()
+plt.close()
+
+

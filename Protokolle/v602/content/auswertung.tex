@@ -92,3 +92,100 @@ Energien der K-Linien aus \autoref{tab:Auflösungsvermögen} die Abschirmkonstan
 \end{table}
 
 \subsection{Absorptionsspektrum verschiedener Elemente}
+\subsubsection{Bestimmung des Bragg-Winkels, Absorptionsenergie, und Abschirmkonstanten.}
+Die Daten aus den Messungen der Absorptionsspektren der verschiedenen Absorber werden graphisch dargestellt und es wird die
+Absorptionsenergie bestimmt. Dies geschieht indem zunächst die Messwerte vor dem Wendepunkt und nach dem Mittelpunkt einzeln gemittelt
+werden und dann wiederrum der Mittelwert dieser beiden Mittelwerte als horizontale Linie in den Plot eingezeichnet wird. Die Schnittstelle
+der Messwertkurve mit dieser Linie ist dann der Braggwinkel $\theta_{\symup{K}}$ zur Absorptionsenergie der K-Kante.
+Aus der Absorptionsenergie lässt sich mit \eqref{eq:sigma_K} außerdem die Abschirmkonstante berechnen. Dies wird für fünf verschiedene
+Absorber durchgeführt, die Plots für Brom, Gallium, Strontium, und Zirconium sind im Anhang \ref{sec:Anhang} zu finden.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[height=8cm]{build/Zn.pdf}
+  \caption{Bestimmung des Bragg-Winkels des Zink-Absorbers.}
+  \label{fig:Zn}
+\end{figure}
+
+In den nachfolgenden Tabellen \ref{tab:theta_K}, \ref{tab:E_K}, und \ref{tab:sigma_K} sind die berechneten Werte, sowie die relativen 
+Abweichungen zu den Theoriewerten aufgeführt.
+
+\begin{table}[H]
+  \centering
+  \caption{Bragg-Winkel der verschiedenen Absorber.}
+  \label{tab:theta_K}
+  \begin{tabular}{c S S S}
+    \toprule
+    {Element} & {$\theta_{\symup{K}}^{\symup{lit}} \mathbin{/} \unit{\degree}$} & %
+    {$\theta_{\symup{K}}^{\symup{exp}}  \mathbin{/} \unit{\degree}$} & %
+    {$\symup{\Delta}\theta_{\symup{K}} \mathbin{/} \unit{\percent}$}\\
+    \midrule
+    Zn & 18.60 & 18.60 & 0.00 \\
+    Br & 13.23 & 13.18 & 0.38 \\
+    Ga & 17.29 & 17.32 & 0.17 \\
+    Sr & 11.04 & 11.02 & 0.18 \\
+    Zr &  9.86 &  9.90 & 0.41 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\begin{table}[H]
+  \centering
+  \caption{Absorptionsenergie der verschiedenen Absorber.}
+  \label{tab:E_K}
+  \begin{tabular}{c S S S}
+    \toprule
+    {Element} & {$E_{\symup{K}}^{\symup{lit}} \mathbin{/} \unit{\kilo\electronvolt}$} & %
+    {$E_{\symup{K}}^{\symup{exp}}  \mathbin{/} \unit{\kilo\electronvolt}$} & %
+    {$\symup{\Delta}E_{\symup{K}} \mathbin{/} \unit{\percent}$}\\
+    \midrule
+    Zn &  9.65 &  9.65 & 0.01 \\
+    Br & 13.47 & 13.50 & 0.22 \\
+    Ga & 10.37 & 10.34 & 0.30 \\
+    Sr & 16.10 & 16.10 & 0.02 \\
+    Zr & 17.99 & 17.90 & 0.48 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\begin{table}[H]
+  \centering
+  \caption{Abschirmkonstanten der verschiedenen Absorber.}
+  \label{tab:sigma_K}
+  \begin{tabular}{c S S S}
+    \toprule
+    {Element} & {$\sigma_{\symup{K}}^{\symup{lit}}$} & %
+    {$\sigma_{\symup{K}}^{\symup{exp}}$} & %
+    {$\symup{\Delta}\sigma_{\symup{K}} \mathbin{/} \unit{\percent}$}\\
+    \midrule
+    Zn & 3.56 & 3.57 & 0.15 \\
+    Br & 3.85 & 3.81 & 0.97 \\
+    Ga & 3.61 & 3.65 & 1.15 \\
+    Sr & 4.00 & 3.99 & 0.09 \\
+    Zr & 4.10 & 4.19 & 2.21 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\subsubsection{Bestimmung der Rydbergkonstanten}
+Aus dem Moseleyschen Gesetz \eqref{eq:moseley} !!!!! folgt ein linearer Zusammenhang zwischen $\sqrt{E_{\symup{K}}}$ und $Z$. Der 
+Proportionalitätsfaktor ist die Rydbergenergie $R_\infty$. Die Daten werden in dem Diagramm \autoref{fig:moseley} dargestellt und es wird
+mit der python-Erweiterung \textit{scipy}\,\cite{scipy} eine lineare Ausgleichsrechnung durchgeführt.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[height=8cm]{build/Rydberg.pdf}
+  \caption{Plot der Absorptionsenergien und zugehörigen Ordnungszahlen.}
+  \label{fig:moseley}
+\end{figure}
+
+Die lineare Ausgleichsrechnung liefert die Gerade vom Typ $y = mx +b$ mit den Parametern
+\begin{align*}
+  m &= \qty{3,57+-0.02}{\sqrt{\unit{\electronvolt}}} \\
+  b &= \qty{-8,93+-0.54}{\sqrt{\unit{\electronvolt}}}.
+\end{align*}
+Für die Rydbergenergie ergibt sich demnach 
+\begin{align*}
+  R_{\infty} = \qty{12.76+-0.11}{\electronvolt}
+\end{align*}
+was einer relativen Abweichung zum Theoriewert von rund $\symup{\Delta}R_{\infty} = \qty{6.2}{\percent}$ entspricht.
