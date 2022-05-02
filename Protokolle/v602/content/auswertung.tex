@@ -63,7 +63,7 @@ das Auflösungsvermögen zu berechnen.
   \label{tab:Auflösungsvermögen}
   \begin{tabular}{c S[table-format=1.2] S[table-format=1.2] S[table-format=2.1]}
     \toprule
-    {K-Linie} & {$E \mathbin{/} \unit{\kilo\electronvolt}$} & {$\symup{\Delta}E \mathbin{/} \unit{\kilo\electronvolt}$} &%
+    {$K$-Linie} & {$E \mathbin{/} \unit{\kilo\electronvolt}$} & {$\symup{\Delta}E \mathbin{/} \unit{\kilo\electronvolt}$} &%
     {$A$}\\
     \midrule
     $\alpha$  & 8,04 & 0,17 & 52,3 \\
@@ -73,7 +73,7 @@ das Auflösungsvermögen zu berechnen.
 \end{table}
 
 In einem nächsten Schritt werden mit \eqref{eq:Sigma_Kupfer}, \eqref{eq:Sigma_Kupfer2}, und \eqref{eq:Sigma_Kupfer3}, sowie den
-Energien der K-Linien aus \autoref{tab:Auflösungsvermögen} die Abschirmkonstanten berechnet. 
+Energien der $K$-Linien aus \autoref{tab:Auflösungsvermögen} die Abschirmkonstanten berechnet. 
 
 \begin{table}
   \centering
@@ -96,7 +96,7 @@ Energien der K-Linien aus \autoref{tab:Auflösungsvermögen} die Abschirmkonstan
 Die Daten aus den Messungen der Absorptionsspektren der verschiedenen Absorber werden graphisch dargestellt und es wird die
 Absorptionsenergie bestimmt. Dies geschieht indem zunächst die Messwerte vor dem Wendepunkt und nach dem Mittelpunkt einzeln gemittelt
 werden und dann wiederrum der Mittelwert dieser beiden Mittelwerte als horizontale Linie in den Plot eingezeichnet wird. Die Schnittstelle
-der Messwertkurve mit dieser Linie ist dann der Braggwinkel $\theta_{\symup{K}}$ zur Absorptionsenergie der K-Kante.
+der Messwertkurve mit dieser Linie ist dann der Braggwinkel $\theta_{K}$ zur Absorptionsenergie der K-Kante.
 Aus der Absorptionsenergie lässt sich mit \eqref{eq:sigma_K} außerdem die Abschirmkonstante berechnen. Dies wird für fünf verschiedene
 Absorber durchgeführt, die Plots für Brom, Gallium, Strontium, und Zirconium sind im Anhang \ref{sec:Anhang} zu finden.
 
@@ -116,9 +116,9 @@ Abweichungen zu den Theoriewerten aufgeführt.
   \label{tab:theta_K}
   \begin{tabular}{c S S S}
     \toprule
-    {Element} & {$\theta_{\symup{K}}^{\symup{lit}} \mathbin{/} \unit{\degree}$} & %
-    {$\theta_{\symup{K}}^{\symup{exp}}  \mathbin{/} \unit{\degree}$} & %
-    {$\symup{\Delta}\theta_{\symup{K}} \mathbin{/} \unit{\percent}$}\\
+    {Element} & {$\theta_{K}^{\symup{lit}} \mathbin{/} \unit{\degree}$} & %
+    {$\theta_{K}^{\symup{exp}}  \mathbin{/} \unit{\degree}$} & %
+    {$\symup{\Delta}\theta_{K} \mathbin{/} \unit{\percent}$}\\
     \midrule
     Zn & 18.60 & 18.60 & 0.00 \\
     Br & 13.23 & 13.18 & 0.38 \\
@@ -135,9 +135,9 @@ Abweichungen zu den Theoriewerten aufgeführt.
   \label{tab:E_K}
   \begin{tabular}{c S S S}
     \toprule
-    {Element} & {$E_{\symup{K}}^{\symup{lit}} \mathbin{/} \unit{\kilo\electronvolt}$} & %
-    {$E_{\symup{K}}^{\symup{exp}}  \mathbin{/} \unit{\kilo\electronvolt}$} & %
-    {$\symup{\Delta}E_{\symup{K}} \mathbin{/} \unit{\percent}$}\\
+    {Element} & {$E_{K}^{\symup{lit}} \mathbin{/} \unit{\kilo\electronvolt}$} & %
+    {$E_{K}^{\symup{exp}}  \mathbin{/} \unit{\kilo\electronvolt}$} & %
+    {$\symup{\Delta}E_{K} \mathbin{/} \unit{\percent}$}\\
     \midrule
     Zn &  9.65 &  9.65 & 0.01 \\
     Br & 13.47 & 13.50 & 0.22 \\
@@ -154,9 +154,9 @@ Abweichungen zu den Theoriewerten aufgeführt.
   \label{tab:sigma_K}
   \begin{tabular}{c S S S}
     \toprule
-    {Element} & {$\sigma_{\symup{K}}^{\symup{lit}}$} & %
-    {$\sigma_{\symup{K}}^{\symup{exp}}$} & %
-    {$\symup{\Delta}\sigma_{\symup{K}} \mathbin{/} \unit{\percent}$}\\
+    {Element} & {$\sigma_{K}^{\symup{lit}}$} & %
+    {$\sigma_{K}^{\symup{exp}}$} & %
+    {$\symup{\Delta}\sigma_{K} \mathbin{/} \unit{\percent}$}\\
     \midrule
     Zn & 3.56 & 3.57 & 0.15 \\
     Br & 3.85 & 3.81 & 0.97 \\
@@ -168,9 +168,11 @@ Abweichungen zu den Theoriewerten aufgeführt.
 \end{table}
 
 \subsubsection{Bestimmung der Rydbergkonstanten}
-Aus dem Moseleyschen Gesetz \eqref{eq:Rydbergenergie} folgt ein linearer Zusammenhang zwischen $\sqrt{E_{\symup{K}}}$ und $Z$. Der 
+Aus dem Moseleyschen Gesetz \eqref{eq:Rydbergenergie} folgt ein linearer Zusammenhang zwischen $\sqrt{E_{K}}$ und $z$. Der 
 Proportionalitätsfaktor ist die Rydbergenergie $R_\infty$. Die Daten werden in dem Diagramm \autoref{fig:moseley} dargestellt und es wird
 mit der python-Erweiterung \textit{scipy}\,\cite{scipy} eine lineare Ausgleichsrechnung durchgeführt.
+Aufgrund der Abschirmung der Kernladung durch die äußeren Elektronen, wird mit der effektiven Kernladung $z_{\symup{eff}=z-\sigma_{K}}$
+gerechnet.
 
 \begin{figure}[H]
   \centering
