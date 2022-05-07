@@ -3,6 +3,17 @@
 
 \subsection{Bestimmung der Grenzspannung}
 
+Die Messergergebnisse für die rote Spektrallinie finden sich in \autoref{tab:rot}.
+Die Daten werden ausgewertet, indem die Bremsspannung $U_{\symup{B}}$ geben die Wurzel des Photostroms $\sqrt{I}$
+geplottet wird.
+Mithilfe der Python Erweiterung \textit{scipy}\,\cite{scipy} wird eine lineare Ausgleichsrechnung durchgeführt,
+die Geradengleichung ist dabei vom Typ
+\begin{equation}
+  \label{eq:regression}
+  \sqrt{I}=m \cdot U_{\symup{B}} + b.
+\end{equation}
+Der Plot der Messwerte sowie der Regressionsgerade ist in \autoref{fig:plot_rot} zu sehen.
+
 \begin{table}[H]
   \centering
   \caption{Messwerte für die rote Spektrallinie.}
@@ -33,20 +44,121 @@
   \label{fig:plot_rot}
 \end{figure}
 
+Die gesuchte Grenzspannung $U_{\symup{G}}$ ist dabei die Nullstelle der Regressionsgerade und lässt sich durch
+Umstellen von \autoref{eq:regression} bestimmen als
+\begin{equation*}
+  U_{\symup{G}}=\frac{-b}{m}.
+\end{equation*}
+Diese Auswertungsschrite werden für die restlichen Spektrallinien analog durchgeführt, die zugehörigen
+Wertetabellen und Plots finden sich im Anhang.
+Die Ergebnisse für sämtliche Spektrallinien sind in \autoref{tab:U_G} zusammengefasst.
+
+\begin{table}[H]
+  \centering
+  \caption{Parameter der linearen Regression sowie berechneter Wert der Grenzspannung für alle Spektrallinien..}
+  \label{tab:U_G}
+  \begin{tabular}{S S S S}
+      \toprule
+      {$\lambda/\unit{\nano\meter}$} & {$m/(\frac{\unit{\nano\ampere}}{\unit{\volt}})$} & {$b/\unit{\nano\ampere}$} & {$U_{\symup{G}}/\unit{\volt}$} \\
+      \midrule
+      646 & -2.49$\pm$0.14 & 1.49$\pm$0.14 & 0.598 \\
+      578 & -9.9$\pm$0.5   & 4.9$\pm$0.5   & 0.491 \\
+      546 & -5.8$\pm$0.5   & 3.3$\pm$0.5   & 0.570 \\
+      435 & -4.68$\pm$0.10 & 5.33$\pm$0.10 & 0.749 \\
+      405 & -2.70$\pm$0.06 & 3.51$\pm$0.06 & 1.300 \\
+      \bottomrule
+  \end{tabular}
+\end{table}
+
 \subsection{Planksches Wirkungsquantum}
+
+Nun werden die jeweiligen Wellenlängen der Spektrallinien in Frequenzen umgerechnet.
+Die Frequenzen werden dann gegen ihre zugehörigen Grenzspannungen geplottet, welche in \autoref{tab:U_G} berechnet wurden.
+Erneut wird eine lineare Regression ermittelt, zusammen mit den Daten ist sie in \autoref{fig:planck} zu sehen.
 
 \begin{figure} [H]
   \centering
   \includegraphics{build/plot_planck.pdf}
-  \caption{Planck.}
+  \caption{Plot der unterschiedlichen Lichtfrequenzen gegen die zugehörigen Bremsspannungen inklusive linearer Regression.}
   \label{fig:planck}
 \end{figure}
 
-\subsection{Vollständiger Spannungsverlauf}
+Die Geradengleichung der Regression entspricht dem theoretischen Zusammenhang in \autoref{eq:Energie Photoelektronen}.
+Stellt man die Gleichung nach $U_{\symup{B}}$ um, so erhält man
+\begin{equation*}
+  U_{\symup{B}} = \frac{h}{e_0}f - \frac{A_{\symup{k}}}{e_0}.
+\end{equation*}
+Das Verhältnis $\frac{h}{e_0}$ sowie die Austrittsarbeit $A_{\symup{k}}$ ergeben sich somit direkt aus den
+Parametern der linearen Regression, abschließend erhält man
+\begin{gather*}
+  \frac{h}{e_0}=\qty{3.0(1.1)e-15}{\volt\second} \\
+  A_{\symup{k}}=\qty{1.117401729598114+-0.000000000000001}{\electronvolt}
+\end{gather*}
+
+\subsection{Kurvenverlauf des Photostroms}
+
+Zuletzt wird der vollständige Verlauf des Photostroms der gelben Spekatrallinie betrachtet,
+die dafür gemessenen Daten sind in \autoref{tab:gelb_lang} festgehalten.
+Die Daten werden in \autoref{fig:gelb_lang} geplottet, der Verlauf wird anschließend qualitativ analysiert.
+
+\begin{table}[H]
+  \centering
+  \caption{Messwerte für die gelbe Spektralinie, hier über einen größeren Spannungsbereich.}
+  \label{tab:gelb_lang}
+  \begin{tabular}{S[table-format=3.1] S[table-format=2.1]}
+      \toprule
+      $U_{\symup{B}} / \unit{\volt}$ & $I / \unit{\nano\ampere}$ \\
+      \midrule
+      -19.0 &	101 \\
+      -18.0 &	99 \\
+      -17.0 &	98 \\
+      -16.0 &	96 \\
+      -15.0 &	96 \\
+      -14.0 &	96 \\
+      -13.0 &	95 \\
+      -12.0 &	93 \\
+      -11.0 &	91 \\
+      -10.0 &	88 \\
+      -9.0 &	86 \\
+      -8.0 &	83 \\
+      -7.0 &	80 \\
+      -6.0 &	76 \\
+      -5.0 &	70 \\
+      -4.0 &	64 \\
+      -3.0 &	55 \\
+      -2.0 &	42 \\
+      -1.0 &	28 \\
+       0.0 &	4.4\\
+       0.1 &	2.4\\
+       0.2 &	0.8\\
+       0.3 &	0.2\\
+       0.4 &	0.0\\
+      \bottomrule
+  \end{tabular}
+\end{table}
 
 \begin{figure} [H]
   \centering
   \includegraphics{build/plot_gelb_lang.pdf}
-  \caption{Gelb lang.}
+  \caption{Photostrom in Abhängigkeit der Spannung für die gelbe Spekatrallinie, mit einem
+          größeren Messbereich für die Spannung.}
   \label{fig:gelb_lang}
 \end{figure}
+
+Für hohe Beschleunigungsspannungen erreicht die Kurve einen Sättigungswert. Hierbei handelt es sich aber nicht um einen
+Widerspruch mit dem ohmschen Gesetz, da aufgrund der endlichen Lichtintensität nur eine begrenzte Menge an Elektronen
+gelöst werden können, somit ist auch der Photostrom auf ein Maximum beschränkt.
+Da niemals alle Elektronen die Elektrode erreichen, nährt sich die Spannnung nur asymptotisch diesem Maximum an.
+
+Nährt man sich der Grenzspannung, so fällt der Strom kontinuierlich auf Null ab, ein sprunghafter Abfall ist
+nicht zu beobachten.
+Dies liegt an der Energieverteilung der Elektronen im Leiter, die für eine nicht zu vernachlässigende Streuung
+der Energie der Elektronen nach dem Lösen aus der Photokathode verantworlich ist.
+
+Zusätzlich zum Photostrom kann außerdem ein diesem entgegengesetzter Strom auftreten. Dies liegt daran,
+dass die Photokathode aus einem Material besteht, dass bereits bei Zimmertemperatur verdampft.
+Somit können sich losgelöste Elektronen an der Kathode anlagern und anschließend zur Photokathode zurück beschleunigt werden.
+Da dieser Effekt im Vergleich zum Photostrom nur eine geringe Menge an Elektronen freisetzt, ist
+ein Sättigungswert schnell erreicht.
+Das frühe Auftreten dieses negativen Stroms im Experiement zeigt, dass die Photokathode eine recht kleine
+Austrittsarbeit aufweist.
