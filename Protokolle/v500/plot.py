@@ -9,13 +9,19 @@ from uncertainties import ufloat
 from uncertainties.unumpy import (nominal_values as noms,
                                   std_devs as stds)
 import scipy.constants as const
+import scipy.optimize as op
 
 c = 2.99792458*10**8
-
+def linfit(x,m,b):
+    return m*x+b
 def regression(U,I,x1,x2,name):
-    m , b , r ,p ,std =stats.linregress(U,I)
-    M=unp.uarray(m,std)
-    B=unp.uarray(b,std)
+    params, pcov = op.curve_fit(linfit, U, I)
+    std = np.sqrt(np.diag(pcov))
+    m = params[0]
+    b = params[1]
+    # m , b , r ,p ,std =stats.linregress(U,I)
+    M=unp.uarray(m,std[0])
+    B=unp.uarray(b,std[1])
 
     print(f'm {name}: {M}')
     print(f'b {name}: {B}')
