@@ -1,4 +1,74 @@
+\section{Zielsetzung}
+
+Ziel dieses Versuches ist, mithilfe der Steig- und Sinkgeschwindigkeit von Öltröpfchen in einem
+elektrischen Feld die Elementarladung $e_0$ zu bestimmen.
+
 \section{Theorie}
 \label{sec:Theorie}
+Um die besagte Elementarladung $e_0$ zu bestimmen, wird die von Milikan benutzte Öltröpfchenmethode angewendet.
+Mithilfe eines Zerstäubers werden sehr kleine Öltröpchen in ein vertikales E-Feld eines Plattenkondensators gesprüht.
+Aufgrund der dabei auftretenden Reibung werden die Tröpchen geladen, diese Ladung muss einem ganzzähligen
+Vielfachen der Elementarladung entsprechen.
 
-\cite{sample}
+Es werden nun drei mögliche Fälle und die dort herrschenden Kräfte betrachtet, um daraus abschließend die
+Ladung eines Tröpchens bestimmen zu können.
+
+\subsection{Freies Fallen}
+Zuerst wird kein Feld im Kondensator erzeugt und das Verhalten des freien Tröpchens betrachtet.
+In diesem Fall wirkt auf das Öltröpfchen der Masse $m$ und Radius $r$ die Gewichtskraft $F_{\symup{G}}=mg$, sodass
+es beginnt sich nach unten zu bewegen.
+Dem entgegen wirkt dann aufgrund der Luft mit der Viskosität $\eta_{L}$ im Kondensator
+die Stokesche Reibungskraft $F_{\symup{R}}=6\pi r\eta_{L}v$.
+Nach kurzer Zeit stellt sich ein Kräftegleichgewicht ein, das Tröpchen sinkt dann mit konstanter
+Geschwindigkeit $v_0$.
+
+\subsection{Sinken und Steigen}
+Nun wird eine Spannung an den Kondensator angelegt, sodass ein elektrisches Feld zwischen den Plattenkondensators
+existiert. Auf das Öltröpchen wirkt nun zusätzlich die elektrostatische Kraft $F_{\symup{el}}=qE$, deren Richtung
+durch Umpolen der Spannung entweder nach oben oder nach unten gewählt werden kann.
+\begin{figure} [H]
+    \centering
+    \includegraphics[height=4cm]{content/pics/Kräfte.jpg}
+    \caption{Kräftegleichgewicht für einen fallenden bzw. steigenden Tropfen in homogenem elektrischen Feld \cite{v503}.}
+    \label{fig:Kraefte}
+\end{figure}
+In \autoref{fig:Kraefte} sind für beide Szenarien alle wirkenden Kräfte samt Richtung eingezeichnet.
+
+Wählt man eine elektrische Kraft nach unten, so bewegt sich das Tröpfchen nach kurzer Zeit mit einer konstanten
+Geschwindigkeit $v_{\symup{ab}}$ abwärts. Berücksichtigt man den Auftrieb in der Luft, so ergibt sich
+aus dem Kräftegleichgewicht die Gleichung
+\begin{equation}
+    \label{eq:v_ab}
+    \frac{4\symup{\pi}}{3}r^3(\rho_\text{Oel}-\rho_\text{L})g - 6\symup{\pi}\eta_\text{L}rv_{\text{ab}} = -qE.
+\end{equation}
+Bei umgekehrten elektrischen Feld stellt sich eine konstante Aufwärtsbewegung ein mit einer Geschwindigkeit $v_{\symup{auf}}$,
+hier lautet die Gleichung
+\begin{equation}
+    \label{eq:v_auf}
+    \frac{4\symup{\pi}}{3}r^3(\rho_\text{Oel}+\rho_\text{L})g + 6\symup{\pi}\eta_\text{L}rv_{\text{ab}} = qE.
+\end{equation}
+Die Ladung $q$ des Öltröpfchens lässt sich zusammen aus \eqref{eq:v_ab} und \eqref{eq:v_auf}
+bestimmen und es ergibt sich der Zusammenhang:
+\begin{equation}
+    \label{eq:Ladung}
+    q = \frac{9}{2} \symup{\pi} \sqrt{\frac{\eta_\text{L}^3(v_\text{ab} - v_\text{auf})}{g(\rho_\text{Oel}- \rho_\text{L})}} \cdot \frac{v_\text{ab} + v_\text{auf}}{E}.
+\end{equation}
+Für die Geschwindigkeiten muss dabei gelten
+\begin{equation}
+    \label{eq:Geschwindigkeiten}
+    2v_0 = v_\text{ab} - v_\text{auf}.
+\end{equation}
+
+\subsection{Cunningham-Korrektur}
+In diesem Versuch sind die Öltröpchen so klein, dass ihr Durchmesser kleiner als die mittlere freie Weglänge
+in Luft ist. Daher muss die Viskosität der Luft $\eta_{\text{L}}$ mit dem
+\textit{Cunningham-Korrekturterm} versehen werden und die effektive Viskosität lautet
+\begin{equation*}
+    \eta_\text{eff} = \eta_\text{L} \left(\frac{1}{1 + B \frac{1}{pr}}\right).
+\end{equation*}
+Dabei ist $B=6.17\cdot10^{-3}\,\text{Torr}\cdot\text{cm}$ \cite{v503} mit $1\,\text{Torr}\approx\qty{133.322}{\pascal}$ \cite{Torr}.
+Mit dieser Korrektur ergibt sich für die Ladung
+\begin{equation}
+\label{eqn:q_korrigiert}
+    q_\text{korr} = q_0 \left(1+ \frac{B}{pr}\right)^{3/2}
+\end{equation}
