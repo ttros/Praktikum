@@ -1,3 +1,152 @@
 \section{Auswertung}
 \label{sec:Auswertung}
+\subsection{Bestimmung der mittleren Geschwindigkeiten der Öltröpfchen}
+Aus aufgenommenen Steig- und Sinkgeschwindigkeiten wird die mittlere Geschwindigkeit eines jeden Tröpfchens
+mit dazugehöriger Abweichung mithilfe der \textit{python}-Erweiterung \textit{uncertainties}\,\cite{uncertainties}
+bestimmt. Die daraus resultierenden Geschwindigkeiten werden in \autoref{tab:v_m} dargestellt.\footnote{Anm: Die 
+Versuchsanleitung fordert eigentlich die Bestimmung der Fallgeschwindigkeit $v_0$ der Öltröpfchen bei ausgeschaltetem
+E-Feld. Bereits während des Versuchs stellte sich heraus, dass diese Werte unplausibel und nicht zu verwendet sind, 
+weshalb auf die Aufnahme und Betrachtung von $v_0$ verzichtet wird.}
+
+\begin{table}[H]
+    \centering
+    \caption{Mittleren Geschwindigkeiten der Öltröpfchen bei verschiedenen Spannungen.}
+    \label{tab:v_m}
+    \begin{tabular}{S S S S}
+        \toprule
+        {Spannung} & {Tröpfchen} & {$v_{\text{auf}} \mathbin{/} 10^{-5}\,\frac{\unit{\metre}}{\unit{\second}}$} %
+        & {$v_{\text{ab}} \mathbin{/} 10^{-5}\,\frac{\unit{\metre}}{\unit{\second}}$}\\
+        \midrule
+        {150\,V}    & 1 &   $\num{3.628+-0.000}$ & $\num{4.677+-0.000}$ \\
+        {}          & 2 &   $\num{3.454+-0.345}$ & $\num{4.385+-0.770}$ \\   
+        {}          & 3 &   $\num{5.223+-0.040}$ & $\num{6.504+-0.538}$ \\ 
+        {}          & 4 &   $\num{5.101+-0.268}$ & $\num{7.435+-0.090}$ \\ 
+        {}          & 5 &   $\num{8.217+-0.548}$ & $\num{7.114+-0.543}$ \\
+        {175\,V}    & 1 &   $\num{7.828+-0.299}$ & $\num{8.091+-0.139}$ \\   
+        {}          & 2 &   $\num{23.12+-1.33 }$ & $\num{23.15+-0.62 }$ \\
+        {}          & 3 &   $\num{6.657+-0.215}$ & $\num{5.911+-0.053}$ \\
+        {}          & 4 &   $\num{12.57+-0.30 }$ & $\num{12.11+-0.53 }$ \\
+        {}          & 5 &   $\num{12.34+-0.32 }$ & $\num{11.76+-0.72 }$ \\
+        {200\,V}    & 1 &   $\num{13.67+-0.29 }$ & $\num{13.70+-0.04 }$ \\
+        {}          & 2 &   $\num{5.274+-0.188}$ & $\num{1.026+-0.040}$ \\
+        {}          & 3 &   $\num{4.250+-0.168}$ & $\num{8.425+-0.558}$ \\
+        {}          & 4 &   $\num{6.884+-0.275}$ & $\num{7.365+-0.356}$ \\
+        {}          & 5 &   $\num{6.517+-0.223}$ & $\num{6.933+-0.121}$ \\
+        {225\,V}    & 1 &   $\num{7.483+-0.391}$ & $\num{7.995+-0.291}$ \\
+        {}          & 2 &   $\num{6.126+-0.068}$ & $\num{7.190+-0.355}$ \\
+        {}          & 3 &   $\num{3.514+-0.222}$ & $\num{4.652+-0.395}$ \\
+        {}          & 4 &   $\num{10.90+-0.10 }$ & $\num{10.50+-0.44 }$ \\
+        {}          & 5 &   $\num{8.738+-0.233}$ & $\num{8.115+-0.507}$ \\
+        {250\,V}    & 1 &   $\num{11.26+-0.57 }$ & $\num{10.92+-0.75 }$ \\
+        {}          & 2 &   $\num{11.81+-0.84 }$ & $\num{11.69+-0.20 }$ \\
+        {}          & 3 &   $\num{9.996+-0.123}$ & $\num{9.904+-0.526}$ \\
+        {}          & 4 &   $\num{20.05+-0.89 }$ & $\num{20.91+-0.41 }$ \\
+        {}          & 5 &   $\num{7.316+-0.149}$ & $\num{8.580+-0.196}$ \\ 
+        \bottomrule
+    \end{tabular}
+  \end{table}
+
+\subsection{Bestimmung der Ladung und Radien der Öltröpchen}
+Mithilfe der zuvor berechneten Steig- und Sinkgeschwindigkeiten der Öltröpfchen und der Formel \eqref{eq:Radius}
+wird der Radius eines jeden Öltröpfchens bestimmt. Dafür wird außerdem die Viskosität der Luft $\eta_{\symup{L}}$ benötigt.
+Diese ist abhängig von der Temperatur über einen Zusammenhang der über \autoref{fig:eta_L} gegeben ist. Die Temperatur in 
+dem Kondensator wird allerdings nicht direkt gemessen, sondern wird über einen Thermowiderstand und die dazugehörige Tabelle
+aus \autoref{fig:R_T} bestimmt.
+
+Darüber hinaus lässt sich über Formel \eqref{eq:Ladung} die Ladung der Öltröpfchen bestimmen, welche von denselben Parametern
+wie der Radius abhängt.
+
+Aufgrund der Tatsache, dass die Öltröpfchen kleiner als die mittlere freie Weglänge in dem Plattenkondensators sind, muss die
+Ladung nach Cunningham und somit nach Gleichung \eqref{eqn:q_korrigiert} korrigert werden.
+
+Die Werte der Radien, sowie die unkorrigerten und korrigierten Ladungen der Öltröpfchen sind in \autoref{tab:r,q,q_korr} 
+aufgelistet.
+
+\begin{table}[H]
+    \centering
+    \caption{Radien, unkorrigierte und korrigierte Ladungen der Öltröpfchen bei verschiedenen Spannungen.}
+    \label{tab:r,q,q_korr}
+    \begin{tabular}{S S S S S}
+        \toprule
+        {Spannung} & {Tröpfchen} & {$r \mathbin{/} 10^{-7}\,\unit{\metre}$} %
+        & {$q \mathbin{/} 10^{-19}\,\unit{\coulomb}$} & {$q_{\text{korr}} \mathbin{/} 10^{-19}\,\unit{\coulomb}$}\\
+        \midrule
+        {150\,V}    & 1 &   $\num{3.176+-0.000}$ & $\num{1.657+-0.001}$ & $\num{2.086+-0.001}$\\
+        {}          & 2 &   $\num{2.992+-1.357}$ & $\num{1.473+-0.783}$ & $\num{1.878+-0.817}$\\   
+        {}          & 3 &   $\num{3.510+-0.740}$ & $\num{2.585+-0.663}$ & $\num{3.191+-0.690}$\\ 
+        {}          & 4 &   $\num{4.739+-0.287}$ & $\num{3.731+-0.167}$ & $\num{4.379+-0.159}$\\ 
+        {}          & 5 &   $\num{3.258+-1.140}$ & $\num{3.136+-1.110}$ & $\num{3.928+-1.117}$\\
+        {175\,V}    & 1 &   $\num{1.595+-0.997}$ & $\num{1.368+-0.837}$ & $\num{2.074+-0.828}$\\   
+        {}          & 2 &   $\num{0.047+-1.504}$ & $\num{0.117+-3.748}$ & $\num{0.322+-3.744}$\\
+        {}          & 3 &   $\num{2.683+-0.397}$ & $\num{1.817+-0.298}$ & $\num{2.374+-0.307}$\\
+        {}          & 4 &   $\num{2.105+-1.406}$ & $\num{2.799+-1.834}$ & $\num{3.893+-1.821}$\\
+        {}          & 5 &   $\num{2.376+-1.608}$ & $\num{3.086+-2.022}$ & $\num{4.154+-2.000}$\\
+        {200\,V}    & 1 &   $\num{0.492+-2.896}$ & $\num{0.634+-3.722}$ & $\num{1.693+-3.711}$\\
+        {}          & 2 &   $\num{6.933+-0.310}$ & $\num{5.066+-0.339}$ & $\num{5.667+-0.354}$\\
+        {}          & 3 &   $\num{6.346+-0.443}$ & $\num{3.784+-0.420}$ & $\num{4.275+-0.442}$\\
+        {}          & 4 &   $\num{2.154+-1.007}$ & $\num{1.444+-0.688}$ & $\num{1.995+-0.694}$\\
+        {}          & 5 &   $\num{2.003+-0.612}$ & $\num{1.267+-0.374}$ & $\num{1.788+-0.370}$\\
+        {225\,V}    & 1 &   $\num{2.224+-1.058}$ & $\num{1.447+-0.677}$ & $\num{1.983+-0.674}$\\
+        {}          & 2 &   $\num{3.204+-0.544}$ & $\num{1.794+-0.350}$ & $\num{2.255+-0.362}$\\
+        {}          & 3 &   $\num{3.315+-0.660}$ & $\num{1.138+-0.265}$ & $\num{1.421+-0.276}$\\
+        {}          & 4 &   $\num{1.966+-1.100}$ & $\num{1.768+-0.957}$ & $\num{2.508+-0.943}$\\
+        {}          & 5 &   $\num{2.453+-1.098}$ & $\num{1.739+-0.742}$ & $\num{2.322+-0.731}$\\
+        {250\,V}    & 1 &   $\num{1.811+-2.525}$ & $\num{1.520+-2.104}$ & $\num{2.211+-2.097}$\\
+        {}          & 2 &   $\num{1.095+-3.807}$ & $\num{0.974+-3.418}$ & $\num{1.705+-3.442}$\\
+        {}          & 3 &   $\num{0.944+-2.765}$ & $\num{0.711+-2.065}$ & $\num{1.330+-2.050}$\\
+        {}          & 4 &   $\num{2.880+-1.650}$ & $\num{4.464+-2.490}$ & $\num{5.739+-2.471}$\\
+        {}          & 5 &   $\num{3.494+-0.340}$ & $\num{2.102+-0.216}$ & $\num{2.597+-0.219}$\\ 
+        \bottomrule
+    \end{tabular}
+  \end{table}
+
+\subsection{Bestimmung der Elementarladung}
+Die korrigierten Ladungen der Öltröpfchen aus \autoref{tab:r,q,q_korr} werden in \autoref{fig:plot} veranschaulicht.
+  \begin{figure}[H]
+    \centering
+    \includegraphics{build/plot.pdf}
+    \caption{Veranschaulichung der korrigierten Ladungen der Öltröpfchen mit Unsicherheiten bei verschiedenen Spannungen.}
+    \label{fig:plot}
+\end{figure}
+Es fällt auf, dass viele der Ladungen eine große Unsicherheit aufweisen auf die in der Diskussion \ref{sec:Diskussion} 
+eingegangen wird.
+
+Die Elementarladung wird bestimmt, indem der minimale Abstand der einzelnen Ladungen einer Messreihe berechnet wird. Dabei 
+werden nur Abstände berücksichtigt, die größer als $10^{-19}\,\unit{\coulomb}$ sind, um außzuschließen, dass Tröpfchen selber
+Ladung das Ergebnis verfälschen.\footnote{Anm: Dies hat bei der Messreihe für 225\,V zur Folge, dass keine Elementarladung
+bestimmt werden kann. Es ist davon auszugehen, dass die hier beobachteten Tröpfen dieselbe Ladungsmenge hatten. \\Der Wert von 
+$e_{0\text{ ,korr}}$ für die Spannung von 175\,V wird aufgrund der extrem großen Unsicherheit ebenfalls nicht bei der Berechnung 
+des Mittelwerts betrachet.}
+\begin{table}[H]
+    \centering
+    \caption{Berechneten Elementarladungen bei verschiedenen Spannungen und deren Mittelwert.}
+    \label{tab:e_0}
+    \begin{tabular}{S S S}
+        \toprule
+        {Spannung} & {$e_0 \mathbin{/} 10^{-19}\,\unit{\coulomb}$} %
+        & {$e_{0\text{ ,korr}} \mathbin{/} 10^{-19}\,\unit{\coulomb}$}\\
+        \midrule
+        {150\,V} & $\num{1.112+-1.025}$ & $\num{1.105+-0.690}$ \\
+        {175\,V} & $\num{1.269+-2.044}$ & {$(\num{1.15+-37.45})$} \\
+        {200\,V} & $\num{1.282+-0.540}$ & $\num{1.393+-0.566}$ \\
+        {225\,V} & {}                   & {}                   \\
+        {250\,V} & $\num{1.128+-3.425}$ & $\num{1.267+-2.062}$ \\
+        \midrule
+        {Mittelwert} & $\num{1.198+-1.038}$ & $\num{1.255+-0.749}$ \\
+        \bottomrule
+    \end{tabular}
+  \end{table}
+  
+  \subsection{Berechnung der Avogadrokonstante}
+  Der Zusammenhang zwischen Elementarladung und Avogadrokonstante ist gegeben durch
+  \begin{equation*}
+      N_{\symup{A}} = \frac{F}{e_0}.
+  \end{equation*}
+Hierbei bezeichnet $F$ die Faraday-Konstante, welche den Wert $F=\qty{96 485,3399 +- 0,0024}{\coulomb\per\mol}$\,\cite{czichos} hat.
+Mit dem Mittelwert für $e_{0\text{ ,korr}}$ ergibt sich die Avogadrokonstante zu
+\begin{equation*}
+    N_{\symup{A}} = \qty{7.6907(4.5912)e23}{\per\mol}.
+\end{equation*}
+
+
 

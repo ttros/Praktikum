@@ -120,26 +120,26 @@ def auswertung(messung_nummer):
     print(f'----------------- Messung Nr. {messung_nummer} -----------------')
     print(f'------------- Geschwindigkeiten -----------------')
     for x in velocities_mean:
-        print({x},':\t', velocities_mean[f'{x}'])
+        print({x},':\t', '{0:.3e}'.format(velocities_mean[f'{x}']))
     print(f'-------------------- Radien ---------------------')
     for x in radii:
-        print({x},':\t', radii[f'{x}'])
+        print({x},':\t', '{0:.3e}'.format(radii[f'{x}']))
     print(f'------------------- Ladungen --------------------')
     for x in charges:
-        print({x},':\t', charges[f'{x}'])
+        print({x},':\t', '{0:.3e}'.format(charges[f'{x}']))
     print(f'-------------- Ladungen korrigiert --------------')
     for x in charges_real:
-        print({x},':\t', charges_real[f'{x}'])
+        print({x},':\t', '{0:.3e}'.format(charges_real[f'{x}']))
     print(f'#################################################')
 
-    return charges_real
+    return charges, charges_real
 # %%% Ende Auswertung %%%
 
-ladungen_1_dic = auswertung(1)
-ladungen_2_dic = auswertung(2)
-ladungen_3_dic = auswertung(3)
-ladungen_4_dic = auswertung(4)
-ladungen_5_dic = auswertung(5)
+ladungen_1_dic, ladungen_1_korr_dic = auswertung(1)
+ladungen_2_dic, ladungen_2_korr_dic = auswertung(2)
+ladungen_3_dic, ladungen_3_korr_dic = auswertung(3)
+ladungen_4_dic, ladungen_4_korr_dic = auswertung(4)
+ladungen_5_dic, ladungen_5_korr_dic = auswertung(5)
 
 ladungen_1 = unp.uarray([0,0,0,0,0],[0,0,0,0,0])
 ladungen_2 = unp.uarray([0,0,0,0,0],[0,0,0,0,0])
@@ -147,15 +147,29 @@ ladungen_3 = unp.uarray([0,0,0,0,0],[0,0,0,0,0])
 ladungen_4 = unp.uarray([0,0,0,0,0],[0,0,0,0,0])
 ladungen_5 = unp.uarray([0,0,0,0,0],[0,0,0,0,0])
 
-for i in range(0,5):
-    ladungen_1[i] = ladungen_1_dic[f'q_real_{i+1}']
-    ladungen_2[i] = ladungen_2_dic[f'q_real_{i+1}']
-    ladungen_3[i] = ladungen_3_dic[f'q_real_{i+1}']
-    ladungen_4[i] = ladungen_4_dic[f'q_real_{i+1}']
-    ladungen_5[i] = ladungen_5_dic[f'q_real_{i+1}']
+ladungen_1_korr = unp.uarray([0,0,0,0,0],[0,0,0,0,0])
+ladungen_2_korr = unp.uarray([0,0,0,0,0],[0,0,0,0,0])
+ladungen_3_korr = unp.uarray([0,0,0,0,0],[0,0,0,0,0])
+ladungen_4_korr = unp.uarray([0,0,0,0,0],[0,0,0,0,0])
+ladungen_5_korr = unp.uarray([0,0,0,0,0],[0,0,0,0,0])
 
+
+for i in range(0,5):
+    ladungen_1[i] = ladungen_1_dic[f'q_{i+1}']
+    ladungen_2[i] = ladungen_2_dic[f'q_{i+1}']
+    ladungen_3[i] = ladungen_3_dic[f'q_{i+1}']
+    ladungen_4[i] = ladungen_4_dic[f'q_{i+1}']
+    ladungen_5[i] = ladungen_5_dic[f'q_{i+1}']
+
+    ladungen_1_korr[i] = ladungen_1_korr_dic[f'q_real_{i+1}']
+    ladungen_2_korr[i] = ladungen_2_korr_dic[f'q_real_{i+1}']
+    ladungen_3_korr[i] = ladungen_3_korr_dic[f'q_real_{i+1}']
+    ladungen_4_korr[i] = ladungen_4_korr_dic[f'q_real_{i+1}']
+    ladungen_5_korr[i] = ladungen_5_korr_dic[f'q_real_{i+1}']
+
+# Funktion zur Bestimmung von e_0
 def elementar(arr):
-    e_0 = 1
+    e_0 = 999
     for i in range(len(arr)):
         for j in (np.array(range(len(ladungen_1)-1)) + 1):
             a = np.abs(arr[i] - arr[j])
@@ -168,28 +182,60 @@ e_0_2 = elementar(ladungen_2)
 e_0_3 = elementar(ladungen_3)
 e_0_4 = elementar(ladungen_4)
 e_0_5 = elementar(ladungen_5)
+# e_0_mean = sum([e_0_1, e_0_2, e_0_3, e_0_4, e_0_5])/5
+e_0_mean = (e_0_1 + e_0_2 + e_0_3 + e_0_5)/4
 
-print(f'e_0_1: {e_0_1}')
-print(f'e_0_2: {e_0_2}')
-print(f'e_0_3: {e_0_3}')
-print(f'e_0_4: {e_0_4}')
-print(f'e_0_5: {e_0_5}')
+e_0_1_korr = elementar(ladungen_1_korr)
+e_0_2_korr = elementar(ladungen_2_korr)
+e_0_3_korr = elementar(ladungen_3_korr)
+e_0_4_korr = elementar(ladungen_4_korr)
+e_0_5_korr = elementar(ladungen_5_korr)
+# e_0_korr_mean = sum([e_0_1_korr, e_0_2_korr, e_0_3_korr, e_0_4_korr, e_0_5_korr])/5
+e_0_korr_mean = (e_0_1_korr  + e_0_3_korr  + e_0_5_korr)/3
 
-print(noms(e_0_1))
+# ladungen_2_korr = np.delete(ladungen_2,1)   # löschen von mülldaten
+
+print(f'-------------------------------------------------')
+print(f'--------- gemittelte Elementarladungen ----------')
+print(f'e_0_1: \t\t', '{0:.3e}'.format(e_0_1))
+print(f'e_0_2: \t\t', '{0:.3e}'.format(e_0_2))
+print(f'e_0_3: \t\t', '{0:.3e}'.format(e_0_3))
+print(f'e_0_4: \t\t', '{0:.3e}'.format(e_0_4))
+print(f'e_0_5: \t\t', '{0:.3e}'.format(e_0_5))
+print(f'e_0_mean: \t', '{0:.3e}'.format(e_0_mean))
+print(f'-------------------------------------------------')
+print(f'----- gemittelte Elementarladung, korrigiert ----')
+print(f'e_0_1_korr: \t', '{0:.3e}'.format(e_0_1_korr))
+print(f'e_0_2_korr: \t', '{0:.3e}'.format(e_0_2_korr))
+print(f'e_0_3_korr: \t', '{0:.3e}'.format(e_0_3_korr))
+print(f'e_0_4_korr: \t', '{0:.3e}'.format(e_0_4_korr))
+print(f'e_0_5_korr: \t', '{0:.3e}'.format(e_0_5_korr))
+print(f'e_0_korr_mean: \t', '{0:.3e}'.format(e_0_korr_mean))
+print(f'-------------------------------------------------')
+
+
+F = ufloat(96485.3399, 0.0024)
+N_A = F/e_0_korr_mean
+dN_A = np.abs(noms(N_A)- const.N_A)/(const.N_A)
+print("Avogadrokonstante: ", '{0:.4e}'.format(N_A))
+print("Abweichung: ", '{0:.4f}'.format(dN_A))
+
 # Plot zur Ladungsverteilung
 e = const.e
 x = np.array([0.9, 0.95, 1, 1.05, 1.1])
+# x_korr = np.array([0.9, 0.95, 1, 1.05])
 plt.errorbar(x,   noms(ladungen_1), yerr = stds(ladungen_1), elinewidth = 0.7, linewidth = 0, marker = ".", markersize = 7, capsize=3)
+# plt.errorbar(1+x_korr, noms(ladungen_2_korr), yerr = stds(ladungen_2_korr), elinewidth = 0.7, linewidth = 0, marker = ".", markersize = 7, capsize=3)
 plt.errorbar(1+x, noms(ladungen_2), yerr = stds(ladungen_2), elinewidth = 0.7, linewidth = 0, marker = ".", markersize = 7, capsize=3)
 plt.errorbar(2+x, noms(ladungen_3), yerr = stds(ladungen_3), elinewidth = 0.7, linewidth = 0, marker = ".", markersize = 7, capsize=3)
 plt.errorbar(3+x, noms(ladungen_4), yerr = stds(ladungen_4), elinewidth = 0.7, linewidth = 0, marker = ".", markersize = 7, capsize=3)
 plt.errorbar(4+x, noms(ladungen_5), yerr = stds(ladungen_5), elinewidth = 0.7, linewidth = 0, marker = ".", markersize = 7, capsize=3)
 
 plt.grid()
-plt.yticks([0, e, 2*e, 3*e, 4*e, 5*e, 6*e, 7*e, 10*e, 12*e], [0, r"$e$", r"$2e$", r"$3e$", r"$4e$", r"$5e$", r"$6e$", r"$7e$", r"$10e$", r"$12e$"])
-plt.xticks([1, 2, 3, 4, 5], [r"$175 \unit{\volt}$", r"$200 \unit{\volt}$", r"$225 \unit{\volt}$", r"$250 \unit{\volt}$", r"$275 \unit{\volt}$"])
-plt.ylim(0*e, 13*e)
+plt.yticks([0, e, 2*e, 3*e, 4*e, 5*e, 6*e], [0, r"$e$", r"$2e$", r"$3e$", r"$4e$", r"$5e$", r"$6e$"])
+plt.xticks([1, 2, 3, 4, 5], [r"$150 \unit{\volt}$", r"$175 \unit{\volt}$", r"$200 \unit{\volt}$", r"$225 \unit{\volt}$", r"$250 \unit{\volt}$"])
+plt.ylim(0*e, 6*e)
 plt.tight_layout()
 
-plt.show()
 plt.savefig("build/plot.pdf")
+plt.close()
