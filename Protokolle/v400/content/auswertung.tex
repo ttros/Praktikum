@@ -1,6 +1,69 @@
 \section{Auswertung}
 \label{sec:Auswertung}
 
+\subsection{Reflexionsgesetz}
 
+Im folgenden werden in \autoref{tab:reflex} die gemessenen Winkel zur Überprüfung des Reflexionsgesetzes festgehalten.
 
+\begin{table} [H]
+    \centering
+    \caption{Wertepaare der Einfalls- und Ausfallswinkel zur Überprüfung des Reflexionsgesetzes.}
+    \label{tab:reflex}
+    \begin{tabular}{S S S}
+      \toprule
+      {Einfallswinkel $\alpha_1$ / $\unit{\degree}$} & {Ausfallswinkel $\alpha_2$ / $\unit{\degree}$} & {Differenz $\symup{\Delta}\alpha$ / $\unit{\degree}$}\\
+      \midrule
+      20 & 20   & 0\\
+      25 & 25   & 0\\
+      30 & 30   & 0\\
+      40 & 40   & 0\\
+      45 & 45.5 & 0.5\\
+      60 & 59.5 & 0.5\\
+      70 & 69.5 & 0.5\\
+      \bottomrule
+    \end{tabular}
+\end{table}
 
+Der Ausfallswinkel entpricht hier bis auf geringe Fehler bei größeren $\alpha_1$ genau dem Ausfallswinkel, somit
+kann das Reflexionsgesetz verifiziert werden.
+Die Messungenauigkeit lag bei ca. $\qty{0.25}{\degree}$ , da der Laserstrahl eine gewisse Breite aufweist, die ein genaueres
+Ablesen verhindert.
+
+\subsection{Brechungsgesetz}
+
+Die Messergebnisse für diesen Versuchsteil sind in \autoref{tab:brechung} zu finden.
+
+\begin{table} [H]
+    \centering
+    \caption{Einfallwinkel $\alpha$ und zugehörige Brechungswinkel $\beta$.}
+    \label{tab:brechung}
+    \begin{tabular}{S S}
+      \toprule
+      {Einfallswinkel $\alpha$ / $\unit{\degree}$} & {Brechungswinkel $\beta$ / $\unit{\degree}$} \\
+      \midrule
+      10 & 6.5  \\
+      20 & 13   \\
+      30 & 19.5 \\
+      40 & 25.5 \\
+      50 & 31.0 \\
+      60 & 35.5 \\
+      70 & 39.0 \\
+      \bottomrule
+    \end{tabular}
+\end{table}
+
+Mithilfe der Formel \eqref{eq:Brechung} wird für alle Messwertepaare der Brechungsindex $\eta$ berechnet,
+es ergibt sich als Mittelwert der sieben Messungen:
+\begin{gather*}
+    \eta_{\text{exp}}=\qty{1.502+-0.016}{}.
+\end{gather*}
+Der theoretische Wert für Plexiglas wurde im Rahmen der Vorbereitung bestimmt und liegt bei
+\begin{gather*}
+    \eta_{\text{theo}}=\qty{1.49}{}.
+\end{gather*}
+Unter Berücksichtigung der Unsicherheit des Mittelwertes lässt sich das Messergebnis also mit der Theorie vereinen.
+
+Die Lichtgeschwindigkeit $v$ in Plexiglas lässt sich somit nun folgendermaßen berechnen:
+\begin{equation*}
+    v=\frac{c_{\text{Vakuum}}}{\eta}=(1.995\pm0.022)10^6\unit{\kilo\meter\per\second}
+\end{equation*}
