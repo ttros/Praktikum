@@ -63,7 +63,7 @@ Der theoretische Wert für Plexiglas wurde im Rahmen der Vorbereitung bestimmt u
 \end{gather*}
 Unter Berücksichtigung der Unsicherheit des Mittelwertes lässt sich das Messergebnis also mit der Theorie vereinen.
 
-Die Lichtgeschwindigkeit $v$ in Plexiglas lässt sich somit nun folgendermaßen berechnen:
+Die Lichtgeschwindigkeit $v$ in Plexiglas lässt sich somit nach \eqref{eq:Ausbreitungsgeschwindigkeit} folgendermaßen berechnen:
 \begin{equation*}
     v=\frac{c_{\text{Vakuum}}}{\eta}=(1.995\pm0.022)10^6\unit{\kilo\meter\per\second}
 \end{equation*}
@@ -87,6 +87,7 @@ sind die Ergebnisse zum Vergleich dargestellt.
     \begin{tabular}{S S S}
       \toprule
       {Einfallswinkel $\alpha_1$ / $\unit{\degree}$} & {1. Methode $s$ / $\unit{\centi\meter}$} & {2. Methode $s$ / $\unit{\centi\meter}$} \\
+      \midrule
       10 & 0.359 & 0.346 \\
       20 & 0.732 & 0.716 \\
       30 & 1.131 & 1.137 \\
@@ -100,5 +101,27 @@ Die Abweichung der beiden Methoden $\symup{\Delta}s$ ist stets kleiner als $\qty
 dies lässt wiederum auf eine gute Ablesegenauigkeit des Brechungswinkel schließen.
 
 \subsection{Prisma}
+
+Gemessen wurden die Austrittswinkel je Farbe $\alpha_{2\text{,rot}}$ und $\alpha_{2\text{,grün}}$ abhängig vom Einfallswinkel $\alpha_1$.
+Aus den gewonnenen Daten wird für beide Laserfarben die Ablenkung $\delta$ berechnet, dafür wird das Brechungsgesetz
+\eqref{eq:Brechung} sowie die Winkelbeziehung \eqref{eq:Winkelbeziehung} benutzt.
+Alle Ergebnisse sind in \autoref{tab:Ablenkung} zu finden.
+
+\begin{table} [H]
+  \centering
+  \caption{Berechnete Ablenkung $\delta$ für rotes sowie grünes Laserlicht.}
+  \label{tab:Ablenkung}
+  \begin{tabular}{S S S S S}
+    \toprule
+    {$\alpha_1$ / $\unit{\degree}$} & {$\alpha_{2\text{,rot}}$ / $\unit{\degree}$} & {$\delta_{\text{rot}}$ / $\unit{\degree}$}  & {$\alpha_{2\text{,grün}}$ / $\unit{\degree}$} & {$\delta_{\text{grün}}$ / $\unit{\degree}$} \\
+    \midrule
+    30 & 79 & & 81 &  \\
+    35 & 69 & & 70 &  \\
+    40 & 60 & & 61 &  \\
+    45 & 53 & & 54 &  \\
+    50 & 47 & & 48 &  \\
+    \bottomrule
+  \end{tabular}
+\end{table}
 
 \subsection{Beugung am Gitter}
