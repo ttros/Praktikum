@@ -115,18 +115,83 @@ Alle Ergebnisse sind in \autoref{tab:Ablenkung} zu finden.
     \toprule
     {$\alpha_1$ / $\unit{\degree}$} & {$\alpha_{2\text{,rot}}$ / $\unit{\degree}$} & {$\delta_{\text{rot}}$ / $\unit{\degree}$}  & {$\alpha_{2\text{,grün}}$ / $\unit{\degree}$} & {$\delta_{\text{grün}}$ / $\unit{\degree}$} \\
     \midrule
-    30 & 79 & 107.95 & 81 & 109.95 \\
-    35 & 69 & 102.95& 70 & 103.95 \\
-    40 & 60 & 98.95 & 61 & 99.95 \\
-    45 & 53 & 96.95 & 54 & 97.95 \\
-    50 & 47 & 95.95 & 48 & 96.95 \\
+    30 & 79 & 49 & 81 & 51 \\
+    35 & 69 & 44 & 70 & 45 \\
+    40 & 60 & 40 & 61 & 41 \\
+    45 & 53 & 38 & 54 & 39 \\
+    50 & 47 & 37 & 48 & 38 \\
     \bottomrule
   \end{tabular}
 \end{table}
 
-Wie zu erwarten ist die Ablenkung abhängig von der Wllenlänge, was die unterschiedlichen Werte für 
+Wie zu erwarten ist die Ablenkung abhängig von der Wellenlänge, was die unterschiedlichen Werte für 
 $\delta_{\text{rot}}$ und $\delta_{\text{grün}}$ bestätigen.
+Außerdem fällt auf, dass die Ablenkung mit wachsedem Einfallswinkel geringer wird.
 
 \subsection{Beugung am Gitter}
 
 Abschließend werden die Messdaten zur Beugung des Laserlichts an den drei Gittern analysiert.
+Die Ergebnisse werden für jedes der verwendeten Gitter einzeln betrachtet.
+Zuerst wird in \autoref{tab:600mm} das Beugungsbild des Gitters mit $d=\frac{1}{600}\unit{\milli\meter}$ betrachtet.
+Für jeden gemessenen Winkel wird zusätzlich mit \eqref{eq:Gitter} die Wellenlänge berechnet.
+
+\begin{table} [H]
+  \centering
+  \caption{Intensitätsmaxima des roten und grünen Lasers für $d=\frac{1}{600}\unit{\milli\meter}$.}
+  \label{tab:600mm}
+  \begin{tabular}{S S S S S}
+    \toprule
+  {Beugungsordnung $k$} & {$\varphi_{\text{k, rot}}$ / $\unit{\degree}$} & {$\lambda_{\text{rot}}$ / $\unit{\nano\meter}$}  & {$\varphi_{\text{k, grün}}$ / $\unit{\degree}$} & {$\lambda_{\text{grün}}$ / $\unit{\nano\meter}$} \\
+    \midrule
+    1 & 24 & 677.89 & 19.5 & 556.34 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+Die selben Auswertungsschritte werden für $d=\frac{1}{300}\unit{\milli\meter}$ und $d=\frac{1}{100}\unit{\milli\meter}$
+wiederholt, alle Ergebnisse finden sich in \autoref{tab:300mm} und \autoref{tab:100mm}.
+
+\begin{table} [H]
+  \centering
+  \caption{Intensitätsmaxima des roten und grünen Lasers für $d=\frac{1}{300}\unit{\milli\meter}$.}
+  \label{tab:300mm}
+  \begin{tabular}{S S S S S}
+    \toprule
+  {Beugungsordnung $k$} & {$\varphi_{\text{k, rot}}$ / $\unit{\degree}$} & {$\lambda_{\text{rot}}$ / $\unit{\nano\meter}$}  & {$\varphi_{\text{k, grün}}$ / $\unit{\degree}$} & {$\lambda_{\text{grün}}$ / $\unit{\nano\meter}$} \\
+    \midrule
+    1 & 11 & 636.03 & 9.5 & 550.16 \\
+    2 & 23 & 651.22 & 19 & 542.61 \\
+    3 &  & & 29 & 538.68 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\begin{table} [H]
+  \centering
+  \caption{Intensitätsmaxima des roten und grünen Lasers für $d=\frac{1}{100}\unit{\milli\meter}$.}
+  \label{tab:100mm}
+  \begin{tabular}{S S S S S}
+    \toprule
+  {Beugungsordnung $k$} & {$\varphi_{\text{k, rot}}$ / $\unit{\degree}$} & {$\lambda_{\text{rot}}$ / $\unit{\nano\meter}$}  & {$\varphi_{\text{k, grün}}$ / $\unit{\degree}$} & {$\lambda_{\text{grün}}$ / $\unit{\nano\meter}$} \\
+    \midrule
+    1 & 4 & 697.56 & 4 & 697.56 \\
+    2 & 6.5 & 566.02 & 6.5 & 566.02 \\
+    3 & 11 & 636.03 & 9.5 & 550.16 \\
+    4 & 15 & 647.05 & 12.5 & 541.10 \\
+    5 & 19.5 & 667.61 & 16 & 551.27 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+Abschließend werden die Wellenlängen gemittelt und insgesamt ergibt sich
+\begin{align*}
+  \lambda_{\text{rot}}&=\qty{650+-40}{\nano\meter} \\
+  \lambda_{\text{grün}}&=\qty{570+-50}{\nano\meter}.
+\end{align*}
+
+Diese Werte liegen unter Berücksichtigung der Messunsicherheit im erwarteten Wellenlängenbereich für
+die jeweilige Farbe, in der Theorie \cite{Lichtfarben} ist
+\begin{align*}
+  \lambda_{\text{rot,theo}}&=635-770\,\unit{\nano\meter} \\
+  \lambda_{\text{grün,theo}}&=520-565\,\unit{\nano\meter}.
+\end{align*}
