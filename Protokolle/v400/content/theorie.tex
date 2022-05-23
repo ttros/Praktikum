@@ -4,7 +4,7 @@ untersucht werden.
 
 \section{Theorie}
 \label{sec:Theorie}
-Licht besteht aus elekromagntischer Strahlung und lässt sich durch verschiedene Zusammenhänge der Strahlenoptik beschreiben.
+Licht besteht aus elekromagntischer Strahlung und lässt sich durch verschiedene Zusammenhänge der Strahlen- und der Wellenoptik beschreiben.
 Das optische Spektrum des Lichts reicht von einer Wellenlänge von $\qty{100}{\nano\metre}$ bis $\qty{1}{\milli\metre}$, wobei
 das menschliche Auge nur für Licht zwischen Wellenlängen von $\qty{380}{\nano\metre}$ bis $\qty{780}{\nano\metre}$ 
 empflindlich ist.
@@ -30,7 +30,7 @@ Die Ausbreitungsgeschwindigkeit verändert sich zu
     v = \frac{c}{n}. \label{eq:Ausbreitungsgeschwindigkeit}
 \end{equation}
 In aller Regel wird ein Teil des auf eine Grenzfläche treffenden Lichts relektiert und der restliche Teil transmittert durch die 
-Grenzfläche in das andere Medium. Es ergibt sich, dass der transmittert Teil $T$ und der reflektierte Teil $R$ zusammen genau
+Grenzfläche in das andere Medium. Es ergibt sich, dass der transmitterte Teil $T$ und der reflektierte Teil $R$ zusammen genau
 dem einfallenden Teil entsprechen müssen, also gilt $T + R = 1$.
 In \autoref{fig:Brechungstypen} sind die beschriebenen Sachverhalte nochmals graphisch veranschaulicht.
 \begin{figure}[H]
@@ -64,6 +64,19 @@ austreten. Dies ist in \autoref{fig:Planparallel} dargestellt.
 Für den Strahlenversatz $s$ ergibt sich die Gleichung
 \begin{equation}
     s = d \frac{\sin(\alpha-\beta)}{\cos\beta}. \label{eq:Strahlenversatz}
+\end{equation}
+
+Für ein Prisma entsteht ein ähnlicher Zusammenhang. Hier wird der Strahlenversatz durch einen Winkel $\delta$ beschrieben, der 
+wie in \autoref{fig:Prisma} definiert ist.
+\begin{figure}[H]
+  \centering
+  \includegraphics[height=5.5cm]{content/pics/Prisma.png}
+  \caption{Strahlenverlauf in einem Prisma \cite{v400}.}
+  \label{fig:Prisma}
+\end{figure}
+Für den Winkel $\delta$ folgt
+\begin{equation}
+  \delta = (\alpha_1+\alpha_2) - (\beta_1+\beta_2). \label{eq:Winkelbeziehung}
 \end{equation}
 
 \subsection{Beugung am Gitter nach der Wellenoptik}
