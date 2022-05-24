@@ -1,3 +1,29 @@
 \section{Diskussion}
 \label{sec:Diskussion}
-Die experimentell
+Die experimentell ermittelte Wellenlänge des Lasers, sowie der Brechungsindex von Luft unter Normalbedingungen 
+werden in \autoref{tab:Diskussion} mit Literaturwerten verglichen.
+\begin{table}[H]
+    \centering
+    \caption{Experimentell ermittelte Größen im Vergleich zu Literaturwerten (\cite{v401}, \cite{Brechungsindex_Wien}).}
+    \label{tab:Diskussion}
+    \begin{tabular}{l S S S}
+        \toprule
+        {Größe} & {Exp.} & {Lit.} & {relative Abweichung} \\
+        \midrule
+        {$\lambda$} & $\qty{644+-7}{\nano\metre}$ & $\qty{635}{\nano\metre}$  & $\qty{1.465}{\percent}$ \\
+        {$n$}       & $\num{1.00028+-0.00002}$    & $\num{1,0003}$            & $\qty{0.002}{\percent}$ \\
+        \bottomrule
+    \end{tabular}
+  \end{table}
+
+Es fällt auf, dass sich die experimentell bestimmte Wellenlänge $\lambda$ des Lasers auch mit den Messunsicherheiten nicht
+mit der theoretischen Wellenlänge vereinen lässt. Dennoch ist die relative Abweichung mit 
+$\symup{\Delta}\lambda = \qty{1.465}{\percent}$ sehr gering. Mögliche Fehlerquellen hierbei sind eventuelle andere Lichtquellen,
+die Messsignale an der Photodiode auslösen könnten. 
+Außerdem denkbar ist, dass die Kalibrierung der Spiegel nicht perfekt ist,
+was zur Folge hat, dass nicht alle Maxima und Minima detektiert werden können.
+Ebenfalls denkbar ist es, dass der Synchronmotor nicht absolut gleichmäßig läuft, sodass auch hier Maxima und Minima übersprungen
+werden.
+
+Der experimentelle Brechungsindex von Luft unter Normalbedingungen stimmt mit der geringen Messunsicherheit mit dem Theoriewert
+überein. Dennoch sind Ungenauigkeiten, aus denselben Gründen wie bereits beschreiben, nicht auszuschließen.
