@@ -127,6 +127,7 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+.icloud
 Backup Bilder Protokoll 1.nosync/Aufgabe a - Gitter.pdf
 Backup Bilder Protokoll 1.nosync/Aufgabe a - Hilfslinien.pdf
 Backup Bilder Protokoll 1.nosync/Aufgabe a - Rechteckspannung.pdf
