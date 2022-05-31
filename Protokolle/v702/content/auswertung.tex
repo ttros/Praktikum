@@ -1,2 +1,128 @@
 \section{Auswertung}
 \label{sec:Auswertung}
+
+Um die Messwerte präzise Auswerten zu können, muss zuerst die Nullrate berechnet werden.
+Anschließend wird die Nullrate bei allen Auswertungsschritten von den tatsächlichen Werten abgezogen.
+
+\subsection{Nullrate}
+
+In einem Messintervall von $\symup{\Delta}t=\qty{600}{\second}$ wurden $184$ Impulse gemessen, daher
+ergibt sich je Sekunde eine Nullrate von
+\begin{gather*}
+    N_0=\qty{0.3067}{\per\second} \\
+\end{gather*}
+
+\subsection{Vanadium}
+
+\begin{table}
+    \centering
+    \begin{tabular}{c c}
+      \toprule
+      Messzeit $t/\unit{\second}$ & Zählrate $N$\\
+      \midrule
+       30 & 204 $\pm$ 14 \\
+       60 & 155 $\pm$ 12 \\
+       90 & 146 $\pm$ 12 \\
+      120 & 162 $\pm$ 12 \\
+      150 & 125 $\pm$ 11 \\
+      180 & 145 $\pm$ 12 \\
+      210 & 131 $\pm$ 11 \\
+      240 & 101 $\pm$ 10 \\
+      270 &  92 $\pm$  9 \\
+      300 &  75 $\pm$  8 \\
+      330 &  73 $\pm$  8 \\
+      360 &  73 $\pm$  8 \\
+      390 &  75 $\pm$  8 \\
+      420 &  73 $\pm$  8 \\
+      450 &  60 $\pm$  7 \\
+      \bottomrule
+    \end{tabular}
+    \begin{tabular}{c c}
+      \toprule
+      Messzeit $t/\unit{\second}$ & Zählrate $N$\\
+      \midrule
+      480 & 53 $\pm$ 7 \\
+      510 & 47 $\pm$ 6 \\
+      540 & 56 $\pm$ 7 \\
+      570 & 51 $\pm$ 6 \\
+      600 & 46 $\pm$ 6 \\
+      630 & 28 $\pm$ 4 \\
+      660 & 32 $\pm$ 5 \\
+      690 & 40 $\pm$ 6 \\
+      720 & 37 $\pm$ 5 \\
+      750 & 33 $\pm$ 5 \\
+      780 & 27 $\pm$ 4 \\
+      810 & 17 $\pm$ 3 \\
+      840 & 19 $\pm$ 3 \\
+      870 & 19 $\pm$ 3 \\
+      900 & 22 $\pm$ 4 \\
+      \bottomrule
+    \end{tabular}
+    \caption{Messwerte der Zählrate für Vanadium inklusive der jeweiligen Fehler.}
+    \label{tab:Vn}
+\end{table}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[height=8cm]{build/Vanadium.pdf}
+    \caption{Halblogarithmischer Plot der Messwerte für Vanadium inklusive Fehlerbalken und berechneter Ausgleichsgerade.}
+    \label{fig:Vn}
+\end{figure}
+
+\subsection{Rhodium}
+
+\begin{table}
+    \centering
+    \begin{tabular}{c c}
+      \toprule
+      Messzeit $t/\unit{\second}$ & Zählrate $N$\\
+      \midrule
+       30 & 204 $\pm$ 14 \\
+       60 & 155 $\pm$ 12 \\
+       90 & 146 $\pm$ 12 \\
+      120 & 162 $\pm$ 12 \\
+      150 & 125 $\pm$ 11 \\
+      180 & 145 $\pm$ 12 \\
+      210 & 131 $\pm$ 11 \\
+      240 & 101 $\pm$ 10 \\
+      270 &  92 $\pm$  9 \\
+      300 &  75 $\pm$  8 \\
+      330 &  73 $\pm$  8 \\
+      360 &  73 $\pm$  8 \\
+      390 &  75 $\pm$  8 \\
+      420 &  73 $\pm$  8 \\
+      450 &  60 $\pm$  7 \\
+      \bottomrule
+    \end{tabular}
+    \begin{tabular}{c c}
+      \toprule
+      Messzeit $t/\unit{\second}$ & Zählrate $N$\\
+      \midrule
+      480 & 53 $\pm$ 7 \\
+      510 & 47 $\pm$ 6 \\
+      540 & 56 $\pm$ 7 \\
+      570 & 51 $\pm$ 6 \\
+      600 & 46 $\pm$ 6 \\
+      630 & 28 $\pm$ 4 \\
+      660 & 32 $\pm$ 5 \\
+      690 & 40 $\pm$ 6 \\
+      720 & 37 $\pm$ 5 \\
+      750 & 33 $\pm$ 5 \\
+      780 & 27 $\pm$ 4 \\
+      810 & 17 $\pm$ 3 \\
+      840 & 19 $\pm$ 3 \\
+      870 & 19 $\pm$ 3 \\
+      900 & 22 $\pm$ 4 \\
+      \bottomrule
+    \end{tabular}
+    \caption{Messwerte der Zählrate für Vanadium inklusive der jeweiligen Fehler.}
+    \label{tab:Rh}
+\end{table}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[height=8cm]{build/Rhodium.pdf}
+    \caption{Halblogarithmischer Plot der Messwerte für Rhodium inklusive Fehlerbalken und berechneter Ausgleichsgeraden
+    für den kürzeren und längeren Zerfall.}
+    \label{fig:Rh}
+\end{figure}
