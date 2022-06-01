@@ -14,7 +14,29 @@ ergibt sich je Sekunde eine Nullrate von
 
 \subsection{Vanadium}
 
-\begin{table}
+In \autoref{tab:Vn} sind die nach jedem Messzeitintervall abgelesenen Zählraten festgehalten.
+Die Fehler dieser Werte werden wegen der zugrunde liegenden Poissonverteilung mit $\sqrt{N}$ berechnet und sind
+direkt mit angegeben.
+
+Zur Bestimmung der Halbwertszeit von Vanadium wird zuerst die Zerfallskonstante $\lambda_\text{Vn}$ mithilfe einer linearen Regression
+ermittelt.
+Dafür werden die Daten in \autoref{fig:Vn} halblogarithmisch geplottet.
+Die zugehörige Geradengleichung erhält man durch logarithmieren von \eqref{eq:Zerfall}, sie lautet dann
+\begin{equation*}
+  \ln(N(t)) = -\lambda t + \ln{N_{\symup{0}}}.
+\end{equation*}
+Die lineare Regression wird mithilfe der Python-Erweiterung \textit{scipy}\,\cite{scipy} durchgeführt, dabei
+ergibt sich für die gesuchten Parameter
+\begin{align*}
+  \lambda_{\symup{Vn}} &= (3.28 \pm 0.16) \cdot 10^{-3} \unit{\per\second} \\
+  N_{\symup{0, Vn}} &= 212 \pm 18.
+\end{align*}
+Abschließend kann die Halbwertszeit von Vanadium über \eqref{eq:Halbwertszeit} berechnet werden zu
+\begin{gather*}
+  T_{\symup{Vn}} = \qty{211+-10}{\second}.
+\end{gather*}
+
+\begin{table} [H]
     \centering
     \begin{tabular}{c c}
       \toprule
@@ -71,53 +93,130 @@ ergibt sich je Sekunde eine Nullrate von
 
 \subsection{Rhodium}
 
-\begin{table}
+Analog zur Auswertung von Vanadium sind die Messwerte in \autoref{tab:Rh} samt Fehler festgehalten.
+
+\begin{table} [H]
     \centering
     \begin{tabular}{c c}
       \toprule
       Messzeit $t/\unit{\second}$ & Zählrate $N$\\
       \midrule
-       30 & 204 $\pm$ 14 \\
-       60 & 155 $\pm$ 12 \\
-       90 & 146 $\pm$ 12 \\
-      120 & 162 $\pm$ 12 \\
-      150 & 125 $\pm$ 11 \\
-      180 & 145 $\pm$ 12 \\
-      210 & 131 $\pm$ 11 \\
-      240 & 101 $\pm$ 10 \\
-      270 &  92 $\pm$  9 \\
-      300 &  75 $\pm$  8 \\
-      330 &  73 $\pm$  8 \\
-      360 &  73 $\pm$  8 \\
-      390 &  75 $\pm$  8 \\
-      420 &  73 $\pm$  8 \\
-      450 &  60 $\pm$  7 \\
+      15  & 748 $\pm$ 27 \\
+      30  & 591 $\pm$ 24 \\
+      45  & 456 $\pm$ 21 \\
+      60  & 342 $\pm$ 18 \\
+      75  & 307 $\pm$ 17 \\
+      90  & 245 $\pm$ 16 \\
+      105 & 222 $\pm$ 15 \\
+      120 & 166 $\pm$ 13 \\
+      135 & 141 $\pm$ 12 \\
+      150 & 124 $\pm$ 11 \\
+      165 &  97 $\pm$ 10 \\
+      180 & 101 $\pm$ 10 \\
+      195 &  80 $\pm$ 9 \\
+      210 &  76 $\pm$ 8 \\
+      225 &  74 $\pm$ 8 \\
+      240 &  65 $\pm$ 8 \\
+      255 &  56 $\pm$ 7 \\
+      270 &  47 $\pm$ 7 \\
+      285 &  46 $\pm$ 6 \\
+      300 &  42 $\pm$ 6 \\
+      315 &  29 $\pm$ 5 \\
+      330 &  54 $\pm$ 7 \\
+      345 &  50 $\pm$ 7 \\
+      360 &  34 $\pm$ 5 \\
       \bottomrule
     \end{tabular}
     \begin{tabular}{c c}
       \toprule
       Messzeit $t/\unit{\second}$ & Zählrate $N$\\
       \midrule
-      480 & 53 $\pm$ 7 \\
-      510 & 47 $\pm$ 6 \\
-      540 & 56 $\pm$ 7 \\
-      570 & 51 $\pm$ 6 \\
-      600 & 46 $\pm$ 6 \\
-      630 & 28 $\pm$ 4 \\
-      660 & 32 $\pm$ 5 \\
-      690 & 40 $\pm$ 6 \\
-      720 & 37 $\pm$ 5 \\
-      750 & 33 $\pm$ 5 \\
-      780 & 27 $\pm$ 4 \\
-      810 & 17 $\pm$ 3 \\
-      840 & 19 $\pm$ 3 \\
-      870 & 19 $\pm$ 3 \\
-      900 & 22 $\pm$ 4 \\
+      375 &  27 $\pm$ 5 \\
+      390 & 26 $\pm$ 5 \\
+      405 & 26 $\pm$ 5 \\
+      420 & 28 $\pm$ 5 \\
+      435 & 25 $\pm$ 5 \\
+      450 & 32 $\pm$ 5 \\
+      465 & 20 $\pm$ 4 \\
+      480 & 24 $\pm$ 4 \\
+      495 & 27 $\pm$ 5 \\
+      510 & 23 $\pm$ 4 \\
+      525 & 22 $\pm$ 4 \\
+      540 & 20 $\pm$ 4 \\
+      555 & 25 $\pm$ 5 \\
+      570 & 23 $\pm$ 4 \\
+      585 & 14 $\pm$ 3 \\
+      600 & 20 $\pm$ 4 \\
+      615 & 24 $\pm$ 4 \\
+      630 & 17 $\pm$ 4 \\
+      645 & 24 $\pm$ 4 \\
+      660 & 20 $\pm$ 4 \\
+      675 & 13 $\pm$ 3 \\
+      690 & 17 $\pm$ 4 \\
+      705 & 15 $\pm$ 3 \\
+      720 & 20 $\pm$ 4 \\
       \bottomrule
     \end{tabular}
-    \caption{Messwerte der Zählrate für Vanadium inklusive der jeweiligen Fehler.}
+    \caption{Messwerte der Zählrate für Rhodium inklusive der jeweiligen Fehler.}
     \label{tab:Rh}
 \end{table}
+
+Im Gegensatz zu Vanadium laufen hier zwei Zerfälle gleichzeitig ab, zum einen der schnellere Zerfall von
+$\ce{^{104\text{i}} Rh}$ und zum anderen der langsamere Zerfall von $\ce{^104 Rh}$.
+Die gemessenen Daten sind die Überlagerung der beiden Zerfälle, zur korrekten Auswertung müssen beide
+Prozesse einzeln betrachtet werden.
+
+\subsubsection{Zerfall von $\ce{^104 Rh}$}
+
+Zuerst wird der langsamere Zerfall betrachtet. Ein halblogarithmischer Plot der Daten ist in \autoref{fig:Rh} zu sehen.
+Da ab einem gewissen Zeitpunkt $t^*$ der Messung bereits ein
+Großteil der kurzlebigeren $\ce{^{104\text{i}} Rh}$ Kerne zerfallen ist, ergibt sich im Plot ab diesem Zeitpunkt
+dann nahezu eine Gerade, die nur noch den Zerfall von $\ce{^104 Rh}$ beschreibt.
+Konkret weisen die Messdaten in \autoref{fig:Rh} ab $t^*=\qty{315}{\second}$ einen nahezu linearen Verlauf auf,
+die gewählte Grenze ist auch im Plot eingezeichnet.
+
+Für den Zerfall von $\ce{^104 Rh}$ kann also für alle $t>t^*$ analog wie bei Vanadium eine lineare Regression
+berechnet werden, die Regressionsgerade ist im Plot eingezeichnet, für die Parameter liefert die Rechnung
+\begin{align*}
+  \lambda_{\ce{^104 Rh}} &= (2.5 \pm 0.4) \cdot 10^{-3} \unit{\per\second} \\
+  N_{\symup{0, \ce{^104 Rh}}} &= 70 \pm 15.
+\end{align*}
+Mit \eqref{eq:Halbwertszeit} ergibt sich die Halbwertszeit hier zu
+\begin{gather*}
+  T_{\ce{^104 Rh}} = \qty{270+-40}{\second}.
+\end{gather*}
+
+\subsubsection{Zerfall von $\ce{^{104\text{i}} Rh}$}
+
+Um den Zerfall des kurzlebigeren $\ce{^{104\text{i}} Rh}$ zu analysieren, wird das Ergebnis für $\ce{^104 Rh}$
+zur Hilfe gezogen.
+Die Anzahl an $\ce{^104 Rh}$ Kernen kann mithilfe der dafür bestimmten Regressionsgeraden bis zum Anfang
+der Messung extrapoliert werden. Betrachtet werden also nun Zeitpunkte $t_{\text{j}}$ ab dem Anfang der
+Messung bis zu einem $t_{\text{max}}$, wobei $t_{\text{max}}<t^*$ gilt.
+Hier wird $t_{\text{max}}=\qty{225}{\second}$ gewählt.
+Um die Anzahl an $\ce{^{104\text{i}} Rh}$ Kernen in diesem Intervall zu erhalten, wird die Differenz
+aus der gemessenen Gesamzahl und der extrapolierten Zahl der $\ce{^104 Rh}$ Kerne gebildet
+\begin{equation*}
+  N_{\ce{^{104\text{i}} Rh}}(t_{\text{j}}) = N_{\text{Ges}}(t_{\text{j}}) - N_{\ce{^104 Rh}}(t_{\text{j}})
+\end{equation*}
+Mithilfe dieser neuen Daten kann eine lineare Regression für $\ce{^{104\text{i}} Rh}$ berechnet werden,
+aus der sich folgende Parameter ergeben
+\begin{align*}
+  \lambda_{\ce{^{104\text{i}} Rh}} &= (15.6 \pm 0.5) \cdot 10^{-3} \unit{\per\second} \\
+  N_{\symup{0, \ce{^{104\text{i}} Rh}}} &= 770 \pm 50.
+\end{align*}
+Die Halbwertszeit ergibt sich über \eqref{eq:Halbwertszeit} zu
+\begin{gather*}
+  T_{\ce{^{104\text{i}} Rh}} = \qty{44.5+-1.4}{\second}.
+\end{gather*}
+
+Abschließend wird in \autoref{fig:Rh} noch die Summenkurve eingezeichnet, diese ergibt sich aus der
+Summe der beiden unterschiedlichen Kerne im gesamten Messzeitintervall:
+\begin{equation*}
+N_{\text{Ges}}(t) = N_{\ce{^104 Rh}}(t) +  N_{\ce{^{104\text{i}} Rh}}(t)
+\end{equation*}
+Dabei lassen sich die Anzahlen $N_{\ce{^104 Rh}}(t)$ und $N_{\ce{^{104\text{i}} Rh}}(t)$ mithilfe der
+berechneten Regressionsgeraden über das gesamte Messzeitintervall extrapolieren.
 
 \begin{figure}[H]
     \centering

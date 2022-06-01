@@ -7,6 +7,7 @@ from uncertainties.unumpy import nominal_values as noms
 from uncertainties.unumpy import std_devs as devs
 import scipy.optimize as op
 
+
 def linfit(x,m,b):
     return m*x+b
 
@@ -48,7 +49,9 @@ plt.savefig('build/Vanadium.pdf')
 plt.close()
 print(f'Halbwertszeit Vanadium: {np.log(2)/-m_vn}')
 
+
 #####Rhodium######
+
 print()
 print()
 
@@ -63,7 +66,7 @@ plt.errorbar(t_rh, log_counts_rh, xerr=None, yerr=delta_rh/counts_rh, fmt='.', c
 t_long=t_rh[20:]
 plt.vlines(t_long[0], 2, 7, 'darkslategray', 'dashed',label='$t^*$')
 array_long = log_counts_rh[20:]
-m_rh_long,b_rh_long = regression(t_long, array_long,t_long[0],720,'Rhodium lang','dodgerblue','Regression langer Zerfall')
+m_rh_long,b_rh_long = regression(t_long, array_long,t_long[0],720,'Rhodium 104','dodgerblue','Regression für $\ce{^104 Rh}$')
 
 t_short = t_rh[:15]
 counts_rh_short=counts_rh[:15]
@@ -71,7 +74,7 @@ for i in range(15):
     counts_rh_short[i]=counts_rh_short[i]-np.exp(noms(m_rh_long)*t_rh[i]+noms(b_rh_long))
 
 log_counts_rh_short = np.log(counts_rh_short)
-m_rh_short,b_rh_short = regression(t_short, log_counts_rh_short,0,t_short[14],'Rhodium kurz','gold','Regression kurzer Zerfall')
+m_rh_short,b_rh_short = regression(t_short, log_counts_rh_short,0,t_short[14],'Rhodium 104i','gold','Regression für $\ce{^{104\symup{i}} Rh}$')
 
 Summenkurve = np.exp(noms(m_rh_short)*t_rh+noms(b_rh_short)) + np.exp(noms(m_rh_long)*t_rh+noms(b_rh_long))
 plt.plot(t_rh, np.log(Summenkurve), '-', color='indigo', label='berechnete Summenkurve')
@@ -83,4 +86,5 @@ plt.legend()
 plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
 plt.savefig('build/Rhodium.pdf')
 plt.close()
-print(f'Halbwertszeit Rhodium lang: {np.log(2)/-m_rh_long}')
+print(f'Halbwertszeit Rhodium 104: {np.log(2)/-m_rh_long}')
+print(f'Halbwertszeit Rhodium 104i: {np.log(2)/-m_rh_short}')
