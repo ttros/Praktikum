@@ -6,7 +6,7 @@ Anschließend wird die Nullrate bei allen Auswertungsschritten von den tatsächl
 
 \subsection{Nullrate}
 
-In einem Messintervall von $\symup{\Delta}t=\qty{600}{\second}$ wurden $184$ Impulse gemessen, daher
+In einem Messintervall von $\symup{\Delta}t=\qty{600}{\second}$ werden $184$ Impulse gemessen, daher
 ergibt sich je Sekunde eine Nullrate von
 \begin{gather*}
     N_0=\qty{0.3067}{\per\second} \\
@@ -28,15 +28,17 @@ Die zugehörige Geradengleichung erhält man durch logarithmieren von \eqref{eq:
 Die lineare Regression wird mithilfe der Python-Erweiterung \textit{scipy}\,\cite{scipy} durchgeführt, dabei
 ergibt sich für die gesuchten Parameter
 \begin{align*}
-  \lambda_{\symup{Vn}} &= (3.28 \pm 0.16) \cdot 10^{-3} \unit{\per\second} \\
-  N_{\symup{0, Vn}} &= 212 \pm 18.
+  \lambda_{\symup{V}} &= (3,28 \pm 0,16) \cdot 10^{-3} \unit{\per\second} \\
+  N_{\symup{0, V}} &= 212 \pm 18.
 \end{align*}
 Abschließend kann die Halbwertszeit von Vanadium über \eqref{eq:Halbwertszeit} berechnet werden zu
 \begin{gather*}
-  T_{\symup{Vn}} = \qty{211+-10}{\second}.
+  T_{\symup{V}} = \qty{211+-10}{\second}.
 \end{gather*}
 
 \begin{table} [H]
+    \caption{Messwerte der Zählrate für Vanadium inklusive der jeweiligen Fehler.}
+    \label{tab:Vn}
     \centering
     \begin{tabular}{c c}
       \toprule
@@ -80,8 +82,6 @@ Abschließend kann die Halbwertszeit von Vanadium über \eqref{eq:Halbwertszeit}
       900 & 22 $\pm$ 4 \\
       \bottomrule
     \end{tabular}
-    \caption{Messwerte der Zählrate für Vanadium inklusive der jeweiligen Fehler.}
-    \label{tab:Vn}
 \end{table}
 
 \begin{figure}[H]
@@ -97,6 +97,8 @@ Analog zur Auswertung von Vanadium sind die Messwerte in \autoref{tab:Rh} samt F
 
 \begin{table} [H]
     \centering
+    \caption{Messwerte der Zählrate für Rhodium inklusive der jeweiligen Fehler.}
+    \label{tab:Rh}
     \begin{tabular}{c c}
       \toprule
       Messzeit $t/\unit{\second}$ & Zählrate $N$\\
@@ -157,8 +159,6 @@ Analog zur Auswertung von Vanadium sind die Messwerte in \autoref{tab:Rh} samt F
       720 & 20 $\pm$ 4 \\
       \bottomrule
     \end{tabular}
-    \caption{Messwerte der Zählrate für Rhodium inklusive der jeweiligen Fehler.}
-    \label{tab:Rh}
 \end{table}
 
 Im Gegensatz zu Vanadium laufen hier zwei Zerfälle gleichzeitig ab, zum einen der schnellere Zerfall von
@@ -166,7 +166,7 @@ $\ce{^{104\text{i}} Rh}$ und zum anderen der langsamere Zerfall von $\ce{^104 Rh
 Die gemessenen Daten sind die Überlagerung der beiden Zerfälle, zur korrekten Auswertung müssen beide
 Prozesse einzeln betrachtet werden.
 
-\subsubsection{Zerfall von $\ce{^104 Rh}$}
+\subsubsection{Zerfall von Rhodium-104}
 
 Zuerst wird der langsamere Zerfall betrachtet. Ein halblogarithmischer Plot der Daten ist in \autoref{fig:Rh} zu sehen.
 Da ab einem gewissen Zeitpunkt $t^*$ der Messung bereits ein
@@ -178,7 +178,7 @@ die gewählte Grenze ist auch im Plot eingezeichnet.
 Für den Zerfall von $\ce{^104 Rh}$ kann also für alle $t>t^*$ analog wie bei Vanadium eine lineare Regression
 berechnet werden, die Regressionsgerade ist im Plot eingezeichnet, für die Parameter liefert die Rechnung
 \begin{align*}
-  \lambda_{\ce{^104 Rh}} &= (2.5 \pm 0.4) \cdot 10^{-3} \unit{\per\second} \\
+  \lambda_{\ce{^104 Rh}} &= (2,5 \pm 0,4) \cdot 10^{-3} \unit{\per\second} \\
   N_{\symup{0, \ce{^104 Rh}}} &= 70 \pm 15.
 \end{align*}
 Mit \eqref{eq:Halbwertszeit} ergibt sich die Halbwertszeit hier zu
@@ -186,7 +186,7 @@ Mit \eqref{eq:Halbwertszeit} ergibt sich die Halbwertszeit hier zu
   T_{\ce{^104 Rh}} = \qty{270+-40}{\second}.
 \end{gather*}
 
-\subsubsection{Zerfall von $\ce{^{104\text{i}} Rh}$}
+\subsubsection{Zerfall von Rhodium-104i}
 
 Um den Zerfall des kurzlebigeren $\ce{^{104\text{i}} Rh}$ zu analysieren, wird das Ergebnis für $\ce{^104 Rh}$
 zur Hilfe gezogen.
@@ -202,10 +202,10 @@ aus der gemessenen Gesamzahl und der extrapolierten Zahl der $\ce{^104 Rh}$ Kern
 Mithilfe dieser neuen Daten kann eine lineare Regression für $\ce{^{104\text{i}} Rh}$ berechnet werden,
 aus der sich folgende Parameter ergeben
 \begin{align*}
-  \lambda_{\ce{^{104\text{i}} Rh}} &= (15.6 \pm 0.5) \cdot 10^{-3} \unit{\per\second} \\
+  \lambda_{\ce{^{104\text{i}} Rh}} &= (15,6 \pm 0,5) \cdot 10^{-3} \unit{\per\second} \\
   N_{\symup{0, \ce{^{104\text{i}} Rh}}} &= 770 \pm 50.
 \end{align*}
-Die Halbwertszeit ergibt sich über \eqref{eq:Halbwertszeit} zu
+Die Halbwertszeit ergibt sich über Formel \eqref{eq:Halbwertszeit} zu
 \begin{gather*}
   T_{\ce{^{104\text{i}} Rh}} = \qty{44.5+-1.4}{\second}.
 \end{gather*}
