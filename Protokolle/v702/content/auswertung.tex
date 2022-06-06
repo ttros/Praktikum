@@ -35,6 +35,12 @@ Abschließend kann die Halbwertszeit von Vanadium über \eqref{eq:Halbwertszeit}
 \begin{gather*}
   T_{\symup{V}} = \qty{211+-10}{\second}.
 \end{gather*}
+Der Fehler der Halbwertszeit wird hierbei mithilfe der gaußschen Fehlerfortpflanzung bestimmt, die
+benötigte Formel zur Berechnung von $\symup{\Delta}T$ ergibt sich zu
+\begin{equation}
+  \label{delta_t}
+  \symup{\Delta}T = \frac{ln(2)}{\lambda^2} \cdot \symup{\Delta} \lambda. 
+\end{equation}
 
 \begin{table} [H]
     \caption{Messwerte der Zählrate für Vanadium inklusive der jeweiligen Fehler.}
@@ -185,6 +191,8 @@ Mit \eqref{eq:Halbwertszeit} ergibt sich die Halbwertszeit hier zu
 \begin{gather*}
   T_{\ce{^104 Rh}} = \qty{270+-40}{\second}.
 \end{gather*}
+Dabei wurde der Fehler $\symup{\Delta} T_{\ce{^104 Rh}}$ mit der bereits berechneten Formel
+\eqref{delta_t} bestimmt.
 
 \subsubsection{Zerfall von Rhodium-104i}
 
@@ -195,10 +203,27 @@ der Messung extrapoliert werden. Betrachtet werden also nun Zeitpunkte $t_{\text
 Messung bis zu einem $t_{\text{max}}$, wobei $t_{\text{max}}<t^*$ gilt.
 Hier wird $t_{\text{max}}=\qty{225}{\second}$ gewählt.
 Um die Anzahl an $\ce{^{104\text{i}} Rh}$ Kernen in diesem Intervall zu erhalten, wird die Differenz
-aus der gemessenen Gesamzahl und der extrapolierten Zahl der $\ce{^104 Rh}$ Kerne gebildet
-\begin{equation*}
-  N_{\ce{^{104\text{i}} Rh}}(t_{\text{j}}) = N_{\text{Ges}}(t_{\text{j}}) - N_{\ce{^104 Rh}}(t_{\text{j}})
-\end{equation*}
+aus der gemessenen Gesamzahl und der extrapolierten Zahl der $\ce{^104 Rh}$ Kerne gebildet.
+Der Übersichtilchkeit halber gelte hier $m=\lambda_{\ce{^104 Rh}}$ und $b=\ln(N_{\symup{0, \ce{^104 Rh}}})$.
+\begin{align*}
+  N_{\ce{^{104\text{i}} Rh}}(t_{\text{j}}) &= N_{\text{Ges}}(t_{\text{j}}) - N_{\ce{^104 Rh}}(t_{\text{j}}) \\
+  &= N_{\text{Ges}}(t_{\text{j}}) - \symup{e}^{m \cdot t + b}
+\end{align*}
+Da die Anzahl der $\ce{^104 Rh}$ Kerne bereits fehlerbehaftet ist, muss für die Angabe des Fehlers der
+$\ce{^{104\text{i}} Rh}$ Kerne die gaußsche Fehlerfortpflanzung verwendet werden.
+Einsetzen in die Formel ergibt
+\begin{align*}
+  \symup{\Delta} N_{\symup{kurz}}(t) &= \sqrt{
+    \left(\frac{\partial N_{\symup{kurz}}}{\partial N_{\symup{Ges}}}\right)^2 (\symup{\Delta} N_{\symup{Ges}})^2 +
+    \left(\frac{\partial N_{\symup{kurz}}}{\partial m}\right)^2 (\symup{\Delta} m)^2 + 
+    \left(\frac{\partial N_{\symup{kurz}}}{\partial b}\right)^2 (\symup{\Delta} b)^2} \\
+  &= \sqrt{
+    (\symup{\Delta} N_{\symup{Ges}})^2 +
+    \left(te^{-mt+b}\right)^2 (\symup{\Delta} m)^2 +
+    \left(e^{-mt+b}\right)^2 (\symup{\Delta} b)^2
+    }\,. \\
+\end{align*}
+
 Mithilfe dieser neuen Daten kann eine lineare Regression für $\ce{^{104\text{i}} Rh}$ berechnet werden,
 aus der sich folgende Parameter ergeben
 \begin{align*}
@@ -209,6 +234,7 @@ Die Halbwertszeit ergibt sich über Formel \eqref{eq:Halbwertszeit} zu
 \begin{gather*}
   T_{\ce{^{104\text{i}} Rh}} = \qty{44.5+-1.4}{\second}.
 \end{gather*}
+Erneut wurde deren Fehler mit \eqref{delta_t} berechnet.
 
 Abschließend wird in \autoref{fig:Rh} noch die Summenkurve eingezeichnet, diese ergibt sich aus der
 Summe der beiden unterschiedlichen Kerne im gesamten Messzeitintervall:
