@@ -1,3 +1,17 @@
 \section{Auswertung}
 \label{sec:Auswertung}
+Die in dieser Auswertung erstellten Plots werden mithilfe der \textit{Python}-Erweiterung 
+\textit{matplotlib}~\cite{matplotlib} erstellt. Die Fortplanzung der Messunsicherheiten werden mithilfe von
+\textit{uncertainties}~\cite{uncertainties} bestimmt und genügen der Gaußschen Fehlerfortplanzung
+\begin{equation*}
+    \symup{\Delta} F = \sqrt{\sum_{i}\left(\frac{\symup{d}F}{\symup{d}y_{i}}\symup{\Delta} y_{i} \right)^2}.
+\end{equation*}
+Die Messunsicherheiten der Zählraten $N$ sind und werden daher mit $\symup{\Delta}N = \sqrt{N}$ berechnet.
 
+
+\subsection{\texorpdfstring{Absorptionskurve des $\beta$-Strahlers}{Absorptionskurve des Beta-Strahlers}}
+Die Hintergrundmessung für den $\beta^{-}$-Strahler ergibt $\num{623}$ Impulse in $\qty{900}{\second}$, dies entpricht 
+einer Nullrate von $\qty{0.692+-0.028}{\per\second}$.
+
+\subsection{\texorpdfstring{Bestimmung der Absorptionskoeffizienten verschiedener Stoffe bei $\gamma$-Strahlung}
+{Bestimmung der Absorptionskoeffizienten verschiedener Stoffe bei Gamma-Strahlung}}

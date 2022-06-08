@@ -4,14 +4,14 @@ import uncertainties as unc
 from uncertainties import unumpy as unp 
 from uncertainties import ufloat
 from uncertainties.unumpy import nominal_values as noms
-from uncertainties.unumpy import std_devs as devs
+from uncertainties.unumpy import std_devs as stds
 import scipy.optimize as op
 
 
 def linfit(x,m,b):
     return m*x+b
 
-def regression(x,y,x1,x2,Element,Farbe,Name):
+def regression(x,y,x1,x2,Farbe,Name):
     params, pcov = op.curve_fit(linfit, x, y)
     std = np.sqrt(np.diag(pcov))
     m = params[0]
@@ -19,72 +19,110 @@ def regression(x,y,x1,x2,Element,Farbe,Name):
     M=unp.uarray(m,std[0])
     B=unp.uarray(b,std[1])
 
-    print(f'Lambda {Element}: {-M}')
-    print(f'N_0 {Element}: {unp.exp(B)}')
-    print()
-
     xx = np.linspace(x1,x2,1000)
     plt.plot(xx,m*xx+b,color = Farbe, label=Name)
     return M,B
 
-# background_per_sec = 184/600
+# %%%%% beta-Strahler %%%%%
+# Nullmessung
+N_0_beta_unbereinigt = 623
+N_0_beta = ufloat(N_0_beta_unbereinigt, np.sqrt(N_0_beta_unbereinigt))/900
+d_beta_, d_beta_err, delta_t_beta, N_beta_ = np.genfromtxt('content/data/data_beta.txt', unpack = True)
 
-# ####Vanadium####
+# Groessen mit Fehlern versehen
+d_beta = unp.uarray(d_beta_, d_beta_err)
+N_beta = unp.uarray(N_beta_, np.sqrt(N_beta_))
 
-# counts_vn_raw = np.genfromtxt('content/data/data_Vn.txt', unpack = True)
-# counts_vn=counts_vn_raw-(background_per_sec*30)
-# delta_vn = np.around(np.sqrt(counts_vn), 0)
+# Normierung von N, korrigieren um Nullmessung ????
+N_beta = N_beta / delta_t_beta #- N_0_beta
 
-# log_counts_vn = np.log(counts_vn)
-# t_vn=np.linspace(30,900,30)
+# N_beta logarithmieren
+N_beta_log = unp.log(N_beta)
 
-# plt.errorbar(t_vn, log_counts_vn, xerr=None, yerr=delta_vn/counts_vn, fmt='.', color='tomato',label='Messwerte')
-# m_vn,b_vn = regression(t_vn,log_counts_vn,0,900,'Vanadium','dodgerblue','Regression')
-# plt.xlabel(r'$t \mathbin{/} \unit{\second}$')
-# plt.ylabel(r'$\symup{log}\,N$')
-# plt.grid()
-# plt.legend()
-# plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
-# plt.savefig('build/Vanadium.pdf')
-# plt.close()
-# print(f'Halbwertszeit Vanadium: {np.log(2)/-m_vn}')
+# cut parameter
+cut_beta = 6
+d_max = 252
+
+# Plot
+plt.errorbar(noms(d_beta), noms(N_beta_log), linestyle = None, fmt='.', xerr = stds(d_beta), yerr = stds(N_beta_log), c='tomato', label='Messwerte')
+M_beta, B_beta = regression(noms(d_beta[:cut_beta]),noms(N_beta_log[:cut_beta]),95,270,'dodgerblue','Fit') # Fit
+xx = np.linspace(95,485, 1000)
+plt.plot(xx, 0*xx+np.log(noms(N_0_beta)), c='slategray', label='Hintergrund')
+plt.vlines(d_max, ymin = -0.8, ymax = 3.8, color='darkolivegreen', linestyle = ':', 
+label = r'$d_\text{max}=\qty{252}{\micro\metre}$')
+
+plt.xlabel(r'$d \mathbin{/} \unit{\micro\metre}$')
+plt.ylabel(r'$\ln(N_{\symup{S}})$')
+
+plt.grid()
+plt.legend()
+plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
+
+plt.savefig('build/beta.pdf')
+plt.close()
 
 
-# #####Rhodium######
+# %%%%%% gamma-Strahler %%%%%
+# Nullmessung
+N_0_gamma_unbereinigt = 1000
+N_0_gamma = ufloat(N_0_gamma_unbereinigt, np.sqrt(N_0_gamma_unbereinigt))/900
 
-# print()
-# print()
+d_Zn, t_Zn, N_Zn_ = np.genfromtxt('content/data/data_Zn_gamma.txt', unpack = True)
+d_Pb, t_Pb, N_Pb_ = np.genfromtxt('content/data/data_Pb_gamma.txt', unpack = True)
 
-# counts_rh_raw = np.genfromtxt('content/data/data_Rh.txt', unpack = True)
-# counts_rh=counts_rh_raw-(background_per_sec*15)
-# delta_rh = np.around(np.sqrt(counts_rh), 0)
+# mit Fehlern
+N_Zn = unp.uarray(N_Zn_, np.sqrt(N_Zn_))
+N_Pb = unp.uarray(N_Pb_, np.sqrt(N_Pb_))
 
-# log_counts_rh = np.log(counts_rh)
-# t_rh=np.linspace(15,720,48)
+# Normieren, korrigieren um Nullmessung
+N_Zn = N_Zn / t_Zn - N_0_gamma
+N_Pb = N_Pb / t_Pb - N_0_gamma
 
-# plt.errorbar(t_rh, log_counts_rh, xerr=None, yerr=delta_rh/counts_rh, fmt='.', color='tomato',label='Messwerte')
-# t_long=t_rh[20:]
-# plt.vlines(t_long[0], 2, 7, 'darkslategray', 'dashed',label='$t^*$')
-# array_long = log_counts_rh[20:]
-# m_rh_long,b_rh_long = regression(t_long, array_long,t_long[0],720,'Rhodium 104','dodgerblue','Regression für $\ce{^104 Rh}$')
+# Logarithmieren
+N_Zn_log = unp.log(N_Zn)
+N_Pb_log = unp.log(N_Pb)
 
-# t_short = t_rh[:15]
-# counts_rh_short=counts_rh[:15]
-# for i in range(15):
-#     counts_rh_short[i]=counts_rh_short[i]-np.exp(noms(m_rh_long)*t_rh[i]+noms(b_rh_long))
+# Plot Zn
+plt.errorbar(d_Zn, noms(N_Zn_log), yerr=stds(N_Zn_log), linestyle = None, fmt='.', c='tomato', label='Messwerte')
+M_Zn, B_Zn = regression(noms(d_Zn),noms(N_Zn_log),1.5,20.5,'dodgerblue','Fit') # Fit
 
-# log_counts_rh_short = np.log(counts_rh_short)
-# m_rh_short,b_rh_short = regression(t_short, log_counts_rh_short,0,t_short[14],'Rhodium 104i','gold','Regression für $\ce{^{104\symup{i}} Rh}$')
+plt.xlabel(r'$d \mathbin{/} \unit{\milli\metre}$')
+plt.ylabel(r'$\ln(N_{\symup{S}})$')
 
-# Summenkurve = np.exp(noms(m_rh_short)*t_rh+noms(b_rh_short)) + np.exp(noms(m_rh_long)*t_rh+noms(b_rh_long))
-# plt.plot(t_rh, np.log(Summenkurve), '-', color='indigo', label='berechnete Summenkurve')
+plt.grid()
+plt.legend()
+plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
 
-# plt.xlabel(r'$t \mathbin{/} \unit{\second}$')
-# plt.ylabel(r'$\symup{log}\,N$')
-# plt.grid()
-# plt.legend()
-# plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
-# plt.savefig('build/Rhodium.pdf')
-# plt.close()
-# print(f'Halbwertszeit Rhodium 104: {np.log(2)/-m_rh_long}')
-# print(f'Halbwertszeit Rhodium 104i: {np.log(2)/-m_rh_short}')
+plt.savefig('build/Zn.pdf')
+plt.close()
+
+# Plot Pb
+plt.errorbar(d_Pb, noms(N_Pb_log), yerr=stds(N_Pb_log), linestyle = None, fmt='.', c='tomato', label='Messwerte')
+M_Pb, B_Pb = regression(noms(d_Pb),noms(N_Pb_log),-1,41,'dodgerblue','Fit') # Fit
+
+plt.xlabel(r'$d \mathbin{/} \unit{\milli\metre}$')
+plt.ylabel(r'$\ln(N_{\symup{S}})$')
+
+plt.grid()
+plt.legend()
+plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
+
+plt.savefig('build/Pb.pdf')
+plt.close()
+
+# PRINT
+print('############ Ausgabe V704 ############')
+print('------------ Nullmessung -------------')
+print(f'N_0_beta: \t',N_0_beta)
+print(f'N_0_beta_roh \t',N_0_beta_unbereinigt)
+print(f'N_0_gamma \t',N_0_gamma)
+print(f'N_0_gamma_roh \t',N_0_gamma_unbereinigt)
+
+print('--------- Plot beta-Strahler ---------')
+print(f'M_Zn: \t', M_Zn)
+print(f'B_Zn: \t', B_Zn)
+
+print('--------- Plot gamma-Strahler --------')
+print(f'M_Pb: \t', M_Pb)
+print(f'B_Pb: \t', B_Pb)
+
