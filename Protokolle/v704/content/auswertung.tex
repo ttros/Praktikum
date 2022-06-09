@@ -6,12 +6,138 @@ Die in dieser Auswertung erstellten Plots werden mithilfe der \textit{Python}-Er
 \begin{equation*}
     \symup{\Delta} F = \sqrt{\sum_{i}\left(\frac{\symup{d}F}{\symup{d}y_{i}}\symup{\Delta} y_{i} \right)^2}.
 \end{equation*}
-Die Messunsicherheiten der Zählraten $N$ sind und werden daher mit $\symup{\Delta}N = \sqrt{N}$ berechnet.
+Die Messunsicherheiten der Zählraten $N$ sind poissonverteilt und werden daher mit $\symup{\Delta}N = \sqrt{N}$ berechnet.
 
 
 \subsection{\texorpdfstring{Absorptionskurve des $\beta$-Strahlers}{Absorptionskurve des Beta-Strahlers}}
-Die Hintergrundmessung für den $\beta^{-}$-Strahler ergibt $\num{623}$ Impulse in $\qty{900}{\second}$, dies entpricht 
-einer Nullrate von $\qty{0.692+-0.028}{\per\second}$.
+\label{sec:beta}
+Die Hintergrundmessung für den $\beta^{-}$-Strahler ergibt $\num{623}$ Impulse in $\qty{900}{\second}$, was 
+einer Nullrate von $\qty{0.692+-0.028}{\per\second}$ entpricht.
+
+Die Messwerte zur Bestimmung der Reichweite des $\beta$-Strahlers sind in \autoref{tab:beta} dargestellt.
+
+\begin{table} [H]
+    \centering
+    \caption{Messwerte zur Bestimmung der Reichweite des $\beta$-Strahlers.}
+    \label{tab:beta}
+    \begin{tabular}{S S S}
+      \toprule
+      {$d \mathbin{/} \unit{\micro\metre}$} & {$\symup{\Delta} t \mathbin{/} \unit{\second}$} & {Zählrate} \\
+      \midrule
+      $\num{100(0  )}$ &  200 & 7842 \\
+      $\num{125(0  )}$ &  220 & 2151 \\
+      $\num{135(0.5)}$ &  240 & 2205 \\
+      $\num{160(1  )}$ &  260 & 1517 \\
+      $\num{200(1  )}$ &  280 & 564  \\
+      $\num{253(1  )}$ &  300 & 249  \\
+      $\num{302(1  )}$ &  320 & 228  \\
+      $\num{338(5  )}$ &  340 & 217  \\
+      $\num{400(1  )}$ &  360 & 286  \\
+      $\num{444(2  )}$ &  380 & 271  \\
+      $\num{482(1  )}$ &  400 & 265  \\  
+      \bottomrule
+    \end{tabular}
+\end{table}
+
+In \autoref{fig:beta} wird der Logarithmus der zeitlich normierte Zählrate gegen die Dicke des Absorbermaterials 
+aufgetragen. Außerdem wird das zuvor gemessene Hintergrundsignal eingezeichnet.
+
+Mithilfe der \textit{Python}-Erweiterung \textit{scipy} \cite{scipy} wird eine Regressionsgerade der Messwerte gebildet, die sich
+vom Hintergrundsignal hervorheben.
+Die Dicke, nach der die $\beta$-Strahlung vollständig abgeschirmt ist, ergibt sich als Schnittstelle dieser Geraden mit der
+Geraden des Hintergrundsignals.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics{build/beta.pdf}
+    \caption{Absorptionskurve des $\beta$-Strahlers mit eingezeichneter Regressionsgeraden und Hintergrundsignal.}
+    \label{fig:beta}
+\end{figure}
+
+Die lineare Ausgleichsrechnung liefert für eine Gerade des Typs $y = mx + b$ die Werte
+\begin{align*}
+    m &= \qty{-0.0234+-0.0026}{\per\micro\metre} & b &= \num{5.5+-0.4}.
+\end{align*}
+
+Die Schnittstelle und somit die maximale Reichweite ergibt sich zu
+\begin{equation*}
+    d_{\text{max}} = \qty{252+-34}{\micro\metre}.
+\end{equation*}
+
+Mit der Dichte von Aluminium $\rho_{\text{Al}} = \qty{2.7}{\gram\per\cubic\centi\metre}$ \cite{czichos} lässt sich die Massenbelegung
+zu
+\begin{equation*}
+    R_{\text{max}} = \rho_{\text{Al}} \cdot d_{\text{max}} = \qty{0.0068+-0.0009}{\gram\per\metre\squared}
+\end{equation*}
+berechnen.
+Über den Zusammenhang \eqref{e_max} wird die maximale Energie der $\beta$-Strahlung berechnet. Diese beträgt
+\begin{equation*}
+    E_{\text{max}} = \qty{0.075+-0.005}{\mega\electronvolt}.
+\end{equation*}
 
 \subsection{\texorpdfstring{Bestimmung der Absorptionskoeffizienten verschiedener Stoffe bei $\gamma$-Strahlung}
 {Bestimmung der Absorptionskoeffizienten verschiedener Stoffe bei Gamma-Strahlung}}
+Genau wie für die Absorptionskurve des $\beta$-Strahlers wird auch in diesem Teil des Versuches zunächst eine Messung
+der Hintergrundstrahlung durchgeführt. Hierbei werden 1000 Impulse in $\qty{900}{\second}$ gemessen, woraus sich eine 
+Nullrate von $\qty{1.111+-0.035}{\per\second}$ berechnen lässt.
+
+Die in der Durchführung \ref{sec:Durchführung} beschriebene Methode zur Bestimmung der Absorptionskoeffizienten wird
+für die Materialien Blei und Zink angewendet. Die Messwerte sind in \autoref{tab:gamma} dargestellt.
+
+\begin{table} [H]
+    \centering
+    \caption{Messwerte zur Bestimmung der Absorptionskoeffizienten von Zink und Blei unter Strahlung des
+    $\gamma$-Strahlers $\ce{^137 Cs}$.}
+    \label{tab:gamma}
+    \begin{tabular}{S S S | S S S}
+      \toprule
+      \multicolumn{3}{c}{Zink} & \multicolumn{3}{c}{Blei} \\
+      \midrule
+      {$d \mathbin{/} \unit{\milli\metre}$} & {$\symup{\Delta} t \mathbin{/} \unit{\second}$} & {Zählrate} &%
+      {$d \mathbin{/} \unit{\milli\metre}$} & {$\symup{\Delta} t \mathbin{/} \unit{\second}$} & {Zählrate} \\
+      \midrule
+      2  & 100 & 10281 & 0     &  30 & 3471  \\
+      4  & 110 & 10708 & 1.18  & 100 & 10022 \\
+      6  & 120 & 10494 & 2.40  & 105 & 9330  \\
+      8  & 130 & 10345 & 5.00  & 120 & 8824  \\
+      10 & 140 & 10215 & 10.30 & 135 & 5687  \\
+      12 & 150 & 10486 & 13.75 & 155 & 5128  \\
+      14 & 160 & 10073 & 15.30 & 165 & 4535  \\
+      16 & 170 & 10192 & 20.00 & 180 & 2806  \\
+      18 & 180 & 9733  & 30.50 & 190 & 1579  \\
+      20 & 190 & 8905  & 40.60 & 200 & 733   \\
+      \bottomrule
+    \end{tabular}
+\end{table}
+
+Analog zu dem Vorgehen in \ref{sec:beta} werden auch hier die logarithmierten und normierten Zählraten in 
+Abhängigkeit zu der Dicke des Absorbermaterials in einem Plot aufgetragen und es wird eine lineare Ausgleichsrechnung
+durchgeführt. In \autoref{fig:gamma} sind die Plots für die Absorber Zink und Blei zu sehen.
+
+\begin{figure}[H]
+    \begin{subfigure}{0.95\textwidth}
+      \centering
+      \includegraphics[height=8cm]{build/Zn.pdf}
+      \caption{Zink.}\vspace{4mm}%
+    \end{subfigure}
+    \begin{subfigure}{0.95\textwidth}
+      \centering
+      \includegraphics[height=8cm]{build/Pb.pdf}
+      \caption{Blei.}
+    \end{subfigure}
+    \caption{Darstellung der Messwerte aus \autoref{tab:gamma} für die verschiedenen Absorber mit Ausgleichgeraden.}
+    \label{fig:gamma}
+  \end{figure}
+
+  Für die linearen Regressionen ergeben sich die Werte
+  \begin{align*}
+      m_{\text{Zn}} & = \qty{-0.0426+-0.0014}{\per\milli\metre} & b_{\text{Zn}} &= \num{4.719+-0.017} \\
+      m_{\text{Pb}} & = \qty{-0.0929+-0.0019}{\per\milli\metre} & b_{\text{Pb}} &= \num{4.70+-0.04}. \\
+  \end{align*}
+
+  Aus diesen Werten und unter zuhilfenahme der Gleichungen \eqref{Absorptionsgesetz} und \eqref{mu} lassen sich die
+  Absorptionskoeffizienten $\mu$, sowie die Werte für $N_0$ bestimmen. Diese ergeben sich zu
+  \begin{align*}
+    \mu_{\text{Zn}} & = \qty{-0.0426+-0.0014}{\per\milli\metre} & N_{0,\text{Zn}} &= \num{112+-2} \\
+    \mu_{\text{Pb}} & = \qty{-0.0929+-0.0019}{\per\milli\metre} & N_{0,\text{Pb}} &= \num{110+-4}. \\
+  \end{align*}
