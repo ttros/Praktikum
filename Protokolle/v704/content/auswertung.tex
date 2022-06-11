@@ -138,6 +138,30 @@ durchgeführt. In \autoref{fig:gamma} sind die Plots für die Absorber Zink und 
   Aus diesen Werten und unter zuhilfenahme der Gleichungen \eqref{Absorptionsgesetz} und \eqref{mu} lassen sich die
   Absorptionskoeffizienten $\mu$, sowie die Werte für $N_0$ bestimmen. Diese ergeben sich zu
   \begin{align*}
-    \mu_{\text{Zn}} & = \qty{-0.0426+-0.0014}{\per\milli\metre} & N_{0,\text{Zn}} &= \num{112+-2} \\
-    \mu_{\text{Pb}} & = \qty{-0.0929+-0.0019}{\per\milli\metre} & N_{0,\text{Pb}} &= \num{110+-4}. \\
+    \mu_{\text{Zn}} & = \qty{42.6+-1.4}{\per\metre} & N_{0,\text{Zn}} &= \num{112+-2} \\
+    \mu_{\text{Pb}} & = \qty{92.9+-1.9}{\per\metre} & N_{0,\text{Pb}} &= \num{110+-4}. \\
   \end{align*}
+
+  In einem weiteren Schritt soll die Compton Absorptionskoeffizienten der beiden Absorbermaterialien berechnet werden.
+  Dafür werden der Compton Wirkunksquerschnitt $\sigma_{\text{com}} = \qty{2.57e-29}{\metre\squared}$ sowie weitere 
+  Konstanten aus \autoref{tab:compton} verwedent. 
+  
+\begin{table} [H]
+    \centering
+    \caption{Literaturwerte verschiedener Materialkonstanten von Zink und Blei \cite{Gestis}.}
+    \label{tab:compton}
+    \begin{tabular}{S S S}
+      \toprule
+      {Materialkonstante} & {Zink} & {Blei}  \\
+      \midrule
+      {Z}     & 82 & 30 \\
+      $\rho \mathbin{/} \unit{\gram\per\cubic\centi\metre}$ & 11,3 & 7,14 \\
+      $M \mathbin{/} \unit{\gram\per\mol}$ & 207,2 & 65,39 \\
+      \bottomrule
+    \end{tabular}
+\end{table}
+
+Mit den Formeln \eqref{mu} und \eqref{n} ergeben sich die Compton Absorptionskoeffizienten zu
+\begin{align*}
+    \mu_{\text{com, Zn}} &= \qty{69,09}{\per\metre} & \mu_{\text{com, Pb}} &= \qty{50,61}{\per\metre}.
+\end{align*}

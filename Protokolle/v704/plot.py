@@ -6,6 +6,7 @@ from uncertainties import ufloat
 from uncertainties.unumpy import nominal_values as noms
 from uncertainties.unumpy import std_devs as stds
 import scipy.optimize as op
+import scipy.constants as const
 
 
 def linfit(x,m,b):
@@ -118,6 +119,33 @@ E_max = 1.92 * unp.sqrt((r_max)**2+0.22*r_max)
 
 N_0_Zn = (np.e)**B_Zn
 N_0_Pb = (np.e)**B_Pb
+
+# Konstanten
+
+Z_pb = 82
+Z_zn = 30
+rho_pb = 11300 # kg/m^3
+rho_zn =  7140 # kg/m^3
+M_pb =  0.2072 # kg/mol
+M_zn = 0.06539 # kg/mol
+
+# Theoriewerte
+epsilon = 1.295
+r_e = 2.82e-15 # m (klassischer Elektronenradius)
+
+sigma_com = 2*np.pi*r_e**2*((1+ epsilon)/epsilon**2 * (2*(1+epsilon)/(1+2*epsilon) - 1/epsilon*np.log(1+2*epsilon)) + 1/(2*epsilon)*np.log(1+2*epsilon) - (1+ 3*epsilon)/(1+2*epsilon)**2)
+
+n_pb = Z_pb*const.N_A*rho_pb/M_pb
+n_zn = Z_zn*const.N_A*rho_zn/M_zn
+
+mu_pb_theo = sigma_com*n_pb
+mu_zn_theo = sigma_com*n_zn
+print("--------------------------------------------------------------------------------")
+print("Theoriewerte:")
+print("Sigma_com: ", sigma_com, "[m^2]")
+print("Blei:    mu_pb = ", mu_pb_theo, "[m^{-1}]")
+print("Zink:    mu_zn = ", mu_zn_theo, "[m^{-1}]")
+print("--------------------------------------------------------------------------------")
 
 # PRINT
 print('############ Ausgabe V704 ############')
