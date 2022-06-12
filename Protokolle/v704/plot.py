@@ -30,21 +30,22 @@ N_0_beta_unbereinigt = 623
 N_0_beta = ufloat(N_0_beta_unbereinigt, np.sqrt(N_0_beta_unbereinigt))/900
 d_beta_, d_beta_err, delta_t_beta, N_beta_ = np.genfromtxt('content/data/data_beta.txt', unpack = True)
 
+# Normierung von N, korrigieren um Nullmessung ????
+N_beta_norm = N_beta_ / delta_t_beta #- N_0_beta
+print(f'N_beta_norm: {N_beta_norm}')
 # Groessen mit Fehlern versehen
 d_beta = unp.uarray(d_beta_, d_beta_err)
-N_beta = unp.uarray(N_beta_, np.sqrt(N_beta_))
-
-# Normierung von N, korrigieren um Nullmessung ????
-N_beta = N_beta / delta_t_beta #- N_0_beta
+N_beta = unp.uarray(N_beta_norm, np.sqrt(N_beta_norm))
+print(f'N_beta: {N_beta}')
 
 # N_beta logarithmieren
 N_beta_log = unp.log(N_beta)
-
+print(f'N_beta_log: {N_beta_log}')
 # cut parameter
 cut_beta = 6
 
 # Plot
-plt.errorbar(noms(d_beta), noms(N_beta_log), linestyle = None, fmt='.', xerr = stds(d_beta), yerr = stds(N_beta_log), c='tomato', label='Messwerte')
+plt.errorbar(noms(d_beta), noms(N_beta_log), linestyle = None, fmt='.', xerr = stds(d_beta), yerr = stds(N_beta_log), c='tomato', capsize=3, label='Messwerte')
 M_beta, B_beta = regression(noms(d_beta[:cut_beta]),noms(N_beta_log[:cut_beta]),95,270,'dodgerblue','Fit') # Fit
 d_max = (unp.log(N_0_beta) - B_beta) / M_beta # d_max als schnittpunkt berechnen
 xx = np.linspace(95,485, 1000)
@@ -71,20 +72,20 @@ N_0_gamma = ufloat(N_0_gamma_unbereinigt, np.sqrt(N_0_gamma_unbereinigt))/900
 d_Zn, t_Zn, N_Zn_ = np.genfromtxt('content/data/data_Zn_gamma.txt', unpack = True)
 d_Pb, t_Pb, N_Pb_ = np.genfromtxt('content/data/data_Pb_gamma.txt', unpack = True)
 
-# mit Fehlern
-N_Zn = unp.uarray(N_Zn_, np.sqrt(N_Zn_))
-N_Pb = unp.uarray(N_Pb_, np.sqrt(N_Pb_))
+# Normieren
+N_Zn_norm = N_Zn_ / t_Zn
+N_Pb_norm = N_Pb_ / t_Pb
 
-# Normieren, korrigieren um Nullmessung
-N_Zn = N_Zn / t_Zn - N_0_gamma
-N_Pb = N_Pb / t_Pb - N_0_gamma
+# mit Fehlern, korrigiere um Nullmessung
+N_Zn = unp.uarray(N_Zn_norm, np.sqrt(N_Zn_norm))-N_0_gamma
+N_Pb = unp.uarray(N_Pb_norm, np.sqrt(N_Pb_norm))-N_0_gamma
 
 # Logarithmieren
 N_Zn_log = unp.log(N_Zn)
 N_Pb_log = unp.log(N_Pb)
 
 # Plot Zn
-plt.errorbar(d_Zn, noms(N_Zn_log), yerr=stds(N_Zn_log), linestyle = None, fmt='.', c='tomato', label='Messwerte')
+plt.errorbar(d_Zn, noms(N_Zn_log), yerr=stds(N_Zn_log), linestyle = None, fmt='.', c='tomato', capsize=3, label='Messwerte')
 M_Zn, B_Zn = regression(noms(d_Zn),noms(N_Zn_log),1.5,20.5,'dodgerblue','Fit') # Fit
 
 plt.xlabel(r'$d \mathbin{/} \unit{\milli\metre}$')
@@ -99,7 +100,7 @@ plt.savefig('build/Zn.pdf')
 plt.close()
 
 # Plot Pb
-plt.errorbar(d_Pb, noms(N_Pb_log), yerr=stds(N_Pb_log), linestyle = None, fmt='.', c='tomato', label='Messwerte')
+plt.errorbar(d_Pb, noms(N_Pb_log), yerr=stds(N_Pb_log), linestyle = None, fmt='.', c='tomato', capsize=3, label='Messwerte')
 M_Pb, B_Pb = regression(noms(d_Pb),noms(N_Pb_log),-1,41,'dodgerblue','Fit') # Fit
 
 plt.xlabel(r'$d \mathbin{/} \unit{\milli\metre}$')
@@ -185,4 +186,26 @@ M_Zn: 	 -0.0426+/-0.0014
 B_Zn: 	 4.719+/-0.017
 M_Pb: 	 -0.0929+/-0.0019
 B_Pb: 	 4.70+/-0.04
+
+
+############ Ausgabe V704 ############
+------------ Nullmessung -------------
+N_0_beta: 	 0.692+/-0.028
+N_0_beta_roh 	 623
+N_0_gamma 	 1.111+/-0.035
+N_0_gamma_roh 	 1000
+--------- Plot beta-Strahler ---------
+M_beta: 	 -0.0234+/-0.0026
+B_beta: 	 5.5+/-0.4
+d_max: 	 252+/-34
+r_max: 	 0.0068+/-0.0009
+E_max: 	 0.075+/-0.005
+--------- Plot gamma-Strahler --------
+M_Zn: 	 -0.0426+/-0.0014
+B_Zn: 	 4.719+/-0.017
+M_Pb: 	 -0.0929+/-0.0019
+B_Pb: 	 4.70+/-0.04
+N_0_Zn: 	 112.0+/-2.0
+N_0_Pb: 	 110+/-4
+
 '''''
