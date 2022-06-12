@@ -39,7 +39,7 @@ Die Messwerte zur Bestimmung der Reichweite des $\beta$-Strahlers sind in \autor
     \end{tabular}
 \end{table}
 
-In \autoref{fig:beta} wird der Logarithmus der zeitlich normierte Zählrate gegen die Dicke des Absorbermaterials 
+In \autoref{fig:beta} wird der Logarithmus der zeitlich normierten Zählrate gegen die Dicke des Absorbermaterials 
 aufgetragen. Außerdem wird das zuvor gemessene Hintergrundsignal eingezeichnet.
 
 Mithilfe der \textit{Python}-Erweiterung \textit{scipy} \cite{scipy} wird eine Regressionsgerade der Messwerte gebildet, die sich
@@ -81,8 +81,7 @@ Genau wie für die Absorptionskurve des $\beta$-Strahlers wird auch in diesem Te
 der Hintergrundstrahlung durchgeführt. Hierbei werden 1000 Impulse in $\qty{900}{\second}$ gemessen, woraus sich eine 
 Nullrate von $\qty{1.111+-0.035}{\per\second}$ berechnen lässt.
 
-Die in der Durchführung \ref{sec:Durchführung} beschriebene Methode zur Bestimmung der Absorptionskoeffizienten wird
-für die Materialien Blei und Zink angewendet. Die Messwerte sind in \autoref{tab:gamma} dargestellt.
+Die Messwerte für die Absorber Zink und Blei sind in \autoref{tab:gamma} dargestellt.
 
 \begin{table} [H]
     \centering
@@ -142,7 +141,7 @@ durchgeführt. In \autoref{fig:gamma} sind die Plots für die Absorber Zink und 
     \mu_{\text{Pb}} & = \qty{92.9+-1.9}{\per\metre} & N_{0,\text{Pb}} &= \num{110+-4}. \\
   \end{align*}
 
-  In einem weiteren Schritt soll die Compton Absorptionskoeffizienten der beiden Absorbermaterialien berechnet werden.
+  In einem weiteren Schritt sollen die Compton Absorptionskoeffizienten der beiden Absorbermaterialien berechnet werden.
   Dafür werden der Compton Wirkunksquerschnitt $\sigma_{\text{com}} = \qty{2.57e-29}{\metre\squared}$ sowie weitere 
   Konstanten aus \autoref{tab:compton} verwedent. 
   
@@ -154,14 +153,14 @@ durchgeführt. In \autoref{fig:gamma} sind die Plots für die Absorber Zink und 
       \toprule
       {Materialkonstante} & {Zink} & {Blei}  \\
       \midrule
-      {Z}     & 82 & 30 \\
-      $\rho \mathbin{/} \unit{\gram\per\cubic\centi\metre}$ & 11,3 & 7,14 \\
-      $M \mathbin{/} \unit{\gram\per\mol}$ & 207,2 & 65,39 \\
+      {Z}     & 30 & 82 \\
+      $\rho \mathbin{/} \unit{\gram\per\cubic\centi\metre}$ & 7,14 & 11,3 \\
+      $M \mathbin{/} \unit{\gram\per\mol}$ & 65,39 & 207,2 \\
       \bottomrule
     \end{tabular}
 \end{table}
 
-Mit den Formeln \eqref{mu} und \eqref{n} ergeben sich die Compton Absorptionskoeffizienten zu
+Mit den Formeln \eqref{n} und \eqref{mu} ergeben sich die Compton Absorptionskoeffizienten zu
 \begin{align*}
     \mu_{\text{com, Zn}} &= \qty{69,09}{\per\metre} & \mu_{\text{com, Pb}} &= \qty{50,61}{\per\metre}.
 \end{align*}
