@@ -27,7 +27,11 @@ def regression(x,y,x1,x2,Element,Farbe,Name):
     plt.plot(xx,m*xx+b,color = Farbe, label=Name)
     return M,B
 
+background_10sec=184/60
 background_per_sec = 184/600
+delta_b_10sec=(np.sqrt(background_10sec))
+background = ufloat(background_10sec,delta_b_10sec)
+print(f'Nullrate: {background}')
 
 ####Vanadium####
 
