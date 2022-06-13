@@ -38,6 +38,9 @@ d_beta = unp.uarray(d_beta_, d_beta_err)
 N_beta = unp.uarray(N_beta_norm, np.sqrt(N_beta_norm))
 print(f'N_beta: {N_beta}')
 
+N_0_mod_beta = ufloat(623/90, np.sqrt(623/90))
+print(f'N_0_mod_beta: {N_0_mod_beta}')
+
 # N_beta logarithmieren
 N_beta_log = unp.log(N_beta)
 print(f'N_beta_log: {N_beta_log}')
@@ -68,6 +71,9 @@ plt.close()
 # Nullmessung
 N_0_gamma_unbereinigt = 1000
 N_0_gamma = ufloat(N_0_gamma_unbereinigt, np.sqrt(N_0_gamma_unbereinigt))/900
+
+N_0_mod_gamma = ufloat(1000/90, np.sqrt(100/9))
+print(f'N_0_mod_gamma: {N_0_mod_gamma}')
 
 d_Zn, t_Zn, N_Zn_ = np.genfromtxt('content/data/data_Zn_gamma.txt', unpack = True)
 d_Pb, t_Pb, N_Pb_ = np.genfromtxt('content/data/data_Pb_gamma.txt', unpack = True)
@@ -188,24 +194,6 @@ M_Pb: 	 -0.0929+/-0.0019
 B_Pb: 	 4.70+/-0.04
 
 
-############ Ausgabe V704 ############
------------- Nullmessung -------------
-N_0_beta: 	 0.692+/-0.028
-N_0_beta_roh 	 623
-N_0_gamma 	 1.111+/-0.035
-N_0_gamma_roh 	 1000
---------- Plot beta-Strahler ---------
-M_beta: 	 -0.0234+/-0.0026
-B_beta: 	 5.5+/-0.4
-d_max: 	 252+/-34
-r_max: 	 0.0068+/-0.0009
-E_max: 	 0.075+/-0.005
---------- Plot gamma-Strahler --------
-M_Zn: 	 -0.0426+/-0.0014
-B_Zn: 	 4.719+/-0.017
-M_Pb: 	 -0.0929+/-0.0019
-B_Pb: 	 4.70+/-0.04
-N_0_Zn: 	 112.0+/-2.0
-N_0_Pb: 	 110+/-4
+
 
 '''''

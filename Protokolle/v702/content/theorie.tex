@@ -57,3 +57,14 @@ Gleichung~\eqref{eq:Zerfall} zu
 \begin{equation}
     T = \frac{\ln 2}{\lambda}. \label{eq:Halbwertszeit}
 \end{equation}
+
+Die Größe $N(t)$ wird in einem bestimmten Zeitintevall $\symup{\Delta}t$ gemessen, sodass das 
+Zerfallsgesetz~\eqref{eq:Zerfall} geschrieben wird als
+\begin{align*}
+    N_{\symup{\Delta }t}(t) &= N(t) - N(t+\symup{\Delta} t) \\
+    \ln(N_{\symup{\Delta }t}(t)) &= \ln(N_0)(1-\symup{e}^{-\lambda \symup{\Delta}t})-\lambda t.
+\end{align*}
+Durch eine lineare Ausgleichsrechnung kann folglich die Zerfallskonstante $\lambda$ berechnet werden.
+Die Wahl der Größe des Zeitintevalls $\symup{\Delta}t$ resultiert bei kleinem $\symup{\Delta}t$ in größeren
+statistischen Fehlern von $N_{\symup{\Delta }t}(t)$. Bei kleinem $\symup{\Delta}t$ wird der statistische Fehler
+der Zerfallskonstante~$\lambda$ größer.
