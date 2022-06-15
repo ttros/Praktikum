@@ -1,10 +1,10 @@
 \section{Auswertung}
 \label{sec:Auswertung}
 
-Im folgenden wird der Brechungsindex $n$ auf zwei Arten aus den experiementellen Daten bestimmt,
+Im Folgenden wird der Brechungsindex $n$ auf zwei Arten aus den experiementellen Daten bestimmt,
 die einzelnen Methoden werden getrennt betrachtet.
 Vor Versuchsbeginn wird eine Dunkelmessung durchgeführt, um den durch das Umgebungslicht ausgelösten Photostrom
-zu bestimmen, dieser ergab sich zu
+zu bestimmen, dieser ergibt sich zu
 \begin{equation*}
     I_{\text{D}}=\qty{7}{\nano\ampere}.
 \end{equation*}
@@ -27,10 +27,10 @@ Um die Brechungsindizes aus den Daten berechnen zu können, werden die Fresnelsc
     n_\text{s}(\alpha, E) &= \sqrt{\frac{1 + E^2 + 2E\cos(2\alpha)}{1 - 2E + E^2}} \label{eq:n_p}
 \end{align}
 
-Dabei beschreibt ist $E$ das Verhältnis aus reflektierter und einfallender Amplitude. Da der Photostrom
+Dabei beschreibt $E$ das Verhältnis aus reflektierter und einfallender Amplitude. Da der Photostrom
 proportional zur Intensität und diese proportional zum Quadrat der Amplitude ist, lässt sich diese Größe auch schreiben als
 \begin{equation*}
-    E = \frac{\symbf{E}_{\text{ref}}}{\symbf{E}_{\text{ein}}} = \sqrt{\frac{I(\alpha)}{I_0}}.
+    E = \frac{E_{\text{ref}}}{E_{\text{ein}}} = \sqrt{\frac{I(\alpha)}{I_0}}.
 \end{equation*}
 Dabei ist $I_0$ der bereits bekannte der Nullstrom.
 Die Brechungsindizes ergeben sich somit durch Eingesetzen der Messwerte in \eqref{eq:n_s} und \eqref{eq:n_p}.
@@ -38,7 +38,7 @@ Hierbei fällt auf, dass durch systematische Fehler teilweise zu kleine Werte f�
 resultieren.
 Um deren Einfluss auf das gemittelte Endergebnis zu minimieren, werden alle $n_{\text{s}}<3$ und $n_{\text{p}}>4.4$
 vernachlässigt.
-Anschließend wird der Mttelwert aller Brechungsindizes gebildet, dessen Fehler mithilfe der Python-Erweiterung
+Anschließend wird der Mittelwert aller Brechungsindizes gebildet, dessen Fehler mithilfe der Python-Erweiterung
 \textit{uncertainties} \cite{uncertainties} bestimmt wird. Die Ergebnisse lauten somit
 \begin{align*}
     \bar{n}_{\text{s}}&=\qty{3.42+-0.29}{} \\
@@ -102,12 +102,12 @@ Anschließend wird der Mttelwert aller Brechungsindizes gebildet, dessen Fehler 
 
 \subsection{Bestimmung der Brechungsindizes $n_{\text{s}}$ und $n_{\text{p}}$ über den Brewsterwinkel}
 
-Der Brewsterwinkel stellt in der Theorie ein vollständiges Verschwinden der Reflektion dar, sodass für den Photostrom
-gilt $I{\text{p}}=0$.
+Der Brewsterwinkel stellt in der Theorie ein vollständiges Verschwinden der Reflektion dar, sodass für den Photostrom $I_{\text{p}}=0$
+gilt.
 Da zu jederzeit ein gewisser Untergrundstrom vorhanden ist, fällt der gemessene Photostrom des p-polarisierten Lichts nie
 vollständig auf Null ab. Deshalb wird derjenige Winkel $\alpha$ gewählt, bei dem der Photostrom ein Minimum erreicht.
 Die Messwerte aus \autoref{tab:daten} werden in \autoref{fig:plot} geplottet, sodass ein Minimum abgelesen werden kann.
-Es ergibt sich ein Brewsterwinkel von $\alpha_{\text{B}}=\qty{75}{\degree}$, dieser wurde ebenfalls in \autoref{fig:plot} eingezeichnet.
+Es ergibt sich ein Brewsterwinkel von $\alpha_{\text{B}}=\qty{75}{\degree}$, dieser wird ebenfalls in \autoref{fig:plot} eingezeichnet.
 
 \begin{figure}[H]
     \centering
@@ -121,5 +121,5 @@ Mithilfe des bestimmten Brewsterwinkels kann aus \eqref{eq:Brewsterwinkel} der B
     n=\qty{3.73}{}
 \end{gather*}
 berechnet werden. Abschließend werden die Theoriekurven sowohl für das s- als auch für das p-polarisierte Licht
-in \autoref{fig:plot} eingezeichnet. Dafür werden die in \autoref{sec:fresnel} berechneten Mittelwerte der Brechungsindizes
+in \autoref{fig:plot} eingezeichnet. Dafür werden die in \ref{sec:fresnel} berechneten Mittelwerte der Brechungsindizes
 in die Fresnelschen Formeln \eqref{eq:Fresnel s} und \eqref{eq:Fresnel p} eingesetzt.

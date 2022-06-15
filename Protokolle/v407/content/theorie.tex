@@ -10,7 +10,7 @@ Licht, welches aus einem Medium in ein anderes übergeht, wird an der Grenzfläc
 zwischen den Medien gebrochen und reflektiert.
 Für den transmittierten Teil gilt des Snelliussche Brechungsgesetz
 \begin{equation}
-    n_1\sin(\alpha) = n_2 \sin{\beta}. \label{eq:snellius}
+    n_1\sin(\alpha) = n_2 \sin(\beta). \label{eq:snellius}
 \end{equation}
 Dabei wird klar, dass die Brechung in direktem Zusammenhang zu dem Einfallswinkel
 und dem Verhältnis der Brechungsindices steht.
@@ -20,10 +20,10 @@ Zur näheren Beschreibung der Reflexion und Transmission von Licht werden die Fr
 \subsection{Herleitung der Fresnelschen Formeln}
 Aufgrund der Tatsache, dass Licht aus elektromagnetischer Strahlung besteht, lässt sich die 
 Strahlleistung mit dem Pointingvektor
-\begin{equation*}
+\begin{equation}
     \symbf{S} = \symbf{E} \times \symbf{H}
     \label{eq:Pointing}
-\end{equation*}
+\end{equation}
 schreiben. Mithilfe der Maxwellgleichungen der Elektrodynamik lässt sich der Betrag des 
 Pointingvektors~\eqref{eq:Pointing} zu
 \begin{equation}
@@ -45,12 +45,12 @@ bestimmt werden. Die geometrischen Überlegungen dazu sind in \autoref{fig:Refle
 \end{figure}
 Wird der Betrag des Pointingvektor~\eqref{eq:Pointingbetrag} in die Aufteilung~\eqref{eq:Aufteilung} 
 eingesetzt, ergibt sich
-\begin{equation}
+\begin{equation*}
     (\symbf{E}_{\text{ein}}^2 - \symbf{E}_{\text{ref}}^2)\cos(\alpha) = n \symbf{E}_{\text{trans}}^2 \cos(\beta).
-\end{equation}
+\end{equation*}
 Dafür wird $n^2=\varepsilon$ und $c^2 = (\varepsilon \varepsilon_0 \mu_0)^{-1}$, was für nicht-ferromagnetische
 Stoffe gilt, verwendet.
-Das elektrische Feld lässt sich in einen senkrecht parallel polarisierten Teil gemäß
+Das elektrische Feld lässt sich in einen senkrecht und einen parallel polarisierten Teil gemäß
 \begin{equation*}
     \symbf{E} = \symbf{E}_{\symup{s}} + \symbf{E}_{\symup{p}}
 \end{equation*}
