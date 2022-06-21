@@ -29,10 +29,10 @@ def regression(x,y,x1,x2,Farbe,Name):
 # Variablen
 messdauer = 120   # ggf. normieren, messdauer vermutlich 120s
 p_min = 3       # plateau definieren
-p_max = 31
+p_max = 7
 
 # Daten einlesen
-U, N_, I_= np.genfromtxt('content/data/data_muster.txt', unpack = True)
+U, N_, I_= np.genfromtxt('content/data/data.txt', unpack = True)
 
 N = unp.uarray(N_, np.sqrt(N_)) / messdauer
 I = unp.uarray(I_, 0.1)*10**(-6)
@@ -41,8 +41,9 @@ plt.errorbar(U[:p_min], noms(N)[:p_min], yerr=stds(N)[:p_min], linestyle = None,
 plt.errorbar(U[p_min:p_max], noms(N)[p_min:p_max], yerr=stds(N)[p_min:p_max], linestyle = None, fmt='.', c='indianred', capsize=3, label='Messwerte Plateaubereich')
 plt.errorbar(U[p_max:], noms(N)[p_max:], yerr=stds(N)[p_max:], linestyle = None, fmt='.', c='grey', capsize=3)
 
-M, B = regression(U[p_min:p_max], noms(N)[p_min:p_max], U[p_min]-5, U[p_max-1]+5, 'dodgerblue', 'Fit')
-
+#M, B = regression(U[p_min:p_max], noms(N)[p_min:p_max], U[p_min]-5, U[p_max-1]+5, 'dodgerblue', 'Fit')
+M =1
+B =1
 plt.xlabel(r'$U \mathbin{/} \unit{\volt}')
 plt.ylabel(r'$N \mathbin{/} \unit{\second}$')
 
@@ -55,9 +56,9 @@ plt.close()
 
 # %%%%% Totzeit %%%%%
 # Daten
-N_1_ = 111
-N_2_ = 111
-N_12_ = 222
+N_1_ = 17045
+N_2_ = 18039
+N_12_ = 1003
 
 # Berechnen
 N_1 = ufloat(N_1_, np.sqrt(N_1_))
