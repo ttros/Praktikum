@@ -63,17 +63,33 @@ wird der Bereich auch als \textbf{Proportionalzählrohr} bezeichnet.
 \item Eine Zählrohrspannung über dem Proportionalzitätsbereich führt dazu, dass der Ladungsimpuls zunehmend unabhängig von der
 Strahlungsenergie wird. Sobald ein konstantes Maximum erreicht ist, spricht man vom \textbf{Geiger-Müller-Bereich}.
 Hier werden nach jeder Primärionisation sämtliche Gasatome im Zählrohr ebenfalls ionisiert, einerseits durch die bereits erwähnten
-Elektronenlawinen und andererseits durch entstehende UV-Photonen. Diese Photonen sind eletrisch neutral und können sich somit durchs
+Elektronenlawinen und andererseits durch entstehende UV-Photonen. Diese Photonen sind eletrisch neutral und können sich somit durch das
 gesamte Zählrohr bewegen und dort Ionisationen auslösen.
 Eine Energiemessung der Strahlung ist hier nicht mehr möglich, es kann nur noch deren Intensität über die
 Anzahl der Ladungsimpulse bestimmt werden.
 \end{itemize}
+Der von der Anode abfließende Strom ist proportional zur freigesetzten Ladungsmenge ($I = \dot{Q}$).
+Sein Mittelwert kann mithilfe der in der Zeit $\symup{\Delta}t$ registrierten Teilchenzahl $Z$ und der pro Zeiteinheit
+transportierten Ladungsmenge $\symup{\Delta}Q$ über 
+\begin{equation}
+  \label{eq:strom}
+  \overline{I} = \frac{\symup{\Delta}Q}{\symup{\Delta}t}Z
+\end{equation} 
+berechnet werden.
 
 \subsection{Totzeit und Nachentladung}
 Das Geiger-Müller-Zählrohr ist nicht in der Lage, eine unbegrenzte Menge an Signalen pro Zeiteinheit zu messen.
 Während der sogenannten \textbf{Totzeit} direkt nach einer Ionisation schirmen die positiven Ionen das elektrische Feld der Anode ab
 und verhinden somit die Messung eines weiteren Ladungsimpulses.
-Erst wenn genügend der positiven Ionen zum Zählrohrmantel angewandert sind, kann ein neuer Impuls gemessen werden.
+Erst wenn genügend der positiven Ionen zum Zählrohrmantel abgewandert sind, kann ein neuer Impuls gemessen werden.
+Eine Möglichkeit zur experiementellen Bestimmung der Totzeit $T$ besteht in der sogenannten \textit{Zwei-Quellen-Methode}.
+Kennt man die einzeln Zählraten $N_1$ und $N_2$ von zwei unterschiedlichen Quellen sowie deren gemeinsame
+Zählrate $N_{1,2}$, so kann sie gemäß
+\begin{equation}
+    \label{eq:2 Quellen}
+    T \approx \frac{N_1 + N_2 - N_{1,2}}{2N_1 N_2}
+\end{equation}
+angeschätzt werden.
 Bevor sämtliche Ionen verschwunden sind, gibt es noch die sogenannte Erholungszeit, in der die gemessenen Impulse
 geringere Beträge haben.
 
