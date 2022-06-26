@@ -74,14 +74,14 @@ plt.close()
 
 # %%%%% Totzeit %%%%%
 # Daten
-N_1_ = 17045
-N_2_ = 18039
-N_12_ = 1003
+N_1_ = 19706
+N_2_ = 15897
+N_12_ = 34902
 
 # Berechnen
-N_1 = ufloat(N_1_, np.sqrt(N_1_))
-N_2 = ufloat(N_2_, np.sqrt(N_2_))
-N_12 = ufloat(N_12_, np.sqrt(N_12_))
+N_1 = ufloat(N_1_, np.sqrt(N_1_))/120
+N_2 = ufloat(N_2_, np.sqrt(N_2_))/120
+N_12 = ufloat(N_12_, np.sqrt(N_12_))/120
 
 def totzeit(N_1, N_2, N_12):
     return (N_1 + N_2 - N_12)/(2*N_1*N_2)
@@ -91,10 +91,12 @@ T = totzeit(N_1, N_2, N_12)
 # %%%%% freigesetzte Ladungen %%%%%
 dQ = I/(N*const.e)
 
-plt.errorbar(U, noms(dQ)*10**9, yerr=stds(dQ)*10**9, linestyle = None, fmt='.', c='indianred', capsize=3, label='Ladung')
+plt.errorbar(noms(I)*10**6, noms(dQ)*10**-9, yerr=stds(dQ)*10**-9, linestyle = None, fmt='.', c='indianred', capsize=3, label='Ladung')
 
-plt.xlabel(r'$U \mathbin{/} \unit{\volt}')
-plt.ylabel(r'$\symup{d}Q \mathbin{/} \unit{\nano\electronvolt}$')
+M, B = regression(noms(I)*10**6, noms(dQ)*10**-9, 0.05, 0.85, 'dodgerblue', 'lineare Ausgleichsgerade')
+
+plt.xlabel(r'$I \mathbin{/} \unit{\micro\ampere}')
+plt.ylabel(r'$Q \mathbin{/} \unit{\giga\electronvolt}$')
 
 plt.grid()
 plt.legend()
@@ -111,18 +113,26 @@ print(f'Plateaulaenge: \t \t {U[p_max-1]-U[p_min]} V')
 print(f'Steigung: \t \t {M} in ???')
 print(f'y_Achsenabschnitt: \t {B} in ???')
 print('--------------- Totzeit --------------')
+print(f'Z_1: ', '{0:.0f}'.format(ufloat(N_1_, np.sqrt(N_1_))))
+print(f'Z_2: ', '{0:.0f}'.format(ufloat(N_2_, np.sqrt(N_2_))))
+print(f'Z_12: ', '{0:.0f}'.format(ufloat(N_12_, np.sqrt(N_12_))))
+print()
+print(f'N_1: {N_1}')
+print(f'N_2: {N_2}')
+print(f'N_12: {N_12}')
 print(f'Totzeit 2 Quellen Meth.: {T} in s')
 print('-------------- Ladungen --------------')
-print(f'freigesetzte Ladungen in eV')
+print(f'freigesetzte Ladungen in  10^9 eV')
 print(f'*******************')
 for i in range(len(dQ)):
-    print('{0:.3e}'.format(dQ[i]))
+    print('{0:.1f}'.format(dQ[i]*10**-9))
 print(f'*******************')
 print(f'*******************')
 print(f'N mit Fehler')
 for i in range(len(N)):
     print('{0:.0f}'.format(N[i]*messdauer))
 print(f'******************')
+print(f'Plateausteigung in % / 100 V: {M*100/ufloat(89,np.sqrt(89*120)/120)}')
 
 '''
 ############ Ausgabe V703 ############
