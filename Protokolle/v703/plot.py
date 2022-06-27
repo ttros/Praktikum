@@ -133,6 +133,7 @@ for i in range(len(N)):
     print('{0:.0f}'.format(N[i]*messdauer))
 print(f'******************')
 print(f'Plateausteigung in % / 100 V: {M*100/ufloat(89,np.sqrt(89*120)/120)}')
+print(f'N_mitte: {ufloat(89,np.sqrt(89*120)/120)}')
 
 '''
 ############ Ausgabe V703 ############

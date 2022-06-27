@@ -13,10 +13,9 @@ Die Messunsicherheiten der Zählraten $N$ sind poissonverteilt und werden daher 
 Die Charakteristik des GMZ wird bestimmt, indem die Anzahl der pro Sekunde gemessenen Impulse in Abhängigkeit
 von der anliegenden Zählrohrspannung aufgetragen wird. Hierbei lassen sich große Abweichungen einzelner Messwertgruppen
 beobachten, die im Folgenden nicht weiter betrachet werden.\footnote{Anm.: Dies geschieht aufgrund einer bekannten Fehlfunktion
-eines Verstärkers im Versuchsaufbau. Die Auswirkungen auf den weiteren Versuch werden in Abschnitt \ref{sec:Diskussion}
-ausführlich diskutiert.}
+eines Verstärkers im Versuchsaufbau.}
 
-\begin{longtable}{c c c c}
+\begin{longtable}{c r r c}
     \caption{Messwerte zur Bestimmung der Charakteristik des GMZ sowie der freigesetzten Ladung. Für den Strom $I$ wird eine %
     Messunsicherheit von $\symup{\Delta} I = \qty{0.1}{\micro\ampere}$ angenommen.} \label{tab:messdaten} \\
     \hline
@@ -111,7 +110,7 @@ Für die Messunsicherheit der Plateausteigung folgt nach der Gaußschen Fehlerfo
      &=\sqrt{\left(\frac{100}{N_{\text{Mitte}}}\symup{\Delta} m_{\text{Regression}}\right)^2 + \left(\frac{100 m_{\text{Regression}}}{N_{\text{Mitte}}^2}\symup{\Delta} N_{\text{Mitte}}\right)^2}.
 \end{align*}
 
-Die Zählrate bei der ungefähren Plateaumitte bei $U_{\text{Mitte}}\approx \qty{550}{\volt}$ wird zu $N_{\text{Mitte}} \approx \qty{89}{\per\second}$
+Die Zählrate der ungefähren Plateaumitte bei $U_{\text{Mitte}}\approx \qty{550}{\volt}$ wird zu $N_{\text{Mitte}} \approx \qty{89+-0.9}{\per\second}$
 bestimmt. Somit folgt für die Plateausteigung
 \begin{equation*}
     m_{\text{Plateau}} = \qty{0.78+-0.21}{\percent\per100\volt}.
@@ -126,7 +125,7 @@ Null abgesunken ist. Es wird eine Totzeit von
 \begin{equation*}
     T_{\text{Oszilloskop}} \approx \qty{100}{\micro\second}
 \end{equation*}
-abegelesen.
+abgelesen.
 
 Neben der Totzeit lässt sich aus \autoref{fig:Nachentladung} auch die Zeit zwischen Primär- und Nachentladungsimpulsen. Dieser ergibt sich als Abstand
 zwischen dem Maximum des Hauptpeaks und dem Maximum des ersten Sekundärpeaks und wird zu $\qty{120}{\micro\second}$ bestimmt.
@@ -192,6 +191,7 @@ Es ist zu erkennen, dass die freigesetzte Ladungsmenge annähernd proportional z
     \centering
     \includegraphics[height=8cm]{build/ladung.pdf}
     \caption{Darstellung der freigesetzten Ladungen in Abhängikeit von den gemessenen Strömen mit eingezeichneter 
-    Ausgleichsgeraden. Die Unsicherheiten des Strom sind konstant und betragen $\symup{\Delta} I = \qty{0.1}{\micro\ampere}$.}
+    Ausgleichsgeraden. Die Unsicherheiten des Strom sind konstant und betragen $\symup{\Delta} I = \qty{0.1}{\micro\ampere}$. Aus 
+    Gründen der Übersichtlichtkeit werden diese nicht im Plot eingezeichnet.}
     \label{fig:ladung}
 \end{figure}
