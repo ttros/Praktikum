@@ -111,7 +111,11 @@ Für die Messunsicherheit der Plateausteigung folgt nach der Gaußschen Fehlerfo
 \end{align*}
 
 Die Zählrate der ungefähren Plateaumitte bei $U_{\text{Mitte}}\approx \qty{550}{\volt}$ wird zu $N_{\text{Mitte}} \approx \qty{89+-0.9}{\per\second}$
-bestimmt. Somit folgt für die Plateausteigung
+bestimmt, wobei sich die Unsicherheit von $N_{\text{Mitte}}$ über 
+\begin{equation*}
+    \symup{\Delta}N_{\text{Mitte}} = \sqrt{(U_{\text{Mitte}}\symup{\Delta}a)^2 + (\symup{\Delta}b)^2}
+\end{equation*} 
+berechnen lässt. Somit folgt für die Plateausteigung
 \begin{equation*}
     m_{\text{Plateau}} = \qty{0.78+-0.21}{\percent\per100\volt}.
 \end{equation*}
@@ -162,8 +166,8 @@ Fehlerfortpflanzung~\eqref{eq:Gauss}
     &= \sqrt{\left(\frac{\symup{d}T_{\text{2-Quellen}}}{\symup{d}N_1}\symup{\Delta} N_1 \right)^2 
     + \left(\frac{\symup{d}T_{\text{2-Quellen}}}{\symup{d}N_2}\symup{\Delta} N_2 \right)^2
     + \left(\frac{\symup{d}T_{\text{2-Quellen}}}{\symup{d}N_{1,2}}\symup{\Delta} N_{1,2} \right)^2} \\
-    &= \sqrt{\left(\frac{N_1 - N_{1,2}}{2N_2 N_1^2} \cdot \symup{\Delta}N_1 \right)^2 
-    + \left(\frac{N_{1,2} - N_{1}}{2N_1 N_2^2} \cdot \symup{\Delta}N_2 \right)^2
+    &= \sqrt{\left(\frac{N_2 - N_{1,2}}{2N_2 N_1^2} \symup{\Delta}N_1 \right)^2 
+    + \left(\frac{N_{1,2} - N_{1}}{2N_1 N_2^2} \symup{\Delta}N_2 \right)^2
     + \left( \frac{1}{2N_1 N_2}\symup{\Delta}N_{1,2}\right)^2}
 \end{align*}
 bestimmt.

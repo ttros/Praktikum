@@ -96,7 +96,7 @@ plt.errorbar(noms(I)*10**6, noms(dQ)*10**-9, yerr=stds(dQ)*10**-9, linestyle = N
 M, B = regression(noms(I)*10**6, noms(dQ)*10**-9, 0.05, 0.85, 'dodgerblue', 'lineare Ausgleichsgerade')
 
 plt.xlabel(r'$I \mathbin{/} \unit{\micro\ampere}')
-plt.ylabel(r'$Q \mathbin{/} \unit{\giga\electronvolt}$')
+plt.ylabel(r'$Q \mathbin{/} 10^9 \varepsilon_0$')
 
 plt.grid()
 plt.legend()
@@ -104,6 +104,7 @@ plt.tight_layout()
 
 plt.savefig('build/ladung.pdf')
 plt.close()
+
 
 # PRINT
 print('############ Ausgabe V703 ############')
